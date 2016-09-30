@@ -4441,6 +4441,8 @@ function fullscreenMode() {
 	setOpt(CHANNEL.name + "_fullscreen", FULLSCREEN);
 }
 
+setUserCSS();
+
 function unfullscreenMode() {
 	st = 0
 	$("#chatheader > span.label").each(function() {
@@ -4500,8 +4502,6 @@ PLAYER.player.ready(function() {
 	}
 	console.log('ready ' + $("#chatwrap").height());
 });
-
-setUserCSS();
 
 if (!HIDEPLAYER) {
 	setTimeout(function() {
