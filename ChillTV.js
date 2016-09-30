@@ -4462,7 +4462,7 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
-$(document).ready(function() {
+$.load(function() {
 	if (!FULLSCREEN) {
 		fullscreenMode();
 		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
@@ -4472,16 +4472,7 @@ $(document).ready(function() {
 		$("#chatwrap").height($("#videowrap").height());
 		scrollChat();
 	}
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('document');
+	console.log('document ' + $("#chatwrap").height());
 });
   
 PLAYER.player.on("play", function() {
@@ -4494,16 +4485,7 @@ PLAYER.player.on("play", function() {
 		$("#chatwrap").height($("#videowrap").height());
 		scrollChat();
 	}
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('play');
+	console.log('play ' + $("#chatwrap").height());
 });
 
 PLAYER.player.ready(function() {
@@ -4516,16 +4498,7 @@ PLAYER.player.ready(function() {
 		$("#chatwrap").height($("#videowrap").height());
 		scrollChat();
 	}
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('ready');
+	console.log('ready ' + $("#chatwrap").height());
 });
 
 setUserCSS();
