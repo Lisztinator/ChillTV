@@ -4440,19 +4440,6 @@ function unfullscreenMode() {
 }
 
 $(document).ready(function() {
-		if (!FULLSCREEN) {
-			fullscreenMode();
-			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		} else {
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		}
-	console.log('document');
-});
-
-if (PLAYER.player.isReady_ === true) {
 	if (!FULLSCREEN) {
 		fullscreenMode();
 		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
@@ -4462,18 +4449,32 @@ if (PLAYER.player.isReady_ === true) {
 		$("#chatwrap").height($("#videowrap").height());
 		scrollChat();
 	}
-	console.log('isready');
-}
+	console.log('document');
+});
+
+PLAYER.player.on("play", function() {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	console.log('play');
+});
+
 PLAYER.player.ready(function() {
-		if (!FULLSCREEN) {
-			fullscreenMode();
-			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		} else {
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		}
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
 	console.log('player');
 });
 
