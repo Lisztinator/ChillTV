@@ -4371,6 +4371,32 @@ setLayout();
 scrollQueue();
 !HEADERFOOTER ? $("nav, footer").hide() && cbox.prop('checked', 'true') : '';
 
+$(document).ready(function() {
+		if (!FULLSCREEN) {
+			fullscreenMode();
+			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+			$("#chatwrap").height($("#videowrap").height());
+			scrollChat();
+		} else {
+			$("#chatwrap").height($("#videowrap").height());
+			scrollChat();
+		}
+	console.log('document > player');
+});
+
+PLAYER.player.on("load", function() {
+		if (!FULLSCREEN) {
+			fullscreenMode();
+			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+			$("#chatwrap").height($("#videowrap").height());
+			scrollChat();
+		} else {
+			$("#chatwrap").height($("#videowrap").height());
+			scrollChat();
+		}
+	console.log('player > document');
+});
+
 /*$(document).ready(function() {
 	if (!FULLSCREEN) {
 		fullscreenMode();
@@ -4390,6 +4416,29 @@ scrollQueue();
 		}, 500);
 	}
 });*/
+
+if (FLUID) {
+	$(".container").removeClass('container').addClass('container-fluid');
+	$("footer .container-fluid").removeClass('container-fluid').addClass('container');
+}
+
+$("#togglemotd").remove();
+$("<button id='menubtn' class='btn-success' style='display:table;margin:auto' >Minimize</button>").prependTo('#motdwrap');
+$("#menubtn").click(function() {
+	if (!MOTDYES) {
+		$("#menubtn").text("Minimize").removeClass('btn-default').addClass('btn-success');
+		$("#motd").show();
+		MOTDYES = true;
+		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
+	} else {
+		$("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default');
+		$("#motd").hide();
+		MOTDYES = false;
+		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
+		setOpt(CHANNEL.name + "_updatehash", UPHASH);
+	}
+});
+!MOTDYES ? $("#motd").css("display", "none") && $("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default') : '';
 
 function fullscreenMode() {
 	$("#chatheader > span.label").each(function() {
@@ -4438,70 +4487,6 @@ function unfullscreenMode() {
 	SOUNDSPANEL ? setPanelProperties($("#sounds-dropdown")) : '';
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
-
-$(document).ready(function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('document');
-});
-
-PLAYER.player.on("play", function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('play');
-});
-
-PLAYER.player.ready(function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	}
-	console.log('player');
-});
-
-if (FLUID) {
-	$(".container").removeClass('container').addClass('container-fluid');
-	$("footer .container-fluid").removeClass('container-fluid').addClass('container');
-}
-
-$("#togglemotd").remove();
-$("<button id='menubtn' class='btn-success' style='display:table;margin:auto' >Minimize</button>").prependTo('#motdwrap');
-$("#menubtn").click(function() {
-	if (!MOTDYES) {
-		$("#menubtn").text("Minimize").removeClass('btn-default').addClass('btn-success');
-		$("#motd").show();
-		MOTDYES = true;
-		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
-	} else {
-		$("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default');
-		$("#motd").hide();
-		MOTDYES = false;
-		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
-		setOpt(CHANNEL.name + "_updatehash", UPHASH);
-	}
-});
-!MOTDYES ? $("#motd").css("display", "none") && $("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default') : '';
-
-setUserCSS();
 
 if (!HIDEPLAYER) {
 	setTimeout(function() {
