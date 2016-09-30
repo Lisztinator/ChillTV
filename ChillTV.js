@@ -4495,11 +4495,11 @@ PLAYER.player.ready(function() {
 		fullscreenMode();
 		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
 		$("#chatwrap").height($("#videowrap").height());
-		$("#messagebuffer, #userlist").height($("#videowrap").height() - $("#chatheader").height() - $("#chatline").height() - $("#chatcontrols").height());
+		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
 		scrollChat();
 	} else {
 		$("#chatwrap").height($("#videowrap").height());
-		$("#messagebuffer, #userlist").height($("#videowrap").height() - $("#chatheader").height() - $("#chatline").height() - $("#chatcontrols").height());
+		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
 		scrollChat();
 	}
 	console.log('ready ' + $("#chatwrap").height());
