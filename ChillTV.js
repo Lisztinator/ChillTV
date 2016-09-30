@@ -4464,7 +4464,7 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
-$.load(function() {
+$(document).ready(function() {
 	if (!FULLSCREEN) {
 		fullscreenMode();
 		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
