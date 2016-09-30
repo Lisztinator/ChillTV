@@ -4452,6 +4452,18 @@ $(document).ready(function() {
 	console.log('document');
 });
 
+if (PLAYER.player.isReady_ === true) {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	console.log('isready');
+}
 PLAYER.player.ready(function() {
 		if (!FULLSCREEN) {
 			fullscreenMode();
