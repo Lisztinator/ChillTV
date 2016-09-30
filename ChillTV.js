@@ -4371,32 +4371,6 @@ setLayout();
 scrollQueue();
 !HEADERFOOTER ? $("nav, footer").hide() && cbox.prop('checked', 'true') : '';
 
-$(document).ready(function() {
-		if (!FULLSCREEN) {
-			fullscreenMode();
-			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		} else {
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		}
-	console.log('document > player');
-});
-
-PLAYER.player.on("load", function() {
-		if (!FULLSCREEN) {
-			fullscreenMode();
-			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		} else {
-			$("#chatwrap").height($("#videowrap").height());
-			scrollChat();
-		}
-	console.log('player > document');
-});
-
 /*$(document).ready(function() {
 	if (!FULLSCREEN) {
 		fullscreenMode();
@@ -4487,6 +4461,74 @@ function unfullscreenMode() {
 	SOUNDSPANEL ? setPanelProperties($("#sounds-dropdown")) : '';
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
+
+$(document).ready(function() {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	console.log('document');
+});
+  
+PLAYER.player.on("play", function() {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	console.log('play');
+});
+
+PLAYER.player.ready(function() {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		scrollChat();
+	}
+	console.log('ready');
+});
+
+setUserCSS();
 
 if (!HIDEPLAYER) {
 	setTimeout(function() {
