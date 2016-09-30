@@ -4381,10 +4381,10 @@ $(document).ready(function() {
 			$("#chatwrap").height($("#videowrap").height());
 			scrollChat();
 		}
-	console.log('document > player');
+	console.log('document');
 });
 
-PLAYER.player.on("load", function() {
+PLAYER.player.ready(function() {
 		if (!FULLSCREEN) {
 			fullscreenMode();
 			$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
@@ -4394,7 +4394,7 @@ PLAYER.player.on("load", function() {
 			$("#chatwrap").height($("#videowrap").height());
 			scrollChat();
 		}
-	console.log('player > document');
+	console.log('player');
 });
 
 /*$(document).ready(function() {
