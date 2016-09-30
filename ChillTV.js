@@ -25,8 +25,8 @@ CustomPingSound_URL = 'https://c8f6d77a711ff2cd454f485e3653074dabee73a5.googledr
 
 PlayerHiding_URL = 'https://04e14e442fb568d18dffc7b73fc2c3ccc323e318.googledrive.com/host/0BxOqtQNFy94vWGkzQ2hTNV9najA';
 
-$.getScript('https://dl.dropboxusercontent.com/s/ywx4n1hu6ama520/external-db.js?dl=0');
-$.getScript('https://dl.dropboxusercontent.com/s/8rez0cuiw8bl71k/external-tv.js?dl=0');
+$.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
+$.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
 
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
