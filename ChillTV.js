@@ -933,39 +933,6 @@ function prepareMessage(msg) {
 			partyTime();
 			msg = '➥ ' + '[fs][f]PARTY TIME!!![/fs]';
 
-		} else if (msg.match(/(!ct)/)) {
-
-			console.log(PLAYER.player.currentTime())
-			current = PLAYER.player.currentTime();
-			time = current / 60;
-			ntime = '\'' + time + '\'';
-			minsec = ntime.split('.');
-			min = minsec[0].split(/'/)[1].split(',');
-			match = minsec[1].match(/([0-9][0-9])/);
-			sec = parseInt(match);
-			nsec = (sec * 60) / 100;
-			nsec < 10 ? ssec = '\'0' + nsec + '\'' : ssec = '\'' + nsec + '\'';
-			fsec = ssec.match(/([0-9][0-9])/);
-			hour = '0';
-			zero = '';
-			if (min > 59 && 120 > min) {
-				min = min - 60;
-				hour = 1;
-			} else if (min > 119 && 180 > min) {
-				min = min - 120;
-				hour = 2;
-			} else if (min > 179 && 240 > min) {
-				min = min - 180;
-				hour = 3;
-			} else if (min > 239 && 300 > min) {
-				min = min - 240;
-				hour = 4;
-			}
-			if (min < 10) {
-				zero = '0';
-			}
-			msg = '➥ ' + hour + ':' + zero + min + ':' + fsec[0];
-
 		} else {
 			COMMAND = false;
 		}
@@ -1004,18 +971,29 @@ function insertText(str) {
 }
 
 function mutePlayer() {
-	if (PLAYER.mediaType === 'yt' || PLAYER.mediaType === 'gd') {
+	if (PLAYER.mediaType === 'gd') {
 		console.log(PLAYER);
-		SAVEVOLUME = PLAYER.player.volume();
+		SAVEVOLUME = PLAYER.player.volume() * 100;
 		setOpt(CHANNEL.name + "_savevolume", SAVEVOLUME);
 		PLAYER.setVolume(0);
+	} else if (PLAYER.mediaType === 'yt') {
+		console.log(PLAYER);
+		SAVEVOLUME = PLAYER.yt.getVolume();
+		setOpt(CHANNEL.name + "_savevolume", SAVEVOLUME);
+		PLAYER.yt.setVolume(0);
 	}
 }
 
 function unmutePlayer() {
-	if (PLAYER.mediaType === 'yt' || PLAYER.mediaType === 'gd') {
+	if (PLAYER.mediaType === 'gd') {
 		if (SAVEVOLUME === 0) {
 			PLAYER.setVolume(1);
+		} else {
+			PLAYER.setVolume(SAVEVOLUME / 100);
+		}
+	} else if (PLAYER.mediaType === 'yt') {
+		if (SAVEVOLUME === 0) {
+			PLAYER.setVolume(100);
 		} else {
 			PLAYER.setVolume(SAVEVOLUME);
 		}
