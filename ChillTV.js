@@ -3886,7 +3886,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				});
 			} else {
 				socket.emit("chatMsg", {
-					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + msg,
+					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + ' ' + msg,
 					meta: meta
 				});
 			}
