@@ -4483,6 +4483,25 @@ PLAYER.player.ready(function() {
 	console.log('ready ' + $("#chatwrap").height());
 });
 
+FIXHEIGHT = setInterval(function() {
+	if (!FULLSCREEN) {
+		fullscreenMode();
+		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
+		$("#chatwrap").height($("#videowrap").height());
+		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
+		scrollChat();
+	} else {
+		$("#chatwrap").height($("#videowrap").height());
+		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
+		scrollChat();
+	}
+	console.log('ready ' + $("#chatwrap").height());
+}, 1000);
+
+setTimeout(function() {
+	clearInterval(FIXHEIGHT);
+}, 60000);
+
 if (!HIDEPLAYER) {
 	setTimeout(function() {
 		coverPlayer();
