@@ -2396,7 +2396,7 @@ Movie_Array = [
 ['The Truman Show (1998)', 'Drama', '0B9hOhGLF4ciPZWJyYW5Nd3BSdk0', '0B9hOhGLF4ciPSG1SdjVBZ2NVb1U'],
 ['Trust (2010)', 'Crime, Drama, Thriller', '0Bwjx3gpy0_MwUEkxelEyelRaZE0'],
 ['Trust Me (2013)', 'Comedy, Drama', '0B4ImsDopq4_FZ2FfVEp1cVNDR3c'],
-['Tucker And Dale vs Evil (2010)', 'Comedy, Horror', '0Bwjx3gpy0_MwMDJsRXU1RE1rMm8'],
+['Tucker and Dale vs Evil (2010)', 'Comedy, Horror', '0Bwjx3gpy0_MwMDJsRXU1RE1rMm8'],
 ['Turbo Kid (2015)', 'Action, Adventure, Comedy', '0B4ImsDopq4_FLXNRSkNVeFdJRnM'],
 ['Turistas (2006) Unrated', 'Horror, Mystery, Thriller', '0B4ImsDopq4_FYzdxWS11T2Y2RXc'],
 ['Tusk (2014)', 'Comedy, Drama, Horror', '0B4ImsDopq4_FVVFSOW5FZnR5VDg'],
