@@ -961,7 +961,8 @@ function partyTime() {
 
 socket.on("chatMsg", function(data) {
 	console.log(data);
-	if (data.username === 'ChillTVBot' && data.msg.match(/ won the Message of the Day Award! /)) {
+	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
+	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
 		partyTime();
 	}
 });
