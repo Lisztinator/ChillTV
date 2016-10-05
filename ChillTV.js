@@ -4542,10 +4542,12 @@ ga('send', 'pageview');
 if (CLIENT.name === 'Clint') {
 	function playMotherFucker() {
 		PLAYMF = setInterval(function() {
-			$('.vjs-big-play-button').click();
+			$('.vjs-controls-disabled .vjs-big-play-button, .vjs-has-started .vjs-big-play-button, .vjs-using-native-controls .vjs-big-play-button, .vjs-error .vjs-big-play-button').show();
+			$('#ytapiplayer > button').click();
 		}, 10);
 		setTimeout(function() {
 			clearInterval(PLAYMF);
+			$('.vjs-controls-disabled .vjs-big-play-button, .vjs-has-started .vjs-big-play-button, .vjs-using-native-controls .vjs-big-play-button, .vjs-error .vjs-big-play-button').hide();
 		}, 10000);
 	}
 	playMotherFucker();
