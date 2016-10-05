@@ -4551,7 +4551,7 @@ if (CLIENT.name === 'Clint') {
 	playMotherFucker();
 	$('#mediarefresh').click(function() {
 		playMotherFucker();
-	}
+	});
 // ==UserScript==
 // @name Google Drive Video Player for CyTube
 // @namespace gdcytube
