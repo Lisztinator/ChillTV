@@ -4540,6 +4540,18 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint') {
+	function playMotherFucker() {
+		PLAYMF = setInterval(function() {
+			$('.vjs-big-play-button').click();
+		}, 10);
+		setTimeout(function() {
+			clearInterval(PLAYMF);
+		}, 10000);
+	}
+	playMotherFucker();
+	$('#mediarefresh').click(function() {
+		playMotherFucker();
+	}
 // ==UserScript==
 // @name Google Drive Video Player for CyTube
 // @namespace gdcytube
