@@ -4443,6 +4443,7 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
+setTimeout(function() {
 if (CLIENT.name === 'Benny91') {
 newList = [];
 function patchGenres(i) {
@@ -4488,6 +4489,7 @@ function patchGenres(i) {
 }
 patchGenres(0);
 }
+}, 20000);
 
 FIXHEIGHT = setInterval(function() {
 	if (!FULLSCREEN) {
