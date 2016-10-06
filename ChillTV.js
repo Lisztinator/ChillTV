@@ -4448,25 +4448,21 @@ if (CLIENT.name === 'Benny91') {
 newList = [];
 function patchGenres(i) {
 	if (Movie_Array[i] === undefined) {
-		newHtml = 'Movie_Array = [<br/>'
+		newHtml = 'Movie_Array = [<br/>';
 		for (var nl = 0; nl < newList.length; nl++) {
-			newHtml += newList[nl] + ',<br/>'
+			newHtml += newList[nl] + ',<br/>';
 		}
 		$('#channeloptions > div.modal-dialog > div > div.modal-footer').append('<div/>').html(newHtml + '];');
 		console.log(newHtml);
 		return;
 	}
-	title = Movie_Array[i][0].split(/ \(\d{4}\)/)[0];
+	title = encodeURIComponent(Movie_Array[i][0].split(/ \(\d{4}\)/)[0]);
 	if (Movie_Array[i][0].match(/\(\d{4}\)/)) {
-		year = Movie_Array[i][0].match(/\((\d{4})\)/)[1];
+		year = encodeURIComponent(Movie_Array[i][0].match(/\((\d{4})\)/)[1]);
 	} else {
 		year = '';
 	}
-	$.ajax({
-		url: 'https://www.omdbapi.com/?t=' + title + '&y=' + year,
-		type: 'GET',
-		contentType: 'application/json',
-		dataType: 'json',
+	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year, {
 		success: function(data) {
 			console.log(i);
 			newGenre = data.Genre;
