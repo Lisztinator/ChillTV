@@ -1876,21 +1876,21 @@ trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" tit
 	.insertBefore("#modflair")
 	.on("click", function() {
 		if (!TRIVIT) {
-			$(this).removeClass('label-default').addClass('btn-success').attr('title', 'hide trivia');
+			$(this).removeClass('label-default').addClass('btn-success').attr('title', 'Hide Trivia');
 			TRIVIT = true;
 			setOpt(CHANNEL.name + "_trivit", true);
-			$('.chat-msg-ChillTVBot').attr('style', 'display:block');
+			$('.trivia').attr('style', 'display:block');
 			scrollChat();
 		} else {
-			$(this).removeClass('btn-success').addClass('label-default').attr('title', 'show trivia');
+			$(this).removeClass('btn-success').addClass('label-default').attr('title', 'Show Trivia');
 			TRIVIT = false;
 			setOpt(CHANNEL.name + "_trivit", false);
-			$('.chat-msg-ChillTVBot').attr('style', 'display:none');
+			$('.trivia').attr('style', 'display:none');
 		}
 });
 if (!TRIVIT) {
-	trivbtn.removeClass('btn-success').addClass('label-default').attr('title', 'show trivia');
-	$('.chat-msg-ChillTVBot').attr('style', 'display:none');
+	trivbtn.removeClass('btn-success').addClass('label-default').attr('title', 'Show Trivia');
+	$('.trivia').attr('style', 'display:none');
 }
 
 var WAITFORONE = false;
@@ -3723,17 +3723,11 @@ function formatChatMessage(data, last) {
 			$(this).html(vid);
 		});
 	}
-	if (data.username === 'ChillTVBot') {
-		if (data.msg.match(/\[answer\]|\[question\]|\[correct\]|\[value\]/)) {
-			div.addClass('question');
-		} else if (data.msg.match(/➥ .*\b awarded -?\$\d* to .*\b/)) {
-			div.addClass('award');
-		} else if (data.msg.match(/➥ .*\b gave \$\d*, now at \$\d*, to/)) {
-			div.addClass('give');
-		} else if (data.msg.match(/➥ .*\b made it rain \$\d*/)) {
-			div.addClass('rained');
+	if (data.username === 'ChillTVBot') 
+		if (data.msg.match(/<code style="background-color:#CCCCFF;color:#604DBF">(Answer|Category|Clue|Correct):<\/code>/)) {
+			div.addClass('trivia');
 		}
-		if (!TRIVIT) {
+		if (!TRIVIT && data.msg.match(/<code style="background-color:#CCCCFF;color:#604DBF">(Answer|Category|Clue|Correct):<\/code>/)) {
 			return div.attr('style', 'display:none');
 		} else {
 			last.name = data.username
