@@ -1872,7 +1872,7 @@ if (!YUP) {
 	antiAfk();
 }
 
-trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" title="hide bot messages">ChillTVBot</span>')
+trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" title="Hide Trivia">Trivia</span>')
 	.insertBefore("#modflair")
 	.on("click", function() {
 		if (!TRIVIT) {
