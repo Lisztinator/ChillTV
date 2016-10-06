@@ -4443,46 +4443,51 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
-$(document).ready(function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
+if (CLIENT.name === 'Benny91') {
+newList = [];
+function patchGenres(i) {
+	if (Movie_Array[i] === undefined) {
+		newHtml = 'Movie_Array = [<br/>'
+		for (var nl = 0; nl < newList.length; nl++) {
+			newHtml += newList[nl] + ',<br/>'
+		}
+		$('#channeloptions > div.modal-dialog > div > div.modal-footer').append('<div/>').html(newHtml + '];');
+		console.log(newHtml);
+		return;
 	}
-	console.log('document ' + $("#chatwrap").height());
-});
-  
-PLAYER.player.on("play", function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
+	title = encodeURIComponent(Movie_Array[i][0].split(/ \(\d{4}\)/)[0]);
+	if (Movie_Array[i][0].match(/\(\d{4}\)/)) {
+		year = encodeURIComponent(Movie_Array[i][0].match(/\((\d{4})\)/)[1]);
 	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		scrollChat();
+		year = '';
 	}
-	console.log('play ' + $("#chatwrap").height());
-});
-
-PLAYER.player.ready(function() {
-	if (!FULLSCREEN) {
-		fullscreenMode();
-		$("#fullscreen-btn").addClass('btn-success').attr('title', 'Reset to Normal Sizing');
-		$("#chatwrap").height($("#videowrap").height());
-		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
-		scrollChat();
-	} else {
-		$("#chatwrap").height($("#videowrap").height());
-		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
-		scrollChat();
-	}
-	console.log('ready ' + $("#chatwrap").height());
-});
+	$.ajax({
+		url: 'https://www.omdbapi.com/?t=' + title + '&y=' + year,
+		type: 'GET',
+		contentType: 'application/json',
+		dataType: 'json',
+		success: function(data) {
+			console.log(i);
+			newGenre = data.Genre;
+		},
+		error: function(data) {
+			console.log(Movie_Array[i][0]);
+			newGenre = Movie_Array[i][1];
+		},
+		complete: function(data) {
+			newRow = [Movie_Array[i][0], newGenre];
+			for (var ID = 2; ID < Movie_Array[i].length; ID++) {
+				newRow = newRow.push(Movie_Array[i][ID]);
+			}
+			newList.push(newRow);
+			setTimeout(function() {
+				patchGenres(i + 1);
+			}, 750);
+		}
+	});
+}
+patchGenres(0);
+}
 
 FIXHEIGHT = setInterval(function() {
 	if (!FULLSCREEN) {
