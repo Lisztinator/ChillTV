@@ -606,7 +606,7 @@ Movie_Array = [
 ['Die Another Day (2002)', 'Action, Adventure, Thriller', '0B9hOhGLF4ciPZnVQMHphcjVGSUk', '0B9hOhGLF4ciPcmZ2eks1UFRMSGs', '0B9hOhGLF4ciPdV80SjVNQzJ5SFE'],
 ['Die Hard (1988)', 'Action, Thriller', '0B3RJnC_uzvLBLWVOelVFcVkwalU'],
 ['Die Hard 2 (1990)', 'Action, Thriller', '0B3RJnC_uzvLBdmJ1dGpuNks5cXc'],
-['Die Hard: With a Vengeance (1995)', 'Documentary', '0B9hOhGLF4ciPOEIwV2VuSnNjUjQ', '0B9hOhGLF4ciPQV81a0VlWHlXVEU'],
+['Die Hard with a Vengeance (1995)', 'Action, Adventure, Thriller', '0B9hOhGLF4ciPOEIwV2VuSnNjUjQ', '0B9hOhGLF4ciPQV81a0VlWHlXVEU'],
 ['Dinner for Schmucks (2010)', 'Comedy', '0Bwjx3gpy0_MwODVwVHpJNUdtR2c'],
 ['Dinosaur (2000)', 'Animation, Adventure, Family', '0B9hOhGLF4ciPQ0NTYXpxV0VyVGM', '0B9hOhGLF4ciPWDNfbkpxY1VvU28'],
 ['Dirty Dancing (1987)', 'Drama, Music, Romance', '0B_F_V9jIQXymcy1LV0hFcWRiYW8'],
