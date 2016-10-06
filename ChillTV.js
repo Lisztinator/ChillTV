@@ -3723,7 +3723,7 @@ function formatChatMessage(data, last) {
 			$(this).html(vid);
 		});
 	}
-	if (data.username === 'ChillTVBot') 
+	if (data.username === 'ChillTVBot') {
 		if (data.msg.match(/<code style="background-color:#CCCCFF;color:#604DBF">(Answer|Category|Clue|Correct):<\/code>/)) {
 			div.addClass('trivia');
 		}
@@ -3733,10 +3733,6 @@ function formatChatMessage(data, last) {
 			last.name = data.username
 			return div.attr('style', 'display:block');
 		}
-	} else if (data.msg.match(/!a\s/)) {
-		div.addClass('answer');
-		last.name = data.username
-		return div;
 	} else {
 		last.name = data.username
 		return div;
