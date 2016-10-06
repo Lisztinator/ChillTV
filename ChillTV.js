@@ -4472,7 +4472,7 @@ function patchGenres(i) {
 			newGenre = Movie_Array[i][1];
 		},
 		complete: function(data) {
-			newRow = ['[\'' + Movie_Array[i][0] + '\'', ' \'' + newGenre + '\''];
+			newRow = ['[\'' + Movie_Array[i][0].replace("'", "\'") + '\'', ' \'' + newGenre + '\''];
 			for (var ID = 2; ID < Movie_Array[i].length; ID++) {
 				newRow.push(' \'' + Movie_Array[i][ID] + '\'');
 			}
