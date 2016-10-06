@@ -1890,6 +1890,11 @@ trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" tit
 });
 if (!TRIVIT) {
 	trivbtn.removeClass('btn-success').addClass('label-default').attr('title', 'Show Trivia');
+	$('#messagebuffer .chat-msg-ChillTVBot').each(function() {
+		if ($(this).children('span').last().text().match(/(Category|Clue|Answer|Correct):/)) {
+			$(this).addClass('trivia');
+		}
+	});
 	$('.trivia').attr('style', 'display:none');
 }
 
