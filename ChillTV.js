@@ -4450,7 +4450,7 @@ function patchGenres(i) {
 	if (Movie_Array[i] === undefined) {
 		newHtml = 'Movie_Array = [<br/>';
 		for (var nl = 0; nl < newList.length; nl++) {
-			newHtml += newList[nl] + ',<br/>';
+			newHtml += newList[nl] + '],<br/>';
 		}
 		$('#channeloptions > div.modal-dialog > div > div.modal-footer').append('<div/>').html(newHtml + '];');
 		console.log(newHtml);
@@ -4473,14 +4473,12 @@ function patchGenres(i) {
 			newGenre = Movie_Array[i][1];
 		},
 		complete: function(data) {
-			newRow = [Movie_Array[i][0], newGenre];
+			newRow = ['[\'' + Movie_Array[i][0] + '\'', ' \'' + newGenre + '\''];
 			for (var ID = 2; ID < Movie_Array[i].length; ID++) {
-				newRow.push(Movie_Array[i][ID]);
+				newRow.push(' \'' + Movie_Array[i][ID] + '\'');
 			}
 			newList.push(newRow);
-			setTimeout(function() {
-				patchGenres(i + 1);
-			}, 750);
+			patchGenres(i + 1);
 		}
 	});
 }
