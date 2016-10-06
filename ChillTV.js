@@ -960,7 +960,6 @@ function partyTime() {
 }
 
 socket.on("chatMsg", function(data) {
-	console.log(data);
 	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
 	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
 		partyTime();
@@ -4498,7 +4497,6 @@ FIXHEIGHT = setInterval(function() {
 		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
 		scrollChat();
 	}
-	console.log('ready ' + $("#chatwrap").height());
 }, 1000);
 
 setTimeout(function() {
