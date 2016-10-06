@@ -4462,8 +4462,6 @@ function patchGenres(i) {
 	} else {
 		year = '';
 	}
-	console.log(title);
-	console.log(year);
 	$.ajax({
 		url: 'https://www.omdbapi.com/?t=' + title + '&y=' + year,
 		type: 'GET',
@@ -4479,13 +4477,10 @@ function patchGenres(i) {
 		},
 		complete: function(data) {
 			newRow = [Movie_Array[i][0], newGenre];
-			console.log(newRow);
 			for (var ID = 2; ID < Movie_Array[i].length; ID++) {
-				newRow = newRow.push(Movie_Array[i][ID]);
+				newRow.push(Movie_Array[i][ID]);
 			}
-			console.log(newRow);
 			newList.push(newRow);
-			console.log(newList);
 			setTimeout(function() {
 				patchGenres(i + 1);
 			}, 750);
