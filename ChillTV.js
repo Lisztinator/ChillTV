@@ -4456,9 +4456,9 @@ function patchGenres(i) {
 		console.log(newHtml);
 		return;
 	}
-	title = encodeURIComponent(Movie_Array[i][0].split(/ \(\d{4}\)/)[0]);
+	title = Movie_Array[i][0].split(/ \(\d{4}\)/)[0];
 	if (Movie_Array[i][0].match(/\(\d{4}\)/)) {
-		year = encodeURIComponent(Movie_Array[i][0].match(/\((\d{4})\)/)[1]);
+		year = Movie_Array[i][0].match(/\((\d{4})\)/)[1];
 	} else {
 		year = '';
 	}
@@ -4472,6 +4472,7 @@ function patchGenres(i) {
 			newGenre = data.Genre;
 		},
 		error: function(data) {
+			console.log(data);
 			console.log(Movie_Array[i][0]);
 			newGenre = Movie_Array[i][1];
 		},
