@@ -2839,6 +2839,8 @@ TV_Array = [
 ['S01E12a', '', '0B3mPgOxNdTUyT2lraFdvdzNhT1E'],
 ['S01E12b', '', '0B3mPgOxNdTUyZ3VrQW1lTmdneDg'],
 ['S01E13', '', '0B3mPgOxNdTUyYVBvSk5GckJUNWs'],
+['It (1990)', 'Drama, Fantasy, Horror, Serial'],
+['S01E01E02', '', '0B_F_V9jIQXymcmdOSDBQV2ZQaEE'],
 ['It\'s Always Sunny in Philadelphia (2005–)', 'Comedy'],
 ['S01E01', '', '0B7vzyYaEiOXvVWFLQ2FHQnVvNVE'],
 ['S01E02', '', '0B7vzyYaEiOXvZ0xZbkNhaUZFTDQ'],
