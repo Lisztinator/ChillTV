@@ -738,7 +738,7 @@ Movie_Array = [
 ['Exit Through the Gift Shop (2010)', 'Documentary, Comedy, Crime', '0B4ImsDopq4_FQ1NVd0Y5dDRjaE0'],
 ['Exodus: Gods and Kings (2014)', 'Action, Adventure, Drama', '0B9hOhGLF4ciPRXQyTTZRS0FRY1k', '0B9hOhGLF4ciPMTV1RklLRDZDSzA', '0B9hOhGLF4ciPT3E5bU9Ha2stbFE'],
 ['The Exorcism of Emily Rose (2005) Unrated', 'Drama, Horror, Thriller', '0Bwjx3gpy0_Mwa3dwVm50SXUxSUU'],
-['The Exorcist (1973)', 'Horror', '0B7vzyYaEiOXvbEdZOFVRTnN1Y3c'],
+['The Exorcist (1973) Extended', 'Horror', '0B_F_V9jIQXymSTJLVHZCNnJaeDg'],
 ['The Exorcist III (1990)', 'Drama, Fantasy, Horror', '0B_F_V9jIQXymRlpUVGlIcDFuaDQ', 'Recently Added'],
 ['The Expendables (2010)', 'Action, Adventure, Thriller', '0Bwjx3gpy0_MwejdTY1duMFg3VGc'],
 ['The Expendables 2 (2012)', 'Action, Adventure, Thriller', '0B9hOhGLF4ciPVWJjenNRZ291MUk', '0B9hOhGLF4ciPVm9yNWx6d1VmVUk'],
