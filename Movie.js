@@ -1687,6 +1687,7 @@ Movie_Array = [
 ['The Nightmare (2015)', 'Documentary, Horror', '0B4ImsDopq4_FTjBCYTJTNHpLWG8'],
 ['The Nightmare Before Christmas (1993)', 'Halloween, Christmas, Animation, Family, Fantasy', '0B3RJnC_uzvLBWnk5cUxiSWw4eE0'],
 ['A Nightmare on Elm Street (1984)', 'Horror', '0B9hOhGLF4ciPR2dqb3BWaE95Qjg', '0B9hOhGLF4ciPWGJSbXctN0xHUFE'],
+['A Nightmare on Elm Street (2010)', 'Horror, Mystery, Thriller', '0B_F_V9jIQXymaFQtb2JZTkFMUVk', 'Recently Added'],
 ['A Nightmare on Elm Street 2: Freddy\'s Revenge (1985)', 'Fantasy, Horror', '0B4ImsDopq4_FM0ttWU0zeWw0bzQ'],
 ['A Nightmare on Elm Street 3: Dream Warriors (1987)', 'Action, Fantasy, Horror', '0Bwjx3gpy0_Mwc2lsNTEzWkJMekU'],
 ['A Nightmare on Elm Street 4: The Dream Master (1988)', 'Fantasy, Horror, Thriller', '0Bwjx3gpy0_MwRDNwTVhIeGl5bkE'],
