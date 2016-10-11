@@ -1011,7 +1011,7 @@ function toggleMuteBtn() {
 
 PLAYER.player.ready(function() {
 	toggleMuteBtn();
-}
+});
 
 function toggleModPanel() {
 	if (CLIENT.rank < 2) {
