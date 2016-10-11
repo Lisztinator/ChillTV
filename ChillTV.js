@@ -1000,14 +1000,17 @@ function unmutePlayer() {
 	}
 }
 
+muteplayerbtn.show();
+
 function toggleMuteBtn() {
-	(PLAYER) ? muteplayerbtn.show() : muteplayerbtn.hide();
-	setTimeout(function() {
-		if (MUTED) {
-			mutePlayer();
-			$("#muteplayer-btn").addClass('btn-danger').attr('title', 'Unmute player');
-		}
-	}, 3000);
+	if (MUTED && PLAYER) {
+		mutePlayer();
+		$("#muteplayer-btn").addClass('btn-danger').attr('title', 'Unmute player');
+	}
+}
+
+PLAYER.player.ready(function() {
+	toggleMuteBtn();
 }
 
 function toggleModPanel() {
