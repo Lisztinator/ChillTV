@@ -1000,8 +1000,6 @@ function unmutePlayer() {
 	}
 }
 
-muteplayerbtn.show();
-
 function toggleMuteBtn() {
 	if (MUTED && PLAYER) {
 		mutePlayer();
@@ -2260,7 +2258,6 @@ muteplayerbtn = $('<button id="muteplayer-btn" class="btn btn-sm btn-default" ti
 			setOpt(CHANNEL.name + "_muted", MUTED);
 		}
 	});
-toggleMuteBtn();
 
 fullscreenbtn = $('<button id="fullscreen-btn" class="btn btn-sm btn-default" title="Expand Video and Shrink Chat" />')
 	.html('<span class="glyphicon glyphicon-resize-full"></span>')
