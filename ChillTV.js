@@ -2256,7 +2256,7 @@ muteplayerbtn = $('<button id="muteplayer-btn" class="btn btn-sm btn-default" ti
 	});
 
 MUTEBTN = setInterval(function() {
-	if (muteplayerbtn.length === 1) {
+	if (muteplayerbtn.length === 0) {
 		toggleMuteBtn();
 	} else {
 		clearInterval(MUTEBTN);
