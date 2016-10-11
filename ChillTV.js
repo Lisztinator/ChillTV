@@ -1007,10 +1007,6 @@ function toggleMuteBtn() {
 	}
 }
 
-PLAYER.player.ready(function() {
-	toggleMuteBtn();
-});
-
 function toggleModPanel() {
 	if (CLIENT.rank < 2) {
 		modbtn.hide();
@@ -2258,6 +2254,14 @@ muteplayerbtn = $('<button id="muteplayer-btn" class="btn btn-sm btn-default" ti
 			setOpt(CHANNEL.name + "_muted", MUTED);
 		}
 	});
+
+MUTEBTN = setInterval(function() {
+	if (muteplayerbtn.length === 1) {
+		toggleMuteBtn();
+	} else {
+		clearInterval(MUTEBTN);
+	}
+}, 100);
 
 fullscreenbtn = $('<button id="fullscreen-btn" class="btn btn-sm btn-default" title="Expand Video and Shrink Chat" />')
 	.html('<span class="glyphicon glyphicon-resize-full"></span>')
