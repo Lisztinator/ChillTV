@@ -4539,6 +4539,49 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
+    window.Player = p = function() {
+        function t(e) {
+            return this instanceof t ? (this.setMediaProperties(e),
+            void (this.paused = !1)) : new t(e)
+        }
+        return t.prototype.load = function(t) {
+            return this.setMediaProperties(t)
+        }
+        ,
+        t.prototype.setMediaProperties = function(t) {
+            return this.mediaId = t.id,
+            this.mediaType = t.type,
+            this.mediaLength = t.seconds
+        }
+        ,
+        t.prototype.play = function() {
+            return this.paused = !1
+        }
+        ,
+        t.prototype.pause = function() {
+            return this.paused = !0
+        }
+        ,
+        t.prototype.seekTo = function(t) {}
+        ,
+        t.prototype.setVolume = function(t) {}
+        ,
+        t.prototype.getTime = function(t) {
+            return t(0)
+        }
+        ,
+        t.prototype.isPaused = function(t) {
+            return t(this.paused)
+        }
+        ,
+        t.prototype.getVolume = function(t) {
+            return t(VOLUME)
+        }
+        ,
+        t.prototype.destroy = function() {}
+        ,
+        t
+    }();
     window.VideoJSPlayer = T = function(t) {
         function e(t) {
             return this instanceof e ? void this.load(t) : new e(t)
