@@ -4539,6 +4539,17 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
+    S = function(t, e) {
+        function r() {
+            this.constructor = t
+        }
+        for (var i in e)
+            V.call(e, i) && (t[i] = e[i]);
+        return r.prototype = e.prototype,
+        t.prototype = new r,
+        t.__super__ = e.prototype,
+        t
+    }, V = {}.hasOwnProperty;
     window.Player = p = function() {
         function t(e) {
             return this instanceof t ? (this.setMediaProperties(e),
