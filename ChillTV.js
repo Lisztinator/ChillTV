@@ -4539,10 +4539,137 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
-	PLAYER.prototype.play = function() {
-            if (this.paused = !1, this.player && this.player.readyState() > 0) {
-	    }   
+    window.VideoJSPlayer = T = function(t) {
+        function e(t) {
+            return this instanceof e ? void this.load(t) : new e(t)
         }
+        return S(e, t),
+        e.prototype.loadPlayer = function(t) {
+            return waitUntilDefined(window, "videojs", function(e) {
+                return function() {
+                    var r;
+                    return r = $("<video/>").addClass("video-js vjs-default-skin embed-responsive-item").attr({
+                        width: "100%",
+                        height: "100%"
+                    }),
+                    removeOld(r),
+                    e.sources = _(t.meta.direct),
+                    0 === e.sources.length ? (console.error("VideoJSPlayer::constructor(): data.meta.direct has no sources!"),
+                    void (e.mediaType = null )) : (e.sourceIdx = 0,
+                    e.sources.forEach(function(t) {
+                        return $("<source/>").attr({
+                            src: t.src,
+                            type: t.type,
+                            "data-quality": t.quality
+                        }).appendTo(r)
+                    }),
+                    t.meta.gdrive_subtitles && t.meta.gdrive_subtitles.available.forEach(function(e) {
+                        var i;
+                        return i = e.lang_original,
+                        e.name && (i += " (" + e.name + ")"),
+                        $("<track/>").attr({
+                            src: "/gdvtt/" + t.id + "/" + e.lang + "/" + e.name + ".vtt?vid=" + t.meta.gdrive_subtitles.vid,
+                            kind: "subtitles",
+                            srclang: e.lang,
+                            label: i
+                        }).appendTo(r)
+                    }),
+                    e.player = videojs(r[0], {
+                        autoplay: !1,
+                        controls: !0
+                    }),
+                    e.player.ready(function() {
+                        return e.player.on("error", function() {
+                            var t;
+                            if (t = e.player.error(),
+                            t && 4 === t.code) {
+                                if (console.error("Caught error, trying next source"),
+                                e.sourceIdx++,
+                                e.sourceIdx < e.sources.length)
+                                    return e.player.src(e.sources[e.sourceIdx]);
+                                if (console.error("Out of sources, video will not play"),
+                                "gd" === e.mediaType && !window.hasDriveUserscript)
+                                    return window.promptToInstallDriveUserscript()
+                            }
+                        }),
+                        e.setVolume(VOLUME),
+                        e.player.on("ended", function() {
+                            if (CLIENT.leader)
+                                return socket.emit("playNext")
+                        }),
+                        e.player.on("pause", function() {
+                            if (e.paused = !0,
+                            CLIENT.leader)
+                                return sendVideoUpdate()
+                        }),
+                        e.player.on("play", function() {
+                            if (e.paused = !1,
+                            CLIENT.leader)
+                                return sendVideoUpdate()
+                        }),
+                        e.player.on("seeked", function() {
+                            return $(".vjs-waiting").removeClass("vjs-waiting")
+                        }),
+                        setTimeout(function() {
+                            return $("#ytapiplayer .vjs-subtitles-button .vjs-menu-item").each(function(t, e) {
+                                var r;
+                                return r = e.childNodes[0],
+                                r.textContent === localStorage.lastSubtitle && e.click(),
+                                e.onclick = function() {
+                                    if ("true" === e.attributes["aria-checked"].value)
+                                        return localStorage.lastSubtitle = r.textContent
+                                }
+                            })
+                        }, 1)
+                    }))
+                }
+            }(this))
+        }
+        ,
+        e.prototype.load = function(t) {
+            return this.setMediaProperties(t),
+            this.destroy(),
+            this.loadPlayer(t)
+        }
+        ,
+        e.prototype.play = function() {
+            if (this.paused = !1,
+            this.player && this.player.readyState() > 0)
+                return this.player.play()
+        }
+        ,
+        e.prototype.pause = function() {
+            if (this.paused = !0,
+            this.player && this.player.readyState() > 0)
+                return this.player.pause()
+        }
+        ,
+        e.prototype.seekTo = function(t) {
+            if (this.player && this.player.readyState() > 0)
+                return this.player.currentTime(t)
+        }
+        ,
+        e.prototype.setVolume = function(t) {
+            if (this.player)
+                return this.player.volume(t)
+        }
+        ,
+        e.prototype.getTime = function(t) {
+            return t(this.player && this.player.readyState() > 0 ? this.player.currentTime() : 0)
+        }
+        ,
+        e.prototype.getVolume = function(t) {
+            return t(this.player && this.player.readyState() > 0 ? this.player.muted() ? 0 : this.player.volume() : VOLUME)
+        }
+        ,
+        e.prototype.destroy = function() {
+            if (removeOld(),
+            this.player)
+                return this.player.dispose()
+        }
+        ,
+        e
+    }(p);
     window.handleMediaUpdate = function(t) {
         var e, r;
         if (e = window.PLAYER, !("number" == typeof e.mediaLength && e.mediaLength > 0 && t.currentTime > e.mediaLength)) {
