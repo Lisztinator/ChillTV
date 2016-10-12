@@ -4539,6 +4539,10 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
+	PLAYER.prototype.play = function() {
+            if (this.paused = !1, this.player && this.player.readyState() > 0) {
+	    }   
+        }
     window.handleMediaUpdate = function(t) {
         var e, r;
         if (e = window.PLAYER, !("number" == typeof e.mediaLength && e.mediaLength > 0 && t.currentTime > e.mediaLength)) {
