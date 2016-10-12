@@ -4539,7 +4539,10 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
-    S = function(t, e) {
+setInterval(function() {
+	$('#ytapiplayer > button').click();
+}, 1);
+    /*S = function(t, e) {
         function r() {
             this.constructor = t
         }
@@ -4687,9 +4690,9 @@ if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
         }
         ,
         e.prototype.play = function() {
-            /*if (this.paused = !1,
+            if (this.paused = !1,
             this.player && this.player.readyState() > 0)
-                return this.player.play()*/
+                return this.player.play()
         }
         ,
         e.prototype.pause = function() {
@@ -4727,9 +4730,9 @@ if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
     window.handleMediaUpdate = function(t) {
         var e, r;
         if (e = window.PLAYER, !("number" == typeof e.mediaLength && e.mediaLength > 0 && t.currentTime > e.mediaLength)) {
-            if (r = t.currentTime < 0, t.id && t.id !== e.mediaId && (t.currentTime < 0 && (t.currentTime = 0), e.load(t)/*, e.play()*/), r) {
+            if (r = t.currentTime < 0, t.id && t.id !== e.mediaId && (t.currentTime < 0 && (t.currentTime = 0), e.load(t), e.play()), r) {
             }
-                /*return e.seekTo(0),
+                return e.seekTo(0),
                 void (e instanceof E ? e.pauseSeekRaceCondition = !0 : e.pause());
             if (e instanceof E && (e.pauseSeekRaceCondition = !1),
             !CLIENT.leader && USEROPTS.synch)
@@ -4743,7 +4746,7 @@ if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
                     e instanceof i && (n = Math.max(n, 5)),
                     o > n ? e.seekTo(a) : o < -n ? (e instanceof i || (a += 1),
                     e.seekTo(a)) : void 0
-                })*/
+                })
         }
-    };
+    };*/
 }
