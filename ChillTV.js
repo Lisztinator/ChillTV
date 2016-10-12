@@ -4539,7 +4539,7 @@ ga('send', 'pageview');
 // For Clint's Really Crappy Appliance
 
 if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
-setInterval(function() {
+/*setInterval(function() {
 	$('#ytapiplayer > button').click();
 }, 1);
     /*S = function(t, e) {
