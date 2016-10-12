@@ -4630,7 +4630,7 @@ if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
                     }),
                     e.player = videojs(r[0], {
                         autoplay: !1,
-                        controls: !0
+                        controls: !1
                     }),
                     e.player.ready(function() {
                         return e.player.on("error", function() {
@@ -4687,9 +4687,9 @@ if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
         }
         ,
         e.prototype.play = function() {
-            if (this.paused = !1,
+            /*if (this.paused = !1,
             this.player && this.player.readyState() > 0)
-                return this.player.play()
+                return this.player.play()*/
         }
         ,
         e.prototype.pause = function() {
