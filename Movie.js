@@ -1088,7 +1088,7 @@ Movie_Array = [
 ['The Host (2006)', 'Comedy, Drama, Horror', '0B4ImsDopq4_FZF9PSEJMNzNLR2s'],
 ['The Host (2013)', 'Action, Adventure, Romance', '0Bwjx3gpy0_MwZTA3NUxPVnhuaTQ'],
 ['Hostage (2005)', 'Action, Crime, Drama', '0Bwjx3gpy0_MwNDFhN3pUVm9acG8'],
-['Hostel (2005)', 'Horror', '0B_F_V9jIQXymemRFZkdNbjFyNlk'],
+['Hostel (2005) Director\'s Cut', 'Horror', '0B_F_V9jIQXymemRFZkdNbjFyNlk'],
 ['Hostel: Part II (2007)', 'Horror', '0Bwjx3gpy0_MwMGxMcm5ZRE02b1U'],
 ['Hot Fuzz (2007)', 'Action, Comedy, Mystery', '0B7--Jg-uaCu2ajJrbkh6Q3lBRkk'],
 ['Hot Girls Wanted (2015)', 'Documentary', '0Bwjx3gpy0_MwTVA0SXZSMjVKOHM'],
