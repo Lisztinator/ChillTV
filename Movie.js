@@ -2403,7 +2403,7 @@ Movie_Array = [
 ['Triangle (2009)', 'Fantasy, Mystery, Thriller', '0B9hOhGLF4ciPTkQzM0FfSmRWSkU', '0B9hOhGLF4ciPcTZoWmZ4ZTNiQlU'],
 ['Trick (1999)', 'Comedy, Music, Romance', '0Bwjx3gpy0_MwN2Vvb3JMc3BFQ2c'],
 ['Trick \'r Treat (2007)', 'Halloween, Horror, Thriller', '0B4ImsDopq4_FQ0RoTWFKWHhOa00'],
-['Trollhunter (2010)', 'Comedy, Drama, Fantasy', '0B9hOhGLF4ciPLVFyX2xiVjB1clE', '0B9hOhGLF4ciPWm9FWnItWXptNkE'],
+['Trollhunter (2010)', 'Comedy, Drama, Fantasy', '0B_F_V9jIQXymQVhpWkswb3gzX1k'],
 ['Tron (1982)', 'Action, Adventure, Sci-Fi', '0Bwjx3gpy0_MwR1pOQVVuUkVaVVk'],
 ['TRON: Legacy (2010)', 'Action, Adventure, Sci-Fi', '0B9hOhGLF4ciPWTJDcTRDNWNyVUU', '0B9hOhGLF4ciPd3doWTlYX3BHZ0E'],
 ['Tropic Thunder (2008)', 'Action, Comedy', '0Bwjx3gpy0_MwdlR4OXFramdwZlE'],
