@@ -833,7 +833,7 @@ function prepareMessage(msg) {
 		var rnd;
 		COMMAND = true;
 		if (msg.match(/!commands/)) {
-			msg = '➥ a,add,ask,bot,calc,define,dice,giphy,give,leaderboard,makeitrain,movie,now,party,pick,plot,poker,quote,random,roll,say,skip,spn,sticker,time,total,tv,tvrandom,urban,yoda,yt';
+			msg = '➥ a,add,ask,bot,calc,define,dice,giphy,give,leaderboard,makeitrain,movie,nominatemovie,nominatetv,now,party,pick,plot,poker,quote,random,roll,say,skip,spn,sticker,time,total,tv,tvrandom,urban,yoda,yt';
 
 		} else if (msg.match(/(!pick\s)/)) {
 
@@ -1267,7 +1267,7 @@ function showChatHelp() {
 		ul2.append('<li><code>!' + cmd2 + '</code> - ' + arr2[cmd2] + '</li>');
 	}
 	body.append('<br /><strong>ChillTVBot Commands<br /><br />');
-	html1 = '<li><code>!a</code> - answer a trivia question asked by the bot (e.g. <i>!a george washington</i>)</li><li><code>!bot</code> - say something to the bot and get a reply (e.g. <i>!bot hi, how are you</i>)</li><li><code>!poker</code> - start a round of Texas Hold\'em <u><a href="https://www.youtube.com/watch?v=cnm_V7A-G6c" target="_blank">Learn Texas Hold\'em in Less Than 4 Minutes!</a></u> (Some rules differ: High cards are shared, no sidepots, max bet/raise is the lowest balance, lowest balance bets first, blind is always $100, free $1000 buy-in for balances of $0) (e.g. <i>!poker</i>)</li><li><code>!total</code> - check the amount of cash you have or check how much someone else has (e.g. <i>!total</i> OR <i>!total ChillTVBot</i>)</li><li><code>!give</code> - give someone (currently online) any amount of your cash, optionally with a reason. (e.g. <i>!give 500 to ChillTVBot</i> OR <i>!give 500 to ChillTVBot for being my friend</i>)</li><li><code>!makeitrain</code> - give 0.5% of your cash divided evenly to all currently online active trivia players with a make-it-rain gif from giphy (e.g. <i>!makeitrain</i>)</li><li><code>!leaderboard</code> - View the trivia leaderboard (e.g. <i>!leaderboard</i>)</li><li><code>!nominatemovie</code> - Nominate a movie. Use the format "title (year)". (e.g. <i>!nominatemovie Batman (1989)</i>)</li><li><code>!nominatetv</code> - Nominate a tv episode or marathon. User the format "Title (Year(-)(Year)) S00E00(E00)(a/b/c)" (e.g. <i>!nominatetv 2 Stupid Dogs (1993–1995) S01E02a</i> OR <i>!nominatetv Game of Thrones (2011–) Marathon</i>)</li>';
+	html1 = '<li><code>!a</code> - answer a trivia question asked by the bot (e.g. <i>!a george washington</i>)</li><li><code>!bot</code> - say something to the bot and get a reply (e.g. <i>!bot hi, how are you</i>)</li><li><code>!poker</code> - start a round of Texas Hold\'em <u><a href="https://www.youtube.com/watch?v=cnm_V7A-G6c" target="_blank">Learn Texas Hold\'em in Less Than 4 Minutes!</a></u> (Some rules differ: High cards are shared, no sidepots, max bet/raise is the lowest balance, lowest balance bets first, blind is always $100, free $1000 buy-in for balances of $0) (e.g. <i>!poker</i>)</li><li><code>!total</code> - check the amount of cash you have or check how much someone else has (e.g. <i>!total</i> OR <i>!total ChillTVBot</i>)</li><li><code>!give</code> - give someone (currently online) any amount of your cash, optionally with a reason. (e.g. <i>!give 500 to ChillTVBot</i> OR <i>!give 500 to ChillTVBot for being my friend</i>)</li><li><code>!makeitrain</code> - give 0.5% of your cash divided evenly to all currently online active trivia players with a make-it-rain gif from giphy (e.g. <i>!makeitrain</i>)</li><li><code>!leaderboard</code> - View the trivia leaderboard (e.g. <i>!leaderboard</i>)</li><li><code>!nominatemovie</code> - Nominate a movie or movie marathon. Use the format "title (year)" or "title Marathon". (e.g. <i>!nominatemovie Batman (1989)</i> OR <i>!nominatemovie Alien Marathon</i>)</li><li><code>!nominatetv</code> - Nominate a tv episode or marathon. User the format "Title (Year(-)(Year)) S00E00(E00)(a/b/c)" (e.g. <i>!nominatetv 2 Stupid Dogs (1993–1995) S01E02a</i> OR <i>!nominatetv Game of Thrones (2011–) Marathon</i>)</li>';
 	$('<ul />').html(html1).appendTo(body);
 	body.append('<br /><strong>Sound Commands</strong><br /><br />');
 	html2 = '<li><code>:laugh:</code> | <code>:assandtitties:</code> | <code>:calmdown:</code> | <code>:gawddangitbobbeh:</code> | <code>:imoldgregg:</code> | ' + '<code>:poop:</code> | <code>:burp:</code> | <code>:mow:</code> | <code>:moo:</code></li>';
@@ -2830,6 +2830,32 @@ function createMovieList() {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
 	body.append('<span class="text-info trailertext" /><br />');
+	body.append('<br /><ul class="marathonlist" ><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button><span> Marathon List</span></ul>');
+	for (var mal = 0; mal < Marathon_List.length; mal++) {
+		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none;">' + Marathon_List[mal] + '</li>');
+	}
+	$('.marathonexpand').hover(function() {
+		$(this).css({
+			'color': 'grey',
+			'border-color': 'grey'
+		});
+	}, function() {
+		$(this).parent().children('li').is(':hidden') ? $(this).css({
+			'color': 'black',
+			'border-color': 'black'
+		}) : $(this).css({
+			'color': 'white',
+			'border-color': 'white'
+		});
+	}).click(function() {
+		if ($(this).parent().children('li').is(':hidden')) {
+			$(this).parent().children('li').show();
+			$(this).text('-').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
+		} else if ($(this).parent().children('li').is(':visible')) {
+			$(this).parent().children('li').hide();
+			$(this).text('+').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
+		}
+	});
 	if (CLIENT.rank === 5) {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
