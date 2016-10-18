@@ -2817,7 +2817,7 @@ function createMovieList() {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
 	body.append('<span class="text-info trailertext" /><br />');
-	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button><span> Marathon List</span></ul><br />');
+	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button><span> Marathon List</span></ul>');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
 		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal] + '</li>');
 	}
