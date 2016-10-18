@@ -246,7 +246,6 @@ var SECRETKEY = getOrDefault(CHANNEL.name + "_secretkey", '');
 var EMBEDIMG = getOrDefault(CHANNEL.name + "_embedimg", true);
 var EMBEDVID = getOrDefault(CHANNEL.name + "_embedvid", true);
 var AVATAR = getOrDefault(CHANNEL.name + "_avatar", false);
-var HEADERFOOTER = getOrDefault(CHANNEL.name + "_headerfooter", true);
 var MAINMENU = getOrDefault(CHANNEL.name + "_mainmenu", true);
 var ANNOUNCEMENTS = getOrDefault(CHANNEL.name + "_announcements", true);
 var POLLAREA = getOrDefault(CHANNEL.name + "_pollarea", true);
@@ -379,18 +378,6 @@ $('<div id="underplaylist" class="btn-group pull-right" style="margin-bottom:10p
 hideform = $('<div id="hideform" class="form-group" />').appendTo(configwell);
 $('<div class="col-lg-5 col-md-5 conf-cap">Hide</div>').appendTo(hideform);
 hidewrap = $('<div id="hidewrap" class="col-lg-7 col-md-7" />').appendTo(hideform);
-
-hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-hf" value="no" />')
-	.appendTo(hidehf)
-	.on("click", function() {
-		USERCONFIG.header;
-		toggleDiv("nav");
-		toggleDiv("footer");
-		HEADERFOOTER = !HEADERFOOTER;
-		setOpt(CHANNEL.name + "_headerfooter", HEADERFOOTER);
-	});
-cbox.after(' Header/Footer');
 
 hidemotd = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-motd" value="no" >')
@@ -4372,7 +4359,6 @@ socket.on("login", patchWrap);
 
 setLayout();
 scrollQueue();
-!HEADERFOOTER ? $("nav, footer").hide() && cbox.prop('checked', 'true') : '';
 
 /*$(document).ready(function() {
 	if (!FULLSCREEN) {
