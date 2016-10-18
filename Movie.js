@@ -1,3 +1,20 @@
+Marathon_List = [
+  'Alien vs. Predator Marathon',
+  'Blade Marathon',
+  'Evil Dead Marathon',
+  'Final Destination Marathon',
+  'Freddy vs. Jason Marathon',
+  'Halloween Marathon',
+  'Insidious Marathon',
+  'Paranormal Activity Marathon',
+  'The Purge Marathon',
+  'Resident Evi Marathon',
+  'Saw Marathon',
+  'Scary Movie Marathon',
+  'Scream Marathon',
+  'Sharknado Marathon',
+];
+
 Movie_Array = [
 ['[Rec] (2007)', 'Horror', '0B_F_V9jIQXymNnV1cGh6OXZadUU'],
 ['[Rec] 2 (2009)', 'Horror', '0B4ImsDopq4_Fc3BDNjNEU05iMk0'],
