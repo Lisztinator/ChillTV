@@ -8,7 +8,7 @@ Marathon_List = [
 'Insidious Marathon',
 'Paranormal Activity Marathon',
 'The Purge Marathon',
-'Resident Evi Marathon',
+'Resident Evil Marathon',
 'Saw Marathon',
 'Scary Movie Marathon',
 'Scream Marathon',
