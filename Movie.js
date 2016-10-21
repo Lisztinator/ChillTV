@@ -1985,7 +1985,7 @@ Movie_Array = [
 ['Resident Evil: Degeneration (2008)', 'Animation, Action, Horror', '0Bwjx3gpy0_MwcDRqZGM5Q3l2bTQ'],
 ['Resident Evil: Extinction (2007)', 'Action, Horror, Sci-Fi', '0Bwjx3gpy0_MwMGg0dFcyNnFKTGc'],
 ['Resident Evil: Retribution (2012)', 'Action, Horror, Sci-Fi', '0Bwjx3gpy0_MwUzR3YnB5akpDWUU'],
-['The Return of the Living Dead (1985)', 'Comedy, Horror, Sci-Fi', '0B4ImsDopq4_FenJ6SmFpd2pzM1U'],
+['The Return of the Living Dead (1985)', 'Comedy, Horror, Sci-Fi', '0B_F_V9jIQXymelV2MkZXRlU0Tms'],
 ['The Revenant (2015)', 'Adventure, Drama, Thriller', '0B7--Jg-uaCu2Mi13MTdkSG1DZjA'],
 ['Revenge of the Nerds (1984)', 'Comedy', '0Bwjx3gpy0_MwRVlzY29jbGFMY1E'],
 ['Riddick (2013) Extended', 'Action, Sci-Fi, Thriller', '0B_F_V9jIQXymejRMN3JZZFVYUHc'],
