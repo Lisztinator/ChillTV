@@ -308,7 +308,7 @@ Movie_Array = [
 ['Blade (1998)', 'Action, Horror', '0B_F_V9jIQXymTHg2NDM5M2ttdGc'],
 ['Blade II (2002)', 'Action, Horror, Sci-Fi', '0B_F_V9jIQXymZnMwSURzZDR4S3M'],
 ['Blade Runner (1982) Director\'s Cut', 'Sci-Fi, Thriller', '0B9hOhGLF4ciPUm1pYVRIT3R0NEE', '0B9hOhGLF4ciPZGI0cnphcWltTHc'],
-['Blade Trinity (2004)', 'Action, Adventure, Fantasy', '0B_F_V9jIQXymR3pHWlhvX2psaHM'],
+['Blade: Trinity (2004)', 'Action, Adventure, Fantasy', '0B_F_V9jIQXymR3pHWlhvX2psaHM'],
 ['Blades of Glory (2007)', 'Comedy, Sport', '0B_F_V9jIQXymZGlyNXJITHI5czA'],
 ['The Blair Witch Project (1999)', 'Horror', '0Bwjx3gpy0_MwMkhBVHFlcGFhck0'],
 ['Blank Check (1994)', 'Comedy, Crime, Family', '0B4ImsDopq4_FS0hjLW9sR1Z5bkk'],
