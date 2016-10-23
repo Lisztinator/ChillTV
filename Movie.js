@@ -647,6 +647,7 @@ Movie_Array = [
 ['Dogma (1999)', 'Adventure, Comedy, Drama', '0B7--Jg-uaCu2YVB3Tk1ReXhCYkE'],
 ['Dolphin Tale (2011)', 'Drama, Family', '0Bwjx3gpy0_MwWmJUUEVVamdaRms'],
 ['Don Jon (2013)', 'Comedy, Drama, Romance', '0B9hOhGLF4ciPU2lEU2NEcFljNEU', '0B9hOhGLF4ciPMVpaeHJpV01Wbk0'],
+['Don\'t Breathe (2016)', 'Crime, Horror, Thriller', '0B_F_V9jIQXymTmZGMDJJc0JLdzg', 'Recently Added'],
 ['Don\'t Look Now (1973)', 'Drama, Horror, Thriller', '0B4ImsDopq4_FOTZqdExwVGYyZXM'],
 ['Donnie Brasco (1997)', 'Biography, Crime, Drama', '0Bwjx3gpy0_MwT0FBa1V6RVZkMlE'],
 ['Donnie Darko (2001)', 'Drama, Sci-Fi, Thriller', '0B9hOhGLF4ciPTGQ3NG4zaXJIcWc', '0B9hOhGLF4ciPRDk5S3c2ZFh3c2c', '0B9hOhGLF4ciPQ3RfOEdKcUtUUDQ'],
