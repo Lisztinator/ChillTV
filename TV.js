@@ -4382,6 +4382,7 @@ TV_Array = [
 ['S20E01', '', '0B_F_V9jIQXymTEJDcUxZRG1vNHM'],
 ['S20E02', '', '0B_F_V9jIQXymQUZEeFlzVmNJaVk'],
 ['S20E03', '', '0B_F_V9jIQXymVEJJVDhiYm13Y0E'],
+['S20E04', '', '0B_F_V9jIQXymOWg1Rm5NWllNdXM'],
 ['Spider-Man (1994–1998)', 'Animation, Action, Adventure'],
 ['S01E01', '', '0Bwjx3gpy0_MwODVMQjJzMFNFeVk'],
 ['S01E02', '', '0Bwjx3gpy0_MwR21iMHFoQnRCMW8'],
