@@ -965,7 +965,7 @@ Movie_Array = [
 ['A Goofy Movie (1995)', 'Animation, Adventure, Comedy', '0Bwjx3gpy0_MweWQ3bkFpSU5XcWs'],
 ['Goon (2011)', 'Comedy, Sport', '0Bwjx3gpy0_MwbFkyTjJKX29lRU0'],
 ['The Goonies (1985)', 'Adventure, Comedy, Family', '0Bwjx3gpy0_MwUXVYZ1pUeGFPYkk'],
-['Goosebumps (2015)', 'Adventure, Comedy, Family', '0B7vzyYaEiOXvY1dxY18tNVlNSUE'],
+['Goosebumps (2015)', 'Halloween, Adventure, Comedy, Family', '0B7vzyYaEiOXvY1dxY18tNVlNSUE'],
 ['Gorgeous (1999)', 'Action, Comedy, Romance', '0B9IJMeJQIO87c0hQZjZpVWh3VTQ', '0B_3dGK9dzqH_cXdWRk9SbXp3Y0k'],
 ['Grace is Gone (2007)', 'Drama', '0B4ImsDopq4_FMEZraGlSOHd2ZkE'],
 ['Graffiti Wars (2011)', 'Documentary', '0B4ImsDopq4_FNEpVQTJlSEx5bDg'],
