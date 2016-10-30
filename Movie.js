@@ -104,7 +104,7 @@ Movie_Array = [
 ['Alice in Wonderland (2010)', 'Adventure, Family, Fantasy', '0B9hOhGLF4ciPZlMtY2NYc0U1YlE', '0B9hOhGLF4ciPcUZjRXlkeGhfY0E'],
 ['Alice Through the Looking Glass (2016)', 'Adventure, Family, Fantasy', '0B_F_V9jIQXymRlVDcDA2d2dTSnM'],
 ['Alien (1979) Director\'s Cut', 'Horror, Sci-Fi', '0B_F_V9jIQXymNy1nUzJJcnh1dU0'],
-['Alien 3 (1992) Special Edition', 'Action, Horror, Sci-Fi', '0B_F_V9jIQXymdWZURk9PWXFvMkU'],
+['Alien 3 (1992) Special Edition', 'Action, Horror, Sci-Fi', '0B_F_V9jIQXymRDBBUUpQTU5OemM'],
 ['Alien: Resurrection (1997) Director\'s Cut', 'Action, Horror, Sci-Fi', '0B_F_V9jIQXymMm0xOHNWVVNTX3c'],
 ['Aliens (1986) Director\'s Cut', 'Action, Adventure, Sci-Fi', '0B_F_V9jIQXymWXUwbjVjMmJpZHM'],
 ['Aliens vs. Predator: Requiem (2007)', 'Action, Horror, Sci-Fi', '0B9hOhGLF4ciPLVRUWUtLd3hxUkU', '0B9hOhGLF4ciPa3QzejBoczVDQ0k'],
