@@ -604,6 +604,7 @@ Movie_Array = [
 ['Deliver Us from Evil (2014)', 'Horror, Mystery, Thriller', '0Bwjx3gpy0_MwWUVXNXFmR0ZQR1U'],
 ['Demolition (2015)', 'Drama', '0B-2NF_QuwswCRnhJWkJCd3E4dU0'],
 ['Demons (1985)', 'Horror', '0B4ImsDopq4_FelkyMzIxb0kzRnM'],
+['Demons 2 (1986)', 'Horror', '0B_F_V9jIQXymeGZSU210aEVpRnM', 'Recently Added'],
 ['The Departed (2006)', 'Crime, Drama, Thriller', '0Bwjx3gpy0_Mwc0w0ZUNJSG1iRkU'],
 ['Der Samurai (2014)', 'Fantasy, Horror, Thriller', '0B-2NF_QuwswCM1VjN1JvM2xfVjg'],
 ['The Descendants (2011)', 'Comedy, Drama', '0Bwjx3gpy0_MwekJqNmtadVRWaE0'],
