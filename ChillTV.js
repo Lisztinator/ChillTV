@@ -2819,7 +2819,10 @@ function createMovieList() {
 	body.append('<span class="text-info trailertext" /><br />');
 	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button><span> Marathon List</span></ul>');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
-		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal][0] + '</li>');
+		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button> ' + Marathon_List[mal][0] + '</ul></li>');
+		for (var mwl = 1; mwl < Marathon_List[mal].length; mwl++) {
+			$('.marathon:last').html($('.marathon:last').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal[mwl] + '</li>');
+		}
 	}
 	$('.marathonexpand').hover(function() {
 		$(this).css({
