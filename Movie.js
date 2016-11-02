@@ -1434,7 +1434,7 @@ Movie_Array = [
 ['Kung Fu Panda (2008)', 'Animation, Action, Adventure', '0B9hOhGLF4ciPOEl5WTZJMjljNGc', '0B9hOhGLF4ciPZE5aSUJJakJKZHM'],
 ['Kung Fu Panda 2 (2011)', 'Animation, Action, Adventure', '0Bwjx3gpy0_MwQXNweV9YVEd6ZUE'],
 ['Kung Fu Panda 3 (2016)', 'Animation, Action, Adventure', '0B-2NF_QuwswCejZycTJHdzRpeVk'],
-['Kung Fu Panda Holiday (2010)', 'Animation, Short, Comedy', '0B6a8GL2kUm9EUkZPNnB2LUZUdEE'],
+['Kung Fu Panda Holiday (2010)', 'Christmas, Animation, Short, Comedy', '0B6a8GL2kUm9EUkZPNnB2LUZUdEE'],
 ['Kung Fury (2015)', 'Short, Action, Comedy', '0Bwjx3gpy0_MwOV9jd05mR1JBOVE'],
 ['Kung Pow: Enter the Fist (2002)', 'Action, Comedy', '0B9hOhGLF4ciPX1NHZEJkMWttbmc', '0B9hOhGLF4ciPeHBudGRPYjcwb0E'],
 ['Kwaidan (1964)', 'Drama, Fantasy, Horror', '0B4ImsDopq4_FbUFiS242RzFkV2M', '0B4ImsDopq4_FT0FXa00xTDkyWlk'],
