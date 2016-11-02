@@ -3531,19 +3531,18 @@ function getGiphy() {
 	GForm.on('submit', function(p_oEvent) {
 		p_oEvent.preventDefault();
 		$('.giphyimage').html('<center><span class="text-info">Searching. Please wait...</span></center>')
-		giff = GForm.find("#giphy_input").val();
-		theurl = 'https://giphy.p.mashape.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + giff
+		giff = encodeURIComponent(GForm.find("#giphy_input").val());
+		theurl = 'https://api.giphy.com/v1/gifs/random?q=' + giff + '&api_key=dc6zaTOxFJmzC';
 		$.ajax({
 			url: theurl,
 			type: 'GET',
 			data: {},
 			dataType: 'json',
 			success: function(data) {
-				imageid = data.data.id
+				imageid = data.image_url
 				if (imageid !== undefined) {
-					dataurl = 'https://media.giphy.com/media/' + imageid + '/giphy.gif'
 					GContainer.find('.giphyimage')
-						.html('<center><img style="cursor:pointer;max-width:490px;max-height:370px" onclick="insertText(\'' + dataurl + '.pic \');clickPic()" src="' + dataurl + '"/></center>');
+						.html('<center><img style="cursor:pointer;max-width:490px;max-height:370px" onclick="insertText(\'' + imageid + '.pic \');clickPic()" src="' + imageid + '"/></center>');
 					GContainer.show();
 				} else {
 					GContainer.find('.giphyimage').text('Error: Not found. Check spelling.');
@@ -3553,9 +3552,6 @@ function getGiphy() {
 			error: function(data) {
 				GContainer.find('.giphyimage').text('Connection Error: Please refresh or try again later.');
 				GContainer.show();
-			},
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader("X-Mashape-Authorization", "fnrpUbGFosmshALmrJV9hPe4Wjj1p18KhSAjsnyWWUQ9Y0Qexm");
 			}
 		});
 	});
@@ -3844,15 +3840,15 @@ $("#chatline").on("keydown", function(ev, e) {
 					meta: meta
 				});
 			} else if (msg.match(/(\!sticker\s)/)) {
-				term = msg.split('!sticker ')[1].split(",");
-				theurl = 'https://giphy.p.mashape.com/v1/stickers/random?api_key=dc6zaTOxFJmzC&tag=' + term
+				term = encodeURIComponent(msg.split('!sticker ')[1]);
+				theurl = 'http://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
 				$.ajax({
 					url: theurl,
 					type: 'GET',
 					data: {},
 					dataType: 'json',
 					success: function(data) {
-						imageurl = data.data.image_url
+						imageurl = data.image_url
 						if (imageurl !== undefined) {
 							socket.emit("chatMsg", {
 								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '✎ ' + imageurl,
@@ -3870,9 +3866,6 @@ $("#chatline").on("keydown", function(ev, e) {
 							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '✎ Connection Error: Refresh or try again later.',
 							meta: meta
 						});
-					},
-					beforeSend: function(xhr) {
-						xhr.setRequestHeader("X-Mashape-Authorization", "fnrpUbGFosmshALmrJV9hPe4Wjj1p18KhSAjsnyWWUQ9Y0Qexm");
 					}
 				});
 			} else if (msg.match(/(\!yoda\s)/)) {
