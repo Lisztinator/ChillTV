@@ -4003,19 +4003,18 @@ $("#chatline").on("keydown", function(ev, e) {
 				getYouTube('', search, posi, mtext);
 			}
 			if (msg.match(/(\!giphy\s)/)) {
-				term = msg.split('!giphy ')[1].split(",");
-				theurl = 'https://giphy.p.mashape.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + term
+				term = encodeURIComponent(msg.split('!giphy ')[1]);
+				theurl = 'https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
 					url: theurl,
 					type: 'GET',
 					data: {},
 					dataType: 'json',
 					success: function(data) {
-
-						imageid = data.data.id
+						imageid = data.image_url
 						if (imageid !== undefined) {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ https://media.giphy.com/media/' + imageid + '/giphy.gif'
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + imageid
 							});
 						} else {
 							socket.emit("chatMsg", {
@@ -4027,9 +4026,6 @@ $("#chatline").on("keydown", function(ev, e) {
 						socket.emit("chatMsg", {
 							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
 						});
-					},
-					beforeSend: function(xhr) {
-						xhr.setRequestHeader("X-Mashape-Authorization", "fnrpUbGFosmshALmrJV9hPe4Wjj1p18KhSAjsnyWWUQ9Y0Qexm");
 					}
 				});
 			}
