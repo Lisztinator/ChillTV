@@ -2358,7 +2358,7 @@ Movie_Array = [
 ['SubUrbia (1996)', 'Comedy, Drama', '0B_F_V9jIQXymbVVYN3FmR1dfLUE'],
 ['Sucker Punch (2011)', 'Action, Fantasy', '0B4ImsDopq4_FOXgybWo5STR3c1U'],
 ['Sudden Impact (1983)', 'Action, Thriller', '0B9hOhGLF4ciPMGROU2o3NEp6VlU', '0B9hOhGLF4ciPUF91WUs1amNDNFE'],
-['Suicide Squad (2016)', 'Action, Adventure, Crime', '0B_F_V9jIQXymdlVjbGNTX2Y3UjQ'],
+['Suicide Squad (2016)', 'Action, Adventure, Crime', '0B_F_V9jIQXymRGV2NUI4ZUQ4cG8'],
 ['Sunset Boulevard (1950)', 'Drama, Film-Noir, Romance', '0Bwjx3gpy0_MwNjRjaE5acmExX1E'],
 ['Sunshine (2007)', 'Adventure, Sci-Fi, Thriller', '0B9hOhGLF4ciPcVk0LVpjSnZaQ2s', '0B9hOhGLF4ciPNHZPMHlJVWdjT1k'],
 ['Sunshine Superman (2014)', 'Documentary, Biography, Sport', '0B4ImsDopq4_FNEZ4bVNPMGNYUHc'],
