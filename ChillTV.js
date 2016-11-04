@@ -3532,7 +3532,7 @@ function getGiphy() {
 		p_oEvent.preventDefault();
 		$('.giphyimage').html('<center><span class="text-info">Searching. Please wait...</span></center>')
 		giff = encodeURIComponent(GForm.find("#giphy_input").val());
-		theurl = 'https://cors.5apps.com/?uri=https://api.giphy.com/v1/gifs/random?q=' + giff + '&api_key=dc6zaTOxFJmzC';
+		theurl = 'https://api.giphy.com/v1/gifs/random?q=' + giff + '&api_key=dc6zaTOxFJmzC';
 		$.ajax({
 			url: theurl,
 			type: 'GET',
@@ -3841,7 +3841,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				});
 			} else if (msg.match(/(\!sticker\s)/)) {
 				term = encodeURIComponent(msg.split('!sticker ')[1]);
-				theurl = 'https://cors.5apps.com/?uri=https://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
+				theurl = 'https://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
 				$.ajax({
 					url: theurl,
 					type: 'GET',
@@ -3997,7 +3997,7 @@ $("#chatline").on("keydown", function(ev, e) {
 			}
 			if (msg.match(/(\!giphy\s)/)) {
 				term = encodeURIComponent(msg.split('!giphy ')[1]);
-				theurl = 'https://cors.5apps.com/?uri=https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
+				theurl = 'https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
 					url: theurl,
 					type: 'GET',
