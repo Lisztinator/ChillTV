@@ -3539,7 +3539,7 @@ function getGiphy() {
 			dataType: 'jsonp',
 			success: function(data) {
 				console.log(data);
-				imageid = data.image_url
+				imageid = data.data.image_url
 				if (imageid !== undefined) {
 					GContainer.find('.giphyimage')
 						.html('<center><img style="cursor:pointer;max-width:490px;max-height:370px" onclick="insertText(\'' + imageid + '.pic \');clickPic()" src="' + imageid + '"/></center>');
@@ -3848,7 +3848,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					type: 'GET',
 					data: {},
 					success: function(data) {
-						imageurl = data.image_url
+						imageurl = data.data.image_url
 						if (imageurl !== undefined) {
 							socket.emit("chatMsg", {
 								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '✎ ' + imageurl,
@@ -4000,7 +4000,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					type: 'GET',
 					data: {},
 					success: function(data) {
-						imageid = data.image_url
+						imageid = data.data.image_url
 						if (imageid !== undefined) {
 							socket.emit("chatMsg", {
 								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + imageid
