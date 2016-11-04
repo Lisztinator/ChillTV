@@ -3845,8 +3845,8 @@ $("#chatline").on("keydown", function(ev, e) {
 				theurl = 'https://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
 				$.ajax({
 					url: theurl,
-					type: 'GET',
-					data: {},
+					jsonp: 'callback',	
+					dataType: 'jsonp',
 					success: function(data) {
 						imageurl = data.data.image_url
 						if (imageurl !== undefined) {
@@ -3997,8 +3997,8 @@ $("#chatline").on("keydown", function(ev, e) {
 				theurl = 'https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
 					url: theurl,
-					type: 'GET',
-					data: {},
+					jsonp: 'callback',	
+					dataType: 'jsonp',
 					success: function(data) {
 						imageid = data.data.image_url
 						if (imageid !== undefined) {
