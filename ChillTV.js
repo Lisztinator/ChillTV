@@ -3535,9 +3535,10 @@ function getGiphy() {
 		theurl = 'https://api.giphy.com/v1/gifs/random?q=' + giff + '&api_key=dc6zaTOxFJmzC';
 		$.ajax({
 			url: theurl,
-			type: 'GET',
-			data: {},
+			jsonp: 'callback',	
+			dataType: 'jsonp',
 			success: function(data) {
+				console.log(data);
 				imageid = data.image_url
 				if (imageid !== undefined) {
 					GContainer.find('.giphyimage')
@@ -3549,6 +3550,7 @@ function getGiphy() {
 				}
 			},
 			error: function(data) {
+				console.log(data);
 				GContainer.find('.giphyimage').text('Connection Error: Please refresh or try again later.');
 				GContainer.show();
 			}
