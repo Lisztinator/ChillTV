@@ -3537,7 +3537,6 @@ function getGiphy() {
 			url: theurl,
 			type: 'GET',
 			data: {},
-			dataType: 'json',
 			success: function(data) {
 				imageid = data.image_url
 				if (imageid !== undefined) {
@@ -3846,7 +3845,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					url: theurl,
 					type: 'GET',
 					data: {},
-					dataType: 'json',
 					success: function(data) {
 						imageurl = data.image_url
 						if (imageurl !== undefined) {
@@ -3909,7 +3907,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					url: theurl,
 					type: 'GET',
 					data: {},
-					dataType: 'json',
 					success: function(data) {
 						datadic = data[0];
 						deftext = datadic.text;
@@ -3938,7 +3935,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					url: theurl,
 					type: 'GET',
 					data: {},
-					dataType: 'json',
 					success: function(data) {
 						if (data.list[0] !== undefined) {
 							socket.emit("chatMsg", {
@@ -3966,7 +3962,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					url: theurl,
 					type: 'GET',
 					data: {},
-					dataType: 'json',
 					success: function(data) {
 						socket.emit("chatMsg", {
 							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + data.quote + ' - ' + data.author,
@@ -4002,7 +3997,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					url: theurl,
 					type: 'GET',
 					data: {},
-					dataType: 'json',
 					success: function(data) {
 						imageid = data.image_url
 						if (imageid !== undefined) {
@@ -4173,7 +4167,6 @@ function getYouTube(element, term, position, text, random, nextpage) {
 			url: theurl,
 			type: 'GET',
 			data: {},
-			dataType: 'json',
 			success: function(data) {
 				if (random === 'random') {
 					vidid = data.items[ranum].id.videoId;
