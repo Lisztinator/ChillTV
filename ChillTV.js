@@ -3548,6 +3548,7 @@ function getGiphy() {
 				$(this).attr('onclick', '');
 			});
 			giff = encodeURIComponent(GForm.find("#giphy_input").val());
+			$('#giphy_input').val('');
 			if ($("#gifs").prop('checked')) {
 				giftype = 'gifs';
 			} else {
