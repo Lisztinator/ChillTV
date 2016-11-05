@@ -3659,14 +3659,14 @@ function injectGiphy() {
 	createTemp('Search for Gifs from Giphy');
 	body.append('<div id="giphy_wrap" class="form-group"><span id="giphy_search"></span></div>');
 	$('<div id="giphy_window" style="min-height:450px" class="col-lg-12 col-md-12 well">' +
-	  '<center><span style="float:left">' +
+	  '<center style="height:25px"><span style="float:left">' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="gifs" class="gifoption" value="no" checked> Gifs</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
 	  '</span><span>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="search" class="searchoption" value="no" checked> Search</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="translate" class="searchoption" value="no"> Translate</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="random" class="searchoption" value="no"> Random</label>' +
-	  '</span><button style="float:right" class="btn btn-sm btn-default" id="trending">Trending</button></center>' +
+	  '</span><button style="float:right" class="btn btn-xs btn-default" id="trending">Trending</button></center>' +
 	  '<div style="height:40px"><center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center></div>' +
 	  '<center><img id="single" style="cursor:pointer;max-width:500px;max-height:500px;display:none"/></center>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
