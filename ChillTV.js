@@ -3541,6 +3541,10 @@ function getGiphy() {
 			$('.giphyimage').show();
 			$(".gforwardbutton").prop('disabled', true);
 			$(".gbackbutton").prop('disabled', true);
+			$('.giphyimage').find('img').each(function() {
+				$(this).attr('src', '');
+				$(this).attr('onclick', '');
+			});
 			giff = encodeURIComponent(GForm.find("#giphy_input").val());
 			if ($("#gifs").prop('checked')) {
 				giftype = 'gifs';
@@ -3563,10 +3567,17 @@ function getGiphy() {
 						for (var gip = 0; gip < 25; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
-								if (imagedata[gip].images.fixed_width_small.width === '100') {
+								if (imagedata[gip].images.fixed_width_small.width === '100' && parseInt(imagedata[gip].images.fixed_height_small.height) <= 100) {
 									fixed = imagedata[gip].images.fixed_width_small.url;
 								} else {
 									fixed = imagedata[gip].images.fixed_height_small.url;
+								}
+								if (fixed === '') {
+									if (imagedata[gip].images.fixed_width.width === '200' && parseInt(imagedata[gip].images.fixed_height.height) <= 200) {
+										fixed = imagedata[gip].images.fixed_width.url;
+									} else {
+										fixed = imagedata[gip].images.fixed_height.url;
+									}
 								}
 								$('.giphyimage').find('img').eq(gip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 							}
@@ -3581,10 +3592,17 @@ function getGiphy() {
 							for (var fgip = 0; fgip < 25; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
 									imageurl = imagedata[fgip + offset].images.original.url;	
-									if (imagedata[fgip + offset].images.fixed_width_small.width === '100') {
+									if (imagedata[fgip + offset].images.fixed_width_small.width === '100' && parseInt(imagedata[fgip + offset].images.fixed_height_small.height) <= 100) {
 										fixed = imagedata[fgip + offset].images.fixed_width_small.url;
 									} else {
 										fixed = imagedata[fgip + offset].images.fixed_height_small.url;
+									}
+									if (fixed === '') {
+										if (imagedata[fgip + offset].images.fixed_width.width === '200' && parseInt(imagedata[fgip + offset].images.fixed_height.height) <= 200) {
+											fixed = imagedata[fgip + offset].images.fixed_width.url;
+										} else {
+											fixed = imagedata[fgip + offset].images.fixed_height.url;
+										}
 									}
 									$('.giphyimage').find('img').eq(fgip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
@@ -3603,16 +3621,23 @@ function getGiphy() {
 							for (var ggip = 0; ggip < 25; ggip++) {
 								if (imagedata[ggip + offset - 50] !== undefined) {
 									imageurl = imagedata[ggip + offset - 50].images.original.url;
-									if (imagedata[ggip + offset - 50].images.fixed_width_small.width === '100') {
+									if (imagedata[ggip + offset - 50].images.fixed_width_small.width === '100' && parseInt(imagedata[ggip + offset - 50].images.fixed_height_small.height) <= 100) {
 										fixed = imagedata[ggip + offset - 50].images.fixed_width_small.url;
 									} else {
 										fixed = imagedata[ggip + offset - 50].images.fixed_height_small.url;
+									}
+									if (fixed === '') {
+										if (imagedata[ggip + offset - 50].images.fixed_width.width === '200' && parseInt(imagedata[ggip + offset - 50].images.fixed_height.height) <= 200) {
+											fixed = imagedata[ggip + offset - 50].images.fixed_width.url;
+										} else {
+											fixed = imagedata[ggip + offset - 50].images.fixed_height.url;
+										}
 									}
 									$('.giphyimage').find('img').eq(ggip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
 								if (ggip === 24) {
 									offset -= ggip + 1;
-									if (offset > 0) {
+									if (offset > 25) {
 										$(".gbackbutton").prop('disabled', false);
 									} else {
 										$(".gbackbutton").prop('disabled', true);
