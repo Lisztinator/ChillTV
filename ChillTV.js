@@ -1,29 +1,6 @@
 /*
 Copyright © 2016 Benjamin Paul. All rights reserved.
 */
-/*
-if (!CLIENT.googlehax) {
-	CLIENT.googlehax = true;
-	socket.on('changeMedia', (data) => {
-		if (data.type === 'gd') {
-			$('#videowrap').addClass('googlehax');
-		} else {
-			$('#videowrap').removeClass('googlehax');
-		}
-	});
-	$('head').append($('<style>').attr('id','googlehax-style').text('.googlehax embed { left: -5em; }'));
-	$('#mediarefresh').click();
-}*/
-
-RulesBtn_Caption = 'Read Channel Rules';
-
-JoinText_Message = 'spawned';
-
-LeaveText_Message = 'dematerialized';
-
-CustomPingSound_URL = 'https://c8f6d77a711ff2cd454f485e3653074dabee73a5.googledrive.com/host/0BxOqtQNFy94vTXpPSDd5dXFLd2M';
-
-PlayerHiding_URL = 'https://04e14e442fb568d18dffc7b73fc2c3ccc323e318.googledrive.com/host/0BxOqtQNFy94vWGkzQ2hTNV9najA';
 
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
@@ -66,11 +43,11 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>08/19/16</b><li>New bot commands: "!poker" and "!bot (text)"</li><li>The bot now adds videos that share a genre with the previous video and can also start marathons.</li></ul>'],
-	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li>' + '<li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li>' + '<li><a target="_blank" href="https://github.com/zimny-lech/CyTube-Plus">About CyTube Plus</a></li></ul>'],
-	['About', '<center><b>Welcome to ChillTV:</b>  Have some chill. Please feel free to add to the playlist, voteskip, ' + 'participate in polls, and most importantly, chat! Don\'t be a stranger, use this room whenever you\'d like! ' + 'There are thousands of movies and TV shows in the video database. Request one of them to be played by an admin or moderator! ' + 'Voteskip to skip to the next item on the playlist.</center><br /><center><font size="5"><b>Donate for all the awesome videos and code!</b></font>' + '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">' + '<input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----' + '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-----END PKCS7-----">' + '<input type="image" src="https://e68ecb6bcba1a3499a7260cae9db4fec4213ac99.googledrive.com/host/0BxOqtQNFy94vWG1tSTRtdV91RlU" border="0" name="submit" alt="PayPal - ' + 'The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></center>'],
-	['Find Movies/TV', '<b>Find movies and TV shows</b><br /><br /><ul><li><a style="cursor:pointer" onclick="createMovieList()" target="_blank">ChillTV\'s Movie List</a> ' + '(<i>nominate/add something</i>)</li><li><a style="cursor:pointer" onclick="createTVList()" target="_blank">ChillTV\'s TV List</a> ' + '(<i>nominate/add something</i>)</li><li><a href="http://goo.gl/forms/5fK5rDjTjD" target="_blank">We Don\'t Have it? Request it Here!</a></li><br /><li><a ' + 'href="https://www.reddit.com/r/fullmoviesonyoutube/" target="_blank">https://www.reddit.com/r/fullmoviesonyoutube/</a></li><li>' + '<a href="https://www.reddit.com/r/Fullmoviesonvimeo/" target="_blank">https://www.reddit.com/r/FullmoviesonVimeo/</a></li><li>' + '<a href="https://www.reddit.com/r/fullmoviesongoogle/" ' + 'target="_blank">https://www.reddit.com/r/fullmoviesongoogle/</a></li><li><a href="https://www.reddit.com/r/FullMoviesDailyMotion/" ' + 'target="_blank">https://www.reddit.com/r/FullMoviesDailyMotion/</a></li><li><a href="https://www.reddit.com/r/FullTVshowsonYouTube" ' + 'target="_blank">https://www.reddit.com/r/FullTVshowsonYouTube</a></li><li><a href="https://www.reddit.com/r/fulltvshowsonvimeo" ' + 'target="_blank">https://www.reddit.com/r/fulltvshowsonvimeo</a></li><br /><li><a href="http://www.suggestmemovie.com/" ' + 'target="_blank">http://www.suggestmemovie.com/</a> (<i>random movie generator</i>)</li></ul><br />-CyTube only syncs videos from YouTube, GoogleDrive, ' + 'Vimeo, Dailymotion, TwitchTV, JustinTV, Livestream, UStream, RTMP Livestreams, JWPlayer, Imgur, direct link to video/audio files ' + '(Requires ffmpeg to be enabled on the server. Supported file types are webm, mp4 (h264), ogg/theora, ogg/vorbis, mp3). ' + 'Videos from elsewhere require an embed code to be pasted in the \'embed a custom frame\' section under the CyTube player ' + '(embedded videos will not sync between users).'],
-	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],
+	['Updates', '<ul><b>11/16</b><li>New commands: !nominatemovie, !nominatetv and !giphyt</li><li>New polling system</li><li>New giphy search window</li></ul>'],
+	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. The afk timer is set to 15 minutes. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to go afk. Select \'antiafk\' to prevent afk.</li></ul>'],
+	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
+	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://www.youtube.com/">YouTube</a></li></ul>'],
+	['About', '<center><b>Welcome to ChillTV:</b>  Have some chill. Please feel free to add to the playlist, voteskip, participate in polls, chat, etc. There are thousands of movies and TV shows in the video database! Feel free to nominate anything you want.</center><br /><center><font size="5"><b>Donate for all the awesome videos and code!</b></font><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"><input type="image" src="http://afghanistan-parsa.org/wp-content/uploads/2013/03/paypaldonatenow.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></center>'],
 ];
 
 AskAnswers_Array = [
@@ -95,7 +72,7 @@ SoundFilters_Array = {
 
 ModPanel_Array = [
 	['', '<span>COMMANDS:</span><br /><br /><ul><li><code>/m</code> - add rank color to your username</li><li><code>/clear</code> - clear chat for everyone</li><li><code>/d</code> - take a drink (people with leader can use this too, add a positive or negative number to add/subtract total drinks, e.g. <i>/d, /d4, /d-7</i>)</li><li><code>!next</code> - force skip to next video</li><li><code>!bump</code> - bump last item on playlist to next</li><li><code>!delete</code> - delete last item on playslist</li><li><code>!ytnext</code> - add the first result youtube video from your search term next on the playlist (e.g. <i>!ytnext fail compilation</i>)</li><li><code>!award</code> - award someone cash in case the bot didn\'t pick up on a misspelled or incomplete answer. DO NOT award cash for any other reason. DO NOT subtract cash for any reason but to fix a mistake you made when awarding it in the first place. (e.g. <i>!award 400 to ChillTVBot</i>)</li><li><code>!resettrivia</code> - If trivia stopped working, use this command to reset it. DO NOT use this to cheat and sift through questions you are able to win</li><li><code>!resetvideoadder</code> - the bot checks the playlist every 30 seconds and will add up to 3 videos if polling is off. If this seems broken, use this command to reset it</li><li><code>!refresh</code> - refresh the bot entirely</li><li><code>!title</code> - This changes the title that shows on the CyTube homepage as well as the tab of the channel. An argument of \'0\' erases the title. (e.g. <i>!title Marvel Marathon!</i> OR <i>!title 0</i>)</li></ul>'],
-	['', '<span>HOW TO:</span><br /><br /><ul><li> Click on a user\'s name to give/remove ' + 'leader, kick, mute, shadowmute (user does not know they are muted).</li><br /><li>Registered users or guests that are granted ' + 'leader will have control over the playlist, polls and drink calls. The moderator needs to make sure the playlist is open for the leader to manipulate the playlist. ' + 'This is useful for when people want to use the channel while there aren\'t any mods or admins available. See the \'Permissions\' tab to better understand.' + '</li><br /><li>To add or edit chat emotes, go to channel settings->edit->emotes. Paste a image url that ends in .jpg, .png, or .gif. ' + 'Give the image a name between two colons (:text:) or an emoticon shortcut. Make sure the emote name isn\'t already in use or you will ' + 'overwrite the existing emote.</li><br /><li>To temporarily insert to the playlist any website instead of media files, click ' + '"Embed a custom frame" button in the playlist controls section. Then paste example code to the text area: ' + '<i>&lt;iframe src="URL_of_your_page"&gt;&lt;/iframe&gt;</i>, and add.</li></ul>'],
+	['', '<span>HOW TO:</span><br /><br /><ul><li> Click on a user\'s name to give/remove leader, kick, mute, shadowmute (user does not know they are muted).</li><br /><li>Registered users or guests that are granted leader will have control over the playlist, polls and drink calls. The moderator needs to make sure the playlist is open for the leader to manipulate the playlist. This is useful for when people want to use the channel while there aren\'t any mods or admins available. See the \'Permissions\' tab to better understand.</li><br /><li>To add or edit chat emotes, go to channel settings->edit->emotes. Paste a image url that ends in .jpg, .png, or .gif. Give the image a name between two colons (:text:) or an emoticon shortcut. Make sure the emote name isn\'t already in use or you will overwrite the existing emote.</li><br /><li>To temporarily insert to the playlist any website instead of media files, click "Embed a custom frame" button in the playlist controls section. Then paste example code to the text area: <i>&lt;iframe src="URL_of_your_page"&gt;&lt;/iframe&gt;</i>, and add.</li></ul>'],
 	['', '<span>CONTACT:</span><br /><br /><ul><li>Benny91: Skype- bdpizzle21, Email- bdpaul91@gmail.com</li></ul>'],
 ];
 
@@ -107,9 +84,7 @@ CustomCaptions_Array = {
 	'emotelist': '<span class="glyphicon glyphicon-picture" />',
 };
 
-RulesBtn_HTML = '<ol><li>No discriminatory language or comments. You are to be warned/muted.</li>' + '<li>No pictures/vids of pornography or gore. Mods/Admins should type "/clear". You are to be warned/muted.</li>' + '<li>Do not spam the chat or playlist. You are to be warned/muted.</li>' + '<li>Use the spoiler tag "/sp" at the beginning of your message for spoilers. If you don\'t, you are to be warned/muted.</li>' + '<li>A repeated offense of the above four rules should result in a mute/kick. After that, a ban.' + ' Mods should contact an admin if there is a problem out of their control.</li>' + '<li>Use the "Volume" button to mute chat sounds. Voteskip is at a 50% ratio. The afk timer is set to 15 minutes. If you\'re afk, you aren\'t counted in voteskips. ' + 'Use "/afk" to go afk. Select \'antiafk\' to prevent afk.</li>' + '<li>Everyone is free to request something. If there is disagreement as to what should be watched, a mod/admin should start a poll.</li>' + '<li>Please check the Permissions tab to understand the ranking system.</li>' + '<li>Mods, please check the Moderator\'s Panel for extra info.</li></ol>';
-
-EmbeddingMedia_Images = 'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"], ' + 'a[href$=".tiff"], a[href$=".gif"]';
+EmbeddingMedia_Images = 'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"], a[href$=".tiff"], a[href$=".gif"]';
 
 EmbeddingMedia_Videos = 'a[href$=".webm"]';
 
@@ -295,7 +270,6 @@ function refreshPlayer() {
 	PLAYER.mediaType = "",
 	PLAYER.mediaId = "",
 	socket.emit("playerReady");
-	//showInfo();
 }
 
 function getText(html) {
@@ -764,12 +738,6 @@ function changeWelcomeText() {
 }
 
 function changeMOTD() {
-	rulesbtnwrap = $('<div id="rulesbtnwrap" />').appendTo("#motd");
-	rulesbtn = $('<button id="rules-btn" class="btn btn-default btn-sm" />').text(RulesBtn_Caption + ' ▸').appendTo(rulesbtnwrap).on("click", function() {
-		toggleDiv(rulespanel);
-	});
-	rulespanelouter = $('<div id="rulespanel-outer" />').appendTo("#motd");
-	rulespanel = $('<div id="rulespanel" style="display:none" />').html(RulesBtn_HTML).appendTo(rulespanelouter);
 	motdtabswrap = $('<center id="motdtabswrap" />').appendTo("#motd");
 	motdtabscontent = $('<div id="motdtabscontent">').appendTo("#motd");
 	for (var i in MOTDTabs_Array) {
@@ -839,7 +807,7 @@ function prepareMessage(msg) {
 			h < 10 ? h = '0' + h : '';
 			var m = new Date().getMinutes();
 			m < 10 ? m = '0' + m : '';
-			msg = '➥ ' + 'Current time: ' + h + ':' + m;
+			msg = '➥ Current time: ' + h + ':' + m;
 
 		} else if (msg.match(/(!dice)/)) {
 
@@ -871,19 +839,19 @@ function prepareMessage(msg) {
 		} else if (msg.match(/(!skip)/) && hasPermission("voteskip")) {
 
 			socket.emit("voteskip");
-			msg = '➥ ' + 'Current item voteskipped';
+			msg = '➥ Current item voteskipped';
 
 		} else if (msg.match(/(!next)/) && hasPermission("playlistjump")) {
 
 			socket.emit("playNext");
-			msg = '➥ ' + 'Started playing next item';
+			msg = '➥ Started playing next item';
 
 		} else if (msg.match(/(!delete)/) && hasPermission("playlistdelete")) {
 
 			len = $("#queue").children().length;
 			uid = $("#queue .queue_entry:nth-child(" + len + ")").data("uid");
 			socket.emit("delete", uid);
-			msg = '➥ ' + 'last item deleted.';
+			msg = '➥ last item deleted.';
 
 		} else if (msg.match(/(!bump)/) && hasPermission("playlistmove")) {
 
@@ -894,13 +862,13 @@ function prepareMessage(msg) {
 				from: uid,
 				after: PL_CURRENT
 			});
-			msg = '➥ ' + 'Last item bumped to next: ' + title;
+			msg = '➥ Last item bumped to next: ' + title;
 
 		} else if (msg.match(/(!add)/) && hasPermission("playlistadd")) {
 
 			parsed = parseMediaLink(msg.split("!add ")[1]);
 			if (parsed.id === null) {
-				msg = '➥ ' + 'Error: Wrong link.';
+				msg = '➥ Error: Wrong link.';
 			} else {
 				socket.emit("queue", {
 					id: parsed.id,
@@ -908,17 +876,17 @@ function prepareMessage(msg) {
 					type: parsed.type,
 					temp: $(".add-temp").prop("checked")
 				});
-				msg = '➥ ' + 'Video added to end.';
+				msg = '➥ Video added to end.';
 			}
 
 		} else if (msg.match(/(!now)/)) {
 
-			msg = '➥ ' + 'Now playing: ' + $("#currenttitle").html();
+			msg = '➥ Now playing: ' + $("#currenttitle").html();
 
 		} else if (msg.match(/(!party)/)) {
 
 			partyTime();
-			msg = '➥ ' + '[fs][f]PARTY TIME!!![/fs]';
+			msg = '➥ [fs][f]PARTY TIME!!![/fs]';
 
 		} else {
 			COMMAND = false;
@@ -1110,11 +1078,6 @@ function setUserCSS() {
 	+ '\n .motdtabs-btn {margin-right:1px}'
 	+ '\n #motdtabscontent {padding:1px 1px; color:rgb(127, 191, 255); background-color:#000000; background-color:black; background-color:rgba(0, 0, 0, 0)}'
 	+ '\n '
-	+ '\n #rules-btn {background-color:#B20000}'
-	+ '\n #rulesbtnwrap {text-align:center}'
-	+ '\n #rules-btn {margin-bottom:5px}'
-	+ '\n #rulespanel {border:solid 2px gray; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px}'
-	+ '\n '
 	+ '\n ol, ul {margin-bottom: 0}'
 	+ '\n '
 	+ '\n #attbarrow-outer {padding:0 5px}'
@@ -1212,7 +1175,7 @@ function showChatHelp() {
 		scrollChat();
 	});
 	body.append('<strong>Fonts/Effects Commands</strong><br /><br />');
-	html = '<li><code>↵ ENTER</code> - focus the chatline</li>' + '<li><code>[st]</code> - striked-through text</li><li><code>[bw]</code> - black text on white background</li><li><code>[t]</code> - trivia tag</li>' + '<li><code>[d]</code> - distinguished text (red on yelllow background)</li><li><code>[f]</code> - text with a fire effect</li>' + '<li><code>/me</code> - showing an action-style message (username does something, e.g. <i>/me is dancing</i>)</li>' + '<li><code>/sp</code> - hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)</li>' + '<li><code>/afk</code> - toggling your AFK (away from keyboard) status (<i>/afk</i>)</li>' + '<li><code>/say</code> - shout in large red text (e.g. <i>/say HELLO</i>)</li>' + '<li><code>/d</code> - take a drink (leader+ only, add a positive or negative number to add/subtract total drinks, e.g. <i>/d, /d4, /d-7</i>)</li>' + '<li><code>[fs]</code><i>text</i><code>[/fs]</code> - fast scrolling text (e.g. <i>[fs]Attention![/fs]</i>)</li>' + '<li><code>[ss]</code><i>text</i><code>[/ss]</code> - slow scrolling text (e.g. <i>[ss]hello there[/ss]</i>)</li><br />';
+	html = '<li><code>↵ ENTER</code> - focus the chatline</li><li><code>[st]</code> - striked-through text</li><li><code>[bw]</code> - black text on white background</li><li><code>[t]</code> - trivia tag</li><li><code>[d]</code> - distinguished text (red on yelllow background)</li><li><code>[f]</code> - text with a fire effect</li><li><code>/me</code> - showing an action-style message (username does something, e.g. <i>/me is dancing</i>)</li><li><code>/sp</code> - hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)</li><li><code>/afk</code> - toggling your AFK (away from keyboard) status (<i>/afk</i>)</li><li><code>/say</code> - shout in large red text (e.g. <i>/say HELLO</i>)</li><li><code>/d</code> - take a drink (leader+ only, add a positive or negative number to add/subtract total drinks, e.g. <i>/d, /d4, /d-7</i>)</li><li><code>[fs]</code><i>text</i><code>[/fs]</code> - fast scrolling text (e.g. <i>[fs]Attention![/fs]</i>)</li><li><code>[ss]</code><i>text</i><code>[/ss]</code> - slow scrolling text (e.g. <i>[ss]hello there[/ss]</i>)</li><br />';
 	$('<ul />').html(html).appendTo(body);
 	arr = {
 		'commands': 'get a list of all available commands',
@@ -1237,11 +1200,12 @@ function showChatHelp() {
 		ul.append('<li><code>!' + cmd + '</code> - ' + arr[cmd] + '</li>');
 	}
 	arr2 = {
-		'giphy': 'get a gif from giphy.com that matches your search term/s (e.g. <i>!giphy funny dance</i>)',
+		'giphy': 'get a random gif from giphy.com that matches your search term (e.g. <i>!giphy funny dance</i>)',
+		'giphyt': 'get a gif from giphy that translates your words into a gif with matching text (e.g. <i>!giphyt hello, how are you?</i>)',
 		'sticker': 'replaces your phrase/expression with a random giphy sticker search result (e.g. <i>!sticker i love you</i>)',
-		'movie': 'get a movie from omdbapi.com that matches your movie title, and optionally, the year in parentheses for movies with the same title ' + '(e.g. <i>!movie the avengers</i> OR <i>!movie the avengers (1942)</i> OR <i>!movie now</i>)',
-		'tv': 'get a series from omdbapi.com that matches your series title, and optionally, the year in parentheses for series with the same title ' + '(e.g. <i>!tv the office</i> OR <i>!tv the office (2001)</i> OR <i>!tv now</i>)',
-		'plot': 'get the plot of movie/series from omdbapi.com that matches your title, and optionally, the year in parentheses for movie/series with the same title ' + '(e.g. <i>!plot braveheart</i> OR <i>!plot braveheart (1925)</i> OR <i>!plot now</i>)',
+		'movie': 'get a movie from omdbapi.com that matches your movie title, and optionally, the year in parentheses for movies with the same title (e.g. <i>!movie the avengers</i> OR <i>!movie the avengers (1942)</i> OR <i>!movie now</i>)',
+		'tv': 'get a series from omdbapi.com that matches your series title, and optionally, the year in parentheses for series with the same title (e.g. <i>!tv the office</i> OR <i>!tv the office (2001)</i> OR <i>!tv now</i>)',
+		'plot': 'get the plot of movie/series from omdbapi.com that matches your title, and optionally, the year in parentheses for movie/series with the same title (e.g. <i>!plot braveheart</i> OR <i>!plot braveheart (1925)</i> OR <i>!plot now</i>)',
 		'define': 'define a word (e.g. <i>!define irony</i>)',
 		'urban': 'define a word with urban dictionary (e.g. <i>!urban stahp</i>)',
 		'yoda': 'your message is replaced using yoda\'s dialect (e.g. <i>!yoda i am a puppet</i>)',
@@ -1257,7 +1221,7 @@ function showChatHelp() {
 	html1 = '<li><code>!a</code> - answer a trivia question asked by the bot (e.g. <i>!a george washington</i>)</li><li><code>!bot</code> - say something to the bot and get a reply (e.g. <i>!bot hi, how are you</i>)</li><li><code>!poker</code> - start a round of Texas Hold\'em <u><a href="https://www.youtube.com/watch?v=cnm_V7A-G6c" target="_blank">Learn Texas Hold\'em in Less Than 4 Minutes!</a></u> (Some rules differ: High cards are shared, no sidepots, max bet/raise is the lowest balance, lowest balance bets first, blind is always $100, free $1000 buy-in for balances of $0) (e.g. <i>!poker</i>)</li><li><code>!total</code> - check the amount of cash you have or check how much someone else has (e.g. <i>!total</i> OR <i>!total ChillTVBot</i>)</li><li><code>!give</code> - give someone (currently online) any amount of your cash, optionally with a reason. (e.g. <i>!give 500 to ChillTVBot</i> OR <i>!give 500 to ChillTVBot for being my friend</i>)</li><li><code>!makeitrain</code> - give 0.5% of your cash divided evenly to all currently online active trivia players with a make-it-rain gif from giphy (e.g. <i>!makeitrain</i>)</li><li><code>!leaderboard</code> - View the trivia leaderboard (e.g. <i>!leaderboard</i>)</li><li><code>!nominatemovie</code> - Nominate a movie or movie marathon. Use the format "title (year)" or "title Marathon". (e.g. <i>!nominatemovie Batman (1989)</i> OR <i>!nominatemovie Alien Marathon</i>)</li><li><code>!nominatetv</code> - Nominate a tv episode or marathon. User the format "Title (Year(-)(Year)) S00E00(E00)(a/b/c)" (e.g. <i>!nominatetv 2 Stupid Dogs (1993–1995) S01E02a</i> OR <i>!nominatetv Game of Thrones (2011–) Marathon</i>)</li>';
 	$('<ul />').html(html1).appendTo(body);
 	body.append('<br /><strong>Sound Commands</strong><br /><br />');
-	html2 = '<li><code>:laugh:</code> | <code>:assandtitties:</code> | <code>:calmdown:</code> | <code>:gawddangitbobbeh:</code> | <code>:imoldgregg:</code> | ' + '<code>:poop:</code> | <code>:burp:</code> | <code>:mow:</code> | <code>:moo:</code></li>';
+	html2 = '<li><code>:laugh:</code> | <code>:assandtitties:</code> | <code>:calmdown:</code> | <code>:gawddangitbobbeh:</code> | <code>:imoldgregg:</code> | <code>:poop:</code> | <code>:burp:</code> | <code>:mow:</code> | <code>:moo:</code></li>';
 	$('<ul />').html(html2).appendTo(body);
 }
 
@@ -1344,7 +1308,7 @@ function showModPanel() {
 		if (namet === "") {
 			html += '<i class="glyphicon glyphicon-comment"></i> ' + mess + '<br /><br />';
 		} else if (namet == CLIENT.name) {
-			html += '<i class="glyphicon glyphicon-comment"></i> ' + '<i class="glyphicon glyphicon-user"></i> ' + '(to: ' + CLIENT.name + ') → ' + mess + '<br /><br />';
+			html += '<i class="glyphicon glyphicon-comment"></i> <i class="glyphicon glyphicon-user"></i> (to: ' + CLIENT.name + ') → ' + mess + '<br /><br />';
 		}
 	}
 	body.append(html);
@@ -1377,7 +1341,6 @@ function coverPlayer() {
 		.css({
 			'width': w,
 			'height': h + 'px',
-			'background-image': 'url(' + PlayerHiding_URL + ')',
 			'margin-top': '24px'
 		})
 		.appendTo($("#videowrap"));
@@ -1770,9 +1733,9 @@ $(document).ready(function() {
 text1 = 'Please use the "Personal Theme" selector by clicking Layout to select a theme for this channel. ';
 text2 = 'Please use the "Click to configure" button by clicking Layout to configure this channel. ';
 $("#us-theme").hide();
-$("#us-theme").parent().append('<p class="text-danger">' + text1 + '' + '</p>');
+$("#us-theme").parent().append('<p class="text-danger">' + text1 + '</p>');
 $("#us-layout").hide();
-$("#us-layout").parent().append('<p class="text-danger">' + text2 + '' + '</p>');
+$("#us-layout").parent().append('<p class="text-danger">' + text2 + '</p>');
 
 $("#useroptions .modal-footer button:nth-child(1)").on("click", function() {
 	USEROPTS.hidevid ? location.reload() : ''
@@ -1811,9 +1774,6 @@ function inba() {
 	BGCHANGE++;
 	BGCHANGE % 2 === 0 ? $("body").css('background-color', 'gold') : $("body").css('background-color', 'blue');
 }
-
-CHATSOUND = new Audio(CustomPingSound_URL);
-CHATSOUND.volume = 0.5;
 
 ANTIAFK = true;
 
@@ -1925,12 +1885,12 @@ Callbacks.queue = function(e) {
 }
 
 socket.emit("chatMsg", {
-	msg: '/me ' + JoinText_Message
+	msg: '/me spawned'
 });
 
 $(window).unload(function() {
 	socket.emit("chatMsg", {
-		msg: '/me ' + LeaveText_Message
+		msg: '/me dematerialized'
 	});
 });
 
@@ -2406,7 +2366,7 @@ FamilyArray = [
 	['ab', '<span style="font-family: \'Arial Black\',\'Arial Bold\',Gadget,sans-serif">abc</span>'],
 	['an', '<span style="font-family: \'Arial Narrow\',Arial,sans-serif">abc</span>'],
 	['fr', '<span style="font-family: \'Franklin Gothic Medium\',\'Franklin Gothic\',\'ITC Franklin Gothic\',Arial,sans-serif">abc</span>'],
-	['im', '<span style="font-family: Impact,Haettenschweiler,\'Franklin Gothic Bold\',Charcoal,\'Helvetica Inserat\',\'Bitstream Vera Sans Bold\',\'Arial Black\',' + '\'sans serif\'">abc</span>'],
+	['im', '<span style="font-family: Impact,Haettenschweiler,\'Franklin Gothic Bold\',Charcoal,\'Helvetica Inserat\',\'Bitstream Vera Sans Bold\',\'Arial Black\',\'sans serif\'">abc</span>'],
 	['lu', '<span style="font-family: \'Lucida Grande\',\'Lucida Sans Unicode\',\'Lucida Sans\',Geneva,Verdana,sans-serif">abc</span>'],
 	['ce', '<span style="font-family: \'Century Gothic\',CenturyGothic,AppleGothic,sans-serif">abc</span>'],
 	['rc', '<span style="font-family: Rockwell,\'Courier Bold\',Courier,Georgia,Times,\'Times New Roman\',serif">abc</span>'],
@@ -2602,8 +2562,8 @@ $('<div class="col-lg-12 col-md-12 embedname"><span id="embed-help"><u>Embeds[?]
 	.appendTo(embedform);
 embedwrap = $('<div id="embedwrap" class="col-lg-12 col-md-12" />').appendTo(embedform);
 $("#embed-help").on("click", function() {
-	txt = 'This option lets you see images or videos directly on the chat, instead of links.\n' + 'Click on image or double click on video to open in the new tab.\n\n' + 'This channel supports following types of links. Submit a link that ends in one of these:\n' + '■ Images - ';
-	(EmbeddingMedia_Images !== "") ? txt += '.jpg / .jpg:large / .jpeg / .JPG / .png / .tiff / .gif\n' + '--OR--\n' + 'End a link in .pic to automatically force it into a picture. Make it .pic.spl to cover it in a spoiler warning image.': 'none';
+	txt = 'This option lets you see images or videos directly on the chat, instead of links.\nClick on image or double click on video to open in the new tab.\n\nThis channel supports following types of links. Submit a link that ends in one of these:\n■ Images - ';
+	(EmbeddingMedia_Images !== "") ? txt += '.jpg / .jpg:large / .jpeg / .JPG / .png / .tiff / .gif\n--OR--\nEnd a link in .pic to automatically force it into a picture. Make it .pic.spl to cover it in a spoiler warning image.': 'none';
 	txt += '\n■ Videos - ';
 	(EmbeddingMedia_Videos !== "") ? txt += '.webm': 'none';
 	alert(txt);
@@ -2801,9 +2761,9 @@ function createMovieList() {
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		str = Movie_Array[i][0].replace(/'/g, "\\'");
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') {
-			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> ' + '<a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" ' + 'onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', ' + '\'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		} else {
-			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> ' + '<a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" ' + 'onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', ' + '\'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
 	$('<input id="mlistquery" type="text" placeholder="Search Movie, Year or Genre" maxlength="240" class="form-control" />').appendTo(body).keyup(function() {
@@ -3035,7 +2995,7 @@ function viewSeasons(stitle, syear, sseason, sposter, deps, eparray, sspl, ssfo,
 						});
 					}
 					sstri = stitle.replace(/'/g, "\\'");
-					$('<br /><center><table style="width:100%;"><tr><th style="width: 67px"><img style="width: 67px" src="' + sposter + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + sstri + ' (' + syear + ')' + '\')"> ' + stitle + ' (' + syear + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + sstri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px"></th></tr></table></th></tr></table></center>').appendTo("#listep");
+					$('<br /><center><table style="width:100%;"><tr><th style="width: 67px"><img style="width: 67px" src="' + sposter + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + sstri + ' (' + syear + ')\')"> ' + stitle + ' (' + syear + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + sstri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px"></th></tr></table></th></tr></table></center>').appendTo("#listep");
 					$('<br /><br /><div id="beforeall"><div id="addseason">Seasons:  </div></div>').appendTo("#listep");
 					nextseason = 'Seasons: ';
 				}
@@ -3122,7 +3082,7 @@ function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, spost
 											if (SAMESEASON) {
 												if (TV_Array[ne][0].indexOf('S' + eseason + 'E' + eepisode) === 0) {
 													str = TV_Array[ne][0].replace(/'/g, "\\'");
-													$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[ne][2] + '\', \'' + TV_Array[ne][3] + '\', \'' + TV_Array[ne][4] + '\', ' + '\'' + TV_Array[ne][5] + '\', \'' + TV_Array[ne][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
+													$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[ne][2] + '\', \'' + TV_Array[ne][3] + '\', \'' + TV_Array[ne][4] + '\', \'' + TV_Array[ne][5] + '\', \'' + TV_Array[ne][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
 													BREAKFREE = true;
 													break;
 												}
@@ -3174,7 +3134,7 @@ function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, spost
 								if (TV_Array[nex][0].indexOf('S' + sseason + 'E' + ep) === 0) {
 									str = TV_Array[nex][0].replace(/'/g, "\\'");
 									$('<br /><br /><span style="float:left;">S' + sseason + 'E' + ep + ' - N/A</span><span class="addorrequest" style="float:right;"></span><br /><span>N/A | N/A | IMDb Rating: N/A</span><br /><span>N/A</span>').appendTo($("#listep"));
-									$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[nex][2] + '\', \'' + TV_Array[nex][3] + '\', \'' + TV_Array[nex][4] + '\', ' + '\'' + TV_Array[nex][5] + '\', \'' + TV_Array[nex][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
+									$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[nex][2] + '\', \'' + TV_Array[nex][3] + '\', \'' + TV_Array[nex][4] + '\', \'' + TV_Array[nex][5] + '\', \'' + TV_Array[nex][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
 									BREAKFREE = true;
 									break;
 								}
@@ -3227,7 +3187,7 @@ function theList(som, pagenum, goback) {
 			$('<center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default backbutton"><<</button><span class="text-info trailertext"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default forwardbutton">>></button></center>').prependTo($("#listthem"));
 			for (var li = 0; li < thesearchresults.length; li++) {
 				stri = thesearchresults[li].Title.replace(/'/g, "\\'");
-				$("#listthem").append('<table style="width:100%;border-bottom: 1px solid white;border-top: 1px solid white;"><tr><th style="width: 67px"><img style="width: 67px" src="' + thesearchresults[li].Poster + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + stri + ' (' + thesearchresults[li].Year + ')' + '\')"> ' + thesearchresults[li].Title + ' (' + thesearchresults[li].Year + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + stri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px" class="addorrequest"></th></tr></table></th></tr></table>');
+				$("#listthem").append('<table style="width:100%;border-bottom: 1px solid white;border-top: 1px solid white;"><tr><th style="width: 67px"><img style="width: 67px" src="' + thesearchresults[li].Poster + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + stri + ' (' + thesearchresults[li].Year + ')\')"> ' + thesearchresults[li].Title + ' (' + thesearchresults[li].Year + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + stri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px" class="addorrequest"></th></tr></table></th></tr></table>');
 				if (thesearchresults[li].Type === 'movie') {
 					for (var aq = 0; aq < Movie_Array.length; aq++) {
 						moviechop = Movie_Array[aq][0].match(/ \([0-9][0-9][0-9][0-9]\)(.*)/)[1];
@@ -3238,7 +3198,7 @@ function theList(som, pagenum, goback) {
 						}
 						if (moviename.toLowerCase() === thesearchresults[li].Title.toLowerCase() + ' (' + thesearchresults[li].Year + ')') {
 							str = Movie_Array[aq][0];
-							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[aq][2] + '\', \'' + Movie_Array[aq][3] + '\', \'' + Movie_Array[aq][4] + '\', ' + '\'' + Movie_Array[aq][5] + '\', \'' + Movie_Array[aq][6] + '\', \'.movielist\', \'' + str + '\')">Add Movie</a>');
+							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[aq][2] + '\', \'' + Movie_Array[aq][3] + '\', \'' + Movie_Array[aq][4] + '\', \'' + Movie_Array[aq][5] + '\', \'' + Movie_Array[aq][6] + '\', \'.movielist\', \'' + str + '\')">Add Movie</a>');
 							break;
 						}
 						if (aq === Movie_Array.length - 1) {
@@ -3313,17 +3273,17 @@ function createTVList() {
 		str = TV_Array[tvi][0].replace(/'/g, "\\'");
 		if (TV_Array[tvi][2] !== undefined && TV_Array[tvi][2] !== 'Recently Added') {
 			if (RECENT) {
-				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" ' + 'onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', ' + '\'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', \'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			} else {
-				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" ' + 'onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', ' + '\'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', \'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			}
 		} else {
 			if (TV_Array[tvi][2] === 'Recently Added') {
 				RECENT = true;
-				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;' + 'border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> ' + '<a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> ' + '<span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 			} else {
 				RECENT = false;
-				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;' + 'border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> ' + '<a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> ' + '<span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 			}
 		}
 	}
@@ -3528,45 +3488,70 @@ function clickPic() {
 
 DONTSPAMGIPHY = true;
 
-function getGiphy() {
-	GForm = $('#giphy_query'), GContainer = $('#giphy_window');
-	GForm.on('submit', function(p_oEvent) {
-		if (DONTSPAMGIPHY) {
-			DONTSPAMGIPHY = false;
-			setTimeout(function() {
-				DONTSPAMGIPHY = true;
-			}, 1000);
-			p_oEvent.preventDefault();
-			$('.imagesearch').text('Searching...');
-			$('.giphyimage').show();
-			$(".gforwardbutton").prop('disabled', true);
-			$(".gbackbutton").prop('disabled', true);
-			$(".gbackbutton").off('click');
-			$(".gforwardbutton").off('click');
-			$('.giphyimage').find('img').each(function() {
-				$(this).attr('src', '');
-				$(this).attr('onclick', '');
-			});
-			giff = encodeURIComponent(GForm.find("#giphy_input").val());
-			$('#giphy_input').val('');
-			if ($("#gifs").prop('checked')) {
-				giftype = 'gifs';
+function getGiphy(p_oEvent) {
+	p_oEvent.preventDefault();
+	if (DONTSPAMGIPHY) {
+		DONTSPAMGIPHY = false;
+		setTimeout(function() {
+			DONTSPAMGIPHY = true;
+		}, 1000);
+		$('.imagesearch').text('Searching...');
+		$('#single').attr('src', '').attr('onclick', '').hide();
+		$('.giphyimage').hide();
+		$(".gforwardbutton").prop('disabled', true);
+		$(".gbackbutton").prop('disabled', true);
+		$(".gbackbutton").off('click');
+		$(".gforwardbutton").off('click');
+		$('.giphyimage').find('img').each(function() {
+			$(this).attr('src', '');
+			$(this).attr('onclick', '');
+		});
+		SINGLE = false;
+		giff = encodeURIComponent(GForm.find("#giphy_input").val());
+		$('#giphy_input').val('');
+		if ($("#gifs").prop('checked')) {
+			giftype = 'gifs';
+		} else {
+			giftype = 'stickers';
+		}
+		TRANSLATE = false;
+		RANDOM = false;
+		if (TRENDING) {
+			searchtype = 'trending?limit=100';
+		} else {
+			if ($("#search").prop('checked')) {
+				searchtype = 'search?q=' + giff + '&limit=100';
+			} else if ($("#translate").prop('checked')) {
+				searchtype = 'translate?s=' + giff;
+				SINGLE = true;
+				TRANSLATE = true;
 			} else {
-				giftype = 'stickers';
+				searchtype = 'random?tag=' + giff;
+				SINGLE = true;
+				RANDOM = true;
 			}
-			theurl = 'https://api.giphy.com/v1/' + giftype + '/search?q=' + giff + '&limit=100&api_key=dc6zaTOxFJmzC';
-			$.ajax({
-				url: theurl,
-				jsonp: 'callback',	
-				dataType: 'json',
-				success: function(data) {
-					$('.imagesearch').text('');
-					console.log(data);
-					imagedata = data.data;
-					if (imagedata !== undefined) {
-						//onclick="insertText(\'' + imageid + '.pic \');clickPic()" src="' + imageid + '"
+		}
+		theurl = 'https://api.giphy.com/v1/' + giftype + '/' + searchtype + '&api_key=dc6zaTOxFJmzC';
+		$.ajax({
+			url: theurl,
+			jsonp: 'callback',	
+			dataType: 'json',
+			success: function(data) {
+				$('.imagesearch').text('');
+				console.log(data);
+				imagedata = data.data;
+				if (imagedata !== undefined) {
+					//onclick="insertText(\'' + imageid + '.pic \');clickPic()" src="' + imageid + '"
+					if (SINGLE) {
+						if (TRANSLATE) {
+							$("#single").attr('src', imagedata.images.original.url).attr('onclick', 'insertText(\'' + imagedata.images.original.url + '.pic \');clickPic()').show();
+						} else {
+							$("#single").attr('src', imagedata.image_url).attr('onclick', 'insertText(\'' + imagedata.image_url + '.pic \');clickPic()').show();
+						}
+					} else {
 						offset = 0;
 						imagelength = imagedata.length
+						$('.giphyimage').show();
 						for (var gip = 0; gip < 25; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
@@ -3657,31 +3642,36 @@ function getGiphy() {
 							}
 							$(".gforwardbutton").prop('disabled', false);
 						});
-						GContainer.show();
-					} else {
-						GContainer.find('.giphyimage').text('Error: Not found. Check spelling.');
-						GContainer.show();
 					}
-				},
-				error: function(data) {
-					console.log(data);
-					GContainer.find('.giphyimage').text('Connection Error: Please refresh or try again later.');
+					GContainer.show();
+				} else {
+					$('.imagesearch').text('Error: Not found. Check spelling.');
 					GContainer.show();
 				}
-			});
-		}
-	});
+			},
+			error: function(data) {
+				console.log(data);
+				$('.imagesearch').text('Connection Error: Please refresh or try again later.');
+				GContainer.show();
+			}
+		});
+	}
 }
 
 function injectGiphy() {
-	createTemp('Search for a Random Gif from Giphy');
+	createTemp('Search for Gifs from Giphy');
 	body.append('<div id="giphy_wrap" class="form-group"><span id="giphy_search"></span></div>');
 	$('<div id="giphy_window" style="min-height:450px" class="col-lg-12 col-md-12 well">' +
-	  '<center><div >' +
+	  '<center><span style="float:left">' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="gifs" class="gifoption" value="no" checked> Gifs</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
-	  '</div></center>' +
+	  '</span><button class="btn btn-sm btn-default" id="trending">See What\'s Trending</button><span style="float:right">' +
+	  '<label class="checkbox-inline"><input type="checkbox" id="search" class="searchoption" value="no" checked> Search</label>' +
+	  '<label class="checkbox-inline"><input type="checkbox" id="translate" class="searchoption" value="no"> Translate</label>' +
+	  '<label class="checkbox-inline"><input type="checkbox" id="random" class="searchoption" value="no"> Random</label>' +
+	  '</span></center>' +
 	  '<div style="height:40px"><center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center></div>' +
+	  '<center><img id="single" style="cursor:pointer;max-width:500px;max-height:500px;display:none"/></center>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
 	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
@@ -3689,10 +3679,16 @@ function injectGiphy() {
 	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
 	  '</span></center></div>').appendTo("#giphy_wrap");
-	$("#giphy_search").html('<form id="giphy_query"><label style="display: block;"><input id="giphy_input" type="text" placeholder="Search GIPHY" style="" maxlength="240" ' + 'class="form-control"></input></label></form>');
+	$("#giphy_search").html('<form id="giphy_query"><label style="display: block;"><input id="giphy_input" type="text" placeholder="Search GIPHY" style="" maxlength="240" class="form-control"></input></label></form>');
 	$("#giphy_window").find('.gifoption').each(function() {
 		$(this).click(function() {
 			$('.gifoption').prop('checked', false);
+			$(this).prop('checked', true);
+		});
+	});
+	$("#giphy_window").find('.searchoption').each(function() {
+		$(this).click(function() {
+			$('.searchoption').prop('checked', false);
 			$(this).prop('checked', true);
 		});
 	});
@@ -3703,13 +3699,20 @@ function injectGiphy() {
 		unhidePlayer();
 		scrollChat();
 	});
-	getGiphy();
+	TRENDING = false;
+	$('#giphy_query').on('submit', function(p_oEvent) {
+		getGiphy(p_oEvent);
+	});
+	$('#trending').click(function(p_oEvent) {
+		TRENDING = true;
+		getGiphy(p_oEvent);
+	});
 }
 
 function injectIMDB() {
 	createTemp('Search for Movie/TV Info');
 	body.append('<div id="imdb_wrap" class="form-group"><span id="imdb_search"></span></div>');
-	$('<div id="imdb_window" class="col-lg-12 col-md-12 well"><table style="width:100%;" class="movieposter"></table><h6 class="movieinfo"></h6><p1 class="movieplot"></p1><br /><br /><p2 class="moviecast"></p2><br /><br />' + '<p3 class="movieother"></p3><br /><br /><p4 class="plink"></p4><a class="imdblink"></a><br /><br /><h6 class="rtinfo"></h6><p1 class="rtplot"></p1><br /><br /><p2 class="rtcast"></p2><br /><br /><a class="rtlink"></a><div id="listthem"></div><div id="listep"></div></div>').appendTo("#imdb_wrap");
+	$('<div id="imdb_window" class="col-lg-12 col-md-12 well"><table style="width:100%;" class="movieposter"></table><h6 class="movieinfo"></h6><p1 class="movieplot"></p1><br /><br /><p2 class="moviecast"></p2><br /><br /><p3 class="movieother"></p3><br /><br /><p4 class="plink"></p4><a class="imdblink"></a><br /><br /><h6 class="rtinfo"></h6><p1 class="rtplot"></p1><br /><br /><p2 class="rtcast"></p2><br /><br /><a class="rtlink"></a><div id="listthem"></div><div id="listep"></div></div>').appendTo("#imdb_wrap");
 	$("#imdb_search").html('<form id="imdb_query" type="text"><label style="display: block;float: left;width: 50%;" ><input id="movie_input" type="text" placeholder="Title" style="" maxlength="240" class="form-control"></input></label></form><form id="imdb_query2" type="text"><label style="display: block;float: right;width: 50%;" ><input id="movie_input2" type="text" placeholder="Year (Optional)" style="" maxlength="240" class="form-control"></input></label></form>');
 	outer.attr('id', 'moviemodal');
 	$("body").css('overflow', 'hidden');
@@ -4125,7 +4128,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				}
 				getYouTube('', search, posi, mtext);
 			}
-			if (msg.match(/(\!giphy\s)/)) {
+			if (msg.match(/!giphy /)) {
 				term = encodeURIComponent(msg.split('!giphy ')[1]);
 				theurl = 'https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
@@ -4134,6 +4137,32 @@ $("#chatline").on("keydown", function(ev, e) {
 					dataType: 'jsonp',
 					success: function(data) {
 						imageid = data.data.image_url
+						if (imageid !== undefined) {
+							socket.emit("chatMsg", {
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + imageid
+							});
+						} else {
+							socket.emit("chatMsg", {
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.'
+							});
+						}
+					},
+					error: function(data) {
+						socket.emit("chatMsg", {
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+						});
+					}
+				});
+			}
+			if (msg.match(/!giphyt /)) {
+				term = encodeURIComponent(msg.split('!giphyt ')[1]);
+				theurl = 'https://api.giphy.com/v1/gifs/translate?s=' + term + '&api_key=dc6zaTOxFJmzC';
+				$.ajax({
+					url: theurl,
+					jsonp: 'callback',	
+					dataType: 'jsonp',
+					success: function(data) {
+						imageid = data.data.images.original.url;
 						if (imageid !== undefined) {
 							socket.emit("chatMsg", {
 								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + imageid
@@ -4514,7 +4543,7 @@ $("#menubtn").click(function() {
 		MOTDYES = true;
 		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
 	} else {
-		$("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default');
+		$("#menubtn").text("Info").removeClass('btn-success').addClass('btn-default');
 		$("#motd").hide();
 		MOTDYES = false;
 		setOpt(CHANNEL.name + "_motdyes", MOTDYES);
