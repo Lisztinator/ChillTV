@@ -3608,7 +3608,7 @@ function getGiphy() {
 								}
 								if (fgip === 24) {
 									offset += fgip + 1;
-									if (imagelength + 25 > offset) {
+									if (imagelength > offset) {
 										$(".gforwardbutton").prop('disabled', false);
 									} else {
 										$(".gforwardbutton").prop('disabled', true);
