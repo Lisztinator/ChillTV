@@ -3538,6 +3538,7 @@ function getGiphy() {
 			}, 250);
 			p_oEvent.preventDefault();
 			$('.imagesearch').text('Searching...');
+			$('.giphyimage').show();
 			giff = encodeURIComponent(GForm.find("#giphy_input").val());
 			if ($("#gifs").prop('checked')) {
 				giftype = 'gifs';
@@ -3560,37 +3561,52 @@ function getGiphy() {
 						for (var gip = 0; gip < 25; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
-								$('.giphyimage').find('img').eq(gip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', imageurl);
+								if (imagedata[gip].images.fixed_width_small === '100') {
+									fixed = imagedata[gip].images.fixed_width_small;
+								} else {
+									fixed = imagedata[gip].images.fixed_height_small;
+								}
+								$('.giphyimage').find('img').eq(gip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 							}
 							if (gip === 24) {
 								offset += gip + 1;
 								if (imagelength > offset) {
-									$("#gforwardbutton").prop('disabled', false);
+									$(".gforwardbutton").prop('disabled', false);
 								}
 							}
 						}
-						$("#gforwardbutton").click(function() {
+						$(".gforwardbutton").click(function() {
 							for (var fgip = 0; fgip < 25; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
-									imageurl = imagedata[fgip + offset].images.original.url;
-									$('.giphyimage').find('img').eq(fgip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', imageurl);
+									imageurl = imagedata[fgip + offset].images.original.url;	
+									if (imagedata[fgip].images.fixed_width_small === '100') {
+										fixed = imagedata[fgip].images.fixed_width_small;
+									} else {
+										fixed = imagedata[fgip].images.fixed_height_small;
+									}
+									$('.giphyimage').find('img').eq(fgip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
 								if (fgip === 24) {
 									offset += fgip + 1;
 									if (imagelength > offset) {
-										$("#gforwardbutton").prop('disabled', false);
+										$(".gforwardbutton").prop('disabled', false);
 									} else {
-										$("#gforwardbutton").prop('disabled', true);
+										$(".gforwardbutton").prop('disabled', true);
 									}
 								}
 							}
-							$("gbackbutton").prop('disabled', true);
+							$("gbackbutton").prop('disabled', false);
 						});
 						$("#gbackbutton").click(function() {
 							for (var ggip = 0; ggip < 25; ggip++) {
 								if (imagedata[ggip + offset - 50] !== undefined) {
 									imageurl = imagedata[ggip + offset - 50].images.original.url;
-									$('.giphyimage').find('img').eq(ggip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', imageurl);
+									if (imagedata[ggip].images.fixed_width_small === '100') {
+										fixed = imagedata[ggip].images.fixed_width_small;
+									} else {
+										fixed = imagedata[ggip].images.fixed_height_small;
+									}
+									$('.giphyimage').find('img').eq(ggip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
 								if (ggip === 24) {
 									offset -= ggip + 1;
@@ -3601,7 +3617,7 @@ function getGiphy() {
 									}
 								}
 							}
-							$("gforwardbutton").prop('disabled', true);
+							$(".gforwardbutton").prop('disabled', false);
 						});
 						GContainer.show();
 					} else {
@@ -3627,13 +3643,13 @@ function injectGiphy() {
 	  '<label class="checkbox-inline"><input type="checkbox" id="gifs" class="gifoption" value="no" checked> Gifs</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
 	  '</div></center>' +
-	  '<center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center>' +
+	  '<div style="height:40px"><center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center></div>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
-	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
 	  '</span></center></div>').appendTo("#giphy_wrap");
 	$("#giphy_search").html('<form id="giphy_query"><label style="display: block;"><input id="giphy_input" type="text" placeholder="Search GIPHY" style="" maxlength="240" ' + 'class="form-control"></input></label></form>');
 	$("#giphy_window").find('.gifoption').each(function() {
