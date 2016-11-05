@@ -3595,9 +3595,9 @@ function getGiphy() {
 									}
 								}
 							}
-							$("gbackbutton").prop('disabled', false);
+							$(".gbackbutton").prop('disabled', false);
 						});
-						$("#gbackbutton").click(function() {
+						$(".gbackbutton").click(function() {
 							for (var ggip = 0; ggip < 25; ggip++) {
 								if (imagedata[ggip + offset - 50] !== undefined) {
 									imageurl = imagedata[ggip + offset - 50].images.original.url;
@@ -3611,9 +3611,9 @@ function getGiphy() {
 								if (ggip === 24) {
 									offset -= ggip + 1;
 									if (offset > 0) {
-										$("#gbackbutton").prop('disabled', false);
+										$(".gbackbutton").prop('disabled', false);
 									} else {
-										$("#gbackbutton").prop('disabled', true);
+										$(".gbackbutton").prop('disabled', true);
 									}
 								}
 							}
