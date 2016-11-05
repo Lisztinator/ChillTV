@@ -3541,6 +3541,8 @@ function getGiphy() {
 			$('.giphyimage').show();
 			$(".gforwardbutton").prop('disabled', true);
 			$(".gbackbutton").prop('disabled', true);
+			$(".gbackbutton").off('click');
+			$(".gforwardbutton").off('click');
 			$('.giphyimage').find('img').each(function() {
 				$(this).attr('src', '');
 				$(this).attr('onclick', '');
