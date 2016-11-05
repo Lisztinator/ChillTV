@@ -3696,8 +3696,8 @@ function injectGiphy() {
 		unhidePlayer();
 		scrollChat();
 	});
-	TRENDING = false;
 	$('#giphy_query').on('submit', function(p_oEvent) {
+		TRENDING = false;
 		getGiphy(p_oEvent);
 	});
 	$('#trending').click(function(p_oEvent) {
