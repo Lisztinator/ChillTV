@@ -3662,11 +3662,11 @@ function injectGiphy() {
 	  '<center><span style="float:left">' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="gifs" class="gifoption" value="no" checked> Gifs</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
-	  '</span><button class="btn btn-sm btn-default" id="trending">See What\'s Trending</button><span style="float:right">' +
+	  '</span><span>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="search" class="searchoption" value="no" checked> Search</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="translate" class="searchoption" value="no"> Translate</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="random" class="searchoption" value="no"> Random</label>' +
-	  '</span></center>' +
+	  '</span><button style="float:right" class="btn btn-sm btn-default" id="trending">Trending</button></center>' +
 	  '<div style="height:40px"><center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center></div>' +
 	  '<center><img id="single" style="cursor:pointer;max-width:500px;max-height:500px;display:none"/></center>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
@@ -3697,6 +3697,9 @@ function injectGiphy() {
 		scrollChat();
 	});
 	$('#giphy_query').on('submit', function(p_oEvent) {
+		if ($('#giphy_input').val() === '') {
+			return;
+		}
 		TRENDING = false;
 		getGiphy(p_oEvent);
 	});
