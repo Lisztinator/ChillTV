@@ -3535,7 +3535,7 @@ function getGiphy() {
 			DONTSPAMGIPHY = false;
 			setTimeout(function() {
 				DONTSPAMGIPHY = true;
-			}, 250);
+			}, 1000);
 			p_oEvent.preventDefault();
 			$('.imagesearch').text('Searching...');
 			$('.giphyimage').show();
@@ -3591,6 +3591,10 @@ function getGiphy() {
 							}
 						}
 						$(".gforwardbutton").click(function() {
+							$('.giphyimage').find('img').each(function() {
+								$(this).attr('src', '');
+								$(this).attr('onclick', '');
+							});
 							for (var fgip = 0; fgip < 25; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
 									imageurl = imagedata[fgip + offset].images.original.url;	
@@ -3620,6 +3624,10 @@ function getGiphy() {
 							$(".gbackbutton").prop('disabled', false);
 						});
 						$(".gbackbutton").click(function() {
+							$('.giphyimage').find('img').each(function() {
+								$(this).attr('src', '');
+								$(this).attr('onclick', '');
+							});
 							for (var ggip = 0; ggip < 25; ggip++) {
 								if (imagedata[ggip + offset - 50] !== undefined) {
 									imageurl = imagedata[ggip + offset - 50].images.original.url;
