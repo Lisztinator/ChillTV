@@ -3537,7 +3537,7 @@ function getGiphy() {
 				DONTSPAMGIPHY = true;
 			}, 250);
 			p_oEvent.preventDefault();
-			$('.giphyimage').html('<center><span class="text-info">Searching. Please wait...</span></center>').show();
+			$('.giphyimage').text('Searching...').show();
 			giff = encodeURIComponent(GForm.find("#giphy_input").val());
 			if ($("#gifs").prop('checked')) {
 				giftype = 'gifs';
@@ -3550,6 +3550,7 @@ function getGiphy() {
 				jsonp: 'callback',	
 				dataType: 'json',
 				success: function(data) {
+					$('.giphyimage').text('');
 					console.log(data);
 					imagedata = data.data;
 					if (imagedata !== undefined) {
@@ -3627,13 +3628,13 @@ function injectGiphy() {
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
 	  '</div></center>' +
 	  '<center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center>' +
-	  '<div style="max-height:420px;display:none" class="giphyimage">' +
+	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
-	  '</div></div>').appendTo("#giphy_wrap");
+	  '</span></center></div>').appendTo("#giphy_wrap");
 	$("#giphy_search").html('<form id="giphy_query"><label style="display: block;"><input id="giphy_input" type="text" placeholder="Search GIPHY" style="" maxlength="240" ' + 'class="form-control"></input></label></form>');
 	$("#giphy_window").find('.gifoption').each(function() {
 		$(this).click(function() {
