@@ -3537,7 +3537,7 @@ function getGiphy() {
 				DONTSPAMGIPHY = true;
 			}, 250);
 			p_oEvent.preventDefault();
-			$('.giphyimage').text('Searching...').show();
+			$('.imagesearch').text('Searching...');
 			giff = encodeURIComponent(GForm.find("#giphy_input").val());
 			if ($("#gifs").prop('checked')) {
 				giftype = 'gifs';
@@ -3550,7 +3550,7 @@ function getGiphy() {
 				jsonp: 'callback',	
 				dataType: 'json',
 				success: function(data) {
-					$('.giphyimage').text('');
+					$('.imagesearch').text('');
 					console.log(data);
 					imagedata = data.data;
 					if (imagedata !== undefined) {
@@ -3627,7 +3627,7 @@ function injectGiphy() {
 	  '<label class="checkbox-inline"><input type="checkbox" id="gifs" class="gifoption" value="no" checked> Gifs</label>' +
 	  '<label class="checkbox-inline"><input type="checkbox" id="stickers" class="gifoption" value="no"> Stickers</label>' +
 	  '</div></center>' +
-	  '<center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center>' +
+	  '<center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
 	  '<center><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/><img style="cursor:pointer;max-width:103px;max-height:103px"/></center>' +
