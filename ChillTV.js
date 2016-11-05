@@ -361,7 +361,7 @@ cbox = $('<input type="checkbox" id="hide-motd" value="no" >')
 		MAINMENU = !MAINMENU;
 		setOpt(CHANNEL.name + "_mainmenu", MAINMENU);
 	});
-cbox.after(' Main Menu');
+cbox.after(' Info');
 !MAINMENU ? $("#motdrow").hide() && cbox.prop('checked', 'true') : '';
 
 hideann = $('<label class="checkbox-inline" />').appendTo(hidewrap);
@@ -4550,7 +4550,7 @@ $("#menubtn").click(function() {
 		setOpt(CHANNEL.name + "_updatehash", UPHASH);
 	}
 });
-!MOTDYES ? $("#motd").css("display", "none") && $("#menubtn").text("Main Menu").removeClass('btn-success').addClass('btn-default') : '';
+!MOTDYES ? $("#motd").css("display", "none") && $("#menubtn").text("Info").removeClass('btn-success').addClass('btn-default') : '';
 
 function fullscreenMode() {
 	$("#chatheader > span.label").each(function() {
