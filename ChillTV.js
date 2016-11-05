@@ -3507,7 +3507,7 @@ function getGiphy(p_oEvent) {
 			$(this).attr('onclick', '');
 		});
 		SINGLE = false;
-		giff = encodeURIComponent(GForm.find("#giphy_input").val());
+		giff = encodeURIComponent($("#giphy_input").val());
 		$('#giphy_input').val('');
 		if ($("#gifs").prop('checked')) {
 			giftype = 'gifs';
@@ -3643,16 +3643,13 @@ function getGiphy(p_oEvent) {
 							$(".gforwardbutton").prop('disabled', false);
 						});
 					}
-					GContainer.show();
 				} else {
 					$('.imagesearch').text('Error: Not found. Check spelling.');
-					GContainer.show();
 				}
 			},
 			error: function(data) {
 				console.log(data);
 				$('.imagesearch').text('Connection Error: Please refresh or try again later.');
-				GContainer.show();
 			}
 		});
 	}
