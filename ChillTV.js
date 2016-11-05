@@ -4157,7 +4157,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				$.ajax({
 					url: theurl,
 					jsonp: 'callback',	
-					dataType: 'jsonp',
+					dataType: 'json',
 					success: function(data) {
 						imageid = data.data.images.original.url;
 						if (imageid !== undefined) {
