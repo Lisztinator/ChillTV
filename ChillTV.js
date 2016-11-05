@@ -3561,10 +3561,10 @@ function getGiphy() {
 						for (var gip = 0; gip < 25; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
-								if (imagedata[gip].images.fixed_width_small === '100') {
-									fixed = imagedata[gip].images.fixed_width_small;
+								if (imagedata[gip].images.fixed_width_small.width === '100') {
+									fixed = imagedata[gip].images.fixed_width_small.url;
 								} else {
-									fixed = imagedata[gip].images.fixed_height_small;
+									fixed = imagedata[gip].images.fixed_height_small.url;
 								}
 								$('.giphyimage').find('img').eq(gip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 							}
@@ -3579,10 +3579,10 @@ function getGiphy() {
 							for (var fgip = 0; fgip < 25; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
 									imageurl = imagedata[fgip + offset].images.original.url;	
-									if (imagedata[fgip].images.fixed_width_small === '100') {
-										fixed = imagedata[fgip].images.fixed_width_small;
+									if (imagedata[fgip].images.fixed_width_small.width === '100') {
+										fixed = imagedata[fgip].images.fixed_width_small.url;
 									} else {
-										fixed = imagedata[fgip].images.fixed_height_small;
+										fixed = imagedata[fgip].images.fixed_height_small.url;
 									}
 									$('.giphyimage').find('img').eq(fgip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
@@ -3601,10 +3601,10 @@ function getGiphy() {
 							for (var ggip = 0; ggip < 25; ggip++) {
 								if (imagedata[ggip + offset - 50] !== undefined) {
 									imageurl = imagedata[ggip + offset - 50].images.original.url;
-									if (imagedata[ggip].images.fixed_width_small === '100') {
-										fixed = imagedata[ggip].images.fixed_width_small;
+									if (imagedata[ggip].images.fixed_width_small.width === '100') {
+										fixed = imagedata[ggip].images.fixed_width_small.url;
 									} else {
-										fixed = imagedata[ggip].images.fixed_height_small;
+										fixed = imagedata[ggip].images.fixed_height_small.url;
 									}
 									$('.giphyimage').find('img').eq(ggip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
