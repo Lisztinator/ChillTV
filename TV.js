@@ -4108,7 +4108,7 @@ TV_Array = [
 ['Snorks (1984–1988)', 'Animation, Family'],
 ['S01E01', '', '0B5YgPyDSXwgWQ3hQMnNaZWVheWs'],
 ['S01E02', '', '0B5YgPyDSXwgWY0IwNjg2clJ4Wjg'],
-['South Park (1997–)', 'Animation, Comedy', 'Recently Added'],
+['South Park (1997–)', 'Animation, Comedy'],
 ['S00E01', '', '0B9hOhGLF4ciPVUViSUZWdnhkSXM'],
 ['S00E02', '', '0B9hOhGLF4ciPUjM2ZHpsYi1JMEE'],
 ['S00E03', '', '0B9hOhGLF4ciPMTZCSlZmQTFKaWc'],
