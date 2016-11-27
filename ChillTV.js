@@ -1201,7 +1201,6 @@ function showChatHelp() {
 	}
 	arr2 = {
 		'giphy': 'get a random gif from giphy.com that matches your search term (e.g. <i>!giphy funny dance</i>)',
-		'giphyt': 'get a gif from giphy that translates your words into a gif with matching text (e.g. <i>!giphyt hello, how are you?</i>)',
 		'sticker': 'replaces your phrase/expression with a random giphy sticker search result (e.g. <i>!sticker i love you</i>)',
 		'movie': 'get a movie from omdbapi.com that matches your movie title, and optionally, the year in parentheses for movies with the same title (e.g. <i>!movie the avengers</i> OR <i>!movie the avengers (1942)</i> OR <i>!movie now</i>)',
 		'tv': 'get a series from omdbapi.com that matches your series title, and optionally, the year in parentheses for series with the same title (e.g. <i>!tv the office</i> OR <i>!tv the office (2001)</i> OR <i>!tv now</i>)',
@@ -4158,7 +4157,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				});
 			}*/
 			if (msg.match(/!giphy /)) {
-				term = encodeURIComponent(msg.split('!giphyt ')[1]);
+				term = encodeURIComponent(msg.split('!giphy ')[1]);
 				theurl = 'https://api.giphy.com/v1/gifs/translate?s=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
 					url: theurl,
