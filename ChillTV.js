@@ -3517,10 +3517,10 @@ function getGiphy(p_oEvent) {
 		TRANSLATE = false;
 		RANDOM = false;
 		if (TRENDING) {
-			searchtype = 'trending?limit=100';
+			searchtype = 'trending?limit=99';
 		} else {
 			if ($("#search").prop('checked')) {
-				searchtype = 'search?q=' + giff + '&limit=100';
+				searchtype = 'search?q=' + giff + '&limit=99';
 			} else if ($("#translate").prop('checked')) {
 				searchtype = 'translate?s=' + giff;
 				SINGLE = true;
@@ -3550,26 +3550,27 @@ function getGiphy(p_oEvent) {
 						}
 					} else {
 						offset = 0;
-						imagelength = imagedata.length
+						imagelength = imagedata.length;
 						$('.giphyimage').show();
-						for (var gip = 0; gip < 25; gip++) {
+						for (var gip = 0; gip < 9; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
-								if (imagedata[gip].images.fixed_width_small.width === '100' && parseInt(imagedata[gip].images.fixed_height_small.height) <= 100) {
-									fixed = imagedata[gip].images.fixed_width_small.url;
+								if (imagedata[gip].images.fixed_width.width === '200' && parseInt(imagedata[gip].images.fixed_height.height) <= 200) {
+									fixed = imagedata[gip].images.fixed_width.url;
 								} else {
-									fixed = imagedata[gip].images.fixed_height_small.url;
+									fixed = imagedata[gip].images.fixed_height.url;
 								}
 								if (fixed === '') {
-									if (imagedata[gip].images.fixed_width.width === '200' && parseInt(imagedata[gip].images.fixed_height.height) <= 200) {
+									fixed = imagedata[gip].images.original.url;
+									/*if (imagedata[gip].images.fixed_width.width === '200' && parseInt(imagedata[gip].images.fixed_height.height) <= 200) {
 										fixed = imagedata[gip].images.fixed_width.url;
 									} else {
 										fixed = imagedata[gip].images.fixed_height.url;
-									}
+									}*/
 								}
 								$('.giphyimage').find('img').eq(gip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 							}
-							if (gip === 24) {
+							if (gip === 8) {
 								offset += gip + 1;
 								if (imagelength > offset) {
 									$(".gforwardbutton").prop('disabled', false);
@@ -3581,24 +3582,25 @@ function getGiphy(p_oEvent) {
 								$(this).attr('src', '');
 								$(this).attr('onclick', '');
 							});
-							for (var fgip = 0; fgip < 25; fgip++) {
+							for (var fgip = 0; fgip < 9; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
 									imageurl = imagedata[fgip + offset].images.original.url;	
-									if (imagedata[fgip + offset].images.fixed_width_small.width === '100' && parseInt(imagedata[fgip + offset].images.fixed_height_small.height) <= 100) {
-										fixed = imagedata[fgip + offset].images.fixed_width_small.url;
+									if (imagedata[fgip + offset].images.fixed_width.width === '200' && parseInt(imagedata[fgip + offset].images.fixed_height.height) <= 200) {
+										fixed = imagedata[fgip + offset].images.fixed_width.url;
 									} else {
-										fixed = imagedata[fgip + offset].images.fixed_height_small.url;
+										fixed = imagedata[fgip + offset].images.fixed_height.url;
 									}
 									if (fixed === '') {
-										if (imagedata[fgip + offset].images.fixed_width.width === '200' && parseInt(imagedata[fgip + offset].images.fixed_height.height) <= 200) {
+										fixed = imagedata[gip].images.original.url;
+										/*if (imagedata[fgip + offset].images.fixed_width.width === '200' && parseInt(imagedata[fgip + offset].images.fixed_height.height) <= 200) {
 											fixed = imagedata[fgip + offset].images.fixed_width.url;
 										} else {
 											fixed = imagedata[fgip + offset].images.fixed_height.url;
-										}
+										}*/
 									}
 									$('.giphyimage').find('img').eq(fgip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
-								if (fgip === 24) {
+								if (fgip === 8) {
 									offset += fgip + 1;
 									if (imagelength > offset) {
 										$(".gforwardbutton").prop('disabled', false);
@@ -3614,26 +3616,27 @@ function getGiphy(p_oEvent) {
 								$(this).attr('src', '');
 								$(this).attr('onclick', '');
 							});
-							for (var ggip = 0; ggip < 25; ggip++) {
-								if (imagedata[ggip + offset - 50] !== undefined) {
-									imageurl = imagedata[ggip + offset - 50].images.original.url;
-									if (imagedata[ggip + offset - 50].images.fixed_width_small.width === '100' && parseInt(imagedata[ggip + offset - 50].images.fixed_height_small.height) <= 100) {
-										fixed = imagedata[ggip + offset - 50].images.fixed_width_small.url;
+							for (var ggip = 0; ggip < 9; ggip++) {
+								if (imagedata[ggip + offset - 18] !== undefined) {
+									imageurl = imagedata[ggip + offset - 18].images.original.url;
+									if (imagedata[ggip + offset - 18].images.fixed_width.width === '200' && parseInt(imagedata[ggip + offset - 18].images.fixed_height.height) <= 200) {
+										fixed = imagedata[ggip + offset - 18].images.fixed_width.url;
 									} else {
-										fixed = imagedata[ggip + offset - 50].images.fixed_height_small.url;
+										fixed = imagedata[ggip + offset - 18].images.fixed_height.url;
 									}
 									if (fixed === '') {
-										if (imagedata[ggip + offset - 50].images.fixed_width.width === '200' && parseInt(imagedata[ggip + offset - 50].images.fixed_height.height) <= 200) {
-											fixed = imagedata[ggip + offset - 50].images.fixed_width.url;
+										fixed = imagedata[ggip + offset - 18].images.original.url;
+										/*if (imagedata[ggip + offset - 18].images.fixed_width.width === '200' && parseInt(imagedata[ggip + offset - 18].images.fixed_height.height) <= 200) {
+											fixed = imagedata[ggip + offset - 18].images.fixed_width.url;
 										} else {
-											fixed = imagedata[ggip + offset - 50].images.fixed_height.url;
-										}
+											fixed = imagedata[ggip + offset - 18].images.fixed_height.url;
+										}*/
 									}
 									$('.giphyimage').find('img').eq(ggip).attr('onclick', 'insertText(\'' + imageurl + '.pic \');clickPic()').attr('src', fixed);
 								}
-								if (ggip === 24) {
+								if (ggip === 8) {
 									offset -= ggip + 1;
-									if (offset > 25) {
+									if (offset > 9) {
 										$(".gbackbutton").prop('disabled', false);
 									} else {
 										$(".gbackbutton").prop('disabled', true);
@@ -3670,11 +3673,11 @@ function injectGiphy() {
 	  '<div style="height:40px"><center><button style="float:left;margin:5px 0 5px 0;" class="btn btn-sm btn-default gbackbutton" disabled><<</button><span class="text-info imagesearch"></span><button style="float:right;margin:5px 0 5px 0;" class="btn btn-sm btn-default gforwardbutton" disabled>>></button></center></div>' +
 	  '<center><img id="single" style="cursor:pointer;max-width:500px;max-height:500px;display:none"/></center>' +
 	  '<center><span style="max-height:420px;display:none" class="giphyimage">' +
-	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
-	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/><img style="cursor:pointer;max-width:172px;max-height:172px"/></center>' +
+	  /*'<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +
+	  '<center><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/><img style="cursor:pointer;max-width:100px;max-height:100px"/></center>' +*/
 	  '</span></center></div>').appendTo("#giphy_wrap");
 	$("#giphy_search").html('<form id="giphy_query"><label style="display: block;"><input id="giphy_input" type="text" placeholder="Search GIPHY" style="" maxlength="240" class="form-control"></input></label></form>');
 	$("#giphy_window").find('.gifoption').each(function() {
@@ -4128,7 +4131,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				}
 				getYouTube('', search, posi, mtext);
 			}
-			if (msg.match(/!giphy /)) {
+			/*if (msg.match(/!giphy /)) {
 				term = encodeURIComponent(msg.split('!giphy ')[1]);
 				theurl = 'https://api.giphy.com/v1/gifs/random?q=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
@@ -4153,8 +4156,8 @@ $("#chatline").on("keydown", function(ev, e) {
 						});
 					}
 				});
-			}
-			if (msg.match(/!giphyt /)) {
+			}*/
+			if (msg.match(/!giphy /)) {
 				term = encodeURIComponent(msg.split('!giphyt ')[1]);
 				theurl = 'https://api.giphy.com/v1/gifs/translate?s=' + term + '&api_key=dc6zaTOxFJmzC';
 				$.ajax({
