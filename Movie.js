@@ -656,7 +656,7 @@ Movie_Array = [
 ['Death Race (2008) Unrated', 'Action, Sci-Fi, Thriller', '0Bwjx3gpy0_MwaWMyLVIzNkJoX0E'],
 ['Death Sentence (2007)', 'Action, Crime, Thriller', '0B9hOhGLF4ciPV0lGVm10ZjFxVGc', '0B9hOhGLF4ciPbldqTVV1V1YxU28'],
 ['Deathgasm (2015)', 'Comedy, Horror', '0B_F_V9jIQXymMnMxekowVVc2cWc'],
-['Deck the Halls (2006)', 'Comedy, Family', '0B6a8GL2kUm9EMkxzUVJzZHpTaUk'],
+['Deck the Halls (2006)', 'Christmas, Comedy, Family', '0B6a8GL2kUm9EMkxzUVJzZHpTaUk'],
 ['Deep Red (1975)', 'Horror, Mystery, Thriller', '0B4ImsDopq4_FbjZPWW1pMWJxS1E'],
 ['Deep Rising (1998)', 'Action, Adventure, Horror', '0B4ImsDopq4_FclViX2toeEVrYlk'],
 ['Deep Web (2015)', 'Documentary', '0Bwjx3gpy0_MwNUJndTJVSlRYOEE'],
