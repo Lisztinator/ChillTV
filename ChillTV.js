@@ -3506,7 +3506,8 @@ function getGiphy(p_oEvent) {
 			$(this).attr('onclick', '');
 		});
 		SINGLE = false;
-		giff = encodeURIComponent($("#giphy_input").val());
+		gifterm = $("#giphy_input").val();
+		giff = encodeURIComponent(gifterm);
 		$('#giphy_input').val('');
 		if ($("#gifs").prop('checked')) {
 			giftype = 'gifs';
@@ -3536,12 +3537,12 @@ function getGiphy(p_oEvent) {
 			jsonp: 'callback',	
 			dataType: 'json',
 			success: function(data) {
-				$('.imagesearch').text('');
 				console.log(data);
 				imagedata = data.data;
 				if (imagedata !== undefined) {
 					//onclick="insertText(\'' + imageid + '.pic \');clickPic()" src="' + imageid + '"
 					if (SINGLE) {
+					$('.imagesearch').text('"' + gifterm + '"');
 						if (TRANSLATE) {
 							$("#single").attr('src', imagedata.images.original.url).attr('onclick', 'insertText(\'' + imagedata.images.original.url + '.pic \');clickPic()').show();
 						} else {
@@ -3551,6 +3552,7 @@ function getGiphy(p_oEvent) {
 						offset = 0;
 						imagelength = imagedata.length;
 						$('.giphyimage').show();
+						$('.imagesearch').text('Showing "' + gifterm + '" 1-9 of 99');
 						for (var gip = 0; gip < 9; gip++) {
 							if (imagedata[gip] !== undefined) {
 								imageurl = imagedata[gip].images.original.url;
@@ -3581,6 +3583,7 @@ function getGiphy(p_oEvent) {
 								$(this).attr('src', '');
 								$(this).attr('onclick', '');
 							});
+							$('.imagesearch').text('Showing "' + gifterm + '" ' + offset + '-' + (offset + 9) + ' of 99');
 							for (var fgip = 0; fgip < 9; fgip++) {
 								if (imagedata[fgip + offset] !== undefined) {
 									imageurl = imagedata[fgip + offset].images.original.url;	
@@ -3615,6 +3618,7 @@ function getGiphy(p_oEvent) {
 								$(this).attr('src', '');
 								$(this).attr('onclick', '');
 							});
+							$('.imagesearch').text('Showing "' + gifterm + '" ' + (offset - 9) + '-' + (offset - 18) + ' of 99');
 							for (var ggip = 0; ggip < 9; ggip++) {
 								if (imagedata[ggip + offset - 18] !== undefined) {
 									imageurl = imagedata[ggip + offset - 18].images.original.url;
