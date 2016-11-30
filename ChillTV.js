@@ -959,6 +959,9 @@ function toggleMuteBtn() {
 	if (MUTED && PLAYER) {
 		mutePlayer();
 		$("#muteplayer-btn").addClass('btn-danger').attr('title', 'Unmute player');
+	} else if (PLAYER) {
+		unmutePlayer();
+		$("#muteplayer-btn").removeClass('btn-danger').attr('title', 'Mute player');
 	}
 }
 
