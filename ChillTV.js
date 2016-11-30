@@ -956,6 +956,7 @@ function unmutePlayer() {
 }
 
 function toggleMuteBtn() {
+	clearInterval(MUTEBTN);
 	if (MUTED && PLAYER) {
 		mutePlayer();
 		$("#muteplayer-btn").addClass('btn-danger').attr('title', 'Unmute player');
@@ -2204,11 +2205,10 @@ muteplayerbtn = $('<button id="muteplayer-btn" class="btn btn-sm btn-default" ti
 		}
 	});
 
+
 MUTEBTN = setInterval(function() {
 	if (PLAYER) {
 		toggleMuteBtn();
-	} else {
-		clearInterval(MUTEBTN);
 	}
 }, 100);
 
