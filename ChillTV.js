@@ -4664,17 +4664,19 @@ function patchEpisodeNames(i) {
 				holiday = '';
 			}
 			datatitle = data.Title;
-			if (TV_Array[i][0].match(/E\d{2}[a-c]/)) {
-				letter = TV_Array[i][0].match(/E\d{2}([a-c])/)[1];
-				datatitle = datatitle.split('/');
-				if (letter === 'a') {
-					datatitle = datatitle[0];
-				}
-				if (letter === 'b') {
-					datatitle = datatitle[1];
-				}
-				if (letter === 'c') {
-					datatitle = datatitle[2];
+			if (datatitle !== undefined) {
+				if (TV_Array[i][0].match(/E\d{2}[a-c]/)) {
+					letter = TV_Array[i][0].match(/E\d{2}([a-c])/)[1];
+					datatitle = datatitle.split('/');
+					if (letter === 'a') {
+						datatitle = datatitle[0];
+					}
+					if (letter === 'b') {
+						datatitle = datatitle[1];
+					}
+					if (letter === 'c') {
+						datatitle = datatitle[2];
+					}
 				}
 			}
 			epName = TV_Array[i][0].split(' - Christmas')[0].split(' - Halloween')[0] + ' - ' + datatitle + holiday;
