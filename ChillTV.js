@@ -4654,7 +4654,7 @@ function patchEpisodeNames(i) {
 			return patchEpisodeNames(i + 1);
 		}
 	}
-	$.ajax('http://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode, {
+	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode, {
 		success: function(data) {
 			if (TV_Array[i][0].match(/ - Christmas$/)) {
 				holiday = ' - Christmas';
