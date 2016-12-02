@@ -4614,10 +4614,87 @@ function unfullscreenMode() {
 	SOUNDSPANEL ? setPanelProperties($("#sounds-dropdown")) : '';
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
-/*
+
 setTimeout(function() {
 if (CLIENT.name === 'Benny91') {
 newList = [];
+function patchEpisodeNames(i) {
+	if (TV_Array[i] === undefined {
+		newHtml = 'TV_Array = [<br/>';
+	    	for (var nl = 0; nl< newList.length; nl++) {
+			newHtml += newList[nl] + '],<br/>';
+		}
+		$('#channeloptions > div.modal-dialog > div > div.modal-footer').append('<div/>').html(newHtml + '];');
+		console.log(newHtml);
+		return;
+	}
+	if (TV_Array[i][2] === undefined) {
+		title = encodeURIComponent(TV_Array[i][0].split(/ \(\d{4}/)[0]);
+		if (TV_Array[i][0].match(/\(\d{4}/)) {
+			year = encodeURIComponent(TV_Array[i][0].match(/\((\d{4})/)[1]);
+		} else {
+			year = '';
+		}
+		newRow = ['[\'' + TV_Array[i][0].replace("'", "\\'") + '\'', ' \'' + TV_Array[i][1] + '\''];
+		for (var ID = 2; ID < TV_Array[i].length; ID++) {
+			newRow.push(' \'' + TV_Array[i][ID] + '\'');
+		}
+		newList.push(newRow);
+		return patchEpisodeNames(i + 1);
+	} else {
+		if (TV_Array[i][0].match(/^S\d{2}E\d{2}/)) {
+			season = encodeURIComponent(TV_Array[i][0].match(/^S(\d{2})/)[1]);
+			episode = encodeURIComponent(TV_Array[i][0].match(/^S\d{2}E(\d{2})/)[1]);
+		} else {
+			newRow = ['[\'' + TV_Array[i][0].replace("'", "\\'") + '\'', ' \'' + TV_Array[i][1] + '\''];
+			for (var ID = 2; ID < TV_Array[i].length; ID++) {
+				newRow.push(' \'' + TV_Array[i][ID] + '\'');
+			}
+			newList.push(newRow);
+			return patchEpisodeNames(i + 1);
+		}
+	}
+	$.ajax('http://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode, {
+		success: function(data) {
+			if (TV_Array[i][0].match(/ - Christmas$/)) {
+				holiday = ' - Christmas';
+			} else if (TV_Array[i][0].match(/ - Halloween$/)) {
+				holiday = ' - Halloween';
+			} else {
+				holiday = '';
+			}
+			datatitle = data.Title;
+			if (TV_Array[i][0].match(/E\d{2}[a-c]/)) {
+				letter = TV_Array[i][0].match(/E\d{2}([a-c])/)[1];
+				datatitle = datatitle.split('/');
+				if (letter === 'a') {
+					datatitle = datatitle[0];
+				}
+				if (letter === 'b') {
+					datatitle = datatitle[1];
+				}
+				if (letter === 'c') {
+					datatitle = datatitle[2];
+				}
+			}
+			epName = TV_Array[i][0].split(' - Christmas')[0].split(' - Halloween')[0] + ' - ' + datatitle + holiday;
+		},
+		error: function(data) {
+			console.log('error ' + i);
+			epName = TV_Array[i][0];
+		},
+		complete: function(data) {
+			newRow = ['[\'' + epName + '\'', ' \'' + TV_Array[i][1] + '\''];
+			for (var ID = 2; ID < TV_Array[i].length; ID++) {
+				newRow.push(' \'' + TV_Array[i][ID] + '\'');
+			}
+			newList.push(newRow);
+			return patchEpisodeNames(i + 1);
+		}
+	});
+}
+patchEpisodeNames(0);
+/*newList = [];
 function patchGenres(i) {
 	if (Movie_Array[i] === undefined) {
 		newHtml = 'Movie_Array = [<br/>';
@@ -4654,10 +4731,10 @@ function patchGenres(i) {
 		}
 	});
 }
-patchGenres(0);
+patchGenres(0);*/
 }
 }, 20000);
-*/
+
 FIXHEIGHT = setInterval(function() {
 	if (!FULLSCREEN) {
 		fullscreenMode();
