@@ -270,7 +270,7 @@ Movie_Array = [
 ['Bad Moms (2016)', 'Comedy', '0B_F_V9jIQXymbFc0emlieUtPMmM'],
 ['Bad Santa (2003)', 'Comedy, Crime, Drama', '0B_F_V9jIQXymMkIxeWdOTDFWY1U'],
 ['Bad Taste (1987)', 'Comedy, Horror, Sci-Fi', '0B4ImsDopq4_FYlFONlpGUHNjTjA'],
-['Bad Teacher (2011)', 'Comedy', '0B-2NF_QuwswCZzQ2d25EOEhuVmc'],
+['Bad Teacher (2011) Unrated', 'Comedy', '0B-2NF_QuwswCZzQ2d25EOEhuVmc'],
 ['Bait (2012)', 'Action, Horror, Sci-Fi', '0Bwjx3gpy0_MwS3VEbnJyXzZTeEE'],
 ['Balto (1995)', 'Animation, Adventure, Drama', '0Bwjx3gpy0_MwTGxXQlgwYm03eEE'],
 ['La Bamba (1987)', 'Biography, Drama, Music', '0B4ImsDopq4_FekJFd29PMnlvME0'],
