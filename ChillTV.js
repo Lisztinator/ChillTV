@@ -4619,7 +4619,7 @@ setTimeout(function() {
 if (CLIENT.name === 'Benny91') {
 newList = [];
 function patchEpisodeNames(i) {
-	if (TV_Array[i] === undefined {
+	if (TV_Array[i] === undefined) {
 		newHtml = 'TV_Array = [<br/>';
 	    	for (var nl = 0; nl< newList.length; nl++) {
 			newHtml += newList[nl] + '],<br/>';
