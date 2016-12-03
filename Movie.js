@@ -2436,6 +2436,7 @@ Movie_Array = [
 ['Teenage Mutant Ninja Turtles: Out of the Shadows (2016)', 'Action, Adventure, Comedy', '0B_F_V9jIQXymS1RjeEZxMU9FaW8'],
 ['Teeth (2007)', 'Comedy, Fantasy, Horror', '0B4ImsDopq4_FVXlmNG0wQ2ppTXc'],
 ['Tekkonkinkreet (2006)', 'Animation, Action, Adventure', '0B_F_V9jIQXymcEEyOXpvQ3ZvRW8'],
+['Tenacious D in The Pick of Destiny (2006)', 'Adventure, Comedy, Music', '0B_F_V9jIQXymUWRVN3JoUUFoSTA', 'Recently Added'],
 ['Tenebre (1982)', 'Horror, Mystery, Thriller', '0B4ImsDopq4_FMW9teXJoSGtjQW8'],
 ['The Terminal (2004)', 'Comedy, Drama, Romance', '0Bwjx3gpy0_MwN2RBV20zRDUtLVU'],
 ['The Terminator (1984)', 'Action, Sci-Fi', '0B9hOhGLF4ciPMDdRaGhsZWFwNzA', '0B9hOhGLF4ciPZlFRNDU1RGlUT1U'],
