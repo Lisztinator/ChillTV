@@ -322,7 +322,7 @@ Movie_Array = [
 ['Beauty and the Beast: The Enchanted Christmas (1997)', 'Christmas, Animation, Family, Fantasy', '0B6a8GL2kUm9EWmtKdHNCbDN0T2M'],
 ['Beauty Day (2011)', 'Documentary', '0Bwjx3gpy0_MwVE50VnpoWmd5ZDQ'],
 ['Beep, Beep (1952)', 'Animation, Family, Short', '0BxJ5655JUkdiYi02WFo1M3ZyZlU'],
-['Beerfest (2006)', 'Comedy', '0Bwjx3gpy0_MwOHJlQl9mbVNoUVk'],
+['Beerfest (2006) Unrated', 'Comedy', '0Bwjx3gpy0_MwOHJlQl9mbVNoUVk'],
 ['Beetlejuice (1988)', 'Halloween, Comedy, Fantasy', '0B_F_V9jIQXymczA5Y1FYVjZxS3M'],
 ['Before Midnight (2013)', 'Drama, Romance', '0B9hOhGLF4ciPU09femkwTTE5YjA', '0B9hOhGLF4ciPTndmeE1XSDQtekk'],
 ['Before Sunset (2004)', 'Drama, Romance', '0B9hOhGLF4ciPUnFGeUV6UUxuZTQ', '0B9hOhGLF4ciPRThWcnZyTXlMWGs'],
