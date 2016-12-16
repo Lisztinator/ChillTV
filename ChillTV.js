@@ -1761,7 +1761,13 @@ if (CustomCaptions_Array.emotelist !== "") {
 	$("#emotelistbtn").html(CustomCaptions_Array.emotelist);
 }
 if (CustomCaptions_Array.voteskip !== "") {
-	socket.on("voteskip", changeSkipText);
+	socket.on("voteskip", function() {
+		socket.off("voteskip");
+		changeSkipText();
+		setTimeout(function() {
+			socket.on("voteskip");
+		}, 500);
+	});
 	changeSkipText();
 }
 if (CustomCaptions_Array.welcome !== "") {
