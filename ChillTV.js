@@ -1762,10 +1762,11 @@ if (CustomCaptions_Array.emotelist !== "") {
 }
 if (CustomCaptions_Array.voteskip !== "") {
 	socket.on("voteskip", function() {
-		socket.off("voteskip");
+		$('#voteskip').attr('disable', true);
 		changeSkipText();
+		$('#voteskip').attr('disable', true);
 		setTimeout(function() {
-			socket.on("voteskip");
+			$('#voteskip').attr('disable', false);
 		}, 500);
 	});
 	changeSkipText();
