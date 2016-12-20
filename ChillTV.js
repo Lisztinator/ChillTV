@@ -437,7 +437,6 @@ cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</bu
 	});
 
 function createModal(title) {
-	hidePlayer();
 	outer = $('<div id="modalfade" class="modal fade" />').appendTo($("body"));
 	modal = $('<div class="modal-dialog modal-dialog-nonfluid" />').appendTo(outer);
 	modal = $('<div class="modal-content" />').appendTo(modal);
@@ -448,7 +447,6 @@ function createModal(title) {
 	footer = $('<div class="modal-footer" />').appendTo(modal);
 	outer.on("hidden.bs.modal", function() {
 		outer.hide();
-		unhidePlayer();
 		if (modesel.val() === "syMode") {
 			setTimeout(function() {
 				$("#videowrap").length > 0 ? fitChat("normal") : '';
@@ -460,7 +458,6 @@ function createModal(title) {
 }
 
 function createTemp(title) {
-	hidePlayer();
 	outer = $('<div class="modal fade" />').appendTo($("body"));
 	modal = $('<div class="modal-dialog modal-dialog-nonfluid" />').appendTo(outer);
 	modal = $('<div class="modal-content" />').appendTo(modal);
@@ -471,7 +468,6 @@ function createTemp(title) {
 	footer = $('<div class="modal-footer" />').appendTo(modal);
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
-		unhidePlayer();
 		scrollChat();
 	});
 	outer.modal();
@@ -1175,7 +1171,6 @@ function showChatHelp() {
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	body.append('<strong>Fonts/Effects Commands</strong><br /><br />');
@@ -1301,7 +1296,6 @@ function showModPanel() {
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	html = '';
@@ -1365,7 +1359,6 @@ function displayConfigPanel() {
 		$("#layoutmodal").on("hidden.bs.modal", function() {
 			$("#layoutmodal").hide();
 			$("body").css('overflow', 'auto');
-			unhidePlayer();
 			if (modesel.val() === "syMode") {
 				setTimeout(function() {
 					scrollChat();
@@ -1375,12 +1368,10 @@ function displayConfigPanel() {
 		body.append(configwrap);
 		FLUID ? $("#fluid-layout").prop('checked', 'true') : '';
 	} else {
-		hidePlayer();
 		$("#layoutmodal").show();
 		$("#layoutmodal").children().show();
 		$("#layoutmodal").on("hidden.bs.modal", function() {
 			$("#layoutmodal").hide();
-			unhidePlayer();
 			if (modesel.val() === "syMode") {
 				setTimeout(function() {
 					scrollChat();
@@ -1423,10 +1414,8 @@ function showConfig() {
 					'overflow-y': 'auto'
 				})
 				$("body").css('overflow', 'hidden');
-				hidePlayer();
 			} else {
 				$("body").css('overflow', 'auto');
-				unhidePlayer();
 			}
 			$("#config").hide();
 			scrollChat();
@@ -1622,12 +1611,10 @@ function showConfig() {
 			}
 		});
 	} else {
-		hidePlayer();
 		$("#config").show();
 		$("#config").children().show();
 		$("#config").on("hidden.bs.modal", function() {
 			$("#config").hide();
-			unhidePlayer();
 			if (modesel.val() === "syMode") {
 				setTimeout(function() {
 					fitChat("normal")
@@ -1995,7 +1982,6 @@ $('<button id="chatave-btn" class="btn btn-sm btn-default" title="Secret Key Inp
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	$('<input id="secretkey" type="text" placeholder="Paste Secret Key and Press Enter" maxlength="240" style="margin-top:20px" class="form-control" />').appendTo(body).keydown(function(ev) {
@@ -2259,7 +2245,6 @@ function showWebm() {
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	$('<input id="chavatarquery" type="text" placeholder="Paste Image Url and Press Enter" maxlength="240" style="margin-top:20px" class="form-control" />').keydown(function(ev) {
@@ -2635,7 +2620,6 @@ function getPlaylistURLs() {
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	$(".queue_active").next().children("a").attr('href');
@@ -2762,7 +2746,6 @@ function createMovieList() {
 		MOVLIST = false;
 		$("#mlistmodal").remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	var i, len, text;
@@ -3272,7 +3255,6 @@ function createTVList() {
 		TVLIST = false;
 		$("#tvlistmodal").remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	text = '';
@@ -3713,7 +3695,6 @@ function injectGiphy() {
 	outer.on("hidden.bs.modal", function() {
 		outer.remove();
 		$("body").css('overflow', 'auto');
-		unhidePlayer();
 		scrollChat();
 	});
 	$('#giphy_query').on('submit', function(p_oEvent) {
@@ -3750,10 +3731,8 @@ function injectIMDB() {
 				'overflow-y': 'auto'
 			})
 			$("body").css('overflow', 'hidden');
-			hidePlayer();
 		} else {
 			$("body").css('overflow', 'auto');
-			unhidePlayer();
 		}
 		$("#moviemodal").remove();
 		scrollChat();
