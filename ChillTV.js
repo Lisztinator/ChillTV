@@ -4415,9 +4415,11 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 			contentType: 'application/json',
 			dataType: 'json',
 			success: function(data) {
+				console.log(data);
 				ACTO = data.access_token;
 			},
 			error: function(data) {
+				console.log(data);
 				if (SECRETKEY.length === 0) {
 					$('.trailertext').text('Ask Benny91 for the secret key.');
 				} else {
@@ -4437,8 +4439,11 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 						"type": "anyone",
 						"withLink": true
 					}),
-					success: function(data) {},
+					success: function(data) {
+						console.log(data);
+					},
 					error: function(data) {
+						console.log(data);
 						$('.trailertext').text('Error: Permission request failed. Please notify Benny91 of this error.');
 						CAREFUL = true;
 						CHECKITOUT = false;
