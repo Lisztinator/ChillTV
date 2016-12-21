@@ -1340,7 +1340,7 @@ Movie_Array = [
 ['It\'s Kind of a Funny Story (2010)', 'Comedy, Drama, Romance', '0B9hOhGLF4ciPanp5Mkc2RjMwTHc', '0B9hOhGLF4ciPaWU3cU12M1kwQms'],
 ['The Italian Job (2003)', 'Action, Crime, Thriller', '0B9hOhGLF4ciPVEtzTUJuVzBoRzQ', '0B9hOhGLF4ciPMFZSSmhNcFBQVXc'],
 ['J.S.A.: Joint Security Area (2000)', 'Drama, Thriller, War', '0B4ImsDopq4_FdHJJSXZkRWtDOGM'],
-['Jack Frost (1979)', 'Animation, Family, Fantasy', '0B6a8GL2kUm9EejRkSllPWXVMdUU'],
+['Jack Frost (1979)', 'Christmas, Animation, Family, Fantasy', '0B6a8GL2kUm9EejRkSllPWXVMdUU'],
 ['Jack Frost (1998)', 'Comedy, Drama, Family', '0B6a8GL2kUm9EU1Z3Ny1DN3hQMzQ'],
 ['Jack Reacher (2012)', 'Action, Crime, Mystery', '0Bwjx3gpy0_MwTmgwWUotNGN0Ykk'],
 ['Jack-Jack Attack (2005)', 'Animation, Short, Adventure', '0B9hOhGLF4ciPN1RMSXY4X3R0YW8'],
