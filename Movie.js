@@ -68,7 +68,7 @@ Marathon_List = [
 ['Star Wars Traditional Order Marathon', 'Star Wars: Episode IV - A New Hope (1977) Despecialized', 'Star Wars: Episode V - The Empire Strikes Back (1980) Despecialized', 'Star Wars: Episode VI - Return of the Jedi (1983) Despecialized', 'Star Wars: Episode I - The Phantom Menace (1999)', 'Star Wars: Episode II - Attack of the Clones (2002)', 'Star Wars: Episode III - Revenge of the Sith (2005)', 'Star Wars: The Force Awakens (2015)'],
 ['Superman Marathon', 'Superman (1978)', 'Superman II (2006) The Richard Donner Cut', 'Superman III (1983)', 'Superman IV: The Quest for Peace (1987)', 'Superman Returns (2006)'],
 ['Taken Marathon', 'Taken (2008)', 'Taken 2 (2012)', 'Taken 3 (2014)'],
-['Terminator Marathon', 'The Terminator (1984)', 'Terminator 2: Judgment Day (1991) Skynet Edition', 'Terminator 3: Rise of the Machines (2003)', 'Terminator: Salvation (2009) Director\'s Cut', 'Terminator Genisys (2015)'],
+['Terminator Marathon', 'The Terminator (1984)', 'Terminator 2: Judgment Day (1991) Director\'s Cut', 'Terminator 3: Rise of the Machines (2003)', 'Terminator: Salvation (2009) Director\'s Cut', 'Terminator Genisys (2015)'],
 ['Transformers Marathon', 'Transformers (2007)', 'Transformers: Revenge of the Fallen (2009)', 'Transformers: Dark of the Moon (2011)', 'Transformers: Age of Extinction (2014)'],
 ['Toy Story Marathon', 'Toy Story (1995)', 'Toy Story 2 (1999)', 'Toy Story 3 (2010)'],
 ['Twilight Marathon', 'Twilight (2008)', 'The Twilight Saga: New Moon (2009)', 'The Twilight Saga: Eclipse (2010)', 'The Twilight Saga: Breaking Dawn - Part 1 (2011)', 'The Twilight Saga: Breaking Dawn - Part 2 (2012)'],
