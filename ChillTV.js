@@ -4376,6 +4376,7 @@ function getYouTube(element, term, position, text, random, nextpage) {
 	}
 }
 
+if (CLIENT.name === 'Benny91') {
 function changeNames(tvIndex, idIndex) {
 	if (tvIndex[idIndex] !== undefined && tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].indexOf(' - ') > -1) {
 		/*$.ajax({
@@ -4440,6 +4441,7 @@ function changeNames(tvIndex, idIndex) {
 }
 tvIn = 0;
 changeNames(TV_Array[tvIn], 2);
+}
 
 var CAREFUL = true
 var CHECKITOUT = false;
