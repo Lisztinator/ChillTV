@@ -4377,70 +4377,72 @@ function getYouTube(element, term, position, text, random, nextpage) {
 }
 
 if (CLIENT.name === 'Benny91') {
-function changeNames(tvIndex, idIndex) {
-	if (tvIndex[idIndex] !== undefined && tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].indexOf(' - ') > -1) {
-		/*$.ajax({
-			url: 'https://www.googleapis.com/oauth2/v3/token?client_id=989762828175-kjf3580c9t3q3lp8c7npl2kpjfgchmkd.apps.googleusercontent.com&client_secret='+SECRETKEY+'&refresh_token=1/MN569YlPLnR4u0n0bj56T5ttKCizY8gg5vL-IziEldFIgOrJDtdun6zK6XiATCKT&grant_type=refresh_token',
-			type: 'POST',
-			contentType: 'application/json',
-			dataType: 'json',
-			success: function(data) {
-				console.log(data);
-				ACTO = data.access_token;
-			},
-			error: function(data) {
-				console.log(data);
-			},
-			complete: function(data) {*/
-		$.ajax({//GET https://www.googleapis.com/drive/v3/files/0B_F_V9jIQXymbGgxbXdXdDRLTlE?key={YOUR_API_KEY}
-			url: 'https://www.googleapis.com/drive/v3/files/' + tvIndex[idIndex] + '?key=AIzaSyDZFbr1bSEEpmXfjKUbLz-CB6D7QOF3Mck',
-			type: 'GET',
-			contentType: 'application/json',
-			dataType: 'json',
-			success: function(data) {
-				console.log(data);
-				tvName = data.name;
-				fileType = tvName.match(/\..{2,4}$/);
-				fileName = tvName.split(/\..{2,4}$/)[0];
-			},
-			error: function(data) {
-				console.log(data);
-			},
-			complete: function(data) {
-				$.ajax({//PATCH https://www.googleapis.com/drive/v3/files/0B_F_V9jIQXymbGgxbXdXdDRLTlE?key={YOUR_API_KEY}
-					url: 'https://www.googleapis.com/drive/v3/files/' + tvIndex[idIndex] +  + '?key=AIzaSyDZFbr1bSEEpmXfjKUbLz-CB6D7QOF3Mck',
-					type: 'PATCH',
+	setTimeout(function() {
+		function changeNames(tvIndex, idIndex) {
+			if (tvIndex[idIndex] !== undefined && tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].indexOf(' - ') > -1) {
+				/*$.ajax({
+					url: 'https://www.googleapis.com/oauth2/v3/token?client_id=989762828175-kjf3580c9t3q3lp8c7npl2kpjfgchmkd.apps.googleusercontent.com&client_secret='+SECRETKEY+'&refresh_token=1/MN569YlPLnR4u0n0bj56T5ttKCizY8gg5vL-IziEldFIgOrJDtdun6zK6XiATCKT&grant_type=refresh_token',
+					type: 'POST',
 					contentType: 'application/json',
 					dataType: 'json',
-					data: JSON.stringify({
-						"name": fileName + ' - ' + tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].split(' - ')[1] + fileType
-					}),
 					success: function(data) {
 						console.log(data);
+						ACTO = data.access_token;
+					},
+					error: function(data) {
+						console.log(data);
+					},
+					complete: function(data) {*/
+				$.ajax({//GET https://www.googleapis.com/drive/v3/files/0B_F_V9jIQXymbGgxbXdXdDRLTlE?key={YOUR_API_KEY}
+					url: 'https://www.googleapis.com/drive/v3/files/' + tvIndex[idIndex] + '?key=AIzaSyDZFbr1bSEEpmXfjKUbLz-CB6D7QOF3Mck',
+					type: 'GET',
+					contentType: 'application/json',
+					dataType: 'json',
+					success: function(data) {
+						console.log(data);
+						tvName = data.name;
+						fileType = tvName.match(/\..{2,4}$/);
+						fileName = tvName.split(/\..{2,4}$/)[0];
 					},
 					error: function(data) {
 						console.log(data);
 					},
 					complete: function(data) {
-						if (tvIndex[idIndex + 1] === undefined) {
-							tvIn += 1;
-							changeNames(TV_Array[tvIn], 2);
-						} else {
-							changeNames(TV_Array[tvIn], idIndex + 1);
-						}
+						$.ajax({//PATCH https://www.googleapis.com/drive/v3/files/0B_F_V9jIQXymbGgxbXdXdDRLTlE?key={YOUR_API_KEY}
+							url: 'https://www.googleapis.com/drive/v3/files/' + tvIndex[idIndex] +  + '?key=AIzaSyDZFbr1bSEEpmXfjKUbLz-CB6D7QOF3Mck',
+							type: 'PATCH',
+							contentType: 'application/json',
+							dataType: 'json',
+							data: JSON.stringify({
+								"name": fileName + ' - ' + tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].split(' - ')[1] + fileType
+							}),
+							success: function(data) {
+								console.log(data);
+							},
+							error: function(data) {
+								console.log(data);
+							},
+							complete: function(data) {
+								if (tvIndex[idIndex + 1] === undefined) {
+									tvIn += 1;
+									changeNames(TV_Array[tvIn], 2);
+								} else {
+									changeNames(TV_Array[tvIn], idIndex + 1);
+								}
+							}
+						});
 					}
 				});
+					/*}
+				});*/
+			} else {
+				tvIn += 1;
+				changeNames(TV_Array[tvIn], 2);
 			}
-		});
-			/*}
-		});*/
-	} else {
-		tvIn += 1;
+		}
+		tvIn = 0;
 		changeNames(TV_Array[tvIn], 2);
-	}
-}
-tvIn = 0;
-changeNames(TV_Array[tvIn], 2);
+	}, 10000);
 }
 
 var CAREFUL = true
