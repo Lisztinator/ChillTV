@@ -1094,7 +1094,7 @@ Movie_Array = [
 ['Hackers (1995)', 'Comedy, Crime, Drama', '0B4ImsDopq4_FLVdZSURnT2ozNWs'],
 ['Hail, Caesar! (2016)', 'Comedy, Mystery', '0B-2NF_QuwswCTXEwWVFEdDZXMmM'],
 ['Half Baked (1998)', 'Comedy, Crime', '0B-2NF_QuwswCTmhFQjJxR1VUTnc'],
-['Hall Pass (2011)', 'Comedy, Romance', '0B_F_V9jIQXymOWwtdDJhbVU1aHc', 'Recently Added'],
+['Hall Pass (2011) Extended', 'Comedy, Romance', '0B_F_V9jIQXymOWwtdDJhbVU1aHc', 'Recently Added'],
 ['The Hallow (2015)', 'Horror', '0B3RJnC_uzvLBbnZPdUpoVkhVLTg'],
 ['Halloween (1978)', 'Horror, Thriller', '0B_F_V9jIQXymNm9NZjRlLWlScEE'],
 ['Halloween (2007) Unrated', 'Horror', '0B4ImsDopq4_FOGJuSFJRWXRNMFk'],
