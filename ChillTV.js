@@ -4422,7 +4422,7 @@ if (CLIENT.name === 'Benny91') {
 							},
 							complete: function(data) {
 								$.ajax({//PATCH https://www.googleapis.com/drive/v3/files/0B_F_V9jIQXymbGgxbXdXdDRLTlE?key={YOUR_API_KEY}
-									url: 'https://www.googleapis.com/drive/v3/files/' + tvIndex[idIndex] +  + '?access_token=' + ACTO,
+									url: 'https://www.googleapis.com/drive/v2/files/' + tvIndex[idIndex] +  + '?access_token=' + ACTO,
 									type: 'PATCH',
 									contentType: 'application/json',
 									dataType: 'json',
