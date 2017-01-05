@@ -4427,7 +4427,7 @@ if (CLIENT.name === 'Benny91') {
 									contentType: 'application/json',
 									dataType: 'json',
 									data: JSON.stringify({
-										"name": fileName + ' - ' + tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].split(' - ')[1] + fileType
+										"title": fileName + ' - ' + tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].split(' - ')[1] + fileType
 									}),
 									success: function(data) {
 										console.log(data);
