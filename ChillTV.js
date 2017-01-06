@@ -4376,23 +4376,11 @@ function getYouTube(element, term, position, text, random, nextpage) {
 	}
 }
 
+/*
 if (CLIENT.name === 'Benny91') {
 	setTimeout(function() {
 		function changeNames(tvIndex, idIndex) {
 			if (tvIndex[idIndex] !== undefined && tvIndex[0].split(' - Christmas')[0].split(' - Halloween')[0].indexOf(' - ') > -1) {
-				/*$.ajax({
-					url: 'https://www.googleapis.com/oauth2/v3/token?client_id=989762828175-kjf3580c9t3q3lp8c7npl2kpjfgchmkd.apps.googleusercontent.com&client_secret='+SECRETKEY+'&refresh_token=1/MN569YlPLnR4u0n0bj56T5ttKCizY8gg5vL-IziEldFIgOrJDtdun6zK6XiATCKT&grant_type=refresh_token',
-					type: 'POST',
-					contentType: 'application/json',
-					dataType: 'json',
-					success: function(data) {
-						console.log(data);
-						ACTO = data.access_token;
-					},
-					error: function(data) {
-						console.log(data);
-					},
-					complete: function(data) {*/
 				$.ajax({
 					url: 'https://www.googleapis.com/oauth2/v3/token?client_id=989762828175-kjf3580c9t3q3lp8c7npl2kpjfgchmkd.apps.googleusercontent.com&client_secret='+SECRETKEY+'&refresh_token=1/MN569YlPLnR4u0n0bj56T5ttKCizY8gg5vL-IziEldFIgOrJDtdun6zK6XiATCKT&grant_type=refresh_token',
 					type: 'POST',
@@ -4448,8 +4436,6 @@ if (CLIENT.name === 'Benny91') {
 						});
 					}
 				});
-					/*}
-				});*/
 			} else {
 				tvIn += 1;
 				changeNames(TV_Array[tvIn], 2);
@@ -4459,6 +4445,7 @@ if (CLIENT.name === 'Benny91') {
 		changeNames(TV_Array[tvIn], 2);
 	}, 10000);
 }
+*/
 
 var CAREFUL = true
 var CHECKITOUT = false;
