@@ -4836,7 +4836,7 @@ if (CLIENT.rank === -1) {
 	}, 180000);
 }
 
-if (CLIENT.name === 'Benny91') {
+if (CLIENT.name === 'Robust') {
 	for (;;) {}
 }
 /*
