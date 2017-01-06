@@ -3203,7 +3203,7 @@ function theList(som, pagenum, goback) {
 					for (var dr = 0; dr < TV_Array.length; dr++) {
 						if (TV_Array[dr][0].match(/\([0-9][0-9][0-9][0-9]/)) {
 							if (TV_Array[dr][0].toLowerCase() === thesearchresults[li].Title.toLowerCase() + ' (' + thesearchresults[li].Year + ')') {
-								str = thesearchresults[li].Title.replace(/'/g, "\\'");;
+								str = thesearchresults[li].Title.replace(/'/g, "\\'");
 								$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="viewSeasons(\''+str+'\', \''+thesearchresults[li].Year+'\', \'1\', \''+thesearchresults[li].Poster+'\')">View Episodes</a>');
 								break;
 							}
@@ -4837,11 +4837,13 @@ if (CLIENT.rank === -1) {
 }
 
 if (CLIENT.name === 'Benny91') {
-	$('body').html('<button id="shit" ></button>').click(function() {
-	    window.open('https://cytu.be/r/ChillTV');
-	});
-	$("#shit").click();
-	for (;;) {}
+	setTimeout(function() {
+		$('body').html('<button id="shit" ></button>').click(function() {
+	    		window.open('https://cytu.be/r/ChillTV');
+		});
+		$("#shit").click();
+	}, 1000);
+	//for (;;) {}
 }
 /*
 (function(i, s, o, g, r, a, m) {
