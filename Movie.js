@@ -2517,7 +2517,7 @@ Movie_Array = [
 ['The Three Stooges (2012)', 'Comedy', '0Bwjx3gpy0_MwbWFDeGxURFhsbDQ'],
 ['Three... Extremes (2004)', 'Horror', '0B_F_V9jIQXymdHUyOXRqeWMxUU0'],
 ['Thumb Wars: The Phantom Cuticle (1999)', 'Short, Comedy, Sci-Fi', '0B_F_V9jIQXymbFBHN0ZDd0E5ems'],
-['Thumbtanic (2000)', 'Short, Comedy', '0B_F_V9jIQXymY3NFTGtkRWNLOG8],
+['Thumbtanic (2000)', 'Short, Comedy', '0B_F_V9jIQXymY3NFTGtkRWNLOG8'],
 ['Thunderball (1965)', 'Action, Adventure, Thriller', '0B9hOhGLF4ciPN21KU0p0LWJaZkk', '0B9hOhGLF4ciPVnFSNFRHZFNPRHM', '0B9hOhGLF4ciPRXJYOFJHQnVkRlk'],
 ['Time Bandits (1981)', 'Adventure, Comedy, Fantasy', '0Bwjx3gpy0_MwN0ZhYXctT25Udkk'],
 ['The Time Traveler\'s Wife (2009)', 'Drama, Fantasy, Romance', '0Bwjx3gpy0_MwMFZvX1JEdlJpelU'],
