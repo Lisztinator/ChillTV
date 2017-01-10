@@ -4331,6 +4331,7 @@ function getYouTube(element, term, position, text, random, nextpage) {
 			type: 'GET',
 			data: {},
 			success: function(data) {
+				console.log(data);
 				if (random === 'random') {
 					vidid = data.items[ranum].id.videoId;
 				} else {
