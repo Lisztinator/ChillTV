@@ -979,7 +979,7 @@ function toggleModPanel() {
 }
 
 function changeSkipText() {
-	$("#voteskip").text(CustomCaptions_Array.voteskip + ' ' + $("#voteskip").text());
+	$("#voteskip").html(CustomCaptions_Array.voteskip + ' ' + $("#voteskip").html());
 }
 
 function setUserCSS() {
