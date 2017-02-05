@@ -2125,7 +2125,7 @@ Movie_Array = [
 ['The Ring Two (2005)', 'Horror, Mystery, Sci-Fi', '0B4ImsDopq4_FZXphSkQ0SVhuRWM'],
 ['The Ringer (2005)', 'Comedy, Sport', '0B7vzyYaEiOXvckhYZ3NHODhlNjA'],
 ['Rise of the Guardians (2012)', 'Animation, Adventure, Family', '0Bwjx3gpy0_MwamtHTVB4RUpWX00'],
-['Rise of the Planet of the Apes (2011)', 'Action, Drama, Sci-Fi', '0B_F_V9jIQXymcmNuVHN6MDYyVjQ', 'Recently Added'],
+['Rise of the Planet of the Apes (2011)', 'Action, Drama, Sci-Fi', '0B_F_V9jIQXymRi1HR0Vhb1BCM0E', 'Recently Added'],
 ['Risky Business (1983)', 'Comedy, Crime, Drama', '0B_F_V9jIQXymWHlHemppcjQwd28'],
 ['The Road (2009)', 'Adventure, Drama', '0Bwjx3gpy0_MwOU1JQjZ6WkpZb28'],
 ['The Road to El Dorado (2000)', 'Animation, Adventure, Comedy', '0B4ImsDopq4_FSEk2MHJ3Sjd1dDQ'],
