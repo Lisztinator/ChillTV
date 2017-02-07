@@ -3839,7 +3839,7 @@ TV_Array = [
 ['S01E03', '', '0B7vzyYaEiOXvckhQNEd4UWkwajg'],
 ['S01E04 - Death Punchies', '', '0B7vzyYaEiOXvWGdqSkczQzFBTUE'],
 ['S01E05', '', '0B7vzyYaEiOXvdGlxSE5NdEJzVWM'],
-['S01E06', '', '0B7vzyYaEiOXvbjk1dXdReU1Db28'],
+['S01E06', '', '0B7vzyYaEiOXvbjk1dXdReU1Db28'],*/
 ['The Ren & Stimpy Show (1991–1996)', 'Animation, Comedy'],
 ['S01E00', '', '0B35tJ7UIP8bwSmF1c3RJbzJLbUE'],
 ['S01E01a', '', '0B35tJ7UIP8bwbUh1VDI3NWpoWVk'],
@@ -3859,7 +3859,7 @@ TV_Array = [
 ['S02E04', '', '0B35tJ7UIP8bwYTA0ekRyeTQ3QlU'],
 ['S02E05a', '', '0B35tJ7UIP8bwV0NESERDQUtaX1k'],
 ['S02E06a - Big Baby Scam', '', '0B35tJ7UIP8bwLWhfVTFSbkZhZ3c'],
-['S02E06b - Dog Show', '', '0B35tJ7UIP8bwUnRSS0ExTWIzVjQ'],*/
+['S02E06b - Dog Show', '', '0B35tJ7UIP8bwUnRSS0ExTWIzVjQ'],
 ['Reno 911! (2003–2009)', 'Comedy, Crime'],
 ['S01E01 - Pilot', '', '0B_F_V9jIQXymVzNqUTZwcjB4ekU'],
 ['S01E02 - Fireworks', '', '0B_F_V9jIQXymTGVEbkZTLWtucFU'],
