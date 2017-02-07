@@ -135,7 +135,7 @@ TV_Array = [
 ['S01E02 - Uncle Harry/Rock \'n\' Robot', '', '0BxJ5655JUkdiUTJQQmNqOERJaTA'],
 ['American Dragon: Jake Long (2005–2007)', 'Animation, Family'],
 ['S01E01', '', '0B4lnZashnvULcGhUMXFXU2hXdVU'],*/
-['American Horror Story (2011–)', 'Drama, Horror, Thriller, Serial'],
+/*['American Horror Story (2011–)', 'Drama, Horror, Thriller, Serial'],
 ['S01E01 - Pilot - Halloween', '', '0B_F_V9jIQXymM2Z3MjlSSHJsbTQ'],
 ['S01E02 - Home Invasion - Halloween', '', '0B_F_V9jIQXymb0lhQW5aUmp1QUk'],
 ['S01E03 - Murder House - Halloween', '', '0B_F_V9jIQXymZ3ZFYjV1cDJYYUk'],
@@ -168,7 +168,7 @@ TV_Array = [
 ['S04E07 - Test of Strength - Halloween', '', '0B9hOhGLF4ciPb21FMG9CbVdjLTQ'],
 ['S04E08 - Blood Bath - Halloween', '', '0B9hOhGLF4ciPN0xvNWtORHhQZjg'],
 ['S04E09 - Tupperware Party Massacre - Halloween', '', '0B9hOhGLF4ciPTUhJMlRPdW95dmM'],
-['S04E10 - Orphans - Halloween', '', '0B9hOhGLF4ciPUkZHRk5keGtFTWc'],
+['S04E10 - Orphans - Halloween', '', '0B9hOhGLF4ciPUkZHRk5keGtFTWc'],*/
 /*['The Amos \'n Andy Show (1951–1953)', 'Comedy'],
 ['S02E13 - Christmas', '', '0B6a8GL2kUm9EQm51dkxOVHhpOFE'],
 ['The Andy Griffith Show (1960–1968)', 'Comedy, Family'],
@@ -294,7 +294,7 @@ TV_Array = [
 ['S01E01', '', '0B5YgPyDSXwgWRG9nOHpEN3RsM0U'],
 ['S01E02', '', '0B5YgPyDSXwgWeDhJV2VVZ0VIWnM'],
 ['S01E03', '', '0B5YgPyDSXwgWbGc3bFlNdnJOZHM'],*/
-['Ash vs Evil Dead (2015–)', 'Action, Comedy, Horror, Serial'],
+/*['Ash vs Evil Dead (2015–)', 'Action, Comedy, Horror, Serial'],
 ['S01E01 - El Jefe - Halloween', '', '0B4ImsDopq4_FQXNicjJZRi1oTE0'],
 ['S01E02 - Bait - Halloween', '', '0B4ImsDopq4_FbFRHVXlqOV81aGs'],
 ['S01E03 - Books from Beyond - Halloween', '', '0B_F_V9jIQXymaFkwVERMSmcyM0k'],
@@ -304,7 +304,7 @@ TV_Array = [
 ['S01E07 - Fire in the Hole - Halloween', '', '0B3RJnC_uzvLBLURoOEFYYjJpNEk'],
 ['S01E08 - Ashes to Ashes - Halloween', '', '0B3RJnC_uzvLBa3FkUm9hMl9OYnM'],
 ['S01E09 - Bound in Flesh - Halloween', '', '0B3RJnC_uzvLBQmNUbXRxdW5kd1k'],
-['S01E10 - Halloween', '', '0B3RJnC_uzvLBM2NMUXFyZHdpUzg'],
+['S01E10 - Halloween', '', '0B3RJnC_uzvLBM2NMUXFyZHdpUzg'],*/
 ['Bar Rescue (2011–)', 'Reality-TV'],
 ['S01E01 - Fallen Angels', '', '0B3RJnC_uzvLBQU1ERmtYSXhhbDA'],
 ['S01E02 - Downey\'s and Out', '', '0B3RJnC_uzvLBd3VlakhWcFJZQjA'],
@@ -517,7 +517,7 @@ TV_Array = [
 ['S01E05 - Laugh of the Party - Halloween', '', '0B3mPgOxNdTUyZjd1Q0ttbnY2QUk'],
 ['Ben 10 (2005–2008)', 'Animation, Action, Adventure'],
 ['S01E01 - And Then There Were 10', '', '0B4lnZashnvULOXJRUEg3RUhkOG8'],*/
-['Better Call Saul (2015–)', 'Crime, Drama, Serial'],
+/*['Better Call Saul (2015–)', 'Crime, Drama, Serial'],
 ['S01E01 - Uno', '', '0B9hOhGLF4ciPTUl3a0E3a25RSzA'],
 ['S01E02 - Mijo', '', '0B9hOhGLF4ciPbU1lc2FVYjJJSE0'],
 ['S01E03 - Nacho', '', '0B7vzyYaEiOXvbUloRC12a2tMNHc'],
@@ -527,7 +527,7 @@ TV_Array = [
 ['S01E07 - Bingo', '', '0B7vzyYaEiOXvODczdlNIYmN4a2M'],
 ['S01E08 - RICO', '', '0B9hOhGLF4ciPcHBETDE0XzE5VW8'],
 ['S01E09 - Pimento', '', '0B9hOhGLF4ciPNTdWUktHYkdMR00'],
-['S01E10 - Marco', '', '0B7vzyYaEiOXveXdsWW9oM3ZsQUE'],
+['S01E10 - Marco', '', '0B7vzyYaEiOXveXdsWW9oM3ZsQUE'],*/
 /*['Beyblade (2001–2005)', 'Animation, Action, Family'],
 ['S01E01 - The Blade Raider', '', '0BxJ5655JUkdiNk9KNkZ1aWUwc00'],
 ['Beyond Scared Straight (2011–)', 'Reality-TV'],
@@ -943,21 +943,21 @@ TV_Array = [
 ['S01E13 - Unafraid of the Dark', '', '0B9hOhGLF4ciPbkx6Tzh2bG15akE'],
 /*['Count Duckula (1988–1993)', 'Animation, Comedy, Family'],
 ['S01E01 - No Sax Please: We\'re Egyptian - Halloween', '', '0BxJ5655JUkdicDBoSU1SSTFQTHM'],*/
-['Courage the Cowardly Dog (1999–2002)', 'Animation, Comedy, Fantasy'],
+/*['Courage the Cowardly Dog (1999–2002)', 'Animation, Comedy, Fantasy'],
 ['S01E01 - Halloween', '', '0B_vPFdSS15a2N19KT19SSWVhT3c'],
 ['S01E02 - Halloween', '', '0B_vPFdSS15a2VUdhdE5xYmRjX3c'],
 ['S01E03 - Halloween', '', '0B_vPFdSS15a2bWtNTHBNQzNWZVk'],
 ['S01E04 - Halloween', '', '0B_vPFdSS15a2UVpVaHBXcktCVTQ'],
 ['S01E05 - Halloween', '', '0B_vPFdSS15a2cGdFakZncmNZTjg'],
-/*['S01E06 - The Duck Brothers/Shirley the Medium - Halloween', '', '0B_vPFdSS15a2S3ExR2wtalctdlk'],
+['S01E06 - The Duck Brothers/Shirley the Medium - Halloween', '', '0B_vPFdSS15a2S3ExR2wtalctdlk'],
 ['S01E07 - Halloween', '', '0B_vPFdSS15a2S2U1WjdscmpxRUE'],
 ['S01E08 - Halloween', '', '0B_vPFdSS15a2SEs4NmFyZlY4VkE'],
 ['S01E09 - Halloween', '', '0B_vPFdSS15a2a0lGaktjbzN3X1U'],
 ['S01E10 - Halloween', '', '0B_vPFdSS15a2cjc3ZS1KN2NIQjQ'],
 ['S01E11 - Halloween', '', '0B_vPFdSS15a2dFI4MGdpdFYwQlk'],
 ['S01E12 - Halloween', '', '0B_vPFdSS15a2dGhZY3dtSHRiT0U'],
-['S01E13 - Halloween', '', '0B_vPFdSS15a2OThscldFWHZ3bTg'],
-['Cow and Chicken (1995–2004)', 'Animation, Comedy, Family'],
+['S01E13 - Halloween', '', '0B_vPFdSS15a2OThscldFWHZ3bTg'],*/
+/*['Cow and Chicken (1995–2004)', 'Animation, Comedy, Family'],
 ['S01E01', '', '0B35tJ7UIP8bweTRRNzVGUjdyV3M'],
 ['S01E02 - Supermodel Cow/Part Time Job', '', '0B35tJ7UIP8bwSmxUWlpUUkdRWEE'],
 ['S01E03 - Alive!/Who Is Supercow?', '', '0B35tJ7UIP8bwOW5XbVU4LWVMd2M'],
@@ -1026,7 +1026,7 @@ TV_Array = [
 ['S01E01', '', '0B4lnZashnvULVVdZbzVHYk51VVk'],
 ['S01E02 - Parental Bonding', '', '0B4lnZashnvULYzI2VzBLX0E0MFE'],
 ['S01E03 - One of a Kind', '', '0B4lnZashnvULdEZYWlpKTGIybVk'],*/
-['Daredevil (2015–)', 'Action, Crime, Drama, Serial'],
+/*['Daredevil (2015–)', 'Action, Crime, Drama, Serial'],
 ['S01E01 - Into the Ring', '', '0B9hOhGLF4ciPNloyX2pGX2JpNFk'],
 ['S01E02 - Cut Man', '', '0B7vzyYaEiOXvUHQwWnplZGJuMFE'],
 ['S01E03 - Rabbit in a Snowstorm', '', '0B9hOhGLF4ciPS1ZYanlfWGZIQmM'],
@@ -1039,7 +1039,7 @@ TV_Array = [
 ['S01E10 - Nelson v. Murdock', '', '0B9hOhGLF4ciPMWRoSWZ2VC12X28'],
 ['S01E11 - The Path of the Righteous', '', '0B9hOhGLF4ciPWm0xMWNPelRnZlk'],
 ['S01E12 - The Ones We Leave Behind', '', '0B9hOhGLF4ciPRkgyX2pKR2IzTzA'],
-['S01E13 - Daredevil', '', '0B7vzyYaEiOXvS0xrQTA0X0hiU1k'],
+['S01E13 - Daredevil', '', '0B7vzyYaEiOXvS0xrQTA0X0hiU1k'],*/
 /*['Darkwing Duck (1991–1995)', 'Animation, Family, Comedy'],
 ['S01E01', '', '0B3mPgOxNdTUyWEJXWHBPTTVmNVk'],
 ['S01E02', '', '0B3mPgOxNdTUyOVc5bG9vU0ZiaVE'],
@@ -1055,7 +1055,7 @@ TV_Array = [
 ['S01E01 - The Maddening Sprite of the Stump/Shrink Rap', '', '0B4lnZashnvULSlN6d3pNVjFiQkE'],
 ['S01E02', '', '0B4lnZashnvULZVlxcjEyM2F2VWs'],
 ['S01E03', '', '0B4lnZashnvULbjZzbWdTeTluaFE'],*/
-['Dexter (2006–2013)', 'Crime, Drama, Mystery, Serial'],
+/*['Dexter (2006–2013)', 'Crime, Drama, Mystery, Serial'],
 ['S01E01 - Dexter', '', '0BytjmF9HnxuAREdRbGdpcUtPZlk'],
 ['S01E02 - Crocodile', '', '0BytjmF9HnxuASWdnVURVRjB2Mm8'],
 ['S01E03 - Popping Cherry', '', '0BytjmF9HnxuASnlaT2ZlU09ySXM'],
@@ -1151,7 +1151,7 @@ TV_Array = [
 ['S08E09 - Make Your Own Kind of Music', '', '0B_vPFdSS15a2enltMTNaVW1jZE0'],
 ['S08E10 - Goodbye Miami', '', '0B_vPFdSS15a2YWZ4QWNSUWFLdDg'],
 ['S08E11 - Monkey in a Box', '', '0B_vPFdSS15a2NGN1bWZJTW9nTXc'],
-['S08E12 - Remember the Monsters?', '', '0B_vPFdSS15a2blQ4MGFhTWFmTlU'],
+['S08E12 - Remember the Monsters?', '', '0B_vPFdSS15a2blQ4MGFhTWFmTlU'],*/
 /*['Dexter\'s Laboratory (1996–2003)', 'Animation, Comedy, Family'],
 ['S01E01 - Deedeemensional/Dial M for Monkey: Magmanamus/Maternal Combat', '', '0B35tJ7UIP8bwaVZBbnB1YlVVOVk'],
 ['S01E02 - Dexter Dodgeball/Dial M for Monkey: Rasslor/Dexter\'s Assistant', '', '0B35tJ7UIP8bwdXVjVW1WZi1INms'],
@@ -1200,7 +1200,7 @@ TV_Array = [
 ['S01E08', '', '0B35tJ7UIP8bwQkNoTDlsZU9FdGc'],
 ['S01E09', '', '0B35tJ7UIP8bwT3FReDJkZmxDNjA'],
 ['S01E10', '', '0B35tJ7UIP8bwNldFNlZOWHhIYk0'],*/
-['Dragon Ball (1986–1989)', 'Animation, Action, Adventure, Serial'],
+/*['Dragon Ball (1986–1989)', 'Animation, Action, Adventure, Serial'],
 ['S01E01 - Secret of the Dragon Ball', '', '0B4lnZashnvULZ09jeldsaVJOZzA'],
 ['S01E02 - The Emperor\'s Quest', '', '0B4lnZashnvULMFZoVGIwNnU3QVU'],
 ['S01E03 - The Turtle Elder\'s Candy Cloud', '', '0B4lnZashnvULb3diQlFyeTNBTGc'],
@@ -1808,7 +1808,7 @@ TV_Array = [
 ['S01E95 - Bye-Bye Everyone! This Is the Only Way to Save the Earth', '', '0B5YgPyDSXwgWcEdCZF9aTG5WYVk'],
 ['S01E96 - Combine Our Power! The Mightiest, Final Kamehameha', '', '0B5YgPyDSXwgWNVgtLVYyeTV5dFE'],
 ['S01E97 - Farewell with a Smile! Heading for New Days', '', '0B5YgPyDSXwgWalJoLUZVTWF0QUU'],
-['S01E98 - Bring Peace to the Future! Goku\'s Spirit is Eternal', '', '0B5YgPyDSXwgWRFZKSjFUeVFRTlE'],
+['S01E98 - Bring Peace to the Future! Goku\'s Spirit is Eternal', '', '0B5YgPyDSXwgWRFZKSjFUeVFRTlE'],*/
 /*['Drake & Josh (2004–2007)', 'Comedy, Family'],
 ['S01E01 - Hug Me, Brother: Pilot', '', '0B4ImsDopq4_FcEplSXJILXFDRkU'],
 ['S01E02 - Dune Buggy', '', '0B4ImsDopq4_FYktuRjBLXzNqWGM'],
@@ -2214,7 +2214,7 @@ TV_Array = [
 ['S06E10 - The One with the Routine - Christmas', '', '0B6a8GL2kUm9EWXZoaWlhMEJtSHc'],
 ['S07E10 - The One with the Holiday Armadillo - Christmas', '', '0B6a8GL2kUm9EajhfZF9KVE1hdUU'],
 ['S09E10 - Christmas', '', '0B6a8GL2kUm9EUnRFMThIeGRIeTA'],*/
-['Fringe (2008–2013)', 'Drama, Mystery, Sci-Fi, Serial'],
+/*['Fringe (2008–2013)', 'Drama, Mystery, Sci-Fi, Serial'],
 ['S01E01 - Pilot', '', '0B9hOhGLF4ciPQTFMUHpKUjdfa0U', '0B9hOhGLF4ciPZmNEcjB4cVZ4WTQ'],
 ['S01E02 - The Same Old Story', '', '0B9hOhGLF4ciPcHVUejZCSGw2dWs'],
 ['S01E03 - The Ghost Network', '', '0B9hOhGLF4ciPLUxvVG1XbndUUlk'],
@@ -2314,7 +2314,7 @@ TV_Array = [
 ['S05E10 - Anomaly XB-6783746', '', '0B9hOhGLF4ciPeGl6SFFkSW40c2s'],
 ['S05E11 - The Boy Must Live', '', '0B9hOhGLF4ciPWUpxWGFtbjgwRjg'],
 ['S05E12 - Liberty', '', '0B9hOhGLF4ciPZl85R0RTcHI2TDA'],
-['S05E13 - An Enemy of Fate', '', '0B9hOhGLF4ciPd0xKeTFyQm05MDA'],
+['S05E13 - An Enemy of Fate', '', '0B9hOhGLF4ciPd0xKeTFyQm05MDA'],*/
 /*['Fuller House (2016–)', 'Comedy, Family'],
 ['S01E01 - Our Very First Show, Again', '', '0B7--Jg-uaCu2Z0hZMkRaSUlZZkU'],
 ['S01E02 - Moving Day', '', '0B7--Jg-uaCu2SW9HZUhZQzB0R1E'],
@@ -2466,7 +2466,7 @@ TV_Array = [
 ['S07E26 - Meanwhile', '', '0B3RJnC_uzvLBY0s0YnoxWU9GM3c'],
 /*['G.I. Joe (1985–1986)', 'Animation, Action, Adventure'],
 ['S01E01 - The Pyramid of Darkness: Part 1 - The Further Adventures of G.I. Joe', '', '0B4lnZashnvULbklCZ29zay1rNlU'],*/
-['Game of Thrones (2011–)', 'Adventure, Drama, Fantasy, Serial'],
+/*['Game of Thrones (2011–)', 'Adventure, Drama, Fantasy, Serial'],
 ['S01E01 - Winter Is Coming', '', '0B9hOhGLF4ciPSWN2ZEdLR0xLRmM'],
 ['S01E02 - The Kingsroad', '', '0B9hOhGLF4ciPRF9FWUlYbUxaR2M'],
 ['S01E03 - Lord Snow', '', '0B9hOhGLF4ciPUnpQWVJUZW1fNlE'],
@@ -2519,7 +2519,7 @@ TV_Array = [
 ['S05E08 - Hardhome', '', '0Bwjx3gpy0_MwRzc4cVZDcWxXa3c'],
 ['S05E09 - The Dance of Dragons', '', '0Bwjx3gpy0_MwZE1ZS1ZUcEFNb1k'],
 ['S05E10 - Mother\'s Mercy', '', '0Bwjx3gpy0_MwODlFaTV3NG1rSU0'],
-['Sex and Nudity: The Complete Collection', '', '0B9hOhGLF4ciPOE1TejdYeVdjUWc'],
+['Sex and Nudity: The Complete Collection', '', '0B9hOhGLF4ciPOE1TejdYeVdjUWc'],*/
 /*['Garfield and Friends (1988–1995)', 'Animation, Comedy'],
 ['S01E01', '', '0B3mPgOxNdTUyRG9LcDVtRHJhVDA'],
 ['S01E02 - Box O\' Fun/U.S. Acres: Unidentified Flying Orson/School Daze', '', '0B3mPgOxNdTUyd1d0UHFiYjB0S1E'],
@@ -2546,7 +2546,7 @@ TV_Array = [
 ['S01E01', '', '0BxJ5655JUkdic0NHXzM4eGVlSFk'],
 ['S01E02', '', '0BxJ5655JUkdiekMyVkpwb3FUbkk'],
 ['S01E03', '', '0BxJ5655JUkdiQ3l0SloyZ29fVjQ'],*/
-['Gotham (2014–)', 'Crime, Drama, Thriller, Serial'],
+/*['Gotham (2014–)', 'Crime, Drama, Thriller, Serial'],
 ['S01E00 - The Legend Reborn', '', '0B7vzyYaEiOXvSE44ampZdjBrdDA'],
 ['S01E01 - Pilot', '', '0B9hOhGLF4ciPbzZ4bTd0V2xMYnc'],
 ['S01E02 - Selina Kyle', '', '0B9hOhGLF4ciPa2ljOWZCLTNBM2M'],
@@ -2569,7 +2569,7 @@ TV_Array = [
 ['S01E19 - Beasts of Prey', '', '0B7vzyYaEiOXvXzBUcDg4TEZ2SEU'],
 ['S01E20 - Under the Knife', '', '0B7vzyYaEiOXvOWxGUjNsNnF3NkE'],
 ['S01E21 - The Anvil or the Hammer', '', '0B7vzyYaEiOXvanFWNFR5QTNDRWM'],
-['S01E22 - All Happy Families Are Alike', '', '0B7vzyYaEiOXvM3RWRmNCNWJmS3c'],
+['S01E22 - All Happy Families Are Alike', '', '0B7vzyYaEiOXvM3RWRmNCNWJmS3c'],*/
 /*['Gravity Falls (2012–)', 'Animation, Adventure, Comedy'],
 ['S01E01 - Tourist Trapped', '', '0B3RJnC_uzvLBUS1Ia0swemlubk0'],
 ['S01E02 - The Legend of the Gobblewonker', '', '0B3RJnC_uzvLBQk56SktNWnFlanc'],
@@ -2630,7 +2630,7 @@ TV_Array = [
 ['S01E08a', '', '0BxJ5655JUkdiU3pTMVFCREV5OEk'],
 ['S01E08b', '', '0BxJ5655JUkdiT2d3aEg1TV9UYWs'],
 ['S05E07 - Billy and Mandy Save Christmas', '', '0B6a8GL2kUm9EQ3dWaWJoQVBtSTQ'],*/
-['Hannibal (2013–)', 'Crime, Drama, Horror, Serial'],
+/*['Hannibal (2013–)', 'Crime, Drama, Horror, Serial'],
 ['S01E01 - Apéritif - Halloween', '', '0B4ImsDopq4_FZmN4VFlUQ2lyNGM'],
 ['S01E02 - Amuse-Bouche - Halloween', '', '0B4ImsDopq4_FMWtONlJOZmg0RjQ'],
 ['S01E03 - Potage - Halloween', '', '0B4ImsDopq4_FU2M3WmwzU0dxNTQ'],
@@ -2643,7 +2643,7 @@ TV_Array = [
 ['S01E10 - Buffet Froid - Halloween', '', '0B4ImsDopq4_Fa3ZVaFZaY3pEaHc'],
 ['S01E11 - Rôti - Halloween', '', '0B4ImsDopq4_FTGNHSUlfeHY4eW8'],
 ['S01E12 - Relevés - Halloween', '', '0B4ImsDopq4_FYTNGRFhsR3FYdVU'],
-['S01E13 - Savoureux - Halloween', '', '0B4ImsDopq4_FY1FXUjZmYVpTQ3c'],
+['S01E13 - Savoureux - Halloween', '', '0B4ImsDopq4_FY1FXUjZmYVpTQ3c'],*/
 /*['Happy Days (1974–1984)', 'Comedy, Family, Music'],
 ['S02E11 - Guess Who\'s Coming to Christmas - Christmas', '', '0B6a8GL2kUm9EMVNaUGotQ1hXZE0'],
 ['S06E16 - Christmas Time - Christmas', '', '0B6a8GL2kUm9EUjFNdkJjSE5uNWM'],
@@ -2769,7 +2769,7 @@ TV_Array = [
 ['S04E14 - Living the Dream', '', '0B_F_V9jIQXymMTVmVU9DSHY3MWc'],
 ['S04E15 - House\'s Head', '', '0B_F_V9jIQXymMm93MVpmQ21xYzA'],
 ['S04E16 - Wilson\'s Heart', '', '0B_F_V9jIQXymcy1PTTZYaEp4NWs'],
-['S05E01 - Dying Changes Everything', '', '0B_F_V9jIQXymckN4RDVFSTZGbzg'],
+/*['S05E01 - Dying Changes Everything', '', '0B_F_V9jIQXymckN4RDVFSTZGbzg'],
 ['S05E02 - Not Cancer', '', '0B_F_V9jIQXymeWtlelRWcG8tcFk'],
 ['S05E03 - Adverse Events', '', '0B_F_V9jIQXymNDBJYkc0WVR3dDg'],
 ['S05E04 - Birthmarks', '', '0B_F_V9jIQXymYVpSa25rSE92dzA'],
@@ -2858,7 +2858,7 @@ TV_Array = [
 ['S08E19 - The C Word', '', '0B_F_V9jIQXymTFNrdnhkX1l4Vm8'],
 ['S08E20 - Post Mortem', '', '0B_F_V9jIQXymVnBYeXAzYmo0Rm8'],
 ['S08E21 - Holding On', '', '0B_F_V9jIQXymUTc1ajdWSHd1LUk'],
-['S08E22 - Everybody Dies', '', '0B_F_V9jIQXymRExmYndfQ1pYeFU'],
+['S08E22 - Everybody Dies', '', '0B_F_V9jIQXymRExmYndfQ1pYeFU'],*/
 /*['House of Cards (2013–)', 'Drama, Serial'],
 ['S01E01 - Chapter 1', '', '0Bwjx3gpy0_MwMlJzRFRvVjdlSk0'],
 ['S01E02 - Chapter 2', '', '0Bwjx3gpy0_MwOEhkc3A0VUEyRGM'],
@@ -2988,7 +2988,7 @@ TV_Array = [
 ['S01E05 - Shell Game', '', '0B3mPgOxNdTUyUUZ2ekdxUHU3Vm8'],
 ['James Bond Jr. (1991–1992)', 'Animation, Action, Family'],
 ['S01E01', '', '0B4lnZashnvULUFhxZzg0OU01X0U', '0BxJ5655JUkdiQnhsYXFwUThVdTA'],*/
-['Jessica Jones (2015–)', 'Action, Crime, Drama, Serial'],
+/*['Jessica Jones (2015–)', 'Action, Crime, Drama, Serial'],
 ['S01E01 - AKA Ladies Night', '', '0B3RJnC_uzvLBdXZ6Z2k4ZXlxRU0'],
 ['S01E02 - AKA Crush Syndrome', '', '0B3RJnC_uzvLBSFptTXNLSW5DSVU'],
 ['S01E03 - AKA It\'s Called Whiskey', '', '0B3RJnC_uzvLBQ1BoXzNudnBXamM'],
@@ -3001,7 +3001,7 @@ TV_Array = [
 ['S01E10 - AKA 1,000 Cuts', '', '0B3RJnC_uzvLBYUxKd0Y0dXYwbWc'],
 ['S01E11 - AKA I\'ve Got the Blues', '', '0B3RJnC_uzvLBMEtCM01vb3dDNzg'],
 ['S01E12 - AKA Take a Bloody Number', '', '0B3RJnC_uzvLBcThtTGdBYXVDdFk'],
-['S01E13 - AKA Smile', '', '0B3RJnC_uzvLBd0xUVk10TlVvRUE'],
+['S01E13 - AKA Smile', '', '0B3RJnC_uzvLBd0xUVk10TlVvRUE'],*/
 /*['The Jetsons (1962–1988)', 'Animation, Comedy, Family'],
 ['S01E01 - Rosey the Robot', '', '0B35tJ7UIP8bwNl91UHhoNk4xRGM'],
 ['S01E02 - A Date with Jet Screamer', '', '0B35tJ7UIP8bwY1hRWk5fSnozZVU'],
@@ -3601,7 +3601,7 @@ TV_Array = [
 ['S01E08 - Celebrate Ricky Sargulesh', '', '0B_F_V9jIQXymWG5SNTJ5NXJQQkk'],
 ['S01E09 - James Rolf High School Twentieth Reunion', '', '0B_F_V9jIQXymQ0MyeTdpVUdNeU0'],
 ['S01E10 - Stennheiser-Pong Wedding Reception', '', '0B_F_V9jIQXymZTlTek5adVlfN3M'],*/
-['Penny Dreadful (2014–)', 'Drama, Horror, Serial'],
+/*['Penny Dreadful (2014–)', 'Drama, Horror, Serial'],
 ['S01E01 - Night Work - Halloween', '', '0Bwjx3gpy0_MwT3hwYmlGaDEzbUk'],
 ['S01E02 - Séance - Halloween', '', '0Bwjx3gpy0_MwNy1uTWZ5TzhoZFE'],
 ['S01E03 - Resurrection - Halloween', '', '0Bwjx3gpy0_Mwa0gxRnVtOWVpYUE'],
@@ -3619,7 +3619,7 @@ TV_Array = [
 ['S02E07 - Little Scorpion - Halloween', '', '0Bwjx3gpy0_MwU19BMTBDQS02d0E'],
 ['S02E08 - Memento Mori - Halloween', '', '0Bwjx3gpy0_MwR0lIZ1JrR1gwWUU'],
 ['S02E09 - And Hell Itself My Only Foe - Halloween', '', '0B4ImsDopq4_FZ0l1bXdsd3pUd0k'],
-['S02E10 - And They Were Enemies - Halloween', '', '0B4ImsDopq4_FZS1TVVRZbEx6ZlE'],
+['S02E10 - And They Were Enemies - Halloween', '', '0B4ImsDopq4_FZS1TVVRZbEx6ZlE'],*/
 /*['Pepper Ann (1997–2000)', 'Animation, Family, Comedy'],
 ['S01E01', '', '0BxJ5655JUkdiZm9IUjdKYWRKX1E'],
 ['The Pink Panther Show (1969–1976)', 'Animation, Comedy'],
@@ -3820,7 +3820,7 @@ TV_Array = [
 ['S01E24', '', '0B_vPFdSS15a2eXJuMmlwLW9icmM'],
 ['S01E25', '', '0B_vPFdSS15a2cklraHlLaDVLUk0'],
 ['S01E26', '', '0B_vPFdSS15a2TkJvME12X25iT00'],*/
-['Red Dwarf (1988–)', 'Comedy, Sci-Fi'],
+/*['Red Dwarf (1988–)', 'Comedy, Sci-Fi'],
 ['S01E01 - The End', '', '0B_F_V9jIQXymV0xtSEdFZFdVd0E'],
 ['S01E02 - Future Echoes', '', '0B_F_V9jIQXymcmktWHJEUzcxWW8'],
 ['S01E03 - Balance of Power', '', '0B_F_V9jIQXymTnRFcUpBTFRNUGM'],
@@ -3832,7 +3832,7 @@ TV_Array = [
 ['S02E03 - Thanks for the Memory', '', '0B_F_V9jIQXymRGx1ZEtoMWxnVWM'],
 ['S02E04 - Stasis Leak', '', '0B_F_V9jIQXymVWYwenVlclJkMjg'],
 ['S02E05 - Queeg', '', '0B_F_V9jIQXymOTBDOG92SW1uY2M'],
-['S02E06 - Parallel Universe', '', '0B_F_V9jIQXymNTVLLVlJcGZUZGM'],
+['S02E06 - Parallel Universe', '', '0B_F_V9jIQXymNTVLLVlJcGZUZGM'],*/
 /*['Regular Show (2009–)', 'Animation, Action, Adventure'],
 ['S01E01 - The Power', '', '0B7vzyYaEiOXvUTNKUHJPZjd1MUk'],
 ['S01E02', '', '0B7vzyYaEiOXvTTBiYmtkekJ0d28'],
@@ -3875,7 +3875,7 @@ TV_Array = [
 ['S01E12 - Terrorist Training: Part 1', '', '0B_F_V9jIQXymR083RFplQlJNcE0'],
 ['S01E13 - Terrorist Training: Part 2', '', '0B_F_V9jIQXymRE5SUEV1eDNnZWs'],
 ['S01E14 - Halloween', '', '0B_F_V9jIQXymX1ZNQ3NiUjJIRG8'],
-/*['Rick and Morty (2013–)', 'Animation, Adventure, Comedy'],
+['Rick and Morty (2013–)', 'Animation, Adventure, Comedy'],
 ['S01E01 - Pilot', '', '0B6hhxnR-klKyZUhoQTQ1NExzTmc'],
 ['S01E02 - Lawnmower Dog', '', '0B6hhxnR-klKyVC0wTGJudjJFZW8'],
 ['S01E03 - Anatomy Park', '', '0B6hhxnR-klKybHhyR2poaXdPbXc'],
@@ -3887,7 +3887,7 @@ TV_Array = [
 ['S01E09 - Something Ricked This Way Comes', '', '0B6hhxnR-klKyR3ZFWUlEejdaLU0'],
 ['S01E10 - Close Rick-counters of the Rick Kind', '', '0B6hhxnR-klKySE5ZdzIyai1xN0k'],
 ['S01E11 - Ricksy Business', '', '0B6hhxnR-klKySEFNVDJOaHZJMFk'],
-['The Road Runner Show (1966–1973)', 'Animation, Family, Comedy'],
+/*['The Road Runner Show (1966–1973)', 'Animation, Family, Comedy'],
 ['S01E01', '', '0B4lnZashnvULS2lDY09CUy1tbEU'],
 ['S01E02', '', '0B4lnZashnvULTjVadDhlOE1MZm8'],
 ['S01E03', '', '0B4lnZashnvULeUdTVzhkeThaaVk'],
@@ -3986,7 +3986,7 @@ TV_Array = [
 ['S01E01 - Pilot - Halloween', '', '0B4ImsDopq4_FaHRZbWxZZ181eU0'],
 ['Seinfeld (1989–1998)', 'Comedy'],
 ['S09E10 - The Strike - Christmas', '', '0B6a8GL2kUm9EOXNGOG5GRmVJc3c'],*/
-['Sense8 (2015)', 'Drama, Mystery, Sci-Fi, Serial'],
+/*['Sense8 (2015)', 'Drama, Mystery, Sci-Fi, Serial'],
 ['S01E01 - Limbic Resonance', '', '0B4ImsDopq4_FQ2RJb1hEQlFZcGs'],
 ['S01E02 - I Am Also A We', '', '0B4ImsDopq4_FMWNxcml0RkNkcm8'],
 ['S01E03 - Smart Money\'s on the Skinny Bitch', '', '0B4ImsDopq4_FdUppam1NTXlNOW8'],
@@ -3998,12 +3998,12 @@ TV_Array = [
 ['S01E09 - Death Doesn\'t Let You Say Goodbye', '', '0B4ImsDopq4_FVWRqc0NHTi14SWM'],
 ['S01E10 - What Is Human?', '', '0B4ImsDopq4_Fc0hPRldvalJROFE'],
 ['S01E11 - Just Turn the Wheel and the Future Changes', '', '0B4ImsDopq4_FTjBNV293MjhDTWs'],
-['S01E12 - I Can\'t Leave Her', '', '0B4ImsDopq4_FR0s3UzZ3VXdzc0U'],
+['S01E12 - I Can\'t Leave Her', '', '0B4ImsDopq4_FR0s3UzZ3VXdzc0U'],*/
 /*['She-Ra: Princess of Power (1985–)', 'Animation, Action, Adventure'],
 ['S01E01 - Into Etheria', '', '0B4lnZashnvULSi1GQkgwUlRMVVU'],
 ['Sheep in the Big City (2000–)', 'Animation, Comedy'],
 ['S01E01', '', '0BxJ5655JUkdiYUhpd2J4THYwTk0'],*/
-['Sherlock (2010–)', 'Crime, Drama, Mystery, Serial'],
+/*['Sherlock (2010–)', 'Crime, Drama, Mystery, Serial'],
 ['S01E00 - Unaired Pilot', '', '0B9hOhGLF4ciPeldGZGU0Njc1MFk'],
 ['S01E01 - A Study in Pink', '', '0B9hOhGLF4ciPZWJXRWhWVUJBUjQ', '0B9hOhGLF4ciPOTg0RE1nSFRSajA'],
 ['S01E02 - The Blind Banker', '', '0B9hOhGLF4ciPTFVRYUhSeDI4T1E', '0B9hOhGLF4ciPTjhjSkFQWDU2a28'],
@@ -4011,8 +4011,8 @@ TV_Array = [
 ['S02E01 - A Scandal in Belgravia', '', '0B9hOhGLF4ciPSVlWazBBdjdQTGM', '0B9hOhGLF4ciPSXVRVnRXVTdadUk'],
 ['S02E02 - The Hounds of Baskerville', '', '0B9hOhGLF4ciPcWt2WkpkVTcxNU0', '0B9hOhGLF4ciPMmRmc21uTU9TWE0'],
 ['S02E03 - The Reichenbach Fall', '', '0B9hOhGLF4ciPVFNOZ01EdmZ1WDA', '0B9hOhGLF4ciPWmRNYnFzdzItdUk'],
-['S04E00 - The Abominable Bride - Christmas', '', '0B_F_V9jIQXymMDJsX2ZaNUF5ZTA'],
-['Silicon Valley (2014–)', 'Comedy, Serial'],
+['S04E00 - The Abominable Bride - Christmas', '', '0B_F_V9jIQXymMDJsX2ZaNUF5ZTA'],*/
+/*['Silicon Valley (2014–)', 'Comedy, Serial'],
 ['S01E01 - Minimum Viable Product', '', '0Bwjx3gpy0_MwWUdpTW5iWUtKeEk'],
 ['S01E02 - The Cap Table', '', '0Bwjx3gpy0_MwWlFuS21MUTRPek0'],
 ['S01E03 - Articles of Incorporation', '', '0Bwjx3gpy0_MwV3hMMFJwVHRMNWM'],
@@ -4030,7 +4030,7 @@ TV_Array = [
 ['S02E07 - Adult Content', '', '0Bwjx3gpy0_MwVERoMHdHSktWdlk'],
 ['S02E08 - White Hat/Black Hat', '', '0Bwjx3gpy0_MwQjc1Wk8zaGd0cXc'],
 ['S02E09 - Binding Arbitration', '', '0Bwjx3gpy0_MwZVMyTlVJSjBwNE0'],
-['S02E10 - Two Days of the Condor', '', '0Bwjx3gpy0_MwWldaWm9mQ3ByNEk'],
+['S02E10 - Two Days of the Condor', '', '0Bwjx3gpy0_MwWldaWm9mQ3ByNEk'],*/
 /*['Silver Surfer (1998)', 'Animation, Sci-Fi, Action'],
 ['S01E01', '', '0B4lnZashnvULS183VHB1WGhISTQ'],*/
 ['The Simpsons (1989–)', 'Animation, Comedy'],
@@ -4900,7 +4900,7 @@ TV_Array = [
 ['S01E47 - Political Power', '', '0Bwjx3gpy0_MwYkZLSWZmLWd3bzg'],
 ['S01E48 - The Return', '', '0Bwjx3gpy0_MwS0NLaTZDZXhrNUU'],
 ['S01E49 - JailBreak', '', '0Bwjx3gpy0_MwX09XM2o1bHJxQ0U'],*/
-['The Strain (2014–)', 'Drama, Horror, Thriller, Serial'],
+/*['The Strain (2014–)', 'Drama, Horror, Thriller, Serial'],
 ['S01E01 - Night Zero - Halloween', '', '0B9hOhGLF4ciPdmptNmM5WDMtNDQ', '0B9hOhGLF4ciPcERhbHdJVUpfT0k'],
 ['S01E02 - The Box - Halloween', '', '0B9hOhGLF4ciPeWhMamJOanF0cms'],
 ['S01E03 - Gone Smooth - Halloween', '', '0B9hOhGLF4ciPdzhpUVlibTNfTEU'],
@@ -4913,8 +4913,8 @@ TV_Array = [
 ['S01E10 - Loved Ones - Halloween', '', '0B9hOhGLF4ciPbjBDV0hhYmk3TWM'],
 ['S01E11 - The Third Rail - Halloween', '', '0B9hOhGLF4ciPYzVmaHg1blRrQWc'],
 ['S01E12 - Last Rites - Halloween', '', '0B9hOhGLF4ciPTXFuTlFwVnctY1k'],
-['S01E13 - The Master - Halloween', '', '0B9hOhGLF4ciPMDd4a2pfbE9ENVU'],
-['Stranger Things (2016–)', 'Drama, Horror, Thriller, Serial'],
+['S01E13 - The Master - Halloween', '', '0B9hOhGLF4ciPMDd4a2pfbE9ENVU'],*/
+/*['Stranger Things (2016–)', 'Drama, Horror, Thriller, Serial'],
 ['S01E01 - Chapter One: The Vanishing of Will Byers - Halloween', '', '0B_F_V9jIQXymT01FY0s0YXB1alk'],
 ['S01E02 - Chapter Two: The Weirdo on Maple Street - Halloween', '', '0B_F_V9jIQXymbTZzRS1YRzdmQU0'],
 ['S01E03 - Chapter Three: Holly, Jolly - Halloween', '', '0B_F_V9jIQXymeF94TTZrNXV0U3M'],
@@ -4922,7 +4922,7 @@ TV_Array = [
 ['S01E05 - Chapter Five: The Flea and the Acrobat - Halloween', '', '0B_F_V9jIQXymQ3lzWHlmWGNyLWM'],
 ['S01E06 - Chapter Six: The Monster - Halloween', '', '0B_F_V9jIQXymU2FjTWdiZVN6MjQ'],
 ['S01E07 - Chapter Seven: The Bathtub - Halloween', '', '0B_F_V9jIQXymWVFZdnotSV9DQlE'],
-['S01E08 - Chapter Eight: The Upside Down - Halloween', '', '0B_F_V9jIQXymQlFPS2VCRVFpTms'],
+['S01E08 - Chapter Eight: The Upside Down - Halloween', '', '0B_F_V9jIQXymQlFPS2VCRVFpTms'],*/
 /*['Street Fighter II: V (1995–)', 'Action, Adventure, Animation'],
 ['S01E01 - The Beginning of a Journey', '', '0BxJ5655JUkdiRVQwWllONHIzWTA'],
 ['S01E02 - The King of the Air Force', '', '0BxJ5655JUkdiVmdDVExJRllHQ0k'],
@@ -5142,7 +5142,7 @@ TV_Array = [
 ['S01E01 - The $$60,000,000,000.00 Man', '', '0BxJ5655JUkdiUW1wdllydm1KT2c'],
 ['S01E02 - Truth of Mistake', '', '0BxJ5655JUkdibEJxcnk5Qi00RlE'],
 ['S01E03 - Peace Maker', '', '0BxJ5655JUkdiczRvRzJDcExvV1k'],*/
-['True Detective (2014–)', 'Crime, Drama, Mystery, Serial'],
+/*['True Detective (2014–)', 'Crime, Drama, Mystery, Serial'],
 ['S01E01 - The Long Bright Dark', '', '0Bwjx3gpy0_MwbE9pcGVvVlE4QTA'],
 ['S01E02 - Seeing Things', '', '0Bwjx3gpy0_MwcGxDeU1pOS0wdUU'],
 ['S01E03 - The Locked Room', '', '0Bwjx3gpy0_MwaGpDb1FjZTlrMkk'],
@@ -5158,7 +5158,7 @@ TV_Array = [
 ['S02E05 - Other Lives', '', '0B4ImsDopq4_FY3IwYlVyVTVjeFE'],
 ['S02E06 - Church in Ruins', '', '0B4ImsDopq4_FNkFGb09VYkpTUG8'],
 ['S02E07 - Black Maps and Motel Rooms', '', '0B4ImsDopq4_Fc1hUcFRlUlJVNzA'],
-['S02E08 - Omega Station', '', '0B4ImsDopq4_FR09oSXBQNlR3YmM'],
+['S02E08 - Omega Station', '', '0B4ImsDopq4_FR09oSXBQNlR3YmM'],*/
 /*['The Twilight Zone (1959–1964)', 'Fantasy, Horror, Mystery'],
 ['S01E08 - Time Enough at Last - Halloween', '', '0B4ImsDopq4_FZXVXNW5uZWcyUGc'],
 ['S01E11 - And When the Sky Was Opened - Halloween', '', '0B4ImsDopq4_FSTVUQTNvWnNCNk0'],
@@ -5176,7 +5176,7 @@ TV_Array = [
 ['S05E03 - Nightmare at 20,000 Feet - Halloween', '', '0B4ImsDopq4_Fc3QzNTU4WElGYTQ'],
 ['S05E06 - Living Doll - Halloween', '', '0B4ImsDopq4_FQmR1UWpQbGZOX3c'],
 ['S05E25 - The Masks - Halloween', '', '0B4ImsDopq4_FM0U0Z05ybjVWd3M'],*/
-['Twin Peaks (1990–1991)', 'Drama, Mystery, Thriller, Serial'],
+/*['Twin Peaks (1990–1991)', 'Drama, Mystery, Thriller, Serial'],
 ['S01E01 - Pilot', '', '0B9hOhGLF4ciPYWVIODMxS1NIMFE', '0B9hOhGLF4ciPV1JINTRiMl9VS28'],
 ['S01E02 - Episode #1.2', '', '0B9hOhGLF4ciPbklvQ0lHWUNzVE0'],
 ['S01E03 - Episode #1.3', '', '0B9hOhGLF4ciPV1prYlFoUHQ4TDg'],
@@ -5206,7 +5206,7 @@ TV_Array = [
 ['S02E19 - Episode #2.19', '', '0B9hOhGLF4ciPTjhaeGtNRzdoUkk'],
 ['S02E20 - Episode #2.20', '', '0B9hOhGLF4ciPM1JMXzFDZEpIMFE'],
 ['S02E21 - Episode #2.21', '', '0B9hOhGLF4ciPTFNnOE9IbllRTTg'],
-['S02E22 - Episode #2.22', '', '0B9hOhGLF4ciPVDJueDd5RXZCenM'],
+['S02E22 - Episode #2.22', '', '0B9hOhGLF4ciPVDJueDd5RXZCenM'],*/
 ['Ugly Americans (2010–)', 'Animation, Comedy, Horror'],
 ['S01E01 - Pilot', '', '0B_F_V9jIQXymQnY4ZS1qUlV5SlU'],
 ['S01E02 - An American Werewolf in America', '', '0B_F_V9jIQXymc3MwMy0yZnROTUk'],
@@ -5332,7 +5332,7 @@ TV_Array = [
 ['S01E05 - Speed and Spyke', '', '0BxJ5655JUkdiNHVXVV90THNRTDg'],
 ['The Yogi Bear Show (1961–1988)', 'Animation, Family, Comedy'],
 ['S01E01', '', '0B4lnZashnvULdkxqeFg0NC1ocU0'],
-['S01E02', '', '0B4lnZashnvULUUZRR0R5OUpkTG8'],
+['S01E02', '', '0B4lnZashnvULUUZRR0R5OUpkTG8'],*/
 ['Young Justice (2010–)', 'Animation, Action, Adventure'],
 ['S01E01 - Independence Day', '', '0B9hOhGLF4ciPQ2dDdEtrWWU3dmc'],
 ['S01E02', '', '0B9hOhGLF4ciPQjBhV0t3OU8xaWs'],
@@ -5380,7 +5380,7 @@ TV_Array = [
 ['S02E18 - Intervention', '', '0B9hOhGLF4ciPSm9uNzF5ZTdsNk0'],
 ['S02E19 - Summit', '', '0B9hOhGLF4ciPdkxOdmFBQ0czVDQ'],
 ['S02E20 - Endgame', '', '0B9hOhGLF4ciPMFJUaGFvVUxCV00'],
-['Yu Yu Hakusho: Ghost Files (1992–2005)', 'Animation, Action, Adventure, Serial'],
+/*['Yu Yu Hakusho: Ghost Files (1992–2005)', 'Animation, Action, Adventure, Serial'],
 ['S01E01 - Surprised to Be Dead', '', '0BxJ5655JUkdiWHYtZHpmOVp0RzA'],
 ['S01E02 - Koenma Appears', '', '0BxJ5655JUkdiRVFaSlFrS3lNRVE'],
 ['S01E03 - Kuwabara: A Promise Between Men', '', '0BxJ5655JUkdiUGVsSnlPc0RKVlk'],
