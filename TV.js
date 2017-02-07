@@ -3619,7 +3619,7 @@ TV_Array = [
 ['S02E07 - Little Scorpion - Halloween', '', '0Bwjx3gpy0_MwU19BMTBDQS02d0E'],
 ['S02E08 - Memento Mori - Halloween', '', '0Bwjx3gpy0_MwR0lIZ1JrR1gwWUU'],
 ['S02E09 - And Hell Itself My Only Foe - Halloween', '', '0B4ImsDopq4_FZ0l1bXdsd3pUd0k'],
-['S02E10 - And They Were Enemies - Halloween', '', '0B4ImsDopq4_FZS1TVVRZbEx6ZlE'],/
+['S02E10 - And They Were Enemies - Halloween', '', '0B4ImsDopq4_FZS1TVVRZbEx6ZlE'],
 /*['Pepper Ann (1997–2000)', 'Animation, Family, Comedy'],
 ['S01E01', '', '0BxJ5655JUkdiZm9IUjdKYWRKX1E'],
 ['The Pink Panther Show (1969–1976)', 'Animation, Comedy'],
