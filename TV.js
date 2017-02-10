@@ -3886,7 +3886,7 @@ TV_Array = [
 ['S01E24', '', '0B_vPFdSS15a2eXJuMmlwLW9icmM'],
 ['S01E25', '', '0B_vPFdSS15a2cklraHlLaDVLUk0'],
 ['S01E26', '', '0B_vPFdSS15a2TkJvME12X25iT00'],*/
-/*['Red Dwarf (1988–)', 'Comedy, Sci-Fi'],
+['Red Dwarf (1988–)', 'Comedy, Sci-Fi'],
 ['S01E01 - The End', '', '0B_F_V9jIQXymV0xtSEdFZFdVd0E'],
 ['S01E02 - Future Echoes', '', '0B_F_V9jIQXymcmktWHJEUzcxWW8'],
 ['S01E03 - Balance of Power', '', '0B_F_V9jIQXymTnRFcUpBTFRNUGM'],
@@ -3898,7 +3898,7 @@ TV_Array = [
 ['S02E03 - Thanks for the Memory', '', '0B_F_V9jIQXymRGx1ZEtoMWxnVWM'],
 ['S02E04 - Stasis Leak', '', '0B_F_V9jIQXymVWYwenVlclJkMjg'],
 ['S02E05 - Queeg', '', '0B_F_V9jIQXymOTBDOG92SW1uY2M'],
-['S02E06 - Parallel Universe', '', '0B_F_V9jIQXymNTVLLVlJcGZUZGM'],*/
+['S02E06 - Parallel Universe', '', '0B_F_V9jIQXymNTVLLVlJcGZUZGM'],
 /*['Regular Show (2009–)', 'Animation, Action, Adventure'],
 ['S01E01 - The Power', '', '0B7vzyYaEiOXvUTNKUHJPZjd1MUk'],
 ['S01E02', '', '0B7vzyYaEiOXvTTBiYmtkekJ0d28'],
