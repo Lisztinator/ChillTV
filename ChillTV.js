@@ -3263,10 +3263,10 @@ function createTVList() {
 		} else {
 			if (TV_Array[tvi][2] === 'Recently Added') {
 				RECENT = true;
-				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 			} else {
 				RECENT = false;
-				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >+</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 			}
 		}
 	}
@@ -3306,10 +3306,10 @@ function createTVList() {
 		}).click(function() {
 			if ($(this).parent().children('li').is(':hidden')) {
 				$(this).parent().children('li').show();
-				$(this).text('-').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
+				$(this).text('▲').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: white;border-color: white');
 			} else if ($(this).parent().children('li').is(':visible')) {
 				$(this).parent().children('li').hide();
-				$(this).text('+').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
+				$(this).text('▼').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
 			}
 		});
 	}, 250);
