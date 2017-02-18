@@ -2761,9 +2761,9 @@ function createMovieList() {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
 	body.append('<span class="text-info trailertext" /><br />');
-	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button><span> Marathon List</span></ul>');
+	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button><span> Marathon List</span></ul>');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
-		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">+</button> ' + Marathon_List[mal][0] + '</ul></li>');
+		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
 		for (var mwl = 1; mwl < Marathon_List[mal].length; mwl++) {
 			$('.marathon:last').html($('.marathon:last').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal][mwl] + '</li>');
 		}
@@ -2784,10 +2784,10 @@ function createMovieList() {
 	}).click(function() {
 		if ($(this).parent().children('li').is(':hidden')) {
 			$(this).parent().children('li').show();
-			$(this).text('-').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
+			$(this).text('▲').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
 		} else if ($(this).parent().children('li').is(':visible')) {
 			$(this).parent().children('li').hide();
-			$(this).text('+').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
+			$(this).text('▼').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
 		}
 	});
 	if (CLIENT.rank === 5) {
