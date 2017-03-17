@@ -2312,6 +2312,7 @@ Movie_Array = [
 ['The Sign of Four (1987)', 'Adventure, Crime, Drama', '0Bwjx3gpy0_MwOUNRb2tmRk5qUUU'],
 ['The Signal (2014)', 'Sci-Fi, Thriller', '0Bwjx3gpy0_MwY2JPU0lUM05yZ2c'],
 ['Signs (2002)', 'Drama, Mystery, Sci-Fi', '0B9hOhGLF4ciPSml1bGppN1FrS0E', '0B9hOhGLF4ciPRDVUSlRVTk5fLUE'],
+['Silence (2016)', 'Drama, History', '0B_F_V9jIQXymcUNudlFFRTlCVFk', 'Recently Added'],
 ['The Silence of the Lambs (1991)', 'Crime, Drama, Thriller', '0B_F_V9jIQXymZmtWay1FN2tCZTQ'],
 ['Silent Hill (2006)', 'Adventure, Horror, Mystery', '0B9hOhGLF4ciPWFNxaF9Na2hUQzg', '0B9hOhGLF4ciPcTduLThjak9MNHM'],
 ['Silent Night (2012)', 'Comedy, Horror, Mystery', '0B6a8GL2kUm9EQTlCdk5sUzFIczg'],
