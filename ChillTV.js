@@ -5,7 +5,6 @@ Copyright © 2016 Benjamin Paul. All rights reserved.
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
 
-setTimeout(function() {
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
 	if (m === 0) {
@@ -4370,15 +4369,15 @@ function getYouTube(element, term, position, text, random, nextpage) {
 	}
 }
 
-/*if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the voteskip bug for double loggers or for anyone
+if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the voteskip bug for double loggers or for anyone
 	socket.on("voteskip", function(data) {
 		if (data.count === 1 && data.need === 1) {
 			location.reload();
 		}
 	});
-}*/
+}
 
-/*
+
 if (CLIENT.name === 'Benny91') {
 	setTimeout(function() {
 		function changeNames(tvIndex, idIndex) {
@@ -4447,7 +4446,6 @@ if (CLIENT.name === 'Benny91') {
 		changeNames(TV_Array[tvIn], 2);
 	}, 10000);
 }
-*/
 
 var CAREFUL = true
 var CHECKITOUT = false;
@@ -4855,6 +4853,4 @@ if (CLIENT.name === 'Robust') {
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-69437331-1', 'auto');
-ga('send', 'pageview');
-*/
-}, 1000);
+ga('send', 'pageview');*/
