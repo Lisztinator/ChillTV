@@ -1842,7 +1842,7 @@ Callbacks.clearchat = function() {
 $("#queue .queue_entry").each(function() {
 	$(this).children(".qe_title").after($("<span class='queuebytext'>").text(" – " + $(this).attr('title')));
 });
-
+/*
 Callbacks.queue = function(e) {
 	PL_ACTION_QUEUE.queue(function(t) {
 		var a = makeQueueEntry(e.item, !0);
@@ -1872,7 +1872,7 @@ Callbacks.queue = function(e) {
 		a.children('.qe_title').after($("<span class='queuebytext'>").text(e.item.queueby && !WAITFORONE ? " – Added by: " + e.item.queueby : " – Added by: System"));
 	})
 }
-
+*/
 socket.emit("chatMsg", {
 	msg: '/me spawned'
 });
