@@ -5,6 +5,7 @@ Copyright © 2016 Benjamin Paul. All rights reserved.
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
 
+setTimeout(function() {
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
 	if (m === 0) {
@@ -4856,3 +4857,4 @@ if (CLIENT.name === 'Robust') {
 ga('create', 'UA-69437331-1', 'auto');
 ga('send', 'pageview');
 */
+}, 1000);
