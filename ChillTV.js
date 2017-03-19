@@ -4370,13 +4370,13 @@ function getYouTube(element, term, position, text, random, nextpage) {
 	}
 }
 
-if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the voteskip bug for double loggers or for anyone
+/*if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the voteskip bug for double loggers or for anyone
 	socket.on("voteskip", function(data) {
 		if (data.count === 1 && data.need === 1) {
 			location.reload();
 		}
 	});
-}
+}*/
 
 /*
 if (CLIENT.name === 'Benny91') {
