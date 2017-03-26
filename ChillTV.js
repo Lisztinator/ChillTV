@@ -1763,6 +1763,22 @@ function inba() {
 	BGCHANGE++;
 	BGCHANGE % 2 === 0 ? $("body").css('background-color', 'gold') : $("body").css('background-color', 'blue');
 }
+/*
+function afkLogout() {
+	AFKLOGOUT = setTimeout(function() {
+		$("#logoutform").submit();
+	}, 3600000);
+}
+afkLogout();
+
+$(window).on("mouseover", function() {
+	clearTimeout(AFKLOGOUT);
+	afkLogout();
+});
+$(window).on("keyup", function() {
+	clearTimeout(AFKLOGOUT);
+	afkLogout();
+});*/
 
 ANTIAFK = true;
 
@@ -1804,7 +1820,7 @@ if (!YUP) {
 	$("#antiafk").removeClass('label-default').addClass('btn-success').attr('title', 'If you\'re going afk, please turn this off to allow accurate voteskipping');
 	antiAfk();
 }
-
+/*
 trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" title="Hide Trivia">Trivia</span>')
 	.insertBefore("#modflair")
 	.on("click", function() {
@@ -1830,7 +1846,7 @@ if (!TRIVIT) {
 	trivbtn.removeClass('btn-success').addClass('label-default').attr('title', 'Show Trivia');
 	$('.trivia').attr('style', 'display:none');
 }
-
+*/
 var WAITFORONE = false;
 aaretries = 0;
 
