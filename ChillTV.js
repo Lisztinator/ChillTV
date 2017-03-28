@@ -4393,7 +4393,7 @@ if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the votes
 	});
 }
 */
-/*
+
 if (CLIENT.name === 'Benny91') {
 	setTimeout(function() {
 		function changeNames(tvIndex, idIndex) {
@@ -4420,7 +4420,7 @@ if (CLIENT.name === 'Benny91') {
 								console.log(data);
 								tvName = data.name;
 								fileType = tvName.match(/\..{2,4}$/);
-								fileName = tvName.split(/\..{2,4}$/)[0];
+								fileName = tvName.split(/ - /)[0];
 							},
 							error: function(data) {
 								console.log(data);
