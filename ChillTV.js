@@ -4393,7 +4393,7 @@ if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') { // is the votes
 	});
 }
 */
-
+/*
 if (CLIENT.name === 'Benny91') {
 	setTimeout(function() {
 		function changeNames(tvIndex, idIndex) {
@@ -4462,7 +4462,7 @@ if (CLIENT.name === 'Benny91') {
 		changeNames(TV_Array[tvIn], 2);
 	}, 10000);
 }
-
+*/
 var CAREFUL = true
 var CHECKITOUT = false;
 function addShare(part1, part2, part3, part4, part5, element, name) {
