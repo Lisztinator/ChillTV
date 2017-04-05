@@ -4865,7 +4865,8 @@ function createTimer() {
 	if ($("#clinttime").length > 0) {
 		$("#clinttime").remove();
 	}
-	$(".embed-responsive").append($('<div id="clinttime" style="width: ' + $(".embed-responsive").width() - 20 + 'px; position: absolute; z-index: 90;">0:00:00</div>'));
+	widthNumber = Math.floor($("#ytapiplayer").width() - 20);
+	$("#ytapiplayer").append($('<div id="clinttime" style="width: ' + widthNumber.toString() + 'px; position: absolute; z-index: 90;">0:00:00</div>'));
 	socket.on("mediaUpdate", function(data) {
 		$("#clinttime").text(secondsTimeSpanToHMS(data.currentTime));
 	});
