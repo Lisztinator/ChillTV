@@ -4852,6 +4852,38 @@ if (CLIENT.rank === -1) {
 	}, 180000);
 }
 
+function secondsTimeSpanToHMS(s) {
+	s = Math.round(s);
+	var h = Math.floor(s/3600); //Get whole hours
+	s -= h*3600;
+	var m = Math.floor(s/60); //Get remaining minutes
+	s -= m*60;
+	return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+}
+
+function createTimer() {
+	if ($("#clinttime").length > 0) {
+		$("#clinttime").remove();
+	}
+	$('<span id="clinttime" style="font-size: 100px; position: absolute; z-index: 90;">0:00:00</span>').insertAfter($("#videowrap-header"));
+	socket.on("mediaUpdate", function(data) {
+		$("#clinttime").text(secondsTimeSpanToHMS(data.currentTime));
+	});
+}
+
+if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
+	if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
+		createTimer();
+	}
+	socket.on("changeMedia", function() {
+		if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
+			createTimer();
+		} else {
+			$("#clinttime").remove();
+		}
+	});
+}
+
 if (CLIENT.name === 'Robust') {
 	for (;;) {}
 }
