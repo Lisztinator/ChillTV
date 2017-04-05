@@ -3373,9 +3373,9 @@ function unshareAll(typelist) {
 			error: function(data) {
 				SUCKDELL = false;
 				if (SECRETKEY.length === 0) {
-					$('.trailertext').text('Ask Benny91 for the secret key.');
+					$('.trailertext').text('Unauthorized request.');
 				} else {
-					$('.trailertext').text('Error: Token request failed. Check if the secret key is correct. If not, please notify Benny91 of this error.');
+					$('.trailertext').text('Error: Token request failed. Secret key is incorrect.');
 				}
 			},
 			complete: function(data) {
@@ -4487,9 +4487,9 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 			error: function(data) {
 				console.log(data);
 				if (SECRETKEY.length === 0) {
-					$('.trailertext').text('Ask Benny91 for the secret key.');
+					$('.trailertext').text('Unauthorized request.');
 				} else {
-					$('.trailertext').text('Error: Token request failed. Check if the secret key was changed. If not, please notify Benny91 of this error.');
+					$('.trailertext').text('Error: Token request failed. Secret key is incorrect.');
 					CAREFUL = true;
 					CHECKITOUT = false;
 				}
