@@ -4872,7 +4872,7 @@ function createTimer() {
 	});
 }
 
-if (CLIENT.name === 'Clint' || CLIENT.name === 'Benny91') {
+if (CLIENT.name === 'Clint') {
 	if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
 		createTimer();
 	}
