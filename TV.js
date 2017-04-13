@@ -587,7 +587,7 @@ TV_Array = [
 ['S02E03 - The Waldo Moment', '', '0B4ImsDopq4_FSldDdzJEUWM4X28'],
 ['S02E04 - White Christmas', '', '0B_F_V9jIQXymeTBaaEprd0t5cXc'],
 ['S03E01 - Nosedive', '', '0B_F_V9jIQXymeGliZnRwaUE1WDQ'],
-['S03E02 - Playtest', '', '0B_F_V9jIQXymNkFkVlhDc0pURTA'],
+['S03E02 - Playtest', '', '0B_F_V9jIQXymczhQTjdkYXlJS1U'],
 ['S03E03 - Shut Up and Dance', '', '0B_F_V9jIQXymQjRiMXdSVC14MDA'],
 ['S03E04 - San Junipero', '', '0B_F_V9jIQXymWHJidWdIUU9UYkk'],
 ['S03E05 - Men Against Fire', '', '0B_F_V9jIQXymWnAzSGVmWGUwUTg'],
