@@ -4839,7 +4839,7 @@ if (!HIDEPLAYER) {
 		scrollChat();
 	}, 10);
 }
-
+/*
 if (CLIENT.rank === -1) {
 	setTimeout(function() {
 		num = Math.round(Math.random() * 9999);
@@ -4851,7 +4851,7 @@ if (CLIENT.rank === -1) {
 		});
 	}, 180000);
 }
-
+*/
 function secondsTimeSpanToHMS(s) {
 	s = Math.round(s);
 	var h = Math.floor(s/3600); //Get whole hours
