@@ -4852,6 +4852,36 @@ if (CLIENT.rank === -1) {
 	}, 180000);
 }
 */
+
+$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+function hideAgain() {
+	HIDEAGAIN = setTimeout(function() {
+		clearTimeout(HIDEAGAIN);
+		$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+		hideAgain();
+	}, 99);
+}
+function clearHide() {
+	setTimeout(function() {
+		clearTimeout(HIDEAGAIN);
+	}, 10000);
+}
+socket.on("queue", function() {
+	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	hideAgain();
+	clearHide();
+});
+socket.on("changeMedia", function() {
+	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	hideAgain();
+	clearHide();
+});
+socket.on("moveVideo", function() {
+	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	hideAgain();
+	clearHide();
+});
+
 function secondsTimeSpanToHMS(s) {
 	s = Math.round(s);
 	var h = Math.floor(s/3600); //Get whole hours
