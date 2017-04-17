@@ -4853,7 +4853,6 @@ if (CLIENT.rank === -1) {
 }
 */
 
-$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
 function hideAgain() {
 	HIDEAGAIN = setTimeout(function() {
 		clearTimeout(HIDEAGAIN);
@@ -4881,6 +4880,8 @@ socket.on("moveVideo", function() {
 	hideAgain();
 	clearHide();
 });
+hideAgain();
+clearHide();
 
 function secondsTimeSpanToHMS(s) {
 	s = Math.round(s);
