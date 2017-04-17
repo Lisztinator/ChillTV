@@ -4856,7 +4856,7 @@ if (CLIENT.rank === -1) {
 function hideAgain() {
 	HIDEAGAIN = setTimeout(function() {
 		clearTimeout(HIDEAGAIN);
-		$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+		$('.queue_active > div.btn-group.pull-left').hide();
 		hideAgain();
 	}, 99);
 }
@@ -4866,22 +4866,22 @@ function clearHide() {
 	}, 10000);
 }
 socket.on("queue", function() {
-	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	$('.queue_active > div.btn-group.pull-left').hide();
 	hideAgain();
 	clearHide();
 });
 socket.on("changeMedia", function() {
-	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	$('.queue_active > div.btn-group.pull-left').hide();
 	hideAgain();
 	clearHide();
 });
 socket.on("moveVideo", function() {
-	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	$('.queue_active > div.btn-group.pull-left').hide();
 	hideAgain();
 	clearHide();
 });
 socket.on("delete", function() {
-	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	$('.queue_active > div.btn-group.pull-left').hide();
 	hideAgain();
 	clearHide();
 });
