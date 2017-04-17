@@ -4880,6 +4880,11 @@ socket.on("moveVideo", function() {
 	hideAgain();
 	clearHide();
 });
+socket.on("delete", function() {
+	$('.queue_active > div.btn-group.pull-left > button.btn.btn-xs.btn-default.qbtn-delete.btn-danger').hide();
+	hideAgain();
+	clearHide();
+});
 hideAgain();
 clearHide();
 
