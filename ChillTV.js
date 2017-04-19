@@ -3312,17 +3312,19 @@ function createTVList() {
 		str = TV_Array[tvi][0].replace(/'/g, "\\'");
 		if (TV_Array[tvi][2] !== undefined && TV_Array[tvi][2] !== 'Recently Added') {
 			if (RECENT) {
-				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + showname + ' ' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			} else {
-				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + showname + ' ' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			}
 		} else {
 			if (TV_Array[tvi][2] === 'Recently Added') {
 				RECENT = true;
 				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				showname = str;
 			} else {
 				RECENT = false;
 				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				showname = str;
 			}
 		}
 	}
