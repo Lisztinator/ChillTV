@@ -2812,7 +2812,7 @@ function createMovieList() {
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'''\', \'.movielist\')">✇</a> Nominate Movie</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Movie</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
@@ -3332,7 +3332,7 @@ function createTVList() {
 	body.append('<span id="tvlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.serieslist\')">✛</a> Add Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateTV(\'''\', \'.serieslist\')">✇</a> Nominate Episode</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateTV(\'\', \'.serieslist\')">✇</a> Nominate Episode</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.serieslist\')">U</a> Unshare All</span><br />');
 	}
