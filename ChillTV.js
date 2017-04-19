@@ -2745,6 +2745,46 @@ $('<button id="mlistbtn" class="btn btn-sm btn-default" title="Check out our Mov
 		createMovieList();
 	});
 
+function nominateMovie(name, list) {
+	if (name === '') {
+		leng = $(element + ' li[style="display: block;"]').length;
+		num = Math.round(Math.random() * leng);
+		titofit = $(element + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
+		name = titofit.text().split('✇ ')[1];
+		if ($('#mlistquery').val()) {
+			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" - "' + name + '" was nominated';
+		} else {
+			mtxt = 'Random movie: ' + name + ' was nominated';
+		}
+	} else {
+		mtxt = name + ' was nominated';
+	}
+	socket.emit("chatMsg", {
+		msg: '!nominatemovie ' + name
+	});
+	$('.trailertext').text(mtxt);
+}
+
+function nominateTV(name, list) {
+	if (name === '') {
+		leng = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').length;
+		num = Math.round(Math.random() * leng);
+		titofit = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').eq(num - 1).children('span:nth-child(1)');
+		name = titofit.parent().parent().children('span:nth-child(4)').text() + ' ' + titofit.text().split('✇ ')[1];
+		if ($('#tvlistquery').val()) {
+			tvtxt = 'Random episode matching "' + $("#tvlistquery").val().trim() + '" - "' + name + '" was nominated';
+		} else {
+			tvtxt = 'Random episode: ' + name + ' was nominated';
+		}
+	} else {
+		tvtxt = name + ' was nominated';
+	}
+	socket.emit("chatMsg", {
+		msg: '!nominatetv ' + name
+	});
+	$('.trailertext').text(tvtxt);
+}
+
 function createMovieList() {
 	createTemp('Nominate/Add a Movie from This List');
 	MOVLIST = true;
@@ -2760,10 +2800,10 @@ function createMovieList() {
 	recentlyadded = '';
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		str = Movie_Array[i][0].replace(/'/g, "\\'");
-		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') {
-			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
+			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		} else {
-			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
 	$('<input id="mlistquery" type="text" placeholder="Search Movie, Year or Genre" maxlength="240" class="form-control" />').appendTo(body).keyup(function() {
@@ -2772,7 +2812,7 @@ function createMovieList() {
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="addShare(\'\', \'\', \'\', \'\', \'\', \'.movielist\')">✇</a> Add Movie</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'''\', \'.movielist\')">✇</a> Nominate Movie</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
@@ -2904,8 +2944,8 @@ function getMovies(sMovie, pagenum) {
 							}
 							if (moviename.toLowerCase() === oData.Title.toLowerCase() + ' (' + oData.Year + ')') {
 								$('.addmovie').click(function() {
-									addShare(Movie_Array[am][2], Movie_Array[am][3], Movie_Array[am][4], Movie_Array[am][5], Movie_Array[am][6], '.movielist', Movie_Array[am][0]);
-								}).text('Add Movie');
+									nominateMovie(Movie_Array[am][0], '.movielist');
+								}).text('Nominate Movie');
 								break;
 							}
 							if (am === Movie_Array.length - 1) {
@@ -3082,7 +3122,7 @@ function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, spost
 											if (SAMESEASON) {
 												if (TV_Array[ne][0].indexOf('S' + eseason + 'E' + eepisode) === 0) {
 													str = TV_Array[ne][0].replace(/'/g, "\\'");
-													$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[ne][2] + '\', \'' + TV_Array[ne][3] + '\', \'' + TV_Array[ne][4] + '\', \'' + TV_Array[ne][5] + '\', \'' + TV_Array[ne][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
+													$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">Nominate Episode</a>');
 													BREAKFREE = true;
 													break;
 												}
@@ -3134,7 +3174,7 @@ function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, spost
 								if (TV_Array[nex][0].indexOf('S' + sseason + 'E' + ep) === 0) {
 									str = TV_Array[nex][0].replace(/'/g, "\\'");
 									$('<br /><br /><span style="float:left;">S' + sseason + 'E' + ep + ' - N/A</span><span class="addorrequest" style="float:right;"></span><br /><span>N/A | N/A | IMDb Rating: N/A</span><br /><span>N/A</span>').appendTo($("#listep"));
-									$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + TV_Array[nex][2] + '\', \'' + TV_Array[nex][3] + '\', \'' + TV_Array[nex][4] + '\', \'' + TV_Array[nex][5] + '\', \'' + TV_Array[nex][6] + '\', \'.serieslist\', \'' + str + '\')">Add Episode</a>');
+									$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">Nominate Episode</a>');
 									BREAKFREE = true;
 									break;
 								}
@@ -3198,7 +3238,7 @@ function theList(som, pagenum, goback) {
 						}
 						if (moviename.toLowerCase() === thesearchresults[li].Title.toLowerCase() + ' (' + thesearchresults[li].Year + ')') {
 							str = Movie_Array[aq][0];
-							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="addShare(\'' + Movie_Array[aq][2] + '\', \'' + Movie_Array[aq][3] + '\', \'' + Movie_Array[aq][4] + '\', \'' + Movie_Array[aq][5] + '\', \'' + Movie_Array[aq][6] + '\', \'.movielist\', \'' + str + '\')">Add Movie</a>');
+							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">Nominate Movie</a>');
 							break;
 						}
 						if (aq === Movie_Array.length - 1) {
@@ -3272,9 +3312,9 @@ function createTVList() {
 		str = TV_Array[tvi][0].replace(/'/g, "\\'");
 		if (TV_Array[tvi][2] !== undefined && TV_Array[tvi][2] !== 'Recently Added') {
 			if (RECENT) {
-				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', \'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				recentlytv += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			} else {
-				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="addShare(\'' + TV_Array[tvi][2] + '\', \'' + TV_Array[tvi][3] + '\', \'' + TV_Array[tvi][4] + '\', \'' + TV_Array[tvi][5] + '\', \'' + TV_Array[tvi][6] + '\', \'.movielist\', \'' + str + '\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
+				text += '<li style="display: none;padding-left: 60px;"><span><a style="cursor:pointer" onclick="nominateTV(\'' + str + '\', \'.serieslist\')">✇</a> ' + TV_Array[tvi][0] + '</span></li>';
 			}
 		} else {
 			if (TV_Array[tvi][2] === 'Recently Added') {
@@ -3292,7 +3332,7 @@ function createTVList() {
 	body.append('<span id="tvlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.serieslist\')">✛</a> Add Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="addShare(\'\', \'\', \'\', \'\', \'\', \'.serieslist\')">✇</a> Add Episode</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateTV(\'''\', \'.serieslist\')">✇</a> Nominate Episode</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.serieslist\')">U</a> Unshare All</span><br />');
 	}
