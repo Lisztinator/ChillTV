@@ -2747,9 +2747,9 @@ $('<button id="mlistbtn" class="btn btn-sm btn-default" title="Check out our Mov
 
 function nominateMovie(name, list) {
 	if (name === '') {
-		leng = $(element + ' li[style="display: block;"]').length;
+		leng = $(list + ' li[style="display: block;"]').length;
 		num = Math.round(Math.random() * leng);
-		titofit = $(element + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
+		titofit = $(list + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
 		name = titofit.text().split('✇ ')[1];
 		if ($('#mlistquery').val()) {
 			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" - "' + name + '" was nominated';
@@ -2767,9 +2767,9 @@ function nominateMovie(name, list) {
 
 function nominateTV(name, list) {
 	if (name === '') {
-		leng = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').length;
+		leng = $(list + '[style="display: block; list-style: none; padding-left: 0px;"] li').length;
 		num = Math.round(Math.random() * leng);
-		titofit = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').eq(num - 1).children('span:nth-child(1)');
+		titofit = $(list + '[style="display: block; list-style: none; padding-left: 0px;"] li').eq(num - 1).children('span:nth-child(1)');
 		name = titofit.parent().parent().children('span:nth-child(4)').text() + ' ' + titofit.text().split('✇ ')[1];
 		if ($('#tvlistquery').val()) {
 			tvtxt = 'Random episode matching "' + $("#tvlistquery").val().trim() + '" - "' + name + '" was nominated';
