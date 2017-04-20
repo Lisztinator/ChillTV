@@ -657,7 +657,7 @@ Movie_Array = [
 ['Dark Skies (2013)', 'Horror, Sci-Fi, Thriller', '0Bwjx3gpy0_MwaGhpOXZTYWM5aFk'],
 ['Dark Victory (1939)', 'Drama, Romance', '0Bwjx3gpy0_MwN21CWnFOd09fSk0'],
 ['Das Boot (1981) Extended', 'Adventure, Drama, Thriller', '0B9hOhGLF4ciPQzNBVEMyOVR1MGc', '0B9hOhGLF4ciPN0dXbmxua1ZMM0U', '0B9hOhGLF4ciPY3M1TnlBcmJpNjg', '0B9hOhGLF4ciPdjR6dllmTWNweG8'],
-['Dawn of the Dead (1978)', 'Action, Horror, Thriller', '0B1TePj5vJj7mNTlRWjdWanJoN1E'],
+['Dawn of the Dead (1978) Extended Mall Hours', 'Action, Horror, Thriller', '0B1TePj5vJj7mNTlRWjdWanJoN1E'],
 ['Dawn of the Dead (2004)', 'Action, Horror, Thriller', '0B_F_V9jIQXymMDJpbHRYOWJ1RE0'],
 ['Dawn of the Planet of the Apes (2014)', 'Action, Adventure, Drama', '0B_F_V9jIQXymWmk3cTljYU1XWFU'],
 ['Day & Night (2010)', 'Animation, Short, Comedy', '0B9hOhGLF4ciPVzZRQmhieE1sQVE'],
