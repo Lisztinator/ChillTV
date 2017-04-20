@@ -4964,6 +4964,7 @@ if (CLIENT.name === 'Clint') {
 }
 
 if (CLIENT.name === 'Benny91') {
+	setTimeout(function() {
 	function findRatings(i) {
 		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1], {
 			error: function(data) {
@@ -4982,6 +4983,7 @@ if (CLIENT.name === 'Benny91') {
 		});
 	}
 	findRatings(0);
+	}, 10000);
 }
 
 if (CLIENT.name === 'Robust') {
