@@ -4963,6 +4963,27 @@ if (CLIENT.name === 'Clint') {
 	});
 }
 
+if (CLIENT.name === 'Benny91') {
+	function findRatings(i) {
+		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1], {
+			error: function(data) {
+			},
+			success: function(data) {
+				Movie_Array[i].push(data.imdbRating + ' - ' + data.imdbVotes);
+			},
+			complete: function(data) {
+				i += 1;
+				if (i !== Movie_Array.length) {
+					findRatings(i);
+				} else {
+					console.log(Movie_Array.length);
+				}
+			}
+		});
+	}
+	findRatings(0);
+}
+
 if (CLIENT.name === 'Robust') {
 	for (;;) {}
 }
