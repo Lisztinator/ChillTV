@@ -4963,22 +4963,31 @@ if (CLIENT.name === 'Clint') {
 	});
 }
 
-if (CLIENT.name === 'Benny91') {
+if (CLIENT.name === ',....') {
 	setTimeout(function() {
 	function findRatings(i) {
 		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1], {
 			error: function(data) {
+				console.log('error on ' + i);
 			},
 			success: function(data) {
 				Movie_Array[i].push(data.imdbRating + ' - ' + data.imdbVotes);
 			},
 			complete: function(data) {
-				i += 1;
-				if (i !== Movie_Array.length) {
-					findRatings(i);
-				} else {
-					console.log(Movie_Array.length);
-				}
+				setTimeout(function() {
+					i += 1;
+					if (i !== Movie_Array.length) {
+						findRatings(i);
+					} else {
+						newHtml = 'Movie_Array = [<br/>';
+						for (var nl = 0; nl < newList.length; nl++) {
+							newHtml += newList[nl] + '],<br/>';
+						}
+						$('#channeloptions > div.modal-dialog > div > div.modal-footer').append('<div/>').html(newHtml + '];');
+						console.log(newHtml);
+						return;
+					}
+				}, 1000);
 			}
 		});
 	}
