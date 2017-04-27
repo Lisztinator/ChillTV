@@ -533,6 +533,7 @@ Movie_Array = [
 ['Chappie (2015)', 'Action, Crime, Drama', '0B_F_V9jIQXymOVBSbmFjZE4zaHM'],
 ['Chariots of Fire (1981)', 'Biography, Drama, Sport', '0Bwjx3gpy0_MwT1lzdVhkR1dlMTA'],
 ['Charlie Bartlett (2007)', 'Comedy, Drama, Romance', '0Bwjx3gpy0_MwUzg2ZU5CRENDUE0'],
+['Charlie\'s Angels (2000)', 'Action, Adventure, Comedy', '0B1TePj5vJj7mS0lkNEJ2cFptWHM', 'Recently Added'],
 ['A Charlie Brown Christmas (1965)', 'Christmas, Animation, Comedy, Family', '0B6a8GL2kUm9EekpBN3pWQ1dXZU0'],
 ['A Charlie Brown Thanksgiving (1973)', 'Christmas, Animation, Comedy, Family', '0B_F_V9jIQXymTkVLa1U4RXg0bVU'],
 ['Charlie Wilson\'s War (2007)', 'Biography, Comedy, Drama', '0B4ImsDopq4_FRGtYOU5ZeXVmbTg'],
