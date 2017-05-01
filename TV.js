@@ -5301,7 +5301,7 @@ TV_Array = [
 ['S01E08 - Sacrifice', '', '0Bwjx3gpy0_MwZHN3aTZDbDVpZW8'],
 ['S01E09 - All Change', '', '0Bwjx3gpy0_MwMl9DdF9la1lDSmc'],
 ['Voltron: Defender of the Universe (1984–)', 'Animation, Family, Sci-Fi'],
-['S01E01 - Space Explorers Captured', '', '0B4lnZashnvULbVZkSkNwRTRTRlE'],
+['S01E01 - Space Explorers Captured', '', '0B4lnZashnvULbVZkSkNwRTRTRlE'],*/
 ['The Walking Dead (2010–)', 'Drama, Horror, Serial'],
 ['S01E01 - Days Gone Bye - Halloween', '', '0B4ImsDopq4_FamIzVXZncGROd00'],
 ['S01E02 - Guts - Halloween', '', '0B7vzyYaEiOXvX0FiRzlqWmxydTg'],
@@ -5309,7 +5309,7 @@ TV_Array = [
 ['S01E04 - Vatos - Halloween', '', '0B4ImsDopq4_FeldLMU9VZ2hEbm8'],
 ['S01E05 - Wildfire - Halloween', '', '0B4ImsDopq4_FQll3RnlrZVNoeFU'],
 ['S01E06 - TS-19 - Halloween', '', '0B7vzyYaEiOXvMnhRSThXZURVVm8'],
-['Wayward Pines (2015–)', 'Drama, Mystery, Sci-Fi'],
+/*['Wayward Pines (2015–)', 'Drama, Mystery, Sci-Fi'],
 ['S01E01 - Where Paradise Is Home', '', '0B3RJnC_uzvLBY0I2Z2pqR2NpaHM'],
 ['The Weekenders (2000–2004)', 'Animation, Comedy, Family'],
 ['S01E01E02', '', '0BxJ5655JUkdibGdRelVDVFY0Rjg'],
