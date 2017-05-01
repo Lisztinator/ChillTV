@@ -1984,6 +1984,7 @@ modbtn = $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show Mode
 socket.on("rank", toggleModPanel);
 toggleModPanel();
 
+if (CLIENT.name === 'Benny91' || CLIENT.name === 'ChillTVBot') {
 $('<button id="chatave-btn" class="btn btn-sm btn-default" title="Secret Key Input" />').html('<i class="glyphicon">🔑</i>').appendTo(chatcontrols).on("click", function() {
 	createTemp('Secret Key');
 	$("body").css('overflow', 'hidden');
@@ -2007,7 +2008,7 @@ $('<button id="chatave-btn" class="btn btn-sm btn-default" title="Secret Key Inp
 	});
 	$('<br /><span id="storekey" class="text-info">Key will be stored in your cookies: '+SECRETKEY+'</span>').appendTo(body);
 });
-
+}
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function videoInfo(type, id) {
