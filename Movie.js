@@ -17,7 +17,7 @@ Marathon_List = [
 ['El Mariachi Marathon', 'El Mariachi (1992)', 'Desperado (1995)', 'Once Upon a Time in Mexico (2003)'],
 ['Evil Dead Marathon', 'The Evil Dead (1981)', 'Evil Dead II (1987)', 'Army of Darkness (1992)', 'Evil Dead (2013)'],
 ['The Expendables Marathon', 'The Expendables (2010)', 'The Expendables 2 (2012)', 'The Expendables 3 (2014)'],
-['Fast and the Furious Marathon', 'The Fast and the Furious (2001)', '2 Fast 2 Furious (2003)', 'Fast & Furious (2009)', 'Fast Five (2011)', 'Fast & Furious 6 (2013)', 'The Fast and the Furious: Tokyo Drift (2006)', 'Furious 7 (2015)'],
+['Fast and the Furious Marathon', 'The Fast and the Furious (2001)', '2 Fast 2 Furious (2003)', 'Fast & Furious (2009)', 'Fast Five (2011)', 'Fast & Furious 6 (2013)', 'The Fast and the Furious: Tokyo Drift (2006)', 'Furious 7 (2015)', 'The Fate of the Furious (2017)'],
 ['Final Destination Marathon', 'Final Destination (2000)', 'Final Destination 2 (2003)', 'Final Destination 3 (2006)', 'The Final Destination (2009)', 'Final Destination 5 (2011)'],
 ['Freddy vs. Jason Marathon', 'Friday the 13th (1980)', 'A Nightmare on Elm Street (1984)', 'Friday the 13th Part 2 (1981)', 'Friday the 13th Part III (1982)', 'Friday the 13th: The Final Chapter (1984)', 'A Nightmare on Elm Street 2: Freddy\'s Revenge (1985)', 'A Nightmare on Elm Street 3: Dream Warriors (1987)', 'Friday the 13th: A New Beginning (1985)', 'A Nightmare on Elm Street 4: The Dream Master (1988)', 'Jason Lives: Friday the 13th Part VI (1986)', 'A Nightmare on Elm Street 5: The Dream Child (1989)', 'Friday the 13th Part VII: The New Blood (1988)', 'Friday the 13th Part VIII: Jason Takes Manhattan (1989)', 'Jason Goes to Hell: The Final Friday (1993)', 'Freddy\'s Dead: The Final Nightmare (1991)', 'New Nightmare (1994)', 'Freddy vs. Jason (2003)', 'Jason X (2001)', 'Friday the 13th (2009)', 'A Nightmare on Elm Street (2010)'],
 ['Friday the 13th Marathon', 'Friday the 13th (1980)', 'Friday the 13th Part 2 (1981)', 'Friday the 13th Part III (1982)', 'Friday the 13th: The Final Chapter (1984)', 'Friday the 13th: A New Beginning (1985)', 'Jason Lives: Friday the 13th Part VI (1986)', 'Friday the 13th Part VII: The New Blood (1988)', 'Friday the 13th Part VIII: Jason Takes Manhattan (1989)', 'Jason Goes to Hell: The Final Friday (1993)', 'Jason X (2001)', 'Friday the 13th (2009)'],
@@ -54,7 +54,7 @@ Marathon_List = [
 ['Pixar Marathon', 'Toy Story (1995)', 'A Bug\'s Life (1998)', 'Toy Story 2 (1999)', 'Monsters, Inc. (2001)', 'Finding Nemo (2003)', 'The Incredibles (2004)', 'Cars (2006)', 'Ratatouille (2007)', 'WALL-E (2008)', 'Up (2009)', 'Toy Story 3 (2010)', 'Cars 2 (2011)', 'Brave (2012)', 'Monsters University (2013)', 'Inside Out (2015)', 'The Good Dinosaur (2015)', 'Finding Dory (2016) '],
 ['Predator Marathon', 'Predator (1987)', 'Predator 2 (1990)', 'Predators (2010)'],
 ['The Purge Marathon', 'The Purge (2013)', 'The Purge: Anarchy (2014)', 'The Purge: Election Year (2016)'],
-['Resident Evil Marathon', 'Resident Evil (2002)', 'Resident Evil: Apocalypse (2004)', 'Resident Evil: Extinction (2007)', 'Resident Evil: Afterlife (2010)', 'Resident Evil: Retribution (2012)'],
+['Resident Evil Marathon', 'Resident Evil (2002)', 'Resident Evil: Apocalypse (2004)', 'Resident Evil: Extinction (2007)', 'Resident Evil: Afterlife (2010)', 'Resident Evil: Retribution (2012)', 'Resident Evil: The Final Chapter (2016)'],
 ['Rocky Marathon', 'Rocky (1976)', 'Rocky II (1979)', 'Rocky III (1982)', 'Rocky IV (1985)', 'Rocky V (1990)', 'Rocky Balboa (2006)', 'Creed (2015)'],
 ['Rush Hour Marathon', 'Rush Hour (1998)', 'Rush Hour 2 (2001)', 'Rush Hour 3 (2007)'],
 ['Saw Marathon', 'Saw (2004)', 'Saw II (2005) Unrated', 'Saw III (2006) Unrated', 'Saw IV (2007) Unrated', 'Saw V (2008) Unrated', 'Saw VI (2009)', 'Saw 3D: The Final Chapter (2010)'],
@@ -74,7 +74,7 @@ Marathon_List = [
 ['Twilight Marathon', 'Twilight (2008)', 'The Twilight Saga: New Moon (2009)', 'The Twilight Saga: Eclipse (2010)', 'The Twilight Saga: Breaking Dawn - Part 1 (2011)', 'The Twilight Saga: Breaking Dawn - Part 2 (2012)'],
 ['Underworld Marathon', 'Underworld (2003) Extended', 'Underworld: Evolution (2006)', 'Underworld: Rise of the Lycans (2009)', 'Underworld: Awakening (2012)', 'Underworld: Blood Wars (2016)'],
 ['Vacation Marathon', 'National Lampoon\'s Vacation (1983)', 'European Vacation (1985)', 'Christmas Vacation (1989)', 'Vegas Vacation (1997)', 'Vacation (2015)'],
-['X-Men Marathon', 'X-Men: First Class (2011)', 'X-Men Origins: Wolverine (2009)', 'X-Men (2000)', 'X-Men 2 (2003)', 'X-Men: The Last Stand (2006)', 'The Wolverine (2013) Extended', 'X-Men: Days of Future Past (2014) Rogue Cut', 'X-Men: Apocalypse (2016)'],
+['X-Men Marathon', 'X-Men: First Class (2011)', 'X-Men Origins: Wolverine (2009)', 'X-Men (2000)', 'X-Men 2 (2003)', 'X-Men: The Last Stand (2006)', 'The Wolverine (2013) Extended', 'X-Men: Days of Future Past (2014) Rogue Cut', 'X-Men: Apocalypse (2016)', 'Logan (2017)'],
 ];
 
 Movie_Array = [
