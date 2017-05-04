@@ -545,6 +545,7 @@ Movie_Array = [
 ['Chicken Little (2005)', 'Animation, Adventure, Comedy', '0B9hOhGLF4ciPYkFzNGVxZVZHZFk', '0B9hOhGLF4ciPQ1JXQkJkUjY4eVU'],
 ['Child 44 (2015)', 'Crime, Drama, Thriller', '0B4ImsDopq4_FWlV0YXBzVGdMU1E'],
 ['Child\'s Play (1988)', 'Fantasy, Horror', '0B4ImsDopq4_FWTlxU191cXBZbFE'],
+['Child\'s Play 2 (1990)', 'Horror, Thriller', '0B1TePj5vJj7mYS0xYnh6cEpIZGM', 'Recently Added'],
 ['Children of Men (2006)', 'Drama, Sci-Fi, Thriller', '0B9hOhGLF4ciPWGlHNjRSQXZXR3M', '0B9hOhGLF4ciPc0JLTlhIVGd4dVE'],
 ['Children of the Corn (1984)', 'Horror, Thriller', '0B4ImsDopq4_FRWRMSVhfbzJDdVE'],
 ['Chinatown (1974)', 'Drama, Mystery, Thriller', '0Bwjx3gpy0_MwLWFwUHhNQm92dUU'],
