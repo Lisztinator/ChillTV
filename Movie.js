@@ -809,7 +809,7 @@ Movie_Array = [
 ['The Drop (2014)', 'Crime, Drama, Mystery', '0B9hOhGLF4ciPbGdNSlFkRDU5REE', '0B9hOhGLF4ciPR211NTBpYXpHMDQ'],
 ['Drumline (2002)', 'Comedy, Drama, Romance', '0Bwjx3gpy0_MwU3RmbEZrUVBacnM'],
 ['Drunken Master (1978)', 'Action, Comedy', '0B_F_V9jIQXymd2cxY0xMZWlNUTg', '0B_F_V9jIQXymQlRTTDBqNS1zY00'],
-['Duck Amuck (1953)', 'Family, Animation, Comedy', '0BxJ5655JUkdiY0NGYkRjVDFHWk0'],
+//['Duck Amuck (1953)', 'Family, Animation, Comedy', '0BxJ5655JUkdiY0NGYkRjVDFHWk0'],
 ['DuckTales the Movie: Treasure of the Lost Lamp (1990)', 'Animation, Adventure, Comedy', '0Bwjx3gpy0_MwTDViY2ZXY3k1ZTQ'],
 ['Dude, Where\'s My Car? (2000)', 'Comedy, Mystery', '0B4ImsDopq4_FcHlPV0gzeHBxUUU'],
 ['Due Date (2010)', 'Comedy, Drama', '0B4ImsDopq4_FQkdKZHZ6QlNDcFE'],
