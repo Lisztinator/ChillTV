@@ -43,7 +43,7 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>4/17</b><li>Fixed and improved the polling system some more. Click movie/tv lists and select a movie to nominate.</li></ul>'],
+	['Updates', '<ul><b>5/15/17</b><li>I\'m trying a new afk system. If you are inactive for an hour, you will be logged out. Mousing over or pressing keys resets this timer. You will be warned 5 minutes prior to being logged out with a message and a ping sound.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://www.youtube.com/">YouTube</a></li></ul>'],
@@ -1820,7 +1820,7 @@ socket.on("login", function() {
 		afkLogout();
 		logoutWarning();
 	});
-}
+});
 
 /*
 ANTIAFK = true;
