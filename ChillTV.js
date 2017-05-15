@@ -1785,7 +1785,7 @@ function welcomeBack() {
 		WARNED = false;
 	}
 }
-if (CLIENT.rank > -1) {
+if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	afkLogout();
 	logoutWarning();
 	$(window).on("mouseover", function() {
