@@ -44,7 +44,7 @@ for (m = 0; m < 5; m++) {
 
 MOTDTabs_Array = [
 	['Updates', '<ul><b>4/17</b><li>Fixed and improved the polling system some more. Click movie/tv lists and select a movie to nominate.</li></ul>'],
-	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. The afk timer is set to 15 minutes. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to go afk. Select \'antiafk\' to prevent afk.</li></ul>'],
+	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://www.youtube.com/">YouTube</a></li></ul>'],
 	['About', '<center><b>Welcome to ChillTV:</b>  Have some chill. Please feel free to add to the playlist, voteskip, participate in polls, chat, etc. There are thousands of movies and TV shows in the video database! Feel free to nominate anything you want.</center><br /><center><font size="5"><b>Donate for all the awesome videos and code!</b></font><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"><input type="image" src="http://afghanistan-parsa.org/wp-content/uploads/2013/03/paypaldonatenow.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></center>'],
@@ -232,7 +232,7 @@ var USERSOUND = getOrDefault(CHANNEL.name + "_usersound", true);
 var FULLSCREEN = getOrDefault(CHANNEL.name + "_fullscreen", true);
 var DEFDESCR = getOrDefault(CHANNEL.name + "_defdescr", true);
 var HIDEPLAYER = getOrDefault(CHANNEL.name + "_hideplayer", true);
-var YUP = getOrDefault(CHANNEL.name + "_yup", true);
+//var YUP = getOrDefault(CHANNEL.name + "_yup", true);
 var MUTED = getOrDefault(CHANNEL.name + "_muted", false);
 var RANDOMNESS = getOrDefault(CHANNEL.name + "_randomness", true);
 var TRIVIANESS = getOrDefault(CHANNEL.name + "_trivianess", true);
@@ -1771,6 +1771,11 @@ function afkLogout() {
 }
 afkLogout();
 
+function logoutWarning() {
+	WARNLOGOUT = setTimeout(function() {
+	}, 3300000);
+}
+
 $(window).on("mouseover", function() {
 	clearTimeout(AFKLOGOUT);
 	afkLogout();
@@ -1778,8 +1783,9 @@ $(window).on("mouseover", function() {
 $(window).on("keyup", function() {
 	clearTimeout(AFKLOGOUT);
 	afkLogout();
-});*/
-
+});
+*/
+/*
 ANTIAFK = true;
 
 function antiAfk() {
@@ -1820,6 +1826,7 @@ if (!YUP) {
 	$("#antiafk").removeClass('label-default').addClass('btn-success').attr('title', 'If you\'re going afk, please turn this off to allow accurate voteskipping');
 	antiAfk();
 }
+*/
 /*
 trivbtn = $('<span id="trivbtn" class="label pull-right pointer btn-success" title="Hide Trivia">Trivia</span>')
 	.insertBefore("#modflair")
