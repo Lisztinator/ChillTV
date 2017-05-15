@@ -1763,28 +1763,65 @@ function inba() {
 	BGCHANGE++;
 	BGCHANGE % 2 === 0 ? $("body").css('background-color', 'gold') : $("body").css('background-color', 'blue');
 }
-/*
+
+
 function afkLogout() {
 	AFKLOGOUT = setTimeout(function() {
 		$("#logoutform").submit();
 	}, 3600000);
 }
-afkLogout();
-
+WARNED = false;
 function logoutWarning() {
 	WARNLOGOUT = setTimeout(function() {
+		$('<div class="server-msg-disconnect">You will be logged out in 5 minutes for being afk.</div>').appendTo("#messagebuffer");
+		pingMessage(1);
+		WARNED = true;
 	}, 3300000);
 }
+function welcomeBack() {
+	if (WARNED) {
+		$('<div class="server-msg-reconnect">Welcome back! The afk timer has been reset to 60 minutes.</div>').appendTo("#messagebuffer");
+		pingMessage(1);
+		WARNED = false;
+	}
+}
+if (CLIENT.rank > -1) {
+	afkLogout();
+	logoutWarning();
+	$(window).on("mouseover", function() {
+		clearTimeout(AFKLOGOUT);
+		clearTimeout(WARNLOGOUT);
+		welcomeBack();
+		afkLogout();
+		logoutWarning();
+	});
+	$(window).on("keyup", function() {
+		clearTimeout(AFKLOGOUT);
+		clearTimeout(WARNLOGOUT);
+		welcomeBack();
+		afkLogout();
+		logoutWarning();
+	});
+}
+socket.on("login", function() {
+	afkLogout();
+	logoutWarning();
+	$(window).on("mouseover", function() {
+		clearTimeout(AFKLOGOUT);
+		clearTimeout(WARNLOGOUT);
+		welcomeBack();
+		afkLogout();
+		logoutWarning();
+	});
+	$(window).on("keyup", function() {
+		clearTimeout(AFKLOGOUT);
+		clearTimeout(WARNLOGOUT);
+		welcomeBack();
+		afkLogout();
+		logoutWarning();
+	});
+}
 
-$(window).on("mouseover", function() {
-	clearTimeout(AFKLOGOUT);
-	afkLogout();
-});
-$(window).on("keyup", function() {
-	clearTimeout(AFKLOGOUT);
-	afkLogout();
-});
-*/
 /*
 ANTIAFK = true;
 
