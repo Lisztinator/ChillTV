@@ -4146,9 +4146,9 @@ $("#chatline").on("keydown", function(ev, e) {
 					data: {},
 					success: function(data) {
 						datadic = data[0];
-						deftext = datadic.text;
-						paofsp = datadic.partOfSpeech;
-						if (deftext !== undefined) {
+						if (datadic.text !== undefined) {
+							deftext = datadic.text;
+							paofsp = datadic.partOfSpeech;
 							socket.emit("chatMsg", {
 								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + paofsp + ' - ' + deftext,
 							});
