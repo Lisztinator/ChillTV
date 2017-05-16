@@ -792,10 +792,6 @@ function prepareMessage(msg) {
 			rnd = Math.round(Math.random() * (arr.length - 1));
 			msg = '➥ ' + arr[rnd];
 
-		} else if (msg.match(/!boop/)) {
-
-			pingMessage(1);
-
 		} else if (msg.match(/!ask /)) {
 
 			rnd = Math.round(Math.random() * (AskAnswers_Array.length - 1));
@@ -4075,7 +4071,11 @@ $("#chatline").on("keydown", function(ev, e) {
 					msg: msg,
 					meta: meta
 				});
-			} else if (msg.match(/(\!sticker\s)/)) {
+			} else if (msg.match(/!boop/)) {
+
+				pingMessage(1);
+
+			} else if (msg.match(/!sticker /)) {
 				term = encodeURIComponent(msg.split('!sticker ')[1]);
 				theurl = 'https://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
 				$.ajax({
@@ -4103,7 +4103,7 @@ $("#chatline").on("keydown", function(ev, e) {
 						});
 					}
 				});
-			} else if (msg.match(/(\!yoda\s)/)) {
+			} else if (msg.match(/!yoda /)) {
 				sent = msg.split('!yoda ');
 				theurl = 'https://yoda.p.mashape.com/yoda?sentence=' + sent[1]
 				$.ajax({
@@ -4137,7 +4137,7 @@ $("#chatline").on("keydown", function(ev, e) {
 			CHATHIST.push($("#chatline").val());
 			CHATHISTIDX = CHATHIST.length;
 
-			if (msg.match(/(\!define\s)/)) {
+			if (msg.match(/!define /)) {
 				word = msg.split('!define ')[1];
 				theurl = 'https://api.wordnik.com/v4/word.json/' + word + '/definitions?limit=5&includeRelated=false&sourceDictionaries=webster&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
 				$.ajax({
@@ -4165,7 +4165,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					}
 				});
 			}
-			if (msg.match(/(\!urban\s)/)) {
+			if (msg.match(/!urban /)) {
 				word = msg.split('!urban ');
 				theurl = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + word[1]
 				$.ajax({
@@ -4193,7 +4193,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					}
 				});
 			}
-			if (msg.match(/(\!quote)/)) {
+			if (msg.match(/!quote/)) {
 				theurl = 'https://andruxnet-random-famous-quotes.p.mashape.com/cat=movies'
 				$.ajax({
 					url: theurl,
@@ -4214,7 +4214,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					}
 				});
 			}
-			if ((msg.match(/(\!yt\s)/) && hasPermission("playlistadd")) || (msg.match(/(\!ytnext\s)/) && hasPermission("playlistnext"))) {
+			if ((msg.match(/!yt /) && hasPermission("playlistadd")) || (msg.match(/!ytnext /) && hasPermission("playlistnext"))) {
 				if (msg.match(/(\!yt\s)/)) {
 					search = msg.split('!yt ')[1].split(",");
 					posi = "end"
@@ -4279,17 +4279,17 @@ $("#chatline").on("keydown", function(ev, e) {
 					}
 				});
 			}
-			if (msg.match(/(\!movie\s)/)) {
+			if (msg.match(/!movie /)) {
 				omdbVar('movie');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true';
 				omdbAjax();
 			}
-			if (msg.match(/(\!tv\s)/)) {
+			if (msg.match(/!tv /)) {
 				omdbVar('tv');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true';
 				omdbAjax();
 			}
-			if (msg.match(/(\!plot\s)/)) {
+			if (msg.match(/!plot /)) {
 				omdbVar('plot');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short';
 				$.ajax(sUrl, {
