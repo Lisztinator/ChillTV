@@ -784,20 +784,24 @@ function prepareMessage(msg) {
 		var rnd;
 		COMMAND = true;
 		if (msg.match(/!commands/)) {
-			msg = '➥ a,add,ask,bot,calc,define,dice,giphy,give,leaderboard,makeitrain,movie,nominatemovie,nominatetv,now,party,pick,plot,poker,quote,random,roll,say,skip,spn,sticker,time,total,tv,tvrandom,urban,yoda,yt';
+			msg = '➥ a,add,ask,boop,bot,calc,define,dice,giphy,give,leaderboard,makeitrain,movie,nominatemovie,nominatetv,now,party,pick,plot,poker,quote,random,roll,say,skip,spn,sticker,time,total,tv,tvrandom,urban,yoda,yt';
 
-		} else if (msg.match(/(!pick\s)/)) {
+		} else if (msg.match(/!pick /)) {
 
 			arr = msg.split("!pick ")[1].split(",");
 			rnd = Math.round(Math.random() * (arr.length - 1));
 			msg = '➥ ' + arr[rnd];
 
-		} else if (msg.match(/(!ask\s)/)) {
+		} else if (msg.match(/!boop/)) {
+
+			pingMessage(1);
+
+		} else if (msg.match(/!ask /)) {
 
 			rnd = Math.round(Math.random() * (AskAnswers_Array.length - 1));
 			msg = '➥ ' + AskAnswers_Array[rnd];
 
-		} else if (msg.match(/(!time)/)) {
+		} else if (msg.match(/!time/)) {
 
 			var h = new Date().getHours();
 			h < 10 ? h = '0' + h : '';
@@ -805,51 +809,51 @@ function prepareMessage(msg) {
 			m < 10 ? m = '0' + m : '';
 			msg = '➥ Current time: ' + h + ':' + m;
 
-		} else if (msg.match(/(!dice)/)) {
+		} else if (msg.match(/!dice/)) {
 
 			rnd = Math.round(Math.random() * 5) + 1;
 			msg = '➥ ' +  rnd;
 
-		} else if (msg.match(/(!roll)/)) {
+		} else if (msg.match(/!roll/)) {
 
 			rnd = Math.round(Math.random() * 999);
 			rnd < 100 ? rnd = "0" + rnd : '';
 			rnd < 10 ? rnd = "0" + rnd : '';
 			msg = '➥ ' + rnd;
 
-		} else if (msg.match(/(!random)/)) {
+		} else if (msg.match(/!random/)) {
 
 			rnd = Math.round(Math.random() * (Movie_Array.length - 1));
 			msg = '➥ ' + Movie_Array[rnd][0] + ' - ' + Movie_Array[rnd][1];
 
-		} else if (msg.match(/(!tvrandom)/)) {
+		} else if (msg.match(/!tvrandom/)) {
 
 			rnd = Math.round(Math.random() * (TV_Array.length - 1));
 			msg = '➥ ' + TV_Array[rnd];
 
-		} else if (msg.match(/(!calc )/)) {
+		} else if (msg.match(/!calc /)) {
 
 			funcsh = msg.split("!calc ");
 			msg = '➥ ' + eval(funcsh[1]);
 
-		} else if (msg.match(/(!skip)/) && hasPermission("voteskip")) {
+		} else if (msg.match(/!skip/) && hasPermission("voteskip")) {
 
 			socket.emit("voteskip");
 			msg = '➥ Current item voteskipped';
 
-		} else if (msg.match(/(!next)/) && hasPermission("playlistjump")) {
+		} else if (msg.match(/!next/) && hasPermission("playlistjump")) {
 
 			socket.emit("playNext");
 			msg = '➥ Started playing next item';
 
-		} else if (msg.match(/(!delete)/) && hasPermission("playlistdelete")) {
+		} else if (msg.match(/!delete/) && hasPermission("playlistdelete")) {
 
 			len = $("#queue").children().length;
 			uid = $("#queue .queue_entry:nth-child(" + len + ")").data("uid");
 			socket.emit("delete", uid);
 			msg = '➥ last item deleted.';
 
-		} else if (msg.match(/(!bump)/) && hasPermission("playlistmove")) {
+		} else if (msg.match(/!bump/) && hasPermission("playlistmove")) {
 
 			last = $("#queue").children().length;
 			uid = $("#queue .queue_entry:nth-child(" + last + ")").data("uid");
@@ -860,7 +864,7 @@ function prepareMessage(msg) {
 			});
 			msg = '➥ Last item bumped to next: ' + title;
 
-		} else if (msg.match(/(!add)/) && hasPermission("playlistadd")) {
+		} else if (msg.match(/!add /) && hasPermission("playlistadd")) {
 
 			parsed = parseMediaLink(msg.split("!add ")[1]);
 			if (parsed.id === null) {
@@ -875,11 +879,11 @@ function prepareMessage(msg) {
 				msg = '➥ Video added to end.';
 			}
 
-		} else if (msg.match(/(!now)/)) {
+		} else if (msg.match(/!now/)) {
 
 			msg = '➥ Now playing: ' + $("#currenttitle").html();
 
-		} else if (msg.match(/(!party)/)) {
+		} else if (msg.match(/!party/)) {
 
 			partyTime();
 			msg = '➥ [fs][f]PARTY TIME!!![/fs]';
@@ -1192,6 +1196,7 @@ function showChatHelp() {
 		'party': 'take off your pants and dance (seizure warning, e.g. <i>!party</i>)',
 		'say': 'text-to-speech robot voice in english (e.g. <i>!say Hello World!</i>)',
 		'spn': 'text-to-speech robot voice with spanish accent (e.g. <i>!spn \'Ello papi</i>)',
+		'boop': 'make a boop sound to get people\'s attention',
 	}
 	body.append('<strong>Script Commands</strong><br /><br />');
 	ul = $('<ul />').appendTo(body);
