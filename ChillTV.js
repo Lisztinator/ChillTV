@@ -910,13 +910,14 @@ function partyTime() {
 	}, 12000);
 }
 
+BOOPER = new Audio("/boop.wav");
 socket.on("chatMsg", function(data) {
 	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
 	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
 		partyTime();
 	}
 	if (data.msg.match(/!boop/)) {
-		pingMessage(1);
+		BOOPER.play();
 	}
 });
 
