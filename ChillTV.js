@@ -915,6 +915,9 @@ socket.on("chatMsg", function(data) {
 	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
 		partyTime();
 	}
+	if (data.msg.match(/!boop/)) {
+		pingMessage(1);
+	}
 });
 
 function insertText(str) {
