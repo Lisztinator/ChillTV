@@ -4074,10 +4074,6 @@ $("#chatline").on("keydown", function(ev, e) {
 					msg: msg,
 					meta: meta
 				});
-			} else if (msg.match(/!boop/)) {
-
-				pingMessage(1);
-
 			} else if (msg.match(/!sticker /)) {
 				term = encodeURIComponent(msg.split('!sticker ')[1]);
 				theurl = 'https://api.giphy.com/v1/stickers/random?q=' + term + '&api_key=dc6zaTOxFJmzC'
