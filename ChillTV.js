@@ -4145,8 +4145,8 @@ $("#chatline").on("keydown", function(ev, e) {
 					type: 'GET',
 					data: {},
 					success: function(data) {
-						datadic = data[0];
-						if (datadic.text !== undefined) {
+						if (data[0] !== undefined) {
+							datadic = data[0];
 							deftext = datadic.text;
 							paofsp = datadic.partOfSpeech;
 							socket.emit("chatMsg", {
