@@ -1809,22 +1809,24 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	});
 }
 socket.on("login", function() {
-	afkLogout();
-	logoutWarning();
-	$(window).on("mouseover", function() {
-		clearTimeout(AFKLOGOUT);
-		clearTimeout(WARNLOGOUT);
-		welcomeBack();
+	if (CLIENT.name !== 'ChillTVBot') {
 		afkLogout();
 		logoutWarning();
-	});
-	$(window).on("keyup", function() {
-		clearTimeout(AFKLOGOUT);
-		clearTimeout(WARNLOGOUT);
-		welcomeBack();
-		afkLogout();
-		logoutWarning();
-	});
+		$(window).on("mouseover", function() {
+			clearTimeout(AFKLOGOUT);
+			clearTimeout(WARNLOGOUT);
+			welcomeBack();
+			afkLogout();
+			logoutWarning();
+		});
+		$(window).on("keyup", function() {
+			clearTimeout(AFKLOGOUT);
+			clearTimeout(WARNLOGOUT);
+			welcomeBack();
+			afkLogout();
+			logoutWarning();
+		});
+	}
 });
 
 /*
