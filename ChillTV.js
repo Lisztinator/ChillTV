@@ -917,7 +917,9 @@ socket.on("chatMsg", function(data) {
 		partyTime();
 	}
 	if (data.msg.match(/!boop/)) {
-		BOOPER.play();
+		if (USEROPTS.boop === 'always' || USEROPTS.boop === 'onlyping') {
+			BOOPER.play();
+		}
 	}
 });
 
