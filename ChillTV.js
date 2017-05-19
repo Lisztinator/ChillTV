@@ -1790,24 +1790,38 @@ function welcomeBack() {
 		WARNED = false;
 	}
 }
+KEYUP = true;
+MOUSEOVER = true;
 if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	afkLogout();
 	logoutWarning();
 	$(window).on("mouseover", function() {
-		console.log('mouseover');
-		clearTimeout(AFKLOGOUT);
-		clearTimeout(WARNLOGOUT);
-		welcomeBack();
-		afkLogout();
-		logoutWarning();
+		if (KEYUP) {
+			KEYUP = false
+			console.log('mouseover');
+			clearTimeout(AFKLOGOUT);
+			clearTimeout(WARNLOGOUT);
+			welcomeBack();
+			afkLogout();
+			logoutWarning();
+		}
+		setTimeout(function() {
+			KEYUP = true;
+		}, 1000);
 	});
-	$(window).on("keyup", function() {
-		console.log('keyup');
-		clearTimeout(AFKLOGOUT);
-		clearTimeout(WARNLOGOUT);
-		welcomeBack();
-		afkLogout();
-		logoutWarning();
+	$(window).on("keydown", function() {
+		if (MOUSEOVER) {
+			MOUSEOVER = false;
+			console.log('keyup');
+			clearTimeout(AFKLOGOUT);
+			clearTimeout(WARNLOGOUT);
+			welcomeBack();
+			afkLogout();
+			logoutWarning();
+		}
+		setTimeout(function() {
+			MOUSEOVER = true;
+		}, 1000);
 	});
 }
 socket.on("login", function() {
@@ -1815,20 +1829,32 @@ socket.on("login", function() {
 		afkLogout();
 		logoutWarning();
 		$(window).on("mouseover", function() {
-			console.log('mouseover');
-			clearTimeout(AFKLOGOUT);
-			clearTimeout(WARNLOGOUT);
-			welcomeBack();
-			afkLogout();
-			logoutWarning();
+			if (KEYUP) {
+				KEYUP = false
+				console.log('mouseover');
+				clearTimeout(AFKLOGOUT);
+				clearTimeout(WARNLOGOUT);
+				welcomeBack();
+				afkLogout();
+				logoutWarning();
+			}
+			setTimeout(function() {
+				KEYUP = true;
+			}, 1000);
 		});
-		$(window).on("keyup", function() {
-			console.log('keyup');
-			clearTimeout(AFKLOGOUT);
-			clearTimeout(WARNLOGOUT);
-			welcomeBack();
-			afkLogout();
-			logoutWarning();
+		$(window).on("keydown", function() {
+			if (MOUSEOVER) {
+				MOUSEOVER = false;
+				console.log('keyup');
+				clearTimeout(AFKLOGOUT);
+				clearTimeout(WARNLOGOUT);
+				welcomeBack();
+				afkLogout();
+				logoutWarning();
+			}
+			setTimeout(function() {
+				MOUSEOVER = true;
+			}, 1000);
 		});
 	}
 });
