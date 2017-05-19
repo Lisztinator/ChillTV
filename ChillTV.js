@@ -1794,6 +1794,7 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	afkLogout();
 	logoutWarning();
 	$(window).on("mouseover", function() {
+		console.log('mouseover');
 		clearTimeout(AFKLOGOUT);
 		clearTimeout(WARNLOGOUT);
 		welcomeBack();
@@ -1801,6 +1802,7 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 		logoutWarning();
 	});
 	$(window).on("keyup", function() {
+		console.log('keyup');
 		clearTimeout(AFKLOGOUT);
 		clearTimeout(WARNLOGOUT);
 		welcomeBack();
@@ -1813,6 +1815,7 @@ socket.on("login", function() {
 		afkLogout();
 		logoutWarning();
 		$(window).on("mouseover", function() {
+			console.log('mouseover');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
@@ -1820,6 +1823,7 @@ socket.on("login", function() {
 			logoutWarning();
 		});
 		$(window).on("keyup", function() {
+			console.log('keyup');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
