@@ -1790,38 +1790,38 @@ function welcomeBack() {
 		WARNED = false;
 	}
 }
-KEYUP = true;
+KEYDOWN = true;
 MOUSEOVER = true;
 if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	afkLogout();
 	logoutWarning();
 	$(window).on("mouseover", function() {
-		if (KEYUP) {
-			KEYUP = false
+		if (MOUSEOVER) {
+			MOUSEOVER = false;
 			console.log('mouseover');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
 			afkLogout();
 			logoutWarning();
+			setTimeout(function() {
+				MOUSEOVER = true;
+			}, 1000);
 		}
-		setTimeout(function() {
-			KEYUP = true;
-		}, 1000);
 	});
 	$(window).on("keydown", function() {
-		if (MOUSEOVER) {
-			MOUSEOVER = false;
-			console.log('keyup');
+		if (KEYDOWN) {
+			KEYDOWN = false
+			console.log('keydown');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
 			afkLogout();
 			logoutWarning();
+			setTimeout(function() {
+				KEYDOWN = true;
+			}, 1000);
 		}
-		setTimeout(function() {
-			MOUSEOVER = true;
-		}, 1000);
 	});
 }
 socket.on("login", function() {
@@ -1829,32 +1829,32 @@ socket.on("login", function() {
 		afkLogout();
 		logoutWarning();
 		$(window).on("mouseover", function() {
-			if (KEYUP) {
-				KEYUP = false
+			if (MOUSEOVER) {
+				MOUSEOVER = false;
 				console.log('mouseover');
 				clearTimeout(AFKLOGOUT);
 				clearTimeout(WARNLOGOUT);
 				welcomeBack();
 				afkLogout();
 				logoutWarning();
+				setTimeout(function() {
+					MOUSEOVER = true;
+				}, 1000);
 			}
-			setTimeout(function() {
-				KEYUP = true;
-			}, 1000);
 		});
 		$(window).on("keydown", function() {
-			if (MOUSEOVER) {
-				MOUSEOVER = false;
-				console.log('keyup');
+			if (KEYDOWN) {
+				KEYDOWN = false
+				console.log('keydown');
 				clearTimeout(AFKLOGOUT);
 				clearTimeout(WARNLOGOUT);
 				welcomeBack();
 				afkLogout();
 				logoutWarning();
+				setTimeout(function() {
+					KEYDOWN = true;
+				}, 1000);
 			}
-			setTimeout(function() {
-				MOUSEOVER = true;
-			}, 1000);
 		});
 	}
 });
