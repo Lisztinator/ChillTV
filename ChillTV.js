@@ -1827,7 +1827,7 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	});
 }
 socket.on("login", function() {
-	if (CLIENT.name !== 'ChillTVBot') {
+	if (CLIENT.rank === 0) {
 		afkLogout();
 		logoutWarning();
 		$(window).on("mouseover", function() {
