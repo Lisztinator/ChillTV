@@ -1781,6 +1781,7 @@ WARNED = false;
 function logoutWarning() {
 	WARNLOGOUT = setTimeout(function() {
 		$('<div class="server-msg-disconnect">You will be logged out in 5 minutes for being afk.</div>').appendTo("#messagebuffer");
+		scrollChat();
 		BOOPER.play();
 		WARNED = true;
 	}, 3300000);
@@ -1788,6 +1789,7 @@ function logoutWarning() {
 function welcomeBack() {
 	if (WARNED) {
 		$('<div class="server-msg-reconnect">Welcome back! The afk timer has been reset to 60 minutes.</div>').appendTo("#messagebuffer");
+		scrollChat();
 		BOOPER.play();
 		WARNED = false;
 	}
