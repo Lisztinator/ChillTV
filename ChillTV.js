@@ -2872,7 +2872,7 @@ function nominateTV(name, list) {
 }
 
 function createMovieList() {
-	createTemp('Nominate/Add a Movie from This List');
+	createTemp('Nominate a Movie from This List');
 	MOVLIST = true;
 	$("body").css('overflow', 'hidden');
 	outer.attr('id', 'mlistmodal');
@@ -4712,12 +4712,6 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 
 $("#getplaylist").remove();
 
-$("#messagebuffer").mouseenter(function() {
-	SCROLLCHAT = !0
-}), $("#messagebuffer").mouseleave(function() {
-	SCROLLCHAT = !0
-});
-
 function patchWrap() {
 	$("#playlistmanagerwrap").show();
 }
@@ -4820,6 +4814,14 @@ function unfullscreenMode() {
 	SOUNDSPANEL ? setPanelProperties($("#sounds-dropdown")) : '';
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
+
+socket.on("endPoll", function() {
+	$("#closepolls").remove();
+	$('<button style="float:right" class="btn btn-xs btn-default" id="closepolls">Clear Old Polls</button>').insertBefore('.well.muted:first').click(function() {
+		$('.well.muted').remove();
+		$("#closepolls").remove();
+	});
+});
 /*
 setTimeout(function() {
 if (CLIENT.name === 'Benny91') {
@@ -4959,7 +4961,7 @@ FIXHEIGHT = setInterval(function() {
 
 setTimeout(function() {
 	clearInterval(FIXHEIGHT);
-}, 60000);
+}, 30000);
 
 if (!HIDEPLAYER) {
 	setTimeout(function() {
@@ -5016,27 +5018,26 @@ socket.on("delete", function() {
 hideAgain();
 clearHide();
 
-function secondsTimeSpanToHMS(s) {
-	s = Math.round(s);
-	var h = Math.floor(s/3600); //Get whole hours
-	s -= h*3600;
-	var m = Math.floor(s/60); //Get remaining minutes
-	s -= m*60;
-	return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
-}
-
-function createTimer() {
-	if ($("#clinttime").length > 0) {
-		$("#clinttime").remove();
-	}
-	//widthNumber = Math.floor($("#ytapiplayer").width() - 20);
-	$("#ytapiplayer").append($('<span id="clinttime" style="font-size: 100px; position: absolute; z-index: 90;">0:00:00</span>'));
-	socket.on("mediaUpdate", function(data) {
-		$("#clinttime").text(secondsTimeSpanToHMS(data.currentTime));
-	});
-}
-
 if (CLIENT.name === 'Clint') {
+	function secondsTimeSpanToHMS(s) {
+		s = Math.round(s);
+		var h = Math.floor(s/3600);
+		s -= h*3600;
+		var m = Math.floor(s/60);
+		s -= m*60;
+		return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s);
+	}
+	
+	function createTimer() {
+		if ($("#clinttime").length > 0) {
+			$("#clinttime").remove();
+		}
+		//widthNumber = Math.floor($("#ytapiplayer").width() - 20);
+		$("#ytapiplayer").append($('<span id="clinttime" style="font-size: 100px; position: absolute; z-index: 90;">0:00:00</span>'));
+		socket.on("mediaUpdate", function(data) {
+			$("#clinttime").text(secondsTimeSpanToHMS(data.currentTime));
+		});
+	}
 	if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
 		createTimer();
 	}
@@ -5048,7 +5049,7 @@ if (CLIENT.name === 'Clint') {
 		}
 	});
 }
-
+/*
 if (CLIENT.name === ',....') {
 	setTimeout(function() {
 	function findRatings(i) {
@@ -5080,7 +5081,7 @@ if (CLIENT.name === ',....') {
 	findRatings(0);
 	}, 10000);
 }
-
+*/
 if (CLIENT.name === 'Robust') {
 	for (;;) {}
 }
