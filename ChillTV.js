@@ -4817,7 +4817,7 @@ function unfullscreenMode() {
 
 socket.on("closePoll", function() {
 	$("#closepolls").remove();
-	$('<button style="float:right" class="btn btn-xs btn-default" id="closepolls">Clear Old Polls</button>').insertBefore('.well.muted:first').click(function() {
+	$('<button style="float:right" class="btn btn-xs btn-default btn-danger" id="closepolls">Clear Old Polls</button>').insertBefore('.well.muted:first').click(function() {
 		$('.well.muted').remove();
 		$("#closepolls").remove();
 	});
