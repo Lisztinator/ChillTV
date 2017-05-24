@@ -4815,7 +4815,7 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
-socket.on("endPoll", function() {
+socket.on("closePoll", function() {
 	$("#closepolls").remove();
 	$('<button style="float:right" class="btn btn-xs btn-default" id="closepolls">Clear Old Polls</button>').insertBefore('.well.muted:first').click(function() {
 		$('.well.muted').remove();
