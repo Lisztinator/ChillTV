@@ -172,7 +172,7 @@ var USEROPTS = {
 	"ignore_channeljs": getOrDefault("ignore_channeljs", !1),
 	"sort_rank": getOrDefault(CHANNEL.name + "sort_rank", !0),
 	"sort_afk": getOrDefault(CHANNEL.name + "sort_afk", !0),
-	"default_quality": getOrDefault(CHANNEL.name + "default_quality", "auto"),
+	"default_quality": getOrDefault("default_quality", "auto"),
 	"boop": getOrDefault(CHANNEL.name + "boop", "onlyping"),
 	"secure_connection": getOrDefault(CHANNEL.name + "secure_connection", !1),
 	"show_shadowchat": getOrDefault(CHANNEL.name + "show_shadowchat", !0),
@@ -184,14 +184,14 @@ $("#plonotification").length > 0 ? $("#plonotification").remove() : '';
 rebuildPlaylist();
 $("#us-default-quality").detach().appendTo("#videowrap").addClass('pull-right').val(USEROPTS.default_quality).on("change", function() {
 	USEROPTS.default_quality = $("#us-default-quality").val();
-	setOpt(CHANNEL.name + "default_quality", $(this).val());
+	setOpt("default_quality", $(this).val());
 	refreshPlayer();
 });
 $("#us-playback > form > div:nth-child(9)").remove();
 
 function storeOpts() {
 	for (var e in USEROPTS) {
-		if (e !== 'ignore_channelcss' && e !== 'ignore_channeljs') {
+		if (e !== 'ignore_channelcss' && e !== 'ignore_channeljs' && e !== 'default_quality') {
 			setOpt(CHANNEL.name + e, USEROPTS[e]);
 		} else {
 			setOpt(e, USEROPTS[e]);
