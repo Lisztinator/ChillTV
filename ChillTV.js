@@ -4765,6 +4765,12 @@ $("#menubtn").click(function() {
 });
 !MOTDYES ? $("#motd").css("display", "none") && $("#menubtn").text("Info").removeClass('btn-success').addClass('btn-default') : '';
 
+$("#messagebuffer").mouseenter(function() {
+	SCROLLCHAT = !0;
+}).mouseleave(function() {
+	SCROLLCHAT = !0;
+});
+
 function fullscreenMode() {
 	$("#chatheader > span.label").each(function() {
 		labeltext = $(this).text();
