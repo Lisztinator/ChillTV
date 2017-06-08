@@ -3919,7 +3919,7 @@ function formatChatMessage(data, last) {
 	data.msg.match(/^\s*<strong>\w+\s*:\s*<\/strong>\s*/) ? skip = false : '';
 	data.meta.forceShowName ? skip = false : '';
 	if (EMBEDIMG) {
-		data.msg = execEmotes(data.msg);
+		data.msg = execEmotes(data.msg) + ' ';
 	}
 
 	div = $('<div />');
