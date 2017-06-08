@@ -3906,6 +3906,13 @@ function injectKickass() {
 	});
 }
 
+function execEmotes(e) {
+    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
+        e = e.replace(t.name, '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">')
+    }),
+    e)
+}
+
 function formatChatMessage(data, last) {
 	if (!data.meta || data.msgclass) {
 		data.meta = {
@@ -3919,7 +3926,7 @@ function formatChatMessage(data, last) {
 	data.msg.match(/^\s*<strong>\w+\s*:\s*<\/strong>\s*/) ? skip = false : '';
 	data.meta.forceShowName ? skip = false : '';
 	if (EMBEDIMG) {
-		data.msg = execEmotes(data.msg) + ' ';
+		data.msg = execEmotes(data.msg);
 	}
 
 	div = $('<div />');
