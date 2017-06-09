@@ -2971,6 +2971,8 @@ function getMovieFromList(str) {
 
 var GOBACKBUTTON = false;
 
+omdbkey = '383a5b5a';
+
 function getMovies(sMovie, pagenum) {
 	MContainer.prepend('<center class="text-info"><span>Searching. Please wait...</span></center>');
 	if (!sMovie) {
@@ -2988,7 +2990,7 @@ function getMovies(sMovie, pagenum) {
 		matches1 = '';
 	}
 	if (matches1.length > 0) {
-		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true'
+		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&apikey=' + omdbkey;
 		$.ajax(sUrl, {
 			error: function(data) {
 				MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3095,7 +3097,7 @@ function viewSeasons(stitle, syear, sseason, sposter, deps, eparray, sspl, ssfo,
 		$("#listthem").children().remove();
 		$("#listep").children().remove();
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason, {
+	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&apikey=' + omdbkey, {
 		error: function(data) {
 			console.log(data);
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3146,7 +3148,7 @@ function callCheck(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sp
 	SAMESEASON = false;
 	$("#beforeall").nextAll().remove();
 	LEZAGO = false;
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep, {
+	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
 		error: function(data) {
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
@@ -3167,7 +3169,7 @@ function callCheck(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sp
 function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sposter) {
 	EPSUCCESS = false;
 	if (eparray.indexOf(ep) > -1 && SAMESEASON) {
-		$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep, {
+		$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
 			error: function(data) {
 				console.log(data);
 				MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3299,7 +3301,7 @@ function theList(som, pagenum, goback) {
 	MContainer.find('.text-info').show().text('Searching. Please wait...');
 	$("#listthem").children().remove();
 	$("#listep").children().remove();
-	$.ajax('https://www.omdbapi.com/?s=' + som + '&y=&page=' + pagenum, {
+	$.ajax('https://www.omdbapi.com/?s=' + som + '&y=&page=' + pagenum + '&apikey=' + omdbkey, {
 		error: function(data) {
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
@@ -4324,17 +4326,17 @@ $("#chatline").on("keydown", function(ev, e) {
 			}
 			if (msg.match(/!movie /)) {
 				omdbVar('movie');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true';
+				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true&apikey=' + omdbkey;
 				omdbAjax();
 			}
 			if (msg.match(/!tv /)) {
 				omdbVar('tv');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true';
+				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true&apikey=' + omdbkey;
 				omdbAjax();
 			}
 			if (msg.match(/!plot /)) {
 				omdbVar('plot');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short';
+				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short&apikey=' + omdbkey;
 				$.ajax(sUrl, {
 					error: function(data) {
 						socket.emit("chatMsg", {
@@ -4875,7 +4877,7 @@ function patchEpisodeNames(i) {
 			return patchEpisodeNames(i + 1);
 		}
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode, {
+	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode + '&apikey=' + omdbkey, {
 		success: function(data) {
 			if (TV_Array[i][0].match(/ - Christmas$/)) {
 				holiday = ' - Christmas';
@@ -4934,7 +4936,7 @@ function patchGenres(i) {
 	} else {
 		year = '';
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year, {
+	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&apikey=' + omdbkey, {
 		success: function(data) {
 			console.log(i);
 			newGenre = data.Genre;
@@ -5066,7 +5068,7 @@ if (CLIENT.name === 'Clint') {
 if (CLIENT.name === ',....') {
 	setTimeout(function() {
 	function findRatings(i) {
-		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1], {
+		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1] + '&apikey=' + omdbkey, {
 			error: function(data) {
 				console.log('error on ' + i);
 			},
