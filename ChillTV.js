@@ -1,6 +1,6 @@
 /*
 Copyright © 2016 Benjamin Paul. All rights reserved.
-*/
+*/'about'
 
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
@@ -43,11 +43,11 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>5/15/17</b><li>I\'m trying a new afk system. If you are inactive for an hour, you will be logged out. Mousing over or pressing keys resets this timer. You will be warned 5 minutes prior to being logged out with a message and a ping sound.</li><li>Type "!boop" to get all users\' attention with a boop sound.</li></ul>'],
+	['Updates', '<ul><b>6/9/17</b><li>Emotes now work again.</li><li>The OMDb API works again. Google Drive storage and OMDb both cost monthly fees to support the channel. Please consider donating if you enjoy the channel.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Google-Drive-Userscript-Installation-Guide">Google Drive Userscript Installation Guide and Troubleshooting</a></li></ul>'],
-	['About', '<center><b>Welcome to ChillTV:</b>  Have some chill. Please feel free to add to the playlist, voteskip, participate in polls, chat, etc. There are thousands of movies and TV shows in the video database! Feel free to nominate anything you want.</center><br /><center><font size="5"><b>Donate for all the awesome videos and code!</b></font><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"><input type="image" src="http://afghanistan-parsa.org/wp-content/uploads/2013/03/paypaldonatenow.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></center>'],
+	['Donate', /*<center><b>Welcome to ChillTV:</b>  Have some chill. Please feel free to add to the playlist, voteskip, participate in polls, chat, etc. There are thousands of movies and TV shows in the video database! Feel free to nominate anything you want.</center><br /><center>*/'<font size="5"><b>Donate for all the awesome videos and code!</b></font><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"><input type="image" src="http://afghanistan-parsa.org/wp-content/uploads/2013/03/paypaldonatenow.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></center>'],
 ];
 
 AskAnswers_Array = [
@@ -1208,9 +1208,9 @@ function showChatHelp() {
 	arr2 = {
 		'giphy': 'get a random gif from giphy.com that matches your search term (e.g. <i>!giphy funny dance</i>)',
 		'sticker': 'replaces your phrase/expression with a random giphy sticker search result (e.g. <i>!sticker i love you</i>)',
-		'movie': 'get a movie from omdbapi.com that matches your movie title, and optionally, the year in parentheses for movies with the same title (e.g. <i>!movie the avengers</i> OR <i>!movie the avengers (1942)</i> OR <i>!movie now</i>)',
-		'tv': 'get a series from omdbapi.com that matches your series title, and optionally, the year in parentheses for series with the same title (e.g. <i>!tv the office</i> OR <i>!tv the office (2001)</i> OR <i>!tv now</i>)',
-		'plot': 'get the plot of movie/series from omdbapi.com that matches your title, and optionally, the year in parentheses for movie/series with the same title (e.g. <i>!plot braveheart</i> OR <i>!plot braveheart (1925)</i> OR <i>!plot now</i>)',
+		'movie': 'get a movie from omdbapi.com that matches your movie title, and optionally, the year in parentheses for movies with the same title (e.g. <i>!movie the avengers</i> OR <i>!movie the avengers (1942)</i> OR <i>!movie</i>)',
+		'tv': 'get a series from omdbapi.com that matches your series title, and optionally, the year in parentheses for series with the same title (e.g. <i>!tv the office</i> OR <i>!tv the office (2001)</i> OR <i>!tv</i>)',
+		'plot': 'get the plot of movie/series from omdbapi.com that matches your title, and optionally, the year in parentheses for movie/series with the same title (e.g. <i>!plot braveheart</i> OR <i>!plot braveheart (1925)</i> OR <i>!plot</i>)',
 		'define': 'define a word (e.g. <i>!define irony</i>)',
 		'urban': 'define a word with urban dictionary (e.g. <i>!urban stahp</i>)',
 		'yoda': 'your message is replaced using yoda\'s dialect (e.g. <i>!yoda i am a puppet</i>)',
@@ -4324,17 +4324,17 @@ $("#chatline").on("keydown", function(ev, e) {
 					}
 				});
 			}
-			if (msg.match(/!movie /)) {
+			if (msg.match(/!movie/)) {
 				omdbVar('movie');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true&apikey=' + omdbkey;
 				omdbAjax();
 			}
-			if (msg.match(/!tv /)) {
+			if (msg.match(/!tv/)) {
 				omdbVar('tv');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true&apikey=' + omdbkey;
 				omdbAjax();
 			}
-			if (msg.match(/!plot /)) {
+			if (msg.match(/!plot/)) {
 				omdbVar('plot');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short&apikey=' + omdbkey;
 				$.ajax(sUrl, {
@@ -4385,9 +4385,9 @@ $("#chatline").on("keydown", function(ev, e) {
 });
 
 function omdbVar(type) {
-	arr = msg.split('!' + type + ' ')[1].split(" (");
+	arr = msg.trim().split('!' + type)[1].split(" (");
 	activetit = $(".queue_active a").html();
-	if (arr[0] == 'now' && $(".queue_active a").html() && activetit.match(/(\([0-9][0-9][0-9][0-9])/)) {
+	if (arr[0] === '' && $(".queue_active a").html() && activetit.match(/(\([0-9][0-9][0-9][0-9])/)) {
 		now1 = activetit.split(' (');
 		som = now1[0];
 	} else {
