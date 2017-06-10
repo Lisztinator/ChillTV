@@ -177,7 +177,9 @@ var USEROPTS = {
 	"secure_connection": getOrDefault(CHANNEL.name + "secure_connection", !1),
 	"show_shadowchat": getOrDefault(CHANNEL.name + "show_shadowchat", !0),
 	"emotelist_sort": getOrDefault(CHANNEL.name + "emotelist_sort", !0),
-	"no_emotes": getOrDefault(CHANNEL.name + "no_emotes", !1)
+	"no_emotes": getOrDefault(CHANNEL.name + "no_emotes", !1),
+	"strip_image": getOrDefault(CHANNEL.name + "strip_image", !1),
+	"us-chat-tab-method": getOrDefault(CHANNEL.name + "us-chat-tab-method",  "Cycle options")
 }
 
 $("#plonotification").length > 0 ? $("#plonotification").remove() : '';
