@@ -330,7 +330,7 @@ Movie_Array = [
 ['A Beautiful Mind (2001)', 'Biography, Drama', '0B9hOhGLF4ciPd2J2OEZpVDVwNGM', '0B9hOhGLF4ciPZ0x0UEg1NThPN2c', '0B9hOhGLF4ciPMmVXOWRxNVUtTjA'],
 ['Beautiful Thing (1996)', 'Comedy, Drama, Romance', '0Bwjx3gpy0_MwN2FuUURzSUNrY0k'],
 ['Beauty and the Beast (1991) Extended', 'Animation, Family, Fantasy', '0B9hOhGLF4ciPcklNak9TZ2xhdjg', '0B9hOhGLF4ciPSGg3NlNjcjVmbnc'],
-['Beauty and the Beast (2017)', 'Family, Fantasy, Musical', '0B2EsOtf4Fh5jdU1NUVdzdGo4R3M'],
+['Beauty and the Beast (2017)', 'Family, Fantasy, Musical', '0B2EsOtf4Fh5jcDMzSzZJdTYwejg'],
 ['Beauty and the Beast: The Enchanted Christmas (1997)', 'Christmas, Animation, Family, Fantasy', '0B6a8GL2kUm9EWmtKdHNCbDN0T2M'],
 ['Beauty Day (2011)', 'Documentary', '0Bwjx3gpy0_MwVE50VnpoWmd5ZDQ'],
 ['Beavis and Butt-Head Do America (1996)', 'Animation, Adventure, Comedy', '0B_F_V9jIQXymVkI2N0pxR3U0S28'],
