@@ -562,7 +562,7 @@ Movie_Array = [
 ['The Chinese Connection (1972)', 'Action, Drama, Romance', '0B1TePj5vJj7mX3hteDN6NUd2eWs'],
 ['The Chipmunk Adventure (1987)', 'Animation, Adventure, Comedy', '0Bwjx3gpy0_MwRk5ZQnBMdy1PbEU'],
 ['A Chipmunk Christmas (1981)', 'Christmas, Animation, Family', '0B6a8GL2kUm9EcG95R2NEQmFCQjA'],
-['CHIPS (2017)', 'Action, Comedy, Crime', '0B2EsOtf4Fh5jY1VtR1NyV2xmdnc', 'Recently Added'],
+['CHIPS (2017)', 'Action, Comedy, Crime', '0B2EsOtf4Fh5jTDhQcEZBNmI5eGs', 'Recently Added'],
 ['Chopper (2000)', 'Biography, Crime, Drama', '0B1TePj5vJj7mVFluMkl2M19TUFU'],
 ['Chris Tucker Live (2015)', 'Comedy', '0Bwjx3gpy0_MwMXg4bnItZ0RGYTA'],
 ['A Christmas Carol (1938)', 'Christmas, Drama, Family, Fantasy', '0B6a8GL2kUm9EbjM5T1dWTTdKWEU'],
