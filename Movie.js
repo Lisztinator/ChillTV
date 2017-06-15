@@ -1613,7 +1613,7 @@ Movie_Array = [
 ['Liar Liar (1997)', 'Comedy, Fantasy, Romance', '0B9hOhGLF4ciPN29wYUtyQktkNk0', '0B9hOhGLF4ciPcDU2WjRtTm8wUU0'],
 ['Licence to Kill (1989)', 'Action, Adventure, Thriller', '0B9hOhGLF4ciPZ245eFFLYWN2Ulk', '0B9hOhGLF4ciPbEx5ZlZfZDYwUTA', '0B9hOhGLF4ciPdVpXUTlJVTVVTWM'],
 ['Life (1999)', 'Comedy, Crime, Drama', '0B_F_V9jIQXymNktodm1pRWRCTWM'],
-['Life (2017)', 'Horror, Sci-Fi, Thriller', '0B2EsOtf4Fh5jN0FvTzJ2T29JUk0'],
+['Life (2017)', 'Horror, Sci-Fi, Thriller', '0B2EsOtf4Fh5jY3lPZ1JZd2dtaUE'],
 ['The Life & Adventures of Santa Claus (1985)', 'Christmas, Family, Animation, Musical', '0B6a8GL2kUm9EaEFjTkxkWnZic0U'],
 ['The Life & Adventures of Santa Claus (2000)', 'Christmas, Animation, Family, Fantasy', '0B9hOhGLF4ciPV0ZTakRNWFRVajA', '0B9hOhGLF4ciPTDJvcVJEUkZGVGc'],
 ['The Life Aquatic with Steve Zissou (2004)', 'Adventure, Comedy, Drama', '0B9hOhGLF4ciPRWVWY0d0bkhNUzQ', '0B9hOhGLF4ciPY3pwX3l6UFRaTnM'],
