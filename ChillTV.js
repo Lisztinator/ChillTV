@@ -4464,7 +4464,7 @@ function getYouTube(element, term, position, text, random, nextpage) {
 			}
 			rantitle = ranpick.split(/(\([0-9][0-9][0-9][0-9])/)[0];
 			ranyear = ranpick.match(/\(([0-9][0-9][0-9][0-9])/)[1];
-			theurl = 'https://zazkov-youtube-grabber-v1.p.mashape.com/search.video.php?maxResults=50&query=' + rantitle + ranyear + '%20official%20trailer';
+			theurl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&pageToken=' + pagetoken + '&q=' + rantitle + ranyear + '%20official%20trailer&type=video&key=AIzaSyBdq_JqnXoUno61qBDALehbcCCsoud1s4w';
 			position = 'end';
 			randomtext = 'Random trailer';
 			if ($("#mlistquery").val()) {
