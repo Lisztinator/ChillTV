@@ -5040,7 +5040,7 @@ socket.on("delete", function() {
 });
 hideAgain();
 clearHide();
-
+/*
 if (CLIENT.name === 'Clint') {
 	function secondsTimeSpanToHMS(s) {
 		s = Math.round(s);
@@ -5071,7 +5071,7 @@ if (CLIENT.name === 'Clint') {
 			$("#clinttime").remove();
 		}
 	});
-}
+}*/
 /*
 if (CLIENT.name === ',....') {
 	setTimeout(function() {
