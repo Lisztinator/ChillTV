@@ -3910,12 +3910,31 @@ function injectKickass() {
 		}
 	});
 }
+
+function execEmotes(e) {
+    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
+        e = e.replace(RegExp('(^|\\s)' + t.name), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
+    }),
+    e)
+}/*<a href="' + t.image + '" target="_blank" title="' + t.name + '">*/
 /*
 function execEmotes(e) {
     return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(t.name, '<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
+        e = e.replace(t.regex, '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">')
     }),
     e)
+}
+function execEmotesEfficient(e) {
+    return CHANNEL.badEmotes.forEach(function(t) {
+        e = e.replace(t.regex, '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">')
+    }),
+    e = e.replace(/[^\s]+/g, function(e) {
+        if (CHANNEL.emoteMap.hasOwnProperty(e)) {
+            var t = CHANNEL.emoteMap[e];
+            return '<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">'
+        }
+        return e
+    })
 }*/
 
 function formatChatMessage(data, last) {
