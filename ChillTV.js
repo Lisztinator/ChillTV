@@ -3920,7 +3920,7 @@ function openEmote(src) {
 
 function execEmotes(e) {
     return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp(t.source.replace('(?!\\S)', '(?!\\w)').replace('&#40;', '\\(').replace('&#41;', '\\)'), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '" onclick="openEmote(\'' + t.image + '\')">')
+        e = e.replace(RegExp(t.source.replace('(?!\\S)', '(?!\\w)').replace('&#40;', '\\(').replace('&#41;', '\\)').replace('&#39;', '\''), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '" onclick="openEmote(\'' + t.image + '\')">')
     }),
     e)
 }
