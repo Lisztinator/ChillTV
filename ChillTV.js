@@ -3132,7 +3132,6 @@ function viewSeasons(stitle, syear, sposter, tseasons) {
 
 function callEps(stitle, syear, season) {
 	$("#beforeall").nextAll().remove();
-	MContainer.find('.text-info').show().text('Searching. Please wait...');
 	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&Season=' + season + '&y=' + syear + '&apikey=' + omdbkey, {
 		error: function(data) {
 			console.log(data);
@@ -3140,8 +3139,6 @@ function callEps(stitle, syear, season) {
 			MContainer.show();
 		},
 		success: function(data) {
-			MContainer.children().hide();
-			MContainer.children().text('');
 			epdata = data.Episodes;
 			for (var ep = 0; ep < epdata.length; ep++) {
 				data.Season.length === 1 ? seasonzero = '0' : seasonzero = '';
