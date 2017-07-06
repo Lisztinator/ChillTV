@@ -1113,7 +1113,7 @@ function setUserCSS() {
 	+ '\n '
 	+ '\n .avatar-embed-small {max-height:25px; max-width:25px; margin-right:3px}'
 	+ '\n .card-embed-small {height:50px}'
-	+ '\n .channel-emote, .embedimg, .image-embed-small, .image-spoiler {max-width:200px; max-height:115px}'
+	+ '\n .channel-emote, .embedimg, .image-embed-small, .image-spoiler {max-width:200px; max-height:115px; cursor:pointer}'
 	+ '\n .embedvid, .indvideo {max-width:200px; max-height:125px; border:0; vertical-align:middle}'
 	+ '\n '
 	+ '\n #chatpanel {margin-top:0; margin-bottom:0}'
@@ -3911,39 +3911,15 @@ function injectKickass() {
 	});
 }
 
-/*function execEmotes(e) {
-    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp('(^|\\s)' + t.name, 'gi'), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
-    }),
-    e)
-}*//*<a href="' + t.image + '" target="_blank" title="' + t.name + '">*/
-/*
-function execEmotes(e) {
-    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp(t.regex.toString().split('/')[1].split('/gi')[0].replace('(?!\\S)', '(?!\\w)'), 'gi'), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
-    }),
-    e)
-}*/
-function execEmotes(e) {
-    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp(t.source.replace('(?!\\S)', '(?!\\w)'), 'gi'), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
-    }),
-    e)
+function openEmote(src) {
+	window.open(src);
 }
-/*function execEmotesEfficient(e) {
-    return CHANNEL.badEmotes.forEach(function(t) {
-        e = e.replace(t.regex, '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">')
+
+function execEmotes(e) {
+    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
+        e = e.replace(RegExp(t.source.replace('(?!\\S)', ''), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '" onclick="openEmote(' + t.image + ')">')
     }),
-    e = e.replace(/[^\s]+/g, function(e) {
-        if (CHANNEL.emoteMap.hasOwnProperty(e)) {
-            var t = CHANNEL.emoteMap[e];
-            return '<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">'
-        }
-        return e
-    })
-}*/
-for (var emo = 0; emo < EMOTELIST.emotes.length; emo++) {
-	
+    e)
 }
 
 function formatChatMessage(data, last) {
