@@ -1,6 +1,6 @@
 /*
 Copyright © 2016 Benjamin Paul. All rights reserved.
-*/'about'
+*/
 
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
 $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
