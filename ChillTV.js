@@ -3121,7 +3121,8 @@ function viewSeasons(stitle, syear, sposter, tseasons) {
 	seasonslength = parseInt(tseasons);
 	seasons = 'Seasons: ';
 	for (var sl = 0; sl < seasonslength; sl++) {
-		seasons += '<a style="cursor:pointer" onclick="callEps(\'' + stitle + '\', \'' + syear + '\', \'' + sl+1 + '\')">' + sl+1 + '</a>  ';
+		seasonnumber = sl + 1;
+		seasons += '<a style="cursor:pointer" onclick="callEps(\'' + stitle + '\', \'' + syear + '\', \'' + seasonnumber + '\')">' + seasonnumber + '</a>  ';
 	}
 	$("#addseason").html(seasons);
 }
@@ -3139,7 +3140,7 @@ function callEps(stitle, syear, season) {
 			for (var ep = 0; ep < epdata.length; ep++) {
 				data.Season.length === 1 ? seasonzero = '0' : seasonzero = '';
 				epdata[ep].Episode.length === 1 ? episodezero = '0' : episodezero = '';
-				$("#listep").append('<br><br><span style="float:left;">S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title + '</span><span class="addorrequest" style="float:right;"><a style="cursor:pointer" onclick="nominateTV(\'' + data.Title.replace(/'/g, "\\'") + ' (' + syear + '–) S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title.replace(/'/g, "\\'") + '\', \'.serieslist\')">Nominate Episode</a></span><br><span>' + epdata[ep].Released + ' | IMDb Rating: ' + epdata[ep].imdbRating + '</span>');
+				$("#listep").append('<br><br><span style="float:left;">S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title + '</span><span class="addorrequest" style="float:right;"><a style="cursor:pointer" onclick="nominateTV(\'' + data.Title.replace(/'/g, "\\'") + ' (' + syear + ') S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title.replace(/'/g, "\\'") + '\', \'.serieslist\')">Nominate Episode</a></span><br><span>' + epdata[ep].Released + ' | IMDb Rating: ' + epdata[ep].imdbRating + '</span>');
 			}
 		},
 		
