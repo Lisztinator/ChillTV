@@ -43,7 +43,7 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>6/17/17</b><li>New command: !createemote (example: !createemote :cool: https://url.gif)</li></ul>'],
+	['Updates', '<ul><b>7/5/17</b><li>Text appears after emotes. End Poll button disabled. Prevent nominate while a movie is queued after youtube (prevents movies doubling up). Remove Video button now expands the chat properly.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Google-Drive-Userscript-Installation-Guide">Google Drive Userscript Installation Guide and Troubleshooting</a></li></ul>'],
@@ -432,7 +432,7 @@ cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</bu
 	.on("click", function() {
 		clearInterval(FIXHEIGHT);
 		$("#videowrap").remove();
-		$("#chatwrap").removeClass('col-lg-5 col-md-5').addClass('col-lg-12 col-md-12');
+		$("#chatwrap").removeClass($("#chatwrap").attr('class')).addClass('col-lg-12 col-md-12');
 		fitChat(600);
 		makeAlert('Refresh Page to Reinsert Video or to Change to Other Layouts').appendTo("#announcements");
 		$("#pinup-btn, #config-btn, #mode-sel, #fluid-layout").prop('disabled', true);
@@ -3917,7 +3917,7 @@ function openEmote(src) {
 
 function execEmotes(e) {
     return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp(t.source.replace('(?!\\S)', ''), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '" onclick="openEmote(' + t.image + ')">')
+        e = e.replace(RegExp(t.source.replace('(?!\\S)', ''), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '" onclick="openEmote(\'' + t.image + '\')">')
     }),
     e)
 }
