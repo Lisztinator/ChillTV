@@ -2993,7 +2993,7 @@ function getMovies(sMovie, pagenum) {
 		matches1 = '';
 	}
 	if (matches1.length > 0) {
-		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&apikey=' + omdbkey;
+		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey;
 		$.ajax(sUrl, {
 			error: function(data) {
 				MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3051,7 +3051,7 @@ function getMovies(sMovie, pagenum) {
 								if (TV_Array[at][0].toLowerCase() === oData.Title.toLowerCase() + ' (' + oData.Year + ')') {
 									$('.addmovie').click(function() {
 										//addShare(TV_Array[at+1][2], TV_Array[at+1][3], TV_Array[at+1][4], TV_Array[at+1][5], TV_Array[at+1][6], '.serieslist', TV_Array[at+1][0]);
-										viewSeasons(oData.Title, oData.Year, '1', oData.Poster);
+										viewSeasons(oData.Title, oData.Year, oData.Poster, oData.totalSeasons);
 									}).text('View Episodes');
 									break;
 								}
@@ -3090,63 +3090,62 @@ function getMovies(sMovie, pagenum) {
 	}
 }
 
-function viewSeasons(stitle, syear, sseason, sposter, deps, eparray, sspl, ssfo, nextseason) {
-	FINDALL = false;
-	SEASUCCESS = false;
-	if (sseason === '1') {
-		MContainer.children().hide();
-		MContainer.children().text('');
-		MContainer.find('.text-info').show().text('Searching. Please wait...');
-		$("#listthem").children().remove();
-		$("#listep").children().remove();
+function totalSeasons(stitle, syear) {
+	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
+		error: function(data) {
+			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
+			MContainer.show();
+		},
+		success: function(data) {
+			viewSeasons(data.Title, data.Year, data.Poster, data.totalSeasons);
+		}
+	});
+}
+
+function viewSeasons(stitle, syear, sposter, tseasons) {
+	MContainer.children().hide();
+	MContainer.children().text('');
+	$("#listthem").children().remove();
+	$("#listep").children().remove();
+	$("#listep").show();
+	if (GOBACKBUTTON) {
+		gobackbutton.prependTo("#listep");
+		$("#gobackbutton").click(function() {
+			gobackbutton.remove();
+			GOBACKBUTTON = false;
+		});
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&apikey=' + omdbkey, {
+	sstri = stitle.replace(/'/g, "\\'");
+	$('<br /><center><table style="width:100%;"><tr><th style="width: 67px"><img style="width: 67px" src="' + sposter + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + sstri + ' (' + syear + ')\')"> ' + stitle + ' (' + syear + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + sstri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px"></th></tr></table></th></tr></table></center>').appendTo("#listep");
+	$('<br /><br /><div id="beforeall"><div id="addseason"></div></div>').appendTo("#listep");
+	seasonslength = parseInt(tseasons);
+	seasons = 'Seasons: ';
+	for (var sl = 0; sl < seasonslength; sl++) {
+		seasons += '<a style="cursor:pointer" onclick="callEps(\'' + stitle + '\', \'' + syear + '\', \'' + sl+1 + '\')">' + sl+1 + '</a>  ';
+	}
+	$("#addseason").html(seasons);
+}
+
+function callEps(stitle, syear, season) {
+	$("#beforeall").nextAll().remove();
+	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&Season=' + season + '&y=' + syear + '&apikey=' + omdbkey, {
 		error: function(data) {
 			console.log(data);
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
 		},
 		success: function(data) {
-			SEASUCCESS = true;
-			deps = data.Episodes;
-			if (data.Error === "Series or season not found!") {
-				FINDALL = true;
+			epdata = data.Episodes;
+			for (var ep = 0; ep < epdata.length; ep++) {
+				data.Season.length === 1 ? seasonzero = '0' : seasonzero = '';
+				epdata[ep].Episode.length === 1 ? episodezero = '0' : episodezero = '';
+				$("#listep").append('<br><br><span style="float:left;">S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title + '</span><span class="addorrequest" style="float:right;"><a style="cursor:pointer" onclick="nominateTV(\'' + data.Title.replace(/'/g, "\\'") + ' (' + syear + '–) S' + seasonzero + data.Season + 'E' + episodezero + epdata[ep].Episode + ' - ' + epdata[ep].Title.replace(/'/g, "\\'") + '\', \'.serieslist\')">Nominate Episode</a></span><br><span>' + epdata[ep].Released + ' | IMDb Rating: ' + epdata[ep].imdbRating + '</span>');
 			}
 		},
-		complete: function(data) {
-			if (SEASUCCESS) {
-				if (sseason === '1') {
-					MContainer.find('.text-info').remove();
-					$("#listep").show();
-					if (GOBACKBUTTON) {
-						gobackbutton.prependTo("#listep");
-						$("#gobackbutton").click(function() {
-							gobackbutton.remove();
-							GOBACKBUTTON = false;
-						});
-					}
-					sstri = stitle.replace(/'/g, "\\'");
-					$('<br /><center><table style="width:100%;"><tr><th style="width: 67px"><img style="width: 67px" src="' + sposter + '" /></th><th><table style="width:100%"><tr><th style="float:left;"><a style="margin-left:10px;font-size:20px;cursor:pointer;" onclick="getMovies(\'' + sstri + ' (' + syear + ')\')"> ' + stitle + ' (' + syear + ')</a></th></tr><tr ><th style="float:left;margin-left:10px"><a style="cursor:pointer" onclick="getYouTube(\'\', \'' + sstri + ' trailer\', \'end\')">Add Trailer</a></th><th style="float:right;margin-right:10px"></th></tr></table></th></tr></table></center>').appendTo("#listep");
-					$('<br /><br /><div id="beforeall"><div id="addseason">Seasons:  </div></div>').appendTo("#listep");
-					nextseason = 'Seasons: ';
-				}
-				eparray = [];
-				for (var da = 0; da < deps.length; da++) {
-					eparray.push(deps[da].Episode);
-				}
-				sspl = parseInt(sseason) - 1;
-				ssfo = parseInt(sseason) + 1;
-				if (!FINDALL) {
-					nextseason += '<a style="cursor:pointer" onclick="callCheck(\'' + deps.length + '\', \'1\', \'' + stitle + '\', \'' + syear + '\', \'' + sseason + '\', \'0\', \'' + eparray + '\', \'' + sspl + '\', \'' + ssfo + '\', \'' + sposter + '\')">' + sseason + '</a>  ';
-					$("#addseason").html(nextseason);
-					nexseanum = parseInt(sseason) + 1;
-					viewSeasons(stitle, syear, nexseanum.toString(), sposter, deps, eparray, sspl, ssfo, nextseason);
-				}
-			}
-		}
+		
 	});
 }
-
+/*
 function callCheck(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sposter) {
 	SAMESEASON = false;
 	$("#beforeall").nextAll().remove();
@@ -3297,7 +3296,7 @@ function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, spost
 		}
 	}
 }
-
+*/
 function theList(som, pagenum, goback) {
 	MContainer.children().hide();
 	MContainer.children().text('');
@@ -3343,7 +3342,7 @@ function theList(som, pagenum, goback) {
 						if (TV_Array[dr][0].match(/\([0-9][0-9][0-9][0-9]/)) {
 							if (TV_Array[dr][0].toLowerCase() === thesearchresults[li].Title.toLowerCase() + ' (' + thesearchresults[li].Year + ')') {
 								str = thesearchresults[li].Title.replace(/'/g, "\\'");
-								$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="viewSeasons(\''+str+'\', \''+thesearchresults[li].Year+'\', \'1\', \''+thesearchresults[li].Poster+'\')">View Episodes</a>');
+								$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="totalSeasons(\''+str+'\', \''+thesearchresults[li].Year+'\')">View Episodes</a>');
 								break;
 							}
 						}
