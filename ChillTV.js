@@ -3917,10 +3917,16 @@ function injectKickass() {
     }),
     e)
 }*//*<a href="' + t.image + '" target="_blank" title="' + t.name + '">*/
-
+/*
 function execEmotes(e) {
     return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
         e = e.replace(RegExp(t.regex.toString().split('/')[1].split('/gi')[0].replace('(?!\\S)', '(?!\\w)'), 'gi'), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
+    }),
+    e)
+}*/
+function execEmotes(e) {
+    return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
+        e = e.replace(RegExp(t.source.replace('(?!\\S)', '(?!\\w)'), 'gi'), '$1<img class="channel-emote" src="' + t.image + '" title="' + t.name + '">')
     }),
     e)
 }
@@ -3936,6 +3942,9 @@ function execEmotes(e) {
         return e
     })
 }*/
+for (var emo = 0; emo < EMOTELIST.emotes.length; emo++) {
+	
+}
 
 function formatChatMessage(data, last) {
 	if (!data.meta || data.msgclass) {
