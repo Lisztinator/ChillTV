@@ -4841,9 +4841,12 @@ socket.on("closePoll", function() {
 	});
 });
 
-if (CLIENT.name !== 'ChillTVBot') {
+socket.on("newPoll", function() {
 	$("#pollwrap > div > button.btn.btn-danger.btn-sm.pull-right").attr('disabled', true);
-}
+});
+socket.on("updatePoll", function() {
+	$("#pollwrap > div > button.btn.btn-danger.btn-sm.pull-right").attr('disabled', true);
+});
 
 /*
 setTimeout(function() {
