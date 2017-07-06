@@ -3913,7 +3913,7 @@ function injectKickass() {
 
 function execEmotes(e) {
     return USEROPTS.no_emotes ? e : CyTube.featureFlag && CyTube.featureFlag.efficientEmotes ? execEmotesEfficient(e) : (CHANNEL.emotes.forEach(function(t) {
-        e = e.replace(RegExp('(^|\\s)' + t.name), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
+        e = e.replace(RegExp('(^|\\s)' + t.name, 'gi'), '$1<a href="' + t.image + '" target="_blank" title="' + t.name + '"><img class="channel-emote" src="' + t.image + '" target="_blank">')
     }),
     e)
 }/*<a href="' + t.image + '" target="_blank" title="' + t.name + '">*/
