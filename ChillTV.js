@@ -2878,7 +2878,7 @@ function createMovieList() {
 	createTemp('Nominate a Movie from This List');
 	MOVLIST = true;
 	$("body").css('overflow', 'hidden');
-	outer.attr('id', 'mlistmodal');
+	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 800px !important');
 	$("#mlistmodal").on("hidden.bs.modal", function() {
 		MOVLIST = false;
 		$("#mlistmodal").remove();
