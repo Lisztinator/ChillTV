@@ -2909,8 +2909,8 @@ function createMovieList() {
 	});
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
-	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (that matches search)</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (that matches search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
