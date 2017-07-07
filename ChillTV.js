@@ -7,7 +7,7 @@ $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
 
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
-	if (m === 0) {
+	if (m === 0) {st
 		rankpick = 'Admin';
 	}
 	if (m === 1) {
@@ -2959,7 +2959,7 @@ function createMovieList() {
 function searchStringInArray(mstr, ystr, gstr, info) {
 	if (mstr || ystr || gstr) {
 		$(".movielist > li > span:first-child").filter(function(index) {
-			return $(this).text().match(RegExp(mstr)) === null && $(this).text().match(RegExp(ystr)) === null && $(this).next().text().match(RegExp(gstr)) === null;
+			return $(this).text().match(RegExp(mstr)) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr)) === null;
 		}).parent().hide();
 		$(".movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr)) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr));
