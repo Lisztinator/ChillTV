@@ -7,7 +7,7 @@ $.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
 
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
-	if (m === 0) {st
+	if (m === 0) {
 		rankpick = 'Admin';
 	}
 	if (m === 1) {
