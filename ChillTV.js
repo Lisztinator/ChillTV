@@ -3015,7 +3015,7 @@ function getMovies(sMovie, pagenum) {
 		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey;
 		$.ajax(sUrl, {
 			error: function(data) {
-				MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
+				MContainer.find('.text-info').text('Connection Error: Try again later.');
 				MContainer.show();
 			},
 			complete: function(data) {
@@ -3809,7 +3809,7 @@ function getGiphy(p_oEvent) {
 						});
 					}
 				} else {
-					$('.imagesearch').text('Error: Not found. Check spelling.');
+					$('.imagesearch').text('Error: Not found.');
 				}
 			},
 			error: function(data) {
@@ -4228,7 +4228,7 @@ $("#chatline").on("keydown", function(ev, e) {
 							});
 						} else {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.',
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.',
 							});
 						}
 					},
@@ -4253,7 +4253,7 @@ $("#chatline").on("keydown", function(ev, e) {
 							});
 						} else {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.',
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.',
 							});
 						}
 					},
@@ -4316,7 +4316,7 @@ $("#chatline").on("keydown", function(ev, e) {
 							});
 						} else {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.'
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.'
 							});
 						}
 					},
@@ -4342,7 +4342,7 @@ $("#chatline").on("keydown", function(ev, e) {
 							});
 						} else {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.'
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.'
 							});
 						}
 					},
@@ -4383,7 +4383,7 @@ $("#chatline").on("keydown", function(ev, e) {
 							});
 						} else {
 							socket.emit("chatMsg", {
-								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.'
+								msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.'
 							});
 						}
 					}
@@ -4440,8 +4440,9 @@ function omdbVar(type) {
 function omdbAjax() {
 	$.ajax(sUrl, {
 		error: function(data) {
+			console.log(data);
 			socket.emit("chatMsg", {
-				msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+				msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.'
 			});
 		},
 		complete: function(data) {
@@ -4534,7 +4535,7 @@ function getYouTube(element, term, position, text, random, nextpage) {
 						});
 					} else {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Check spelling.',
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.',
 						});
 					}
 				} else {
