@@ -2896,11 +2896,11 @@ function createMovieList() {
 		}
 	}
 	$('<center id="searchinputs" />').appendTo(body);
-	$('<input id="mlistquery" class="form-control" style="width:33%" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="ylistquery" class="form-control" style="width:33%" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="glistquery" class="form-control" style="width:33%" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="mlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
-		if ($("#ylistquery").val().trim()) {
+		if ($("#ylistquery").val().trim() !== '') {
 			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
 		} else {
 			ylistquery == '';
@@ -2959,14 +2959,10 @@ function createMovieList() {
 function searchStringInArray(mstr, ystr, gstr, info) {
 	if (mstr || ystr || gstr) {
 		$(".movielist > li > span:first-child").filter(function(index) {
-			return $(this).text().match(RegExp(mstr)) === null;
-			return $(this).text().match(RegExp(ystr)) === null;
-			return $(this).next().text().match(RegExp(gstr)) === null;
+			return $(this).text().match(RegExp(mstr)) === null && $(this).text().match(RegExp(ystr)) === null && $(this).next().text().match(RegExp(gstr)) === null;
 		}).parent().hide();
 		$(".movielist > li > span:first-child").filter(function(index) {
-			return $(this).text().match(RegExp(mstr));
-			return $(this).text().match(RegExp(ystr));
-			return $(this).next().text().match(RegExp(gstr));
+			return $(this).text().match(RegExp(mstr)) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr));
 		}).parent().show();
 		/*
 		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
@@ -2975,7 +2971,7 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		*/
 		//$(".movielist").find("li:Contains(" + nstr + ")").show();
 		num = $(".movielist li[style='display: block;']").length;
-		info.text('Found ' + num + ' movies matching "' + mstr + '", "' + ystr + '", "' + gstr + '"');
+		info.text('Found ' + num + ' movies matching "' + mstr + '", "' + $("#ylistquery").val().trim() + '", "' + gstr + '"');
 	} else {
 		$(".movielist").children().show();
 		num = $(".movielist li[style='display: block;']").length;
