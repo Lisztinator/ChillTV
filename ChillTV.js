@@ -2900,12 +2900,17 @@ function createMovieList() {
 	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
 	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
+		if ($("#mlistquery").val().trim() !== '') {
+			mlistquery = $("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + $("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+		} else {
+			mlistquery = '';
+		}
 		if ($("#ylistquery").val().trim() !== '') {
 			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
 		} else {
 			ylistquery = '';
 		}
-		searchStringInArray($("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
+		searchStringInArray(mlistquery, ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
 	});
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
