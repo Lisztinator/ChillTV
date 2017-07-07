@@ -2841,7 +2841,7 @@ function nominateMovie(name, list) {
 		titofit = $(list + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
 		name = titofit.text().split('✇ ')[1];
 		if ($('#mlistquery').val()) {
-			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" - "' + name + '" was nominated';
+			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim() + '" - "' + name + '" was nominated';
 		} else {
 			mtxt = 'Random movie: ' + name + ' was nominated';
 		}
@@ -2909,8 +2909,8 @@ function createMovieList() {
 	});
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
-	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (that matches search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (that matches search)</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
@@ -4492,8 +4492,8 @@ function getYouTube(element, term, position, text, random, nextpage) {
 			theurl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&pageToken=' + pagetoken + '&q=' + rantitle + ranyear + '%20official%20trailer&type=video&key=AIzaSyBdq_JqnXoUno61qBDALehbcCCsoud1s4w';
 			position = 'end';
 			randomtext = 'Random trailer';
-			if ($("#mlistquery").val()) {
-				randomtext = randomtext + ': matching "' + $("#mlistquery").val().trim() + '"';
+			if ($("#mlistquery").val() || $("#ylistquery").val() || $("#glistquery").val()) {
+				randomtext = randomtext + ': matching "' + $("#mlistquery").val().trim() + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim() + '"';
 			}
 			if ($("#tvlistquery").val()) {
 				randomtext = randomtext + ': matching "' + $("#tvlistquery").val().trim() + '"';
