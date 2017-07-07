@@ -2957,12 +2957,12 @@ function createMovieList() {
 }
 
 function searchStringInArray(mstr, ystr, gstr, info) {
-	if (mstr || ystr || gstr) {
+	if (mstr !== '' || ystr !== '' || gstr !== '') {
 		$(".movielist > li > span:first-child").filter(function(index) {
-			return $(this).text().match(RegExp(mstr)) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr)) === null;
+			return $(this).text().match(RegExp(mstr, i)) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, i)) === null;
 		}).parent().hide();
 		$(".movielist > li > span:first-child").filter(function(index) {
-			return $(this).text().match(RegExp(mstr)) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr));
+			return $(this).text().match(RegExp(mstr, i)) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, i));
 		}).parent().show();
 		/*
 		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
@@ -2971,7 +2971,7 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		*/
 		//$(".movielist").find("li:Contains(" + nstr + ")").show();
 		num = $(".movielist li[style='display: block;']").length;
-		info.text('Found ' + num + ' movies matching "' + mstr + '", "' + $("#ylistquery").val().trim() + '", "' + gstr + '"');
+		info.text('Found ' + num + ' movies matching "' + mstr + '" | "' + $("#ylistquery").val().trim() + '" | "' + gstr + '"');
 	} else {
 		$(".movielist").children().show();
 		num = $(".movielist li[style='display: block;']").length;
