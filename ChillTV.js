@@ -1805,7 +1805,6 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	$(window).on("mouseover", function() {
 		if (MOUSEOVER) {
 			MOUSEOVER = false;
-			console.log('mouseover');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
@@ -1819,7 +1818,6 @@ if (CLIENT.rank > -1 && CLIENT.name !== 'ChillTVBot') {
 	$(window).on("keydown", function() {
 		if (KEYDOWN) {
 			KEYDOWN = false
-			console.log('keydown');
 			clearTimeout(AFKLOGOUT);
 			clearTimeout(WARNLOGOUT);
 			welcomeBack();
@@ -1838,7 +1836,6 @@ socket.on("login", function() {
 		$(window).on("mouseover", function() {
 			if (MOUSEOVER) {
 				MOUSEOVER = false;
-				console.log('mouseover');
 				clearTimeout(AFKLOGOUT);
 				clearTimeout(WARNLOGOUT);
 				welcomeBack();
@@ -1852,7 +1849,6 @@ socket.on("login", function() {
 		$(window).on("keydown", function() {
 			if (KEYDOWN) {
 				KEYDOWN = false
-				console.log('keydown');
 				clearTimeout(AFKLOGOUT);
 				clearTimeout(WARNLOGOUT);
 				welcomeBack();
@@ -4360,16 +4356,19 @@ $("#chatline").on("keydown", function(ev, e) {
 			if (msg.match(/!movie/)) {
 				omdbVar('movie');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true&apikey=' + omdbkey;
+				console.log(sUrl);
 				omdbAjax();
 			}
 			if (msg.match(/!tv/)) {
 				omdbVar('tv');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true&apikey=' + omdbkey;
+				console.log(sUrl);
 				omdbAjax();
 			}
 			if (msg.match(/!plot/)) {
 				omdbVar('plot');
 				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short&apikey=' + omdbkey;
+				console.log(sUrl);
 				$.ajax(sUrl, {
 					error: function(data) {
 						socket.emit("chatMsg", {
@@ -4418,21 +4417,21 @@ $("#chatline").on("keydown", function(ev, e) {
 });
 
 function omdbVar(type) {
-	arr = msg.trim().split('!' + type)[1].split(" (");
+	arr = msg.trim().split('!' + type)[1].trim().split(" (");
 	activetit = $(".queue_active a").html();
-	if (arr[0] === '' && $(".queue_active a").html() && activetit.match(/(\([0-9][0-9][0-9][0-9])/)) {
+	if (arr[0] === '' && $(".queue_active a").html() && activetit.match(/\(\d{4}\)/)) {
 		now1 = activetit.split(' (');
 		som = now1[0];
 	} else {
 		som = arr[0];
 	}
-	regExp = /([0-9][0-9][0-9][0-9])/;
+	regExp = /(\d{4})\)/;
 	if (arr[1] !== undefined) {
 		matches = regExp.exec(arr[1]);
-		matches1 = (matches[1]);
-	} else if (arr[1] === undefined && arr[0] == 'now' && $(".queue_active a").html() && $(".queue_active a").html().match(regExp)) {
+		matches1 = matches[1];
+	} else if (arr[1] === undefined && arr[0] === '' && $(".queue_active a").html() && $(".queue_active a").html().match(regExp)) {
 		matches = regExp.exec(activetit);
-		matches1 = (matches[1]);
+		matches1 = matches[1];
 	} else {
 		matches1 = '';
 	}
@@ -4453,7 +4452,7 @@ function omdbAjax() {
 				});
 			} else {
 				socket.emit("chatMsg", {
-					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found.'
+					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Error: Not found. Please use the format "Title (Year)".'
 				});
 			}
 		}
