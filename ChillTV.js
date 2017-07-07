@@ -2906,7 +2906,7 @@ function createMovieList() {
 			ylistquery == '';
 		}
 		searchStringInArray($("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
-	}
+	});
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer</span><br />');
