@@ -2976,7 +2976,7 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		*/
 		//$(".movielist").find("li:Contains(" + nstr + ")").show();
 		num = $(".movielist li[style='display: block;']").length;
-		info.text('Found ' + num + ' movies matching "' + mstr + '" | "' + $("#ylistquery").val().trim() + '" | "' + gstr + '"');
+		info.text('Found ' + num + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 	} else {
 		$(".movielist").children().show();
 		num = $(".movielist li[style='display: block;']").length;
