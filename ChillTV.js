@@ -2895,13 +2895,22 @@ function createMovieList() {
 			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
-	$('<input id="mlistquery" type="text" placeholder="Search Movie, Year or Genre" maxlength="240" class="form-control" />').appendTo(body).keyup(function() {
-		searchStringInArray($("#mlistquery"), $("#mlinfo"));
-	});
+	$('<center id="searchinputs" />').appendTo(body);
+	$('<input id="mlistquery" class="form-control" style="width:33%" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="ylistquery" class="form-control" style="width:33%" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="glistquery" class="form-control" style="width:33%" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
+	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
+		if ($("#ylistquery").val().trim()) {
+			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
+		} else {
+			ylistquery == '';
+		}
+		searchStringInArray($("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
+	}
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
-	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Trailer</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Movie</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie</span><br />');
 	if (CLIENT.rank === 5) {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
 	}
@@ -2947,13 +2956,26 @@ function createMovieList() {
 	}, 250);
 }
 
-function searchStringInArray(str, info) {
-	nstr = str.val().trim()
-	if (nstr) {
-		$(".movielist").find("li:not(:Contains(" + nstr + "))").hide();
-		$(".movielist").find("li:Contains(" + nstr + ")").show();
+function searchStringInArray(mstr, ystr, gstr, info) {
+	if (mstr || ystr || gstr) {
+		$(".movielist > li > span:first-child").filter(function(index) {
+			return $(this).text().match(RegExp(mstr)) === null;
+			return $(this).text().match(RegExp(ystr)) === null;
+			return $(this).next().text().match(RegExp(gstr)) === null;
+		}).parent().hide();
+		$(".movielist > li > span:first-child").filter(function(index) {
+			return $(this).text().match(RegExp(mstr));
+			return $(this).text().match(RegExp(ystr));
+			return $(this).next().text().match(RegExp(gstr));
+		}).parent().show();
+		/*
+		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
+		$(".movielist").find("li:not(:Contains(" + ystr + "))").hide();
+		$(".movielist").find("li:not(:Contains(" + gstr + "))").hide();
+		*/
+		//$(".movielist").find("li:Contains(" + nstr + ")").show();
 		num = $(".movielist li[style='display: block;']").length;
-		info.text('Found ' + num + ' movies matching "' + nstr + '"');
+		info.text('Found ' + num + ' movies matching "' + mstr + '", "' + ystr + '", "' + gstr + '"');
 	} else {
 		$(".movielist").children().show();
 		num = $(".movielist li[style='display: block;']").length;
