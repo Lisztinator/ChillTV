@@ -2903,7 +2903,7 @@ function createMovieList() {
 		if ($("#ylistquery").val().trim() !== '') {
 			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
 		} else {
-			ylistquery == '';
+			ylistquery = '';
 		}
 		searchStringInArray($("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
 	});
