@@ -3485,7 +3485,7 @@ function createTVList() {
 				tvmlistquery = '';
 			}
 			if ($("#tvylistquery").val().trim().replace(/-/g, '–') !== '') {
-				tvylistquery = '\\(\\d*–*' + $("#tvylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '–*\\d*\\)';
+				tvylistquery = '\\([\\d–]*' + $("#tvylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '[\\d–]*\\)';
 			} else {
 				tvylistquery = '';
 			}
