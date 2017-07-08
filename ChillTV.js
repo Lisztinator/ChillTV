@@ -3478,7 +3478,7 @@ function createTVList() {
 				tvmvalsplit = tvmval.split(' ');
 				tvmlistquery = '';
 				for (var tvv = 0; tvv < tvmvalsplit.length; tvv++) {
-					tvmlistquery += '(?=.*' + tvmvalsplit[tvv] + '.*\\(\\d{4}\\).*|.*\\(\\d{4}\\).*' + tvmvalsplit[tvv] + '.*)';
+					tvmlistquery += '(?=.*' + tvmvalsplit[tvv] + '.*\\(\\d{4}–{0,1}\\d{0,4}\\).*|.*\\(\\d{4}–{0,1}\\d{0,4}\\).*' + tvmvalsplit[tvv] + '.*)';
 				}
 				tvmlistquery += '.*';
 			} else {
