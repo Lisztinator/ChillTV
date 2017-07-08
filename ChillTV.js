@@ -3546,18 +3546,18 @@ function createTVList() {
 
 function searchStringInArrayTV(mstr, ystr, gstr, info) {
 	if (mstr !== '' || ystr !== '' || gstr !== '') {
-		$(".serieslist > .seriestitle").filter(function(index) {
-			return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
-		}).parent().hide();
 		$('.serieslist > li').filter(function(index) {
-			return ($(this).text() + ' ' + $(this).parent().children('.seriestitle').text()).match(RegExp(mstr, 'i')) === null;
+			return ($(this).parent().children('.seriestitle').text() + ' ' + $(this).text()).match(RegExp(mstr, 'i')) === null;
 		}).hide();
 		$(".serieslist > .seriestitle").filter(function(index) {
-			return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
-		}).parent().show();
+			$(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
+		}).parent().hide();
 		$('.serieslist > li').filter(function(index) {
-			return ($(this).text() + ' ' + $(this).parent().children('.seriestitle').text()).match(RegExp(mstr, 'i'));
+			return ($(this).parent().children('.seriestitle').text() + ' ' + $(this).text()).match(RegExp(mstr, 'i'));
 		}).show();
+		$(".serieslist > .seriestitle").filter(function(index) {
+			$(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
+		}).parent().show();
 		/*
 		$(".serieslist:not(:Contains(" + nstr + "))").hide();
 		$(".serieslist:Contains(" + nstr + ")").show();
