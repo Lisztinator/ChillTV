@@ -2912,8 +2912,8 @@ function createMovieList() {
 			ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
 		}
 		if ($("#glistquery").val().trim() !== '') {
-			gval = $("#glistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
-			gvalsplit = gval.split(/ |, /);
+			gval = $("#glistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
+			gvalsplit = gval.split(/, | /);
 			glistquery = '';
 			for (var gv = 0; gv < gvalsplit.length; gv++) {
 				glistquery += '(?=.*' + gvalsplit[gv] + ')'
