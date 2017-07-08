@@ -2870,7 +2870,6 @@ function nominateTV(name, list) {
 	$('.trailertext').text(tvtxt);
 }
 
-KEYDONE = false;
 KEYWAIT = setTimeout(function(){},1);
 function createMovieList() {
 	createTemp('Nominate a Movie from This List');
@@ -2902,9 +2901,6 @@ function createMovieList() {
 		clearTimeout(KEYWAIT);
 		$("#mlinfo").text('Searching. Please wait...');
 		KEYWAIT = setTimeout(function() {
-			KEYDONE = true;
-		}, 500);
-		if (KEYDONE) {
 			if ($("#mlistquery").val().trim() !== '') {
 				mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
 				mvalsplit = mval.split(' ');
@@ -2932,7 +2928,7 @@ function createMovieList() {
 				glistquery = '';
 			}
 			searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
-		}
+		}, 500);
 	});
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
@@ -3004,7 +3000,6 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		info.text(num + ' movies');
 	}
 	$(".trailertext").text('');
-	KEYDONE = false;
 }
 
 function getMovieFromList(str) {
