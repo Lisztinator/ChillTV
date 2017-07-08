@@ -3484,8 +3484,8 @@ function createTVList() {
 			} else {
 				tvmlistquery = '';
 			}
-			if ($("#tvylistquery").val().trim().replace(/-/g, '–') !== '') {
-				tvylistquery = '\\([\\d–]*' + $("#tvylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '[\\d–]*\\)';
+			if ($("#tvylistquery").val().trim() !== '') {
+				tvylistquery = '\\([\\d–]*' + $("#tvylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&').replace(/-/g, '–') + '[\\d–]*\\)';
 			} else {
 				tvylistquery = '';
 			}
