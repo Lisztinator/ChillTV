@@ -2870,6 +2870,8 @@ function nominateTV(name, list) {
 	$('.trailertext').text(tvtxt);
 }
 
+KEYDONE = false;
+KEYWAIT = setTimeout(function(){},1);
 function createMovieList() {
 	createTemp('Nominate a Movie from This List');
 	MOVLIST = true;
@@ -2895,36 +2897,43 @@ function createMovieList() {
 	$('<input id="mlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
 	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
 	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
+	body.append('<span id="mlinfo" class="text-info" /><br />');	
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
-		if ($("#mlistquery").val().trim() !== '') {
-			mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-			mvalsplit = mval.split(' ');
-			mlistquery = '';
-			for (var mv = 0; mv < mvalsplit.length; mv++) {
-				mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + mvalsplit[mv] + '.*).*';
+		clearTimeout(KEYWAIT);
+		$("#mlinfo").text('Searching. Please wait...');
+		KEYWAIT = setTimeout(function() {
+			KEYDONE = true;
+		}, 500);
+		if (KEYDONE) {
+			if ($("#mlistquery").val().trim() !== '') {
+				mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+				mvalsplit = mval.split(' ');
+				mlistquery = '';
+				for (var mv = 0; mv < mvalsplit.length; mv++) {
+					mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + mvalsplit[mv] + '.*).*';
+				}
+			} else {
+				mlistquery = '';
 			}
-		} else {
-			mlistquery = '';
-		}
-		if ($("#ylistquery").val().trim() !== '') {
-			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
-		} else {
-			ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
-		}
-		if ($("#glistquery").val().trim() !== '') {
-			gval = $("#glistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
-			gvalsplit = gval.split(/, | /);
-			glistquery = '';
-			for (var gv = 0; gv < gvalsplit.length; gv++) {
-				glistquery += '(?=.*' + gvalsplit[gv] + ')'
+			if ($("#ylistquery").val().trim() !== '') {
+				ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
+			} else {
+				ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
 			}
-			glistquery += '.*';
-		} else {
-			glistquery = '';
+			if ($("#glistquery").val().trim() !== '') {
+				gval = $("#glistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
+				gvalsplit = gval.split(/, | /);
+				glistquery = '';
+				for (var gv = 0; gv < gvalsplit.length; gv++) {
+					glistquery += '(?=.*' + gvalsplit[gv] + ')'
+				}
+				glistquery += '.*';
+			} else {
+				glistquery = '';
+			}
+			searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 		}
-		searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 	});
-	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
 	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
@@ -2995,6 +3004,7 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		info.text(num + ' movies');
 	}
 	$(".trailertext").text('');
+	KEYDONE = false;
 }
 
 function getMovieFromList(str) {
