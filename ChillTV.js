@@ -2991,8 +2991,8 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
 		$(".movielist").find("li:not(:Contains(" + ystr + "))").hide();
 		$(".movielist").find("li:not(:Contains(" + gstr + "))").hide();
+		$(".movielist").find("li:Contains(" + nstr + ")").show();
 		*/
-		//$(".movielist").find("li:Contains(" + nstr + ")").show();
 		num = $(".movielist li[style='display: block;']").length;
 		info.text('Found ' + num + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 	} else {
@@ -3429,11 +3429,12 @@ $('<button id="tvlistbtn" class="btn btn-sm btn-default" title="Check out our TV
 		createTVList();
 	});
 
+TVKEYWAIT = setTimeout(function(){},1);
 function createTVList() {
 	createTemp('Nominate/Add a TV Series from This List');
 	TVLIST = true;
 	$("body").css('overflow', 'hidden');
-	outer.attr('id', 'tvlistmodal');
+	outer.attr('id', 'tvlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 800px !important');
 	$("#tvlistmodal").on("hidden.bs.modal", function() {
 		TVLIST = false;
 		$("#tvlistmodal").remove();
@@ -3454,19 +3455,54 @@ function createTVList() {
 		} else {
 			if (TV_Array[tvi][2] === 'Recently Added') {
 				RECENT = true;
-				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				recentlytv += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span class="seriestitle">' + TV_Array[tvi][0] + ' - <i><b>Recently Added</b></i></span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 				showname = str;
 			} else {
 				RECENT = false;
-				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span>' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
+				text += '</ul><ul class="serieslist" style="display: block; list-style: none; padding-left: 0px;"><button style="padding: 0 5px 0 5px;color: black;border-width: 1px;border-color: black;background-color: inherit;font-weight: 900;" class="seriesexpand" >▼</button> <a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <span class="seriestitle">' + TV_Array[tvi][0] + '</span><span class="pull-right">' + TV_Array[tvi][1] + '</span>';
 				showname = str;
 			}
 		}
 	}
-	$('<input id="tvlistquery" type="text" placeholder="Search TV Series, Year or Genre" maxlength="240" class="form-control" />').appendTo(body).keyup(function() {
-		searchStringInArrayTV($("#tvlistquery"), $("#tvlinfo"));
-	});
+	$('<center id="tvsearchinputs" />').appendTo(body);
+	$('<input id="tvmlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#tvsearchinputs"));
+	$('<input id="tvylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#tvsearchinputs"));
+	$('<input id="tvglistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#tvsearchinputs"));
 	body.append('<span id="tvlinfo" class="text-info" /><br />');
+	$("#tvmlistquery, #tvylistquery, #tvglistquery").keyup(function() {
+		clearTimeout(TVKEYWAIT);
+		$("#tvlinfo").text('Searching. Please wait...');
+		TVKEYWAIT = setTimeout(function() {
+			if ($("#tvmlistquery").val().trim() !== '') {
+				tvmval = $("#tvmlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+				tvmvalsplit = tvmval.split(' ');
+				tvmlistquery = '';
+				for (var tvv = 0; tvv < tvmvalsplit.length; tvv++) {
+					tvmlistquery += '(?=.*' + tvmvalsplit[tvv] + '.*\\(\\d{4}\\).*|.*\\(\\d{4}\\).*' + tvmvalsplit[tvv] + '.*)';
+				}
+				tvmlistquery += '.*';
+			} else {
+				tvmlistquery = '';
+			}
+			if ($("#tvylistquery").val().trim().replace(/-/g, '–') !== '') {
+				tvylistquery = '\\(\\d*–*' + $("#tvylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '–*\\d*\\)';
+			} else {
+				tvylistquery = '';
+			}
+			if ($("#tvglistquery").val().trim() !== '') {
+				tvgval = $("#tvglistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
+				tvgvalsplit = tvgval.split(/, | /);
+				tvglistquery = '';
+				for (var tvgv = 0; tvgv < tvgvalsplit.length; tvgv++) {
+					tvglistquery += '(?=.*' + tvgvalsplit[tvgv] + ')'
+				}
+				tvglistquery += '.*';
+			} else {
+				tvglistquery = '';
+			}
+			searchStringInArrayTV(tvmlistquery, tvylistquery, tvglistquery, $("#tvlinfo"));
+		}, 500);
+	});
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.serieslist\')">✛</a> Add Trailer</span><br />');
 	body.append('<span><a style="cursor:pointer" onclick="nominateTV(\'\', \'.serieslist\')">✇</a> Nominate Episode</span><br />');
@@ -3508,17 +3544,30 @@ function createTVList() {
 	}, 250);
 }
 
-function searchStringInArrayTV(str, info) {
-	nstr = str.val().trim();
-	if (nstr) {
+function searchStringInArrayTV(mstr, ystr, gstr, info) {
+	if (mstr !== '' || ystr !== '' || gstr !== '') {
+		$(".serieslist > .seriestitle").filter(function(index) {
+			return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
+		}).parent().hide();
+		$('.serieslist > li').filter(function(index) {
+			return ($(this).text() + ' ' + $(this).parent().children('.seriestitle').text()).match(RegExp(mstr, 'i')) === null;
+		}).hide();
+		$(".serieslist > .seriestitle").filter(function(index) {
+			return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
+		}).parent().show();
+		$('.serieslist > li').filter(function(index) {
+			return ($(this).text() + ' ' + $(this).parent().children('.seriestitle').text()).match(RegExp(mstr, 'i'));
+		}).show();
+		/*
 		$(".serieslist:not(:Contains(" + nstr + "))").hide();
 		$(".serieslist:Contains(" + nstr + ")").show();
+		*/
 		num = $(".serieslist[style='display: block; list-style: none; padding-left: 0px;'] li").length;
-		info.text('Found ' + num + ' episodes matching "' + nstr + '".');
+		info.text('Found ' + num + ' episodes matching "' + $("#tvmlistquery").val().trim()  + '" | "' + $("#tvylistquery").val().trim() + '" | "' + $("#tvglistquery").val().trim()  + '"');
 	} else {
 		$(".serieslist").show();
 		num = $(".serieslist li").length;
-		info.text(num + ' episodes');
+		info.text(num + ' episodes')
 	}
 	$(".trailertext").text('');
 }
