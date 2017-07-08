@@ -2906,8 +2906,9 @@ function createMovieList() {
 				mvalsplit = mval.split(' ');
 				mlistquery = '';
 				for (var mv = 0; mv < mvalsplit.length; mv++) {
-					mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + mvalsplit[mv] + '.*).*';
+					mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\).*|.*\\(\\d{4}\\).*' + mvalsplit[mv] + '.*)';
 				}
+				mlistquery += '.*';
 			} else {
 				mlistquery = '';
 			}
