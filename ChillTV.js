@@ -3552,11 +3552,12 @@ function searchStringInArrayTV(mstr, ystr, gstr, info) {
 		$('.serieslist > li').filter(function(index) {
 			return ($(this).parent().children('.seriestitle').eq(index).text() + ' ' + $(this).text()).match(RegExp(mstr, 'i'));
 		}).show();*/
-		$(".serieslist > .seriestitle").filter(function(index) {
-			$(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
+		console.log(mstr, ystr, gstr);
+		$("#tvlist > ul > span:nth-child(4)").filter(function(index) {
+			return $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
 		}).parent().hide();
-		$(".serieslist > .seriestitle").filter(function(index) {
-			$(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
+		$("#tvlist > ul > span:nth-child(4)").filter(function(index) {
+			return $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
 		}).parent().show();
 		/*
 		$(".serieslist:not(:Contains(" + nstr + "))").hide();
