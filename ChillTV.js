@@ -2897,14 +2897,19 @@ function createMovieList() {
 	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		if ($("#mlistquery").val().trim() !== '') {
-			mlistquery = $("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + $("#mlistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+			mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+			mvalsplit = mval.split(' ');
+			mlistquery = '';
+			for (var mv = 0; mv < mvalsplit.length; mv++) {
+				mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\)|\\(\\d{4}\\).*' + mvalsplit[mv] + '.*).*';
+			}
 		} else {
 			mlistquery = '';
 		}
 		if ($("#ylistquery").val().trim() !== '') {
 			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
 		} else {
-			ylistquery = '';
+			ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
 		}
 		searchStringInArray(mlistquery, ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
 	});
