@@ -3547,13 +3547,13 @@ function createTVList() {
 function searchStringInArrayTV(mstr, ystr, gstr, info) {
 	if (mstr !== '' || ystr !== '' || gstr !== '') {
 		$('.serieslist > li').filter(function(index) {
-			return ($(this).parent().children('.seriestitle').text() + ' ' + $(this).text()).match(RegExp(mstr, 'i')) === null;
+			return ($(this).parent().children('.seriestitle').eq(index).text() + ' ' + $(this).text()).match(RegExp(mstr, 'i')) === null;
 		}).hide();
 		$(".serieslist > .seriestitle").filter(function(index) {
 			$(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
 		}).parent().hide();
 		$('.serieslist > li').filter(function(index) {
-			return ($(this).parent().children('.seriestitle').text() + ' ' + $(this).text()).match(RegExp(mstr, 'i'));
+			return ($(this).parent().children('.seriestitle').eq(index).text() + ' ' + $(this).text()).match(RegExp(mstr, 'i'));
 		}).show();
 		$(".serieslist > .seriestitle").filter(function(index) {
 			$(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
