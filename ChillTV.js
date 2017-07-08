@@ -2907,11 +2907,22 @@ function createMovieList() {
 			mlistquery = '';
 		}
 		if ($("#ylistquery").val().trim() !== '') {
-			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '\\d*\\)';
+			ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
 		} else {
 			ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
 		}
-		searchStringInArray(mlistquery, ylistquery, $("#glistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), $("#mlinfo"));
+		if ($("#glistquery").val().trim() !== '') {
+			gval = $("#glistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
+			gvalsplit = gval.split(/ |, /);
+			glistquery = '';
+			for (var gv = 0; gv < gvalsplit.length; gv++) {
+				glistquery += '(?=.*' + gvalsplit[gv] + ')'
+			}
+			glistquery += '.*';
+		} else {
+			glistquery = '';
+		}
+		searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 	});
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
