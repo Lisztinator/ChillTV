@@ -2985,7 +2985,7 @@ function createMovieList() {
 	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
-	body.append('<div id="sortby" style="margin: 5px 20px 5px 20px"><div style="width: 20%;display: inline-block">Sort By: </div><span id="sortboxes"><label class="checkbox-inline sortby" style="width: 50%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 50%"><input type="checkbox" id="sortyear" value="no"> Year</label></span></div>');
+	body.append('<div id="sortby" style="margin: 5px 20px 5px 20px"><div style="width: 10%;display: inline-block">Sort By: </div><span style="width: 10%"><a id="desc">Desc ↓</a><a id="asc">Asc ↑</a></span><span id="sortboxes"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortyear" value="no"> Year</label></span></div>');
 	body.append('<div id="listmovies" />');
 	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
 	num = $(".movielist li[style='display: block;']").length;
