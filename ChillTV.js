@@ -7,6 +7,9 @@ $.ajax({
     url: "https://rawgit.com/Lisztinator/ChillTV/master/Movie.js",
     dataType: "script",
     success: function () {
+	    if (MOVLIST) {
+		    appendMovieList();
+	    }
 	    MOVIELOADED = true;
     }
 });
@@ -2886,17 +2889,26 @@ function nominateTV(name, list) {
 }
 
 KEYWAIT = setTimeout(function(){},1);
-function createMovieList() {
-	createTemp('Nominate a Movie from This List');
-	MOVLIST = true;
-	$("body").css('overflow', 'hidden');
-	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 800px !important');
-	$("#mlistmodal").on("hidden.bs.modal", function() {
-		MOVLIST = false;
-		$("#mlistmodal").remove();
-		$("body").css('overflow', 'auto');
-		scrollChat();
-	});
+function appendMovieList() {
+	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
+	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
+	if (CLIENT.name === 'ChillTVBot') {
+		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
+	}
+	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button><span> Marathon List</span></ul>');	
+	body.append('<span class="text-info trailertext" /><br />');
+	if (CLIENT.name === 'ChillTVBot') {
+		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
+	}
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortyear" value="no"> Year</label></div></div></center>');
+	body.append('<div id="listmovies" />');
+	for (var mal = 0; mal < Marathon_List.length; mal++) {
+		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
+		for (var mwl = 1; mwl < Marathon_List[mal].length; mwl++) {
+			$('.marathon:last').html($('.marathon:last').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal][mwl] + '</li>');
+		}
+	}
 	var i, len, text;
 	recentlyadded = '';
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
@@ -2907,11 +2919,31 @@ function createMovieList() {
 			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
-	$('<center id="searchinputs" />').appendTo(body);
-	$('<input id="mlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
-	body.append('<span id="mlinfo" class="text-info" /><br />');	
+	$('.marathonexpand').hover(function() {
+		$(this).css({
+			'color': 'grey',
+			'border-color': 'grey'
+		});
+	}, function() {
+		$(this).parent().children('li').is(':hidden') ? $(this).css({
+			'color': 'black',
+			'border-color': 'black'
+		}) : $(this).css({
+			'color': 'white',
+			'border-color': 'white'
+		});
+	}).click(function() {
+		if ($(this).parent().children('li').is(':hidden')) {
+			$(this).parent().children('li').show();
+			$(this).text('▲').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
+		} else if ($(this).parent().children('li').is(':visible')) {
+			$(this).parent().children('li').hide();
+			$(this).text('▼').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
+		}
+	});
+	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
+	num = $(".movielist li[style='display: block;']").length;
+	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
 		$("#mlinfo").text('Searching. Please wait...');
@@ -2946,53 +2978,32 @@ function createMovieList() {
 			searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 		}, 500);
 	});
-	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
-	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
-	if (CLIENT.name === 'ChillTVBot') {
-		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
-	}
-	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button><span> Marathon List</span></ul>');
-	for (var mal = 0; mal < Marathon_List.length; mal++) {
-		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
-		for (var mwl = 1; mwl < Marathon_List[mal].length; mwl++) {
-			$('.marathon:last').html($('.marathon:last').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal][mwl] + '</li>');
-		}
-	}
-	$('.marathonexpand').hover(function() {
-		$(this).css({
-			'color': 'grey',
-			'border-color': 'grey'
-		});
-	}, function() {
-		$(this).parent().children('li').is(':hidden') ? $(this).css({
-			'color': 'black',
-			'border-color': 'black'
-		}) : $(this).css({
-			'color': 'white',
-			'border-color': 'white'
-		});
-	}).click(function() {
-		if ($(this).parent().children('li').is(':hidden')) {
-			$(this).parent().children('li').show();
-			$(this).text('▲').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 6px 0 7px;border-width: 1px;color: white;border-color: white');
-		} else if ($(this).parent().children('li').is(':visible')) {
-			$(this).parent().children('li').hide();
-			$(this).text('▼').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
-		}
+}
+
+function createMovieList() {
+	createTemp('Nominate a Movie from This List');
+	$("body").css('overflow', 'hidden');
+	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 800px !important');
+	$("#mlistmodal").on("hidden.bs.modal", function() {
+		MOVLIST = false;
+		$("#mlistmodal").remove();
+		$("body").css('overflow', 'auto');
+		scrollChat();
 	});
-	body.append('<span class="text-info trailertext" /><br />');
-	if (CLIENT.name === 'ChillTVBot') {
-		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
-	}
-	body.append('<div id="sortby" style="margin: 5px 20px 5px 20px"><div style="width: 10%;display: inline-block">Sort By: </div><span style="width: 10%"><a id="desc">Desc ↓</a><a id="asc">Asc ↑</a></span><span id="sortboxes"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortyear" value="no"> Year</label></span></div>');
-	body.append('<div id="listmovies" />');
-	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
-	num = $(".movielist li[style='display: block;']").length;
-	$("#mlinfo").text(num + ' movies');
+	$('<center id="searchinputs" />').appendTo(body);
+	$('<input id="mlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
+	body.append('<span id="mlinfo" class="text-info" /><br />');
 	setTimeout(function() {
 		$("#mlistquery").focus();
 	}, 250);
+	MOVLIST = true;
+	if (MOVIELOADED) {
+		appendMovieList();
+	} else {
+		$("#mlinfo").text('Loading Movies. Please wait...');
+	}
 }
 
 function searchStringInArray(mstr, ystr, gstr, info) {
