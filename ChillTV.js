@@ -1111,7 +1111,7 @@ function setUserCSS() {
 	+ '\n #cbtn40, #cbtn41, #cbtn42, #cbtn43, #cbtn44, #cbtn45, #cbtn46, #cbtn47 {color:black}'
 	+ '\n #muteall-btn, #spamclear-btn, #adminnews-btn {width:100%}'
 	+ '\n '
-	+ '\n .avatar-embed-small {max-height:25px; max-width:25px; margin-right:3px}'
+	+ '\n .avatar-embed-small {max-height:30px; max-width:30px; margin-right:3px}'
 	+ '\n .card-embed-small {height:50px}'
 	+ '\n .channel-emote, .embedimg, .image-embed-small, .image-spoiler {max-width:200px; max-height:115px; cursor:pointer}'
 	+ '\n .embedvid, .indvideo {max-width:200px; max-height:125px; border:0; vertical-align:middle}'
@@ -2360,7 +2360,7 @@ function showWebm() {
 					console.log(data);
 				},
 				complete: function(data) {
-					$('.chavatardisplay').length > 0 ? $('.chavatardisplay').attr('style', 'cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;') : '';
+					$('.chavatardisplay').length > 0 ? $('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;') : '';
 					$('<button class="close avatarclose" number="'+AVATARARRAY.length+'"style="float:none" aria-hidden="true">×</button>').appendTo("#avatararray").on("click", function() {
 						AVATARARRAY.splice(parseInt($(this).attr('number')), 1);
 						setOpt(CHANNEL.name + "_avatararray", AVATARARRAY);
@@ -2374,14 +2374,14 @@ function showWebm() {
 						$(this).next().remove();
 						$(this).remove();
 					});
-					$('<img class="chavatardisplay" src="'+chquery+'" target="_blank" style="cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;" />').appendTo("#avatararray").on("click", function() {
-						if ($(this).attr('style') === 'cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;') {
-							$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;');
+					$('<img class="chavatardisplay" src="'+chquery+'" target="_blank" style="cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;" />').appendTo("#avatararray").on("click", function() {
+						if ($(this).attr('style') === 'cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;') {
+							$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;');
 							CHAVATAR = '';
 							setOpt(CHANNEL.name + "_chavatar", CHAVATAR);
 						} else {
-							$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;');
-							$(this).attr('style', 'cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;');
+							$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;');
+							$(this).attr('style', 'cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;');
 							CHAVATAR = $(this).attr('src') + '.ava ';
 							setOpt(CHANNEL.name + "_chavatar", CHAVATAR);
 						}
@@ -2416,20 +2416,20 @@ function showWebm() {
 				$(this).next().remove();
 				$(this).remove();
 			});
-			$('<img class="chavatardisplay" src="'+AVATARARRAY[av]+'" target="_blank" style="cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;" />').appendTo("#avatararray");
+			$('<img class="chavatardisplay" src="'+AVATARARRAY[av]+'" target="_blank" style="cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;" />').appendTo("#avatararray");
 			if (AVATARARRAY[av] + '.ava ' === CHAVATAR) {
 				avanum = av + av + 2;
-				$("#avatararray .chavatardisplay:nth-child("+avanum+")").attr('style', 'cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;');
+				$("#avatararray .chavatardisplay:nth-child("+avanum+")").attr('style', 'cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;');
 			}
 		}
 		$('.chavatardisplay').on("click", function() {
-			if ($(this).attr('style') === 'cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;') {
-				$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;');
+			if ($(this).attr('style') === 'cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;') {
+				$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;');
 				CHAVATAR = '';
 				setOpt(CHANNEL.name + "_chavatar", CHAVATAR);
 			} else {
-				$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:25px;max-width:25px;margin:3px;border:0px solid #000000;');
-				$(this).attr('style', 'cursor:pointer;max-height:29px;max-width:29px;margin:3px;border:4px solid #000000;');
+				$('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;');
+				$(this).attr('style', 'cursor:pointer;max-height:34px;max-width:34px;margin:3px;border:4px solid #000000;');
 				CHAVATAR = $(this).attr('src') + '.ava ';
 				setOpt(CHANNEL.name + "_chavatar", CHAVATAR);
 			}
