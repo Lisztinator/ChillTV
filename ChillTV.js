@@ -2,8 +2,23 @@
 Copyright © 2016 Benjamin Paul. All rights reserved.
 */
 
-$.getScript('https://rawgit.com/Lisztinator/ChillTV/master/Movie.js');
-$.getScript('https://rawgit.com/Lisztinator/ChillTV/master/TV.js');
+MOVIELOADED = false;
+$.ajax({
+    url: "https://rawgit.com/Lisztinator/ChillTV/master/Movie.js",
+    dataType: "script",
+    success: function () {
+	    MOVIELOADED = true;
+    }
+});
+
+TVLOADED = false;
+$.ajax({
+    url: "https://rawgit.com/Lisztinator/ChillTV/master/TV.js",
+    dataType: "script",
+    success: function () {
+	    TVLOADED = true;
+    }
+});
 
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
@@ -2970,6 +2985,7 @@ function createMovieList() {
 	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
+	body.append('<div id="sortby" style="margin: 5px 20px 5px 20px"><div style="width: 20%;display: inline-block">Sort By: </div><span id="sortboxes"><label class="checkbox-inline sortby" style="width: 50%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 50%"><input type="checkbox" id="sortyear" value="no"> Year</label></span></div>');
 	body.append('<div id="listmovies" />');
 	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
 	num = $(".movielist li[style='display: block;']").length;
