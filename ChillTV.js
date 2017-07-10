@@ -3099,10 +3099,10 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 	if (mstr !== '' || ystr !== '' || gstr !== '') {
 		$(".movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
-		}).parent().hide();
+		}).parent().attr('style', 'display: none;');
 		$(".movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
-		}).parent().show();
+		}).parent().attr('style', 'display: list-item;');
 		/*
 		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
 		$(".movielist").find("li:not(:Contains(" + ystr + "))").hide();
