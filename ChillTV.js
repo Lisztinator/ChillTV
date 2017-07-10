@@ -3013,13 +3013,12 @@ function appendMovieList() {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
 	DESC = true;
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
 	RESET = false;
 	$("#asc").on('click.cend', function() {
 		changeCend($(this));
 	});
-	ALPHA = true;
-	sortid = $("#sortalpha");
+	sortid = $("#sortby");
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});
@@ -3081,6 +3080,16 @@ function appendMovieList() {
 				$('.movielist').children().remove();
 				$('.movielist').append(clonedmovie);
 			}, 1);
+			DESC = true;
+			$("#asc, #desc").off('click.cend')
+			$("#asc").on('click.cend', function() {
+				changeCend($(this));
+			});
+			$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
+			$("#desc").attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
+			sortid = $("#sortby");
+			$('.sortchecks').prop('checked', false).prop('disabled', false);
+			RESET = false;
 			num = $(".movielist li:visible").length;
 			$("#mlinfo").text(num + ' movies');
 		}
