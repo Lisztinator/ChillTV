@@ -2902,12 +2902,18 @@ function changeCend(dis) {
 	dis.off('click.cend');
 	if (DESC) {
 		DESC = false;
-		$("#asc").attr('style', 'cursor:pointer');
+		$("#desc").on('click.cend', function() {
+			changeCend($(this));
+		});
+		$("#desc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
 	} else {
 		DESC = true;
-		$("#desc").attr('style', 'cursor:pointer');
+		$("#asc").on('click.cend', function() {
+			changeCend($(this));
+		});
+		$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
 	}
-	dis.attr('style', 'font-weight:900;text-decoration:underline');
+	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
 	$('.movielist').append($('.movielist').children('li').get().reverse());
 }
 
@@ -2926,7 +2932,7 @@ function appendMovieList() {
 	}
 	DESC = true;
 	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label></div></div></center>');
-	$("#desc, #asc").on('click.cend', function() {
+	$("#asc").on('click.cend', function() {
 		changeCend($(this));
 	});
 	$('.sortchecks').click(function() {
