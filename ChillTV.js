@@ -2363,22 +2363,25 @@ function showWebm() {
 	});
 	$('<input id="chavatarquery" type="text" placeholder="Paste Image Url and Press Enter" maxlength="240" style="margin-top:20px" class="form-control" />').keydown(function(ev) {
 		if (ev.keyCode == 13) {
-			chquery = $("#chavatarquery").val().trim();
-			if (!chquery) {
+			chavquery = $("#chavatarquery").val().trim();
+			if (!chavquery) {
 				return;
 			}
 			$("#chavatarquery").val('');
 			$.ajax({
 				url: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBNxNLQxBpPsNY81VICLwXYIgkTLdVqeyg',
 				type: 'POST',
-				data: '{ longUrl: "' + chquery +'"}',
+				data: '{ longUrl: "' + chavquery +'"}',
 				contentType: 'application/json; charset=utf-8',
 				dataType: 'json',
 				success: function(data) {
 					chquery = data.id;
+					usl = '';
 				},
 				error: function(data) {
 					console.log(data);
+					chquery = chavquery;
+					usl = 'Warning: Unable to shorten link. This link will shorten the max length of your chat messages by ' + (chquery.length) + ' characters.';
 				},
 				complete: function(data) {
 					$('.chavatardisplay').length > 0 ? $('.chavatardisplay').attr('style', 'cursor:pointer;max-height:30px;max-width:30px;margin:3px;border:0px solid #000000;') : '';
@@ -2413,7 +2416,11 @@ function showWebm() {
 					setOpt(CHANNEL.name + "_avatararray", AVATARARRAY);
 					CHAVATAR = chquery + '.ava ';
 					setOpt(CHANNEL.name + "_chavatar", CHAVATAR);
-					$("#avatarnotify").text('Switch or remove avatars. Double-click to view in new tab.');
+					if (usl === '') {
+						$("#avatarnotify").text('Switch or remove avatars. Double-click to view in new tab.');
+					} else {
+						$("#avatarnotify").text(usl);
+					}
 				}
 			});
 		}
@@ -2904,7 +2911,11 @@ function appendMovieList() {
 	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortyear" value="no"> Year</label></div></div></center>');
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label></div></div></center>');
+	$('.sortchecks').click(function() {
+		$('.sortchecks').attr('checked', false);
+		$(this).attr('checked', true);
+	});
 	body.append('<div id="listmovies" />');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
 		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
@@ -3463,11 +3474,11 @@ function appendTVList() {
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.serieslist\')">✛</a> Add Trailer</span><br />');
 	body.append('<span><a style="cursor:pointer" onclick="nominateTV(\'\', \'.serieslist\')">✇</a> Nominate Episode</span><br />');
-	if (CLIENT.rank === 5) {
+	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.serieslist\')">U</a> Unshare All</span><br />');
 	}
 	body.append('<span class="text-info trailertext" /><br />');
-	if (CLIENT.rank === 5) {
+	if (CLIENT.rank === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
 	body.append('<div id="tvlist" />');
@@ -3922,7 +3933,7 @@ function getGiphy(p_oEvent) {
 			},
 			error: function(data) {
 				console.log(data);
-				$('.imagesearch').text('Connection Error: Please refresh or try again later.');
+				$('.imagesearch').text('Connection Error: Try again later.');
 			}
 		});
 	}
@@ -4280,7 +4291,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '✎ Connection Error: Refresh or try again later.',
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '✎ Connection Error: Try again later.',
 							meta: meta
 						});
 					}
@@ -4301,7 +4312,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: 'http://helzhalfacre.com/images/emotes/yoda.gif.pic [yo][fu][i] Connection Error: Refresh or try again later.',
+							msg: 'http://helzhalfacre.com/images/emotes/yoda.gif.pic [yo][fu][i] Connection Error: Try again later.',
 							meta: meta
 						});
 					},
@@ -4342,7 +4353,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.',
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.',
 						});
 					}
 				});
@@ -4367,7 +4378,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.'
 						});
 					},
 					beforeSend: function(xhr) {
@@ -4388,7 +4399,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.',
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.',
 						});
 					},
 					beforeSend: function(xhr) {
@@ -4430,7 +4441,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.'
 						});
 					}
 				});
@@ -4456,7 +4467,7 @@ $("#chatline").on("keydown", function(ev, e) {
 					},
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.'
 						});
 					}
 				});
@@ -4480,7 +4491,7 @@ $("#chatline").on("keydown", function(ev, e) {
 				$.ajax(sUrl, {
 					error: function(data) {
 						socket.emit("chatMsg", {
-							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Refresh or try again later.'
+							msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ Connection Error: Try again later.'
 						});
 					},
 					complete: function(data) {
