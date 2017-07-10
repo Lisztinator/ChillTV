@@ -2918,10 +2918,10 @@ function changeCend(dis) {
 }
 
 function changeSort(dis) {
-	sortid = $("#"+dis);
-	if (sortid.prop('checked') === true) {
+	if (sortid.attr('id') === dis) {
 		return;
 	}
+	sortid = $("#"+dis);
 	$('.sortchecks').prop('checked', false);
 	sortid.prop('checked', true);
 	if (dis === "sortalpha") {
@@ -2957,6 +2957,7 @@ function appendMovieList() {
 		changeCend($(this));
 	});
 	ALPHA = true;
+	sortid = $("#sortalpha");
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});
