@@ -2928,10 +2928,10 @@ function changeSort(dis) {
 	}
 	if (dis === "sortyear") {
 		$('.movielist').children('li').get().sort(function(a, b) {
-			if (parseInt($("<div>").html(a).text().match(/\((\d{4})\)/)[1]) < parseInt($("<div>").html(b).text().match(/\((\d{4})\)/)[1])) {
+			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) < parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
 				return 1;
 			}
-			if (parseInt($("<div>").html(a).text().match(/\((\d{4})\)/)[1]) > parseInt($("<div>").html(b).text().match(/\((\d{4})\)/)[1])) {
+			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) > parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
 				return -1;
 			}
 		}).appendTo($('.movielist'));
