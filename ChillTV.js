@@ -2925,17 +2925,38 @@ function changeSort(dis) {
 	$('.sortchecks').prop('checked', false);
 	sortid.prop('checked', true);
 	if (dis === "sortalpha") {
+		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
+		movietext = '';
+		for (var mt = 0; mt < Movie_Array.length; mt++) {
+			str = Movie_Array[mt][0].replace(/'/g, "\\'");
+			if (Movie_Array[mt][3] !== undefined && Movie_Array[mt][3] === 'Recently Added') {
+				recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+			} else {
+				movietext += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+			}
+		}
+		recentlyadded += '</div>';
+		$('.movielist').html(recentlyadded + movietext);
+		if (!DESC) {
+			$('.movielist').append($('.movielist').children('li').get().reverse());
+		}
+		
 	}
 	if (dis === "sortyear") {
 		yearlist = $('.movielist').children('li').get();
 		yearlist.sort(function(a, b) {
-			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) < parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
+			parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
+			parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
+			if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
 				return 1;
 			}
-			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) > parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
+			if (parsea > parseb || (parsea === parseb && $(a).index() < $(b).index())) {
 				return -1;
 			}
 		});
+		if (!DESC) {
+			yearlist.reverse();
+		}
 		$.each(yearlist, function(idx, itm) {
 			$('.movielist').append(itm);
 		});
