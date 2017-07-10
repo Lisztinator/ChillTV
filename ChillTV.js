@@ -3094,7 +3094,7 @@ function appendMovieList() {
 				sortid = $("#sortby");
 				$('.sortchecks').prop('checked', false).prop('disabled', false);
 				$("#mlistquery, #ylistquery, #glistquery").val('');
-				num = $(".movielist li:visible").length;
+				num = $(".movielist li[style='display: block;']").length;
 				$("#mlinfo").text(num + ' movies');
 			}, 10);
 		}
