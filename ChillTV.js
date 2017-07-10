@@ -2899,6 +2899,7 @@ function nominateTV(name, list) {
 }
 
 function changeCend(dis) {
+	$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
 	dis.off('click.cend');
 	if (DESC) {
 		DESC = false;
@@ -2906,15 +2907,21 @@ function changeCend(dis) {
 			changeCend($(this));
 		});
 		$("#desc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
+		RESET = true;
 	} else {
 		DESC = true;
 		$("#asc").on('click.cend', function() {
 			changeCend($(this));
 		});
 		$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
+		if ($("#sortalpha").prop('checked') === false && $("#sortyear").prop('checked') === false) {
+			RESET = false;
+		}
 	}
 	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
 	$('.movielist').append($('.movielist').children('li').get().reverse());
+	num = $(".movielist li:visible").length;
+	$("#mlinfo").text(num + ' movies');
 }
 
 
@@ -2934,9 +2941,11 @@ function changeSort(dis) {
 	if (sortid.attr('id') === dis) {
 		return;
 	}
+	$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
+	RESET = true;
 	sortid = $("#"+dis);
-	$('.sortchecks').prop('checked', false);
-	sortid.prop('checked', true);
+	$('.sortchecks').prop('checked', false).prop('disabled', false);
+	sortid.prop('checked', true).prop('disabled', true);
 	if (dis === "sortalpha") {
 		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
 		movietext = '';
@@ -2986,6 +2995,8 @@ function changeSort(dis) {
 			$('.movielist').append(itm);
 		});
 	}
+	num = $(".movielist li:visible").length;
+	$("#mlinfo").text(num + ' movies');
 }
 
 KEYWAIT = setTimeout(function(){},1);
@@ -3002,7 +3013,8 @@ function appendMovieList() {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
 	DESC = true;
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label></div></div></center>');
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
+	RESET = false;
 	$("#asc").on('click.cend', function() {
 		changeCend($(this));
 	});
@@ -3061,7 +3073,18 @@ function appendMovieList() {
 	$('.nmm').click(function() {
 		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
 	});
-	//clonedmovie = $('.movielist').children('li').clone();
+	clonedmovie = $('.movielist').children().clone();
+	$("#moviereset").click(function() {
+		if (RESET) {
+			$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
+			setTimeout(function() {
+				$('.movielist').children().remove();
+				$('.movielist').append(clonedmovie);
+			}, 1);
+			num = $(".movielist li:visible").length;
+			$("#mlinfo").text(num + ' movies');
+		}
+	});
 	num = $(".movielist li[style='display: block;']").length;
 	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
