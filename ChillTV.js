@@ -2860,9 +2860,9 @@ $('<button id="mlistbtn" class="btn btn-sm btn-default" title="Check out our Mov
 
 function nominateMovie(name, list) {
 	if (name === '') {
-		leng = $(list + ' li[style="display: block;"]').length;
+		leng = $(list + ' li[style="display: list-item;"]').length;
 		num = Math.round(Math.random() * leng);
-		titofit = $(list + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
+		titofit = $(list + ' li[style="display: list-item;"]').eq(num - 1).children('span:nth-child(1)');
 		name = titofit.text().split('✇ ')[1];
 		if ($('#mlistquery').val()) {
 			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim() + '" - "' + name + '" was nominated';
@@ -2930,10 +2930,10 @@ function changeSort(dis) {
 		for (var mt = 0; mt < Movie_Array.length; mt++) {
 			str = Movie_Array[mt][0].replace(/'/g, "\\'");
 			if (Movie_Array[mt][3] !== undefined && Movie_Array[mt][3] === 'Recently Added') {
-				recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+				recentlyadded += '<li style="display: list-item;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 			} else {
-				if ($('.movielist').html().indexOf('<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str) > -1) {
-					movietext += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+				if ($('.movielist').html().indexOf('<li style="display: list-item;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str) > -1) {
+					movietext += '<li style="display: list-item;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 				} else {
 					movietext += '<li style="display: none;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 				}
@@ -3002,9 +3002,9 @@ function appendMovieList() {
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		str = Movie_Array[i][0].replace(/'/g, "\\'");
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
-			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			recentlyadded += '<li style="display: list-item;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		} else {
-			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			text += '<li style="display: list-item;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
 	recentlyadded += '</div>';
@@ -3031,7 +3031,7 @@ function appendMovieList() {
 		}
 	});
 	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
-	num = $(".movielist li[style='display: block;']").length;
+	num = $(".movielist li[style='display: list-item;']").length;
 	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
@@ -3109,11 +3109,11 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 		$(".movielist").find("li:not(:Contains(" + gstr + "))").hide();
 		$(".movielist").find("li:Contains(" + nstr + ")").show();
 		*/
-		num = $(".movielist li[style='display: block;']").length;
+		num = $(".movielist li[style='display: list-item;']").length;
 		info.text('Found ' + num + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 	} else {
 		$(".movielist").children().show();
-		num = $(".movielist li[style='display: block;']").length;
+		num = $(".movielist li[style='display: list-item;']").length;
 		info.text(num + ' movies');
 	}
 	$(".trailertext").text('');
