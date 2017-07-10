@@ -2951,12 +2951,13 @@ function changeSort(dis) {
 		yearlist.sort(function(a, b) {
 			parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
 			parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
-			if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
+			return parseb - parsea;
+			/*if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
 				return 1;
 			}
 			if (parsea > parseb || (parsea === parseb && $(a).index() < $(b).index())) {
 				return -1;
-			}
+			}*/
 		});
 		if (!DESC) {
 			yearlist.reverse();
@@ -3031,7 +3032,7 @@ function appendMovieList() {
 		}
 	});
 	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
-	num = $(".movielist li[style='display: block;']").length;
+	num = $(".movielist li:visible").length;
 	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
@@ -3099,21 +3100,21 @@ function searchStringInArray(mstr, ystr, gstr, info) {
 	if (mstr !== '' || ystr !== '' || gstr !== '') {
 		$(".movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
-		}).parent().hide().attr('style', 'display: none;');
+		}).parent().hide();
 		$(".movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
-		}).parent().show().attr('style', 'display: block;');
+		}).parent().show();
 		/*
 		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
 		$(".movielist").find("li:not(:Contains(" + ystr + "))").hide();
 		$(".movielist").find("li:not(:Contains(" + gstr + "))").hide();
 		$(".movielist").find("li:Contains(" + nstr + ")").show();
 		*/
-		num = $(".movielist li[style='display: block;']").length;
+		num = $(".movielist li:visible").length;
 		info.text('Found ' + num + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 	} else {
 		$(".movielist").children().show();
-		num = $(".movielist li[style='display: block;']").length;
+		num = $(".movielist li:visible").length;
 		info.text(num + ' movies');
 	}
 	$(".trailertext").text('');
@@ -3685,7 +3686,7 @@ function searchStringInArrayTV(mstr, ystr, gstr, info) {
 		$(".serieslist:not(:Contains(" + nstr + "))").hide();
 		$(".serieslist:Contains(" + nstr + ")").show();
 		*/
-		num = $(".serieslist[style='display: block; list-style: none; padding-left: 0px;'] li").length;
+		num = $(".serieslist:visible li").length;
 		info.text('Found ' + num + ' episodes matching "' + $("#tvmlistquery").val().trim()  + '" | "' + $("#tvylistquery").val().trim() + '" | "' + $("#tvglistquery").val().trim()  + '"');
 	} else {
 		$(".serieslist").show();
