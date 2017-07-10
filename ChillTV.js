@@ -2932,7 +2932,11 @@ function changeSort(dis) {
 			if (Movie_Array[mt][3] !== undefined && Movie_Array[mt][3] === 'Recently Added') {
 				recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 			} else {
-				movietext += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+				if ($('.movielist').html().indexOf('<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str) > -1) {
+					movietext += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+				} else {
+					movietext += '<li style="display: none;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
+				}
 			}
 		}
 		recentlyadded += '</div>';
