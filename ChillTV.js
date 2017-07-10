@@ -2918,10 +2918,12 @@ function changeCend(dis) {
 			RESET = false;
 		}
 	}
-	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-	$('.movielist').append($('.movielist').children('li').get().reverse());
-	num = $(".movielist li:visible").length;
-	$("#mlinfo").text(num + ' movies');
+	setTimeout(function() {
+		dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
+		$('.movielist').append($('.movielist').children('li').get().reverse());
+		num = $(".movielist li:visible").length;
+		$("#mlinfo").text(num + ' movies');
+	}, 10);
 }
 
 
@@ -2942,61 +2944,63 @@ function changeSort(dis) {
 		return;
 	}
 	$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
-	RESET = true;
-	sortid = $("#"+dis);
-	$('.sortchecks').prop('checked', false).prop('disabled', false);
-	sortid.prop('checked', true).prop('disabled', true);
-	if (dis === "sortalpha") {
-		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
-		movietext = '';
-		var mt;
-		if (!DESC) {
-			//$('.movielist').append($('.movielist').children('li').get().reverse());
-			for (mt = Movie_Array.length - 1; mt > -1; mt--) {
-				sortAlpha(mt);
+	setTimeout(function() {
+		RESET = true;
+		sortid = $("#"+dis);
+		$('.sortchecks').prop('checked', false).prop('disabled', false);
+		sortid.prop('checked', true).prop('disabled', true);
+		if (dis === "sortalpha") {
+			recentlyadded = '<div style="margin:5px 0px 5px 0px">';
+			movietext = '';
+			var mt;
+			if (!DESC) {
+				//$('.movielist').append($('.movielist').children('li').get().reverse());
+				for (mt = Movie_Array.length - 1; mt > -1; mt--) {
+					sortAlpha(mt);
+				}
+			} else {
+				for (mt = 0; mt < Movie_Array.length; mt++) {
+					sortAlpha(mt);
+				}
 			}
-		} else {
-			for (mt = 0; mt < Movie_Array.length; mt++) {
-				sortAlpha(mt);
-			}
+			//str = Movie_Array[mt][0].replace(/'/g, "\\'");
+			recentlyadded += '</div>';
+			$('.movielist').children().remove();
+			$('.movielist').append(recentlyadded + movietext);
+			$('.gmfl').click(function() {
+				getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
+			});
+			$('.gyt').click(function() {
+				getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
+			});
+			$('.nmm').click(function() {
+				nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
+			});
+			//$('.movielist').children('li').remove();
+			//$('.movielist').append(clonedmovie);
 		}
-		//str = Movie_Array[mt][0].replace(/'/g, "\\'");
-		recentlyadded += '</div>';
-		$('.movielist').children().remove();
-		$('.movielist').append(recentlyadded + movietext);
-		$('.gmfl').click(function() {
-			getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
-		});
-		$('.gyt').click(function() {
-			getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
-		});
-		$('.nmm').click(function() {
-			nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
-		});
-		//$('.movielist').children('li').remove();
-		//$('.movielist').append(clonedmovie);
-	}
-	if (dis === "sortyear") {
-		yearlist = $('.movielist').children('li').get();
-		yearlist.sort(function(a, b) {
-			parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
-			parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
-			if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
-				return 1;
+		if (dis === "sortyear") {
+			yearlist = $('.movielist').children('li').get();
+			yearlist.sort(function(a, b) {
+				parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
+				parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
+				if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
+					return 1;
+				}
+				if (parsea > parseb || (parsea === parseb && $(a).index() < $(b).index())) {
+					return -1;
+				}
+			});
+			if (!DESC) {
+				yearlist.reverse();
 			}
-			if (parsea > parseb || (parsea === parseb && $(a).index() < $(b).index())) {
-				return -1;
-			}
-		});
-		if (!DESC) {
-			yearlist.reverse();
+			$.each(yearlist, function(idx, itm) {
+				$('.movielist').append(itm);
+			});
 		}
-		$.each(yearlist, function(idx, itm) {
-			$('.movielist').append(itm);
-		});
-	}
-	num = $(".movielist li:visible").length;
-	$("#mlinfo").text(num + ' movies');
+		num = $(".movielist li:visible").length;
+		$("#mlinfo").text(num + ' movies');
+	}, 10);
 }
 
 KEYWAIT = setTimeout(function(){},1);
@@ -3075,30 +3079,31 @@ function appendMovieList() {
 	clonedmovie = $('.movielist').children().clone();
 	$("#moviereset").click(function() {
 		if (RESET) {
+			RESET = false;
 			$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
 			setTimeout(function() {
 				$('.movielist').children().remove();
 				$('.movielist').append(clonedmovie);
-			}, 1);
-			DESC = true;
-			$("#asc, #desc").off('click.cend')
-			$("#asc").on('click.cend', function() {
-				changeCend($(this));
-			});
-			$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
-			$("#desc").attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-			sortid = $("#sortby");
-			$('.sortchecks').prop('checked', false).prop('disabled', false);
-			RESET = false;
-			num = $(".movielist li:visible").length;
-			$("#mlinfo").text(num + ' movies');
+				DESC = true;
+				$("#asc, #desc").off('click.cend')
+				$("#asc").on('click.cend', function() {
+					changeCend($(this));
+				});
+				$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
+				$("#desc").attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
+				sortid = $("#sortby");
+				$('.sortchecks').prop('checked', false).prop('disabled', false);
+				$("#mlistquery, #ylistquery, #glistquery").val('');
+				num = $(".movielist li:visible").length;
+				$("#mlinfo").text(num + ' movies');
+			}, 10);
 		}
 	});
 	num = $(".movielist li[style='display: block;']").length;
 	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
-		$("#mlinfo").text('Searching. Please wait...');
+		$("#mlinfo").text('Searching. Your page may briefly freeze. Please wait...');
 		KEYWAIT = setTimeout(function() {
 			if ($("#mlistquery").val().trim() !== '') {
 				mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
