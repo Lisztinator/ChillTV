@@ -2898,6 +2898,19 @@ function nominateTV(name, list) {
 	$('.trailertext').text(tvtxt);
 }
 
+function changeCend(dis) {
+	dis.off('click.cend');
+	if (DESC) {
+		DESC = false;
+		$("#asc").attr('style', 'cursor:pointer');
+	} else {
+		DESC = true;
+		$("#desc").attr('style', 'cursor:pointer');
+	}
+	dis.attr('style', 'font-weight:900;text-decoration:underline');
+	$('.movielist').append($('.movielist').children('li').get().reverse());
+}
+
 KEYWAIT = setTimeout(function(){},1);
 function appendMovieList() {
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
@@ -2911,7 +2924,11 @@ function appendMovieList() {
 	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
+	DESC = true;
 	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no" checked> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label></div></div></center>');
+	$("#desc, #asc").on('click.cend', function() {
+		changeCend($(this));
+	});
 	$('.sortchecks').click(function() {
 		$('.sortchecks').attr('checked', false);
 		$(this).attr('checked', true);
@@ -2924,7 +2941,7 @@ function appendMovieList() {
 		}
 	}
 	var i, len, text;
-	recentlyadded = '';
+	recentlyadded = '<div>';
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		str = Movie_Array[i][0].replace(/'/g, "\\'");
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
@@ -2933,6 +2950,7 @@ function appendMovieList() {
 			text += '<li style="display: block;"><span><a style="cursor:pointer" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
+	recentlyadded += '</div>';
 	$('.marathonexpand').hover(function() {
 		$(this).css({
 			'color': 'grey',
