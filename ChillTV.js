@@ -2938,7 +2938,6 @@ function changeSort(dis) {
 	$('.sortchecks').prop('checked', false);
 	sortid.prop('checked', true);
 	if (dis === "sortalpha") {
-		$('.movielist').children('li').remove();
 		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
 		movietext = '';
 		var mt;
@@ -2952,6 +2951,10 @@ function changeSort(dis) {
 				sortAlpha(mt);
 			}
 		}
+		//str = Movie_Array[mt][0].replace(/'/g, "\\'");
+		recentlyadded += '</div>';
+		$('.movielist').children().remove();
+		$('.movielist').append(recentlyadded + movietext);
 		$('.gmfl').click(function() {
 			getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
 		});
@@ -2961,9 +2964,6 @@ function changeSort(dis) {
 		$('.nmm').click(function() {
 			nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
 		});
-		//str = Movie_Array[mt][0].replace(/'/g, "\\'");
-		recentlyadded += '</div>';
-		$('.movielist').append(recentlyadded + movietext);
 		//$('.movielist').children('li').remove();
 		//$('.movielist').append(clonedmovie);
 	}
