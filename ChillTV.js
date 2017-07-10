@@ -2917,6 +2917,26 @@ function changeCend(dis) {
 	$('.movielist').append($('.movielist').children('li').get().reverse());
 }
 
+function changeSort(dis) {
+	if (dis.prop('checked') === true) {
+		return;
+	}
+	$('.sortchecks').prop('checked', false);
+	dis.prop('checked', true);
+	if (dis.attr('id') === $("#sortalpha")) {
+	}
+	if (dis.attr('id') === $("#sortyear")) {
+		$('.movielist').children('li').get().sort(function(a, b) {
+			if (parseInt($("<div>").html(a).text().match(/\((\d{4})\)/)[1]) < parseInt($("<div>").html(b).text().match(/\((\d{4})\)/)[1])) {
+				return 1;
+			}
+			if (parseInt($("<div>").html(a).text().match(/\((\d{4})\)/)[1]) > parseInt($("<div>").html(b).text().match(/\((\d{4})\)/)[1])) {
+				return -1;
+			}
+		}).appendTo($('.movielist'));
+	}
+}
+
 KEYWAIT = setTimeout(function(){},1);
 function appendMovieList() {
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
@@ -2935,9 +2955,9 @@ function appendMovieList() {
 	$("#asc").on('click.cend', function() {
 		changeCend($(this));
 	});
+	ALPHA = true;
 	$('.sortchecks').click(function() {
-		$('.sortchecks').prop('checked', false);
-		$(this).prop('checked', true);
+		changeSort($(this));
 	});
 	body.append('<div id="listmovies" />');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
