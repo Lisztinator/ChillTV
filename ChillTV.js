@@ -2938,6 +2938,7 @@ function changeSort(dis) {
 	$('.sortchecks').prop('checked', false);
 	sortid.prop('checked', true);
 	if (dis === "sortalpha") {
+		$('.movielist').children('li').remove();
 		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
 		movietext = '';
 		var mt;
@@ -2951,9 +2952,20 @@ function changeSort(dis) {
 				sortAlpha(mt);
 			}
 		}
+		$('.gmfl').click(function() {
+			getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
+		});
+		$('.gyt').click(function() {
+			getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
+		});
+		$('.nmm').click(function() {
+			nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
+		});
 		//str = Movie_Array[mt][0].replace(/'/g, "\\'");
 		recentlyadded += '</div>';
-		$('.movielist').html(recentlyadded + movietext);
+		$('.movielist').append(recentlyadded + movietext);
+		//$('.movielist').children('li').remove();
+		//$('.movielist').append(clonedmovie);
 	}
 	if (dis === "sortyear") {
 		yearlist = $('.movielist').children('li').get();
@@ -3017,15 +3029,6 @@ function appendMovieList() {
 		}
 	}
 	recentlyadded += '</div>';
-	$('.gmfl').click(function() {
-		getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
-	});
-	$('.gyt').click(function() {
-		getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
-	});
-	$('.nmm').click(function() {
-		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
-	});
 	$('.marathonexpand').hover(function() {
 		$(this).css({
 			'color': 'grey',
@@ -3049,7 +3052,17 @@ function appendMovieList() {
 		}
 	});
 	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
-	num = $(".movielist li:visible").length;
+	$('.gmfl').click(function() {
+		getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
+	});
+	$('.gyt').click(function() {
+		getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
+	});
+	$('.nmm').click(function() {
+		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
+	});
+	//clonedmovie = $('.movielist').children('li').clone();
+	num = $(".movielist li[style='display: block;']").length;
 	$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
