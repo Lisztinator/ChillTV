@@ -2918,14 +2918,15 @@ function changeCend(dis) {
 }
 
 function changeSort(dis) {
-	if (dis.prop('checked') === true) {
+	sortid = $("#"+dis);
+	if (sortid.prop('checked') === true) {
 		return;
 	}
 	$('.sortchecks').prop('checked', false);
-	dis.prop('checked', true);
-	if (dis.attr('id') === $("#sortalpha")) {
+	sortid.prop('checked', true);
+	if (dis === "sortalpha") {
 	}
-	if (dis.attr('id') === $("#sortyear")) {
+	if (dis === "sortyear") {
 		$('.movielist').children('li').get().sort(function(a, b) {
 			if (parseInt($("<div>").html(a).text().match(/\((\d{4})\)/)[1]) < parseInt($("<div>").html(b).text().match(/\((\d{4})\)/)[1])) {
 				return 1;
@@ -2957,7 +2958,7 @@ function appendMovieList() {
 	});
 	ALPHA = true;
 	$('.sortchecks').click(function() {
-		changeSort($(this));
+		changeSort($(this).attr('id'));
 	});
 	body.append('<div id="listmovies" />');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
