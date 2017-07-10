@@ -2949,7 +2949,7 @@ function changeSort(dis) {
 		sortid = $("#"+dis);
 		$('.sortchecks').prop('checked', false).prop('disabled', false);
 		sortid.prop('checked', true).prop('disabled', true);
-		if (dis === "sortalpha") {
+		if (dis === "sortalpha") {/*
 			recentlyadded = '<div style="margin:5px 0px 5px 0px">';
 			movietext = '';
 			var mt;
@@ -2977,7 +2977,17 @@ function changeSort(dis) {
 				nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
 			});
 			//$('.movielist').children('li').remove();
-			//$('.movielist').append(clonedmovie);
+			//$('.movielist').append(clonedmovie);*/
+			yearlist = $('.movielist').children('li').get();
+			yearlist.sort(function(a, b) {
+				return $(a).text().split('ⓘ ✛ ✇ ')[1].localeCompare($(b).text().split('ⓘ ✛ ✇ ')[1]);
+			});
+			if (!DESC) {
+				yearlist.reverse();
+			}
+			$.each(yearlist, function(idx, itm) {
+				$('.movielist').append(itm);
+			});
 		}
 		if (dis === "sortyear") {
 			yearlist = $('.movielist').children('li').get();
