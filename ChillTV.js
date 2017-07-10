@@ -2936,8 +2936,8 @@ function appendMovieList() {
 		changeCend($(this));
 	});
 	$('.sortchecks').click(function() {
-		$('.sortchecks').attr('checked', false);
-		$(this).attr('checked', true);
+		$('.sortchecks').prop('checked', false);
+		$(this).prop('checked', true);
 	});
 	body.append('<div id="listmovies" />');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
@@ -2947,7 +2947,7 @@ function appendMovieList() {
 		}
 	}
 	var i, len, text;
-	recentlyadded = '<div>';
+	recentlyadded = '<div style="margin:5px 0px 5px 0px">';
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		str = Movie_Array[i][0].replace(/'/g, "\\'");
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
