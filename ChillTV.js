@@ -2927,14 +2927,18 @@ function changeSort(dis) {
 	if (dis === "sortalpha") {
 	}
 	if (dis === "sortyear") {
-		$('.movielist').children('li').get().sort(function(a, b) {
+		yearlist = $('.movielist').children('li').get();
+		yearlist.sort(function(a, b) {
 			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) < parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
 				return 1;
 			}
 			if (parseInt($(a).text().match(/\((\d{4})\)/)[1]) > parseInt($(b).text().match(/\((\d{4})\)/)[1])) {
 				return -1;
 			}
-		}).appendTo($('.movielist'));
+		});
+		$.each(yearlist, function(idx, itm) {
+			$('.movielist').append(itm);
+		});
 	}
 }
 
