@@ -3126,8 +3126,31 @@ function appendMovieList() {
 			} else {
 				mlistquery = '';
 			}
-			if ($("#ylistquery").val().trim() !== '') {
-				ylistquery = '\\(\\d*' + $("#ylistquery").val().trim().replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
+			yval = $("#ylistquery").val().trim()
+			if (yval !== '') {
+				if (yval.match(/\d{4}(-|–)\d{0,4}/)) {
+					firstyear = parseInt(yval.match(/(\d{4})(-|–)/)[1]);
+					if (firstyear < 1900) {
+						firstyear = 1900;
+					}
+					secondyear = parseInt(yval.match(/(-|–)(\d{0,4})/)[2]);
+					if (secondyear === '' || secondyear > (new Date).getFullYear()) {
+						secondyear = (new Date).getFullYear();
+					}
+					if (firstyear <= secondyear) {
+						yearrange = [];
+						for (var yr = firstyear; yr <= secondyear; yr++) {
+							if (firstyear <= secondyear) {
+								yearrange.push(firstyear);
+							}
+						}
+					} else {
+						yearrange = [firstyear];
+					}
+					ylistquery = '\\((' + yearrange.toString().replace(/,/g, '|') + ')\\)';
+				} else {
+					ylistquery = '\\(\\d*' + yval.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
+				}
 			} else {
 				ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
 			}
@@ -3159,8 +3182,8 @@ function createMovieList() {
 	});
 	$('<center id="searchinputs" />').appendTo(body);
 	$('<input id="mlistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Title" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year" maxlength="240" />').appendTo($("#searchinputs"));
-	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="ylistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Year (or range)" maxlength="240" />').appendTo($("#searchinputs"));
+	$('<input id="glistquery" class="form-control" style="width:33%;display:inline-block;" type="text" placeholder="Search Genre(s)" maxlength="240" />').appendTo($("#searchinputs"));
 	body.append('<span id="mlinfo" class="text-info" /><br />');
 	setTimeout(function() {
 		$("#mlistquery").focus();
