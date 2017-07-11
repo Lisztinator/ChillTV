@@ -3133,9 +3133,11 @@ function appendMovieList() {
 					if (firstyear < 1900) {
 						firstyear = 1900;
 					}
-					secondyear = parseInt(yval.match(/(-|–)(\d{0,4})/)[2]);
-					if (secondyear === '' || secondyear > (new Date).getFullYear()) {
+					secondyear = yval.match(/(-|–)(\d{0,4})/)[2];
+					if (secondyear === '' || parseInt(secondyear) > (new Date).getFullYear()) {
 						secondyear = (new Date).getFullYear();
+					} else {
+						secondyear = parseInt(secondyear);
 					}
 					if (firstyear <= secondyear) {
 						yearrange = [];
