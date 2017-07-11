@@ -3140,8 +3140,8 @@ function appendMovieList() {
 					if (firstyear <= secondyear) {
 						yearrange = [];
 						for (var yr = firstyear; yr <= secondyear; yr++) {
-							if (firstyear <= secondyear) {
-								yearrange.push(firstyear);
+							if (yr <= secondyear) {
+								yearrange.push(yr);
 							}
 						}
 					} else {
