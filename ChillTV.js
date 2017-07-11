@@ -2926,7 +2926,7 @@ function changeCend(dis) {
 	}, 10);
 }
 
-
+/*
 function sortAlpha(mt) {
 	if (Movie_Array[mt][3] !== undefined && Movie_Array[mt][3] === 'Recently Added') {
 		recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
@@ -2937,7 +2937,7 @@ function sortAlpha(mt) {
 			movietext += '<li style="display: none;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 		}
 	}
-}
+}*/
 
 function changeSort(dis) {
 	if (sortid.attr('id') === dis) {
@@ -3044,16 +3044,17 @@ function appendMovieList() {
 		}
 	}
 	var i, len, text;
-	recentlyadded = '<div style="margin:5px 0px 5px 0px">';
+	recentlyadded = '';
 	//str = Movie_Array[i][0].replace(/'/g, "\\'");
 	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
 			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			//lastra = '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		} else {
 			text += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
 		}
 	}
-	recentlyadded += '</div>';
+	//recentlyadded = recentlyadded.replace('style="display: block;"', 'style="display: block;margin: 5px 0 0 0"').replace(lastra, lastra.replace('style="display: block;"', 'style="display: block;margin: 0 0 5px 0"'));
 	$('.marathonexpand').hover(function() {
 		$(this).css({
 			'color': 'grey',
