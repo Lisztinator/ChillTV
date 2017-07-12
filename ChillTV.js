@@ -3198,7 +3198,7 @@ function appendMovieList() {
 				glistquery = '';
 			}
 			//searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
-			filterMovies(mlistquery, ylistquery, glistquery, $("#mlinfo));
+			filterMovies(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 		}, 500);
 	});
 }
