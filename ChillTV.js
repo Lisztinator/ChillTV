@@ -3056,7 +3056,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 	}
 	moviepagetext = '<li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li>';
 	for (var bl = 0; bl < buttonlength; bl++) {
-		if (bl = 0) {
+		if (bl === 0) {
 			moviepagetext += '<li class="disabled"><a href="javascript:void(0)">' + (bl + 1) + '</a></li>';
 		} else {
 			moviepagetext += '<li><a href="javascript:void(0)">' + (bl + 1) + '</a></li>';
