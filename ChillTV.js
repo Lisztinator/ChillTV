@@ -3050,7 +3050,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 	if (indextwo > 20) {
 		indextwo = 20;
 	}
-	buttonlength = Math.ceil(moviearray / 20);
+	buttonlength = Math.ceil(moviearray.length / 20);
 	moviepagetext = '<li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li>';
 	for (var bl = 0; bl < buttonlength; bl++) {
 		if (bl = 0) {
