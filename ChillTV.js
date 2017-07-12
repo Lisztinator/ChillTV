@@ -3099,11 +3099,24 @@ function appendMovieList() {
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});*/
-	body.append('<center><ul class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
+	$('#moviepage > li > a').on('click.page', function() {
+		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'pointer-events:auto');;
+		buttontype = $(this).text();
+		if (buttontype === 'First') {
+			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			indexone = 0;
+			indextwo = 20;
+			listMovies(moviearray, indexone, indextwo);
+		}
+	});
 	indexone = 0;
 	indextwo = 20;
-	listMovies(Movie_Array, indexone, indextwo);
+	moviearray = Movie_Array;
+	listMovies(moviearray, indexone, indextwo);
 	/*for (var i = 0, i < Movie_Array.length; i++) {
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'#movielist\', \'' + str + '\')"
 			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
