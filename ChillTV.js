@@ -3044,11 +3044,23 @@ function filterMovies(mstr, ystr, gstr, info) {
 			}
 		}
 	}
+	buttonindex = 2;
 	indexone = 0;
 	indextwo = moviearray.length;
 	if (indextwo > 20) {
 		indextwo = 20;
 	}
+	buttonlength = Math.ceil(moviearray / 20);
+	moviepagetext = '<li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li>';
+	for (var bl = 0; bl < buttonlength; bl++) {
+		if (bl = 0) {
+			moviepagetext += '<li class="disabled"><a href="javascript:void(0)">' + (bl + 1) + '</a></li>';
+		} else {
+			moviepagetext += '<li><a href="javascript:void(0)">' + (bl + 1) + '</a></li>';
+		}
+	}
+	moviepagetext += '<li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li>';
+	$("#moviepage").html(moviepagetext);
 	listMovies(moviearray, indexone, indextwo);
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
@@ -3095,12 +3107,9 @@ function appendMovieList() {
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});*/
-	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li>';<li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
-	indexone = 0;
-	indextwo = 20;
 	filterMovies('', '', '', $("#mlinfo"));
-	buttonindex = 2;
 	$('#moviepage > li > a').on('click.page', function() {
 		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'pointer-events:auto');;
 		buttontype = $(this).text();
@@ -3136,6 +3145,10 @@ function appendMovieList() {
 				indextwo = moviearray.length
 				$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 				$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			}
+			if (indexone === 0 ) {
+				$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+				$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			}
 			listMovies(moviearray, indexone, indextwo);
 		}
