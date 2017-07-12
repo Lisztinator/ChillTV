@@ -3051,6 +3051,9 @@ function filterMovies(mstr, ystr, gstr, info) {
 		indextwo = 20;
 	}
 	buttonlength = Math.ceil(moviearray.length / 20);
+	if (buttonlength > 7) {
+		buttonlength = 7;
+	}
 	moviepagetext = '<li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li>';
 	for (var bl = 0; bl < buttonlength; bl++) {
 		if (bl = 0) {
@@ -3107,9 +3110,10 @@ function appendMovieList() {
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});*/
-	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	filterMovies('', '', '', $("#mlinfo"));
+	nbtn = 1;
 	$('#moviepage > li > a').on('click.page', function() {
 		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'pointer-events:auto');;
 		buttontype = $(this).text();
@@ -3118,6 +3122,10 @@ function appendMovieList() {
 			$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			buttonindex = 2;
+			nbtn = 1;
+			$('.numberbtn').each(function(ind) {
+				$(this).text(nbtn + ind);
+			});
 			indexone = 0;
 			indextwo = 20;
 			listMovies(moviearray, indexone, indextwo);
@@ -3125,6 +3133,10 @@ function appendMovieList() {
 		if (buttontype === '«') {
 			if (buttonindex > 2) {
 				buttonindex -= 1;
+				nbtn -= 1;
+				$('.numberbtn').each(function(ind) {
+					$(this).text(nbtn + ind);
+				});
 			}
 			$('#moviepage > li').eq(buttonindex).addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			indexone -= 20;
@@ -3139,6 +3151,10 @@ function appendMovieList() {
 		if (buttontype.match(/\d+/)) {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			buttonindex = $(this).parent().index();
+			nbtn += parseInt(buttontype) - nbtn;
+			$('.numberbtn').each(function(ind) {
+				$(this).text(nbtn + ind);
+			});
 			indexone = (20 * parseInt(buttontype)) - 20;
 			indextwo = indexone + 20;
 			if (indextwo >= moviearray.length) {
@@ -3155,6 +3171,10 @@ function appendMovieList() {
 		if (buttontype === '»') {
 			if (buttonindex < 8) {
 				buttonindex += 1;
+				nbtn += 1;
+				$('.numberbtn').each(function(ind) {
+					$(this).text(nbtn + ind);
+				});
 			}
 			$('#moviepage > li').eq(buttonindex).addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			indexone += 20;
@@ -3171,6 +3191,12 @@ function appendMovieList() {
 			$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			buttonindex = 8;
+			nbtn = Math.ceil(moviearray.length / 20) - buttonlength;
+			if (nbtn > 0) {
+				$('.numberbtn').each(function(ind) {
+					$(this).text(nbtn + 1 + ind);
+				});
+			}
 			indexone = moviearray.length - (moviearray.length % 20);
 			indextwo = moviearray.length;
 			if (indexone === indextwo) {
