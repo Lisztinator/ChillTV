@@ -3013,34 +3013,42 @@ function changeSort(dis) {
 	}, 10);
 }
 
-$("#movielist > li > span:first-child").filter(function(index) {
+/*$("#movielist > li > span:first-child").filter(function(index) {
 	return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
 }).parent().hide();
 $("#movielist > li > span:first-child").filter(function(index) {
 	return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
-}).parent().show();
+}).parent().show();*/
 
-function listMovies(mstr, ystr, gstr) {
+function listMovies(moviearray, indexone, indextwo) {
+	recentlyadded = '';
+	text = '';
+	for (var pi = indexone; pi < indextwo; pi++) {
+		str = moviearray[pi][0].replace(/'/g, "\\'");
+		if (moviearray[pi][3] !== undefined && moviearray[pi][3] === 'Recently Added') {
+			recentlyadded += '<li><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + moviearray[pi][1] + '</span></li>';
+		} else {
+			text += '<li><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</span><span class="pull-right">' + moviearray[pi][1] + '</span></li>';
+		}
+	}
+	$("#movielist").html(recentlyadded + text);
+}
+
+function filterMovies(mstr, ystr, gstr, info) {
 	if (mstr === '' && ystr === '' && gstr === '') {
 		moviearray = Movie_Array;
 	} else {
 		moviearray = [];
-		recentlyadded = '';
-		text = '';
 		for (var na = 0; na < Movie_Array.length; na++) {
 			if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
-				moviearray.push(Movie_Array[na];
+				moviearray.push(Movie_Array[na]);
 			}
 		}
 	}
-	for (var pi = 0; pi < 20; pi++) {
-		str = Movie_Array[i][0].replace(/'/g, "\\'");
-		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') {
-			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
-		} else {
-			text += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
-		}
-	}
+	indexone = 0;
+	indextwo = 20;
+	listMovies(moviearray, indexone, indextwo);
+	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
 
 KEYWAIT = setTimeout(function(){},1);
@@ -3087,12 +3095,9 @@ function appendMovieList() {
 	});*/
 	//body.append('<ul class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul>');
 	body.append('<div id="listmovies" />').append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
-	mlhtml = '';
-	for (var tw = 0; tw < 20; tw++) {
-		mlhtml += '<li>';
-	}
-	$("#movielist").append(mlhtml);
-	listMovies('');
+	indexone = 0;
+	indextwo = 20;
+	listMovies(Movie_Array, indexone, indextwo);
 	/*for (var i = 0, i < Movie_Array.length; i++) {
 		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'#movielist\', \'' + str + '\')"
 			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
@@ -3192,7 +3197,8 @@ function appendMovieList() {
 			} else {
 				glistquery = '';
 			}
-			searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
+			//searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
+			filterMovies(mlistquery, ylistquery, glistquery, $("#mlinfo));
 		}, 500);
 	});
 }
