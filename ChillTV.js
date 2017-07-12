@@ -2920,8 +2920,8 @@ function changeCend(dis) {
 	}
 	setTimeout(function() {
 		dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-		$('.movielist').append($('.movielist').children('li').get().reverse());
-		num = $(".movielist li:visible").length;
+		$('#movielist').append($('#movielist').children('li').get().reverse());
+		num = $("#movielist li:visible").length;
 		$("#mlinfo").text(num + ' movies');
 	}, 10);
 }
@@ -2931,7 +2931,7 @@ function sortAlpha(mt) {
 	if (Movie_Array[mt][3] !== undefined && Movie_Array[mt][3] === 'Recently Added') {
 		recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 	} else {
-		if ($('.movielist').html().indexOf('block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0]) > -1) {
+		if ($('#movielist').html().indexOf('block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0]) > -1) {
 			movietext += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
 		} else {
 			movietext += '<li style="display: none;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[mt][0] + '</span><span class="pull-right">' + Movie_Array[mt][1] + '</span></li>';
@@ -2954,7 +2954,7 @@ function changeSort(dis) {
 			movietext = '';
 			var mt;
 			if (!DESC) {
-				//$('.movielist').append($('.movielist').children('li').get().reverse());
+				//$('#movielist').append($('#movielist').children('li').get().reverse());
 				for (mt = Movie_Array.length - 1; mt > -1; mt--) {
 					sortAlpha(mt);
 				}
@@ -2965,8 +2965,8 @@ function changeSort(dis) {
 			}
 			//str = Movie_Array[mt][0].replace(/'/g, "\\'");
 			recentlyadded += '</div>';
-			$('.movielist').children().remove();
-			$('.movielist').append(recentlyadded + movietext);
+			$('#movielist').children().remove();
+			$('#movielist').append(recentlyadded + movietext);
 			$('.gmfl').click(function() {
 				getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
 			});
@@ -2974,11 +2974,11 @@ function changeSort(dis) {
 				getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
 			});
 			$('.nmm').click(function() {
-				nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
+				nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '#movielist');
 			});
-			//$('.movielist').children('li').remove();
-			//$('.movielist').append(clonedmovie);*/
-			yearlist = $('.movielist').children('li').get();
+			//$('#movielist').children('li').remove();
+			//$('#movielist').append(clonedmovie);*/
+			yearlist = $('#movielist').children('li').get();
 			yearlist.sort(function(a, b) {
 				return $(a).text().split('ⓘ ✛ ✇ ')[1].localeCompare($(b).text().split('ⓘ ✛ ✇ ')[1]);
 			});
@@ -2986,11 +2986,11 @@ function changeSort(dis) {
 				yearlist.reverse();
 			}
 			$.each(yearlist, function(idx, itm) {
-				$('.movielist').append(itm);
+				$('#movielist').append(itm);
 			});
 		}
 		if (dis === "sortyear") {
-			yearlist = $('.movielist').children('li').get();
+			yearlist = $('#movielist').children('li').get();
 			yearlist.sort(function(a, b) {
 				parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
 				parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
@@ -3005,69 +3005,63 @@ function changeSort(dis) {
 				yearlist.reverse();
 			}
 			$.each(yearlist, function(idx, itm) {
-				$('.movielist').append(itm);
+				$('#movielist').append(itm);
 			});
 		}
-		num = $(".movielist li:visible").length;
+		num = $("#movielist li:visible").length;
 		$("#mlinfo").text(num + ' movies');
 	}, 10);
+}
+
+$("#movielist > li > span:first-child").filter(function(index) {
+	return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
+}).parent().hide();
+$("#movielist > li > span:first-child").filter(function(index) {
+	return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
+}).parent().show();
+
+function listMovies(mstr, ystr, gstr) {
+	if (mstr === '' && ystr === '' && gstr === '') {
+		moviearray = Movie_Array;
+	} else {
+		moviearray = [];
+		recentlyadded = '';
+		text = '';
+		for (var na = 0; na < Movie_Array.length; na++) {
+			if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
+				moviearray.push(Movie_Array[na];
+			}
+		}
+	}
+	for (var pi = 0; pi < 20; pi++) {
+		str = Movie_Array[i][0].replace(/'/g, "\\'");
+		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') {
+			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+		} else {
+			text += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+		}
+	}
 }
 
 KEYWAIT = setTimeout(function(){},1);
 function appendMovieList() {
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
-	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'.movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
-	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'.movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'#movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
+	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'#movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
 	if (CLIENT.name === 'ChillTVBot') {
-		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'.movielist\')">U</a> Unshare All</span><br />');
+		body.append('<span><a style="cursor:pointer" onclick="unshareAll(\'#movielist\')">U</a> Unshare All</span><br />');
 	}
-	body.append('<ul class="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button><span> Marathon List</span></ul>');	
-	body.append('<span class="text-info trailertext" /><br />');
-	if (CLIENT.name === 'ChillTVBot') {
-		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
-	}
-	DESC = true;
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
-	RESET = false;
-	$("#asc").on('click.cend', function() {
-		changeCend($(this));
-	});
-	sortid = $("#sortby");
-	$('.sortchecks').click(function() {
-		changeSort($(this).attr('id'));
-	});
-	body.append('<div id="listmovies" />');
+	body.append('<ul id="marathonlist" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button><span> Marathon List</span></ul>');
 	for (var mal = 0; mal < Marathon_List.length; mal++) {
-		$('.marathonlist').html($('.marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
+		$('#marathonlist').html($('#marathonlist').html() + '<li style="display: none; margin-left: 40px;"><ul class="marathon" style="padding-left: 0;"><button style="padding: 0px 5px; color: rgb(0, 0, 0); border-width: 1px; background-color: inherit; font-weight: 900; border-color: black;" class="marathonexpand">▼</button> ' + Marathon_List[mal][0] + '</ul></li>');
 		for (var mwl = 1; mwl < Marathon_List[mal].length; mwl++) {
 			$('.marathon:last').html($('.marathon:last').html() + '<li style="display: none; margin-left: 40px;">' + Marathon_List[mal][mwl] + '</li>');
 		}
 	}
-	var i, len, text;
-	recentlyadded = '';
-	//str = Movie_Array[i][0].replace(/'/g, "\\'");
-	for (i = 0, len = Movie_Array.length, text = ""; i < len; i++) {
-		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'.movielist\', \'' + str + '\')"
-			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
-			//lastra = '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
-		} else {
-			text += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
-		}
-	}
-	//recentlyadded = recentlyadded.replace('style="display: block;"', 'style="display: block;margin: 5px 0 0 0"').replace(lastra, lastra.replace('style="display: block;"', 'style="display: block;margin: 0 0 5px 0"'));
 	$('.marathonexpand').hover(function() {
-		$(this).css({
-			'color': 'grey',
-			'border-color': 'grey'
-		});
+		$(this).css({'color': 'grey', 'border-color': 'grey'});
 	}, function() {
-		$(this).parent().children('li').is(':hidden') ? $(this).css({
-			'color': 'black',
-			'border-color': 'black'
-		}) : $(this).css({
-			'color': 'white',
-			'border-color': 'white'
-		});
+		$(this).parent().children('li').is(':hidden') ? $(this).css({'color': 'black', 'border-color': 'black'}) : $(this).css({'color': 'white', 'border-color': 'white'});
 	}).click(function() {
 		if ($(this).parent().children('li').is(':hidden')) {
 			$(this).parent().children('li').show();
@@ -3077,24 +3071,54 @@ function appendMovieList() {
 			$(this).text('▼').attr('style', 'background-color: inherit;font-weight: 900;padding: 0 5px 0 5px;border-width: 1px;color: black;border-color: black');
 		}
 	});
-	$("#listmovies").append('<ul class="movielist" style="list-style:none;padding-left:0" >' + recentlyadded + text + '</ul>');
-	$('.gmfl').click(function() {
+	body.append('<span class="text-info trailertext" /><br />');
+	if (CLIENT.name === 'ChillTVBot') {
+		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
+	}
+	/*DESC = true;
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
+	RESET = false;
+	$("#asc").on('click.cend', function() {
+		changeCend($(this));
+	});
+	sortid = $("#sortby");
+	$('.sortchecks').click(function() {
+		changeSort($(this).attr('id'));
+	});*/
+	//body.append('<ul class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul>');
+	body.append('<div id="listmovies" />').append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
+	mlhtml = '';
+	for (var tw = 0; tw < 20; tw++) {
+		mlhtml += '<li>';
+	}
+	$("#movielist").append(mlhtml);
+	listMovies('');
+	/*for (var i = 0, i < Movie_Array.length; i++) {
+		if (Movie_Array[i][3] !== undefined && Movie_Array[i][3] === 'Recently Added') { //onclick="addShare(\'' + Movie_Array[i][2] + '\', \'' + Movie_Array[i][3] + '\', \'' + Movie_Array[i][4] + '\', \'' + Movie_Array[i][5] + '\', \'' + Movie_Array[i][6] + '\', \'#movielist\', \'' + str + '\')"
+			recentlyadded += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+			//lastra = '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+		} else {
+			text += '<li style="display: block;"><span><a style="cursor:pointer" class="gmfl">ⓘ</a> <a style="cursor:pointer" class="gyt">✛</a> <a style="cursor:pointer" class="nmm">✇</a> ' + Movie_Array[i][0] + '</span><span class="pull-right">' + Movie_Array[i][1] + '</span></li>';
+		}
+	}*/
+	//recentlyadded = recentlyadded.replace('style="display: block;"', 'style="display: block;margin: 5px 0 0 0"').replace(lastra, lastra.replace('style="display: block;"', 'style="display: block;margin: 0 0 5px 0"'));
+	/*$('.gmfl').click(function() {
 		getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
 	});
 	$('.gyt').click(function() {
 		getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
 	});
 	$('.nmm').click(function() {
-		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '.movielist');
-	});
-	clonedmovie = $('.movielist').children().clone();
-	$("#moviereset").click(function() {
+		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '#movielist');
+	});*/
+	//clonedmovie = $('#movielist').children().clone();
+	/*$("#moviereset").click(function() {
 		if (RESET) {
 			RESET = false;
 			$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
 			setTimeout(function() {
-				$('.movielist').children().remove();
-				$('.movielist').append(clonedmovie);
+				$('#movielist').children().remove();
+				$('#movielist').append(clonedmovie);
 				DESC = true;
 				$("#asc, #desc").off('click.cend')
 				$("#asc").on('click.cend', function() {
@@ -3105,13 +3129,13 @@ function appendMovieList() {
 				sortid = $("#sortby");
 				$('.sortchecks').prop('checked', false).prop('disabled', false);
 				$("#mlistquery, #ylistquery, #glistquery").val('');
-				num = $(".movielist li[style='display: block;']").length;
+				num = $("#movielist li[style='display: block;']").length;
 				$("#mlinfo").text(num + ' movies');
 			}, 10);
 		}
-	});
-	num = $(".movielist li[style='display: block;']").length;
-	$("#mlinfo").text(num + ' movies');
+	});*/
+	//num = $("#movielist li[style='display: block;']").length;
+	//$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
 		clearTimeout(KEYWAIT);
 		$("#mlinfo").text('Searching. Your page may briefly freeze. Please wait...');
@@ -3201,23 +3225,23 @@ function createMovieList() {
 
 function searchStringInArray(mstr, ystr, gstr, info) {
 	if (mstr !== '' || ystr !== '' || gstr !== '') {
-		$(".movielist > li > span:first-child").filter(function(index) {
+		$("#movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) === null || $(this).text().match(RegExp(ystr)) === null || $(this).next().text().match(RegExp(gstr, 'i')) === null;
 		}).parent().hide();
-		$(".movielist > li > span:first-child").filter(function(index) {
+		$("#movielist > li > span:first-child").filter(function(index) {
 			return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
 		}).parent().show();
 		/*
-		$(".movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
-		$(".movielist").find("li:not(:Contains(" + ystr + "))").hide();
-		$(".movielist").find("li:not(:Contains(" + gstr + "))").hide();
-		$(".movielist").find("li:Contains(" + nstr + ")").show();
+		$("#movielist").find("li > span:first-child:not(:Contains(" + mstr + "))").parent().hide();
+		$("#movielist").find("li:not(:Contains(" + ystr + "))").hide();
+		$("#movielist").find("li:not(:Contains(" + gstr + "))").hide();
+		$("#movielist").find("li:Contains(" + nstr + ")").show();
 		*/
-		num = $(".movielist li:visible").length;
+		num = $("#movielist li:visible").length;
 		info.text('Found ' + num + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 	} else {
-		$(".movielist").children().show();
-		num = $(".movielist li:visible").length;
+		$("#movielist").children().show();
+		num = $("#movielist li:visible").length;
 		info.text(num + ' movies');
 	}
 	$(".trailertext").text('');
@@ -3296,7 +3320,7 @@ function getMovies(sMovie, pagenum) {
 							}
 							if (moviename.toLowerCase() === oData.Title.toLowerCase() + ' (' + oData.Year + ')') {
 								$('.addmovie').click(function() {
-									nominateMovie(Movie_Array[am][0], '.movielist');
+									nominateMovie(Movie_Array[am][0], '#movielist');
 								}).text('Nominate Movie');
 								break;
 							}
@@ -3593,7 +3617,7 @@ function theList(som, pagenum, goback) {
 						}
 						if (moviename.toLowerCase() === thesearchresults[li].Title.toLowerCase() + ' (' + thesearchresults[li].Year + ')') {
 							str = Movie_Array[aq][0];
-							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'.movielist\')">Nominate Movie</a>');
+							$('.addorrequest:eq('+li+')').html('<a style="cursor:pointer" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">Nominate Movie</a>');
 							break;
 						}
 						if (aq === Movie_Array.length - 1) {
@@ -3808,7 +3832,7 @@ var DONEDELETING = true;
 function unshareAll(typelist) {
 	if (DONEDELETING) {
 		DONEDELETING = false;
-		if (typelist === '.movielist') {
+		if (typelist === '#movielist') {
 			typelistarray = Movie_Array;
 		}
 		if (typelist === '.serieslist') {
@@ -4785,7 +4809,7 @@ function getYouTube(element, term, position, text, random, nextpage) {
 				leng = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').length;
 				num = Math.round(Math.random() * leng);
 				ranpick = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').eq(num - 1).children('span:nth-child(1)').text().split('✇ ')[1];
-			} else if (element === '.movielist') {
+			} else if (element === '#movielist') {
 				leng = $(element + ' li[style="display: block;"]').length;
 				num = Math.round(Math.random() * leng);
 				ranpick = $(element + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)').text().split('✇ ')[1];
@@ -5007,7 +5031,7 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 								CHECKITOUT = false;
 								idcheck = active.split('https://docs.google.com/file/d/')[1];
 								addShare(part2, part3, part4, part5, 'undefined', element, name);
-								if (element === '.movielist' && (part2 === 'undefined' || part2 === 'Recently Added')) {
+								if (element === '#movielist' && (part2 === 'undefined' || part2 === 'Recently Added')) {
 									if ($('#mlistquery').val() && name === undefined) {
 										$('.trailertext').text('Random movie matching "' + $("#mlistquery").val().trim() + '" - "' + titties + '" added to end');
 									} else if (!$('#mlistquery').val() && name === undefined) {
@@ -5032,7 +5056,7 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 		});
 	}
 	if (part1 === '' && CLIENT.rank > -1 && CAREFUL) {
-		if (element === ".movielist") {
+		if (element === "#movielist") {
 			leng = $(element + ' li[style="display: block;"]').length;
 			num = Math.round(Math.random() * leng);
 			titofit = $(element + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
