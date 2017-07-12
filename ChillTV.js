@@ -3130,8 +3130,7 @@ function appendMovieList() {
 		if (buttontype.match(/\d+/)) {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			buttonindex = $(this).parent().index();
-			buttonnumber = parseInt(buttontype.text()); 
-			indexone = (20 * parseInt(buttonnumber)) - 20;
+			indexone = (20 * parseInt(buttontype)) - 20;
 			indextwo = indexone + 20;
 			if (indextwo >= moviearray.length) {
 				indextwo = moviearray.length
