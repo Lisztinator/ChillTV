@@ -2860,10 +2860,9 @@ $('<button id="mlistbtn" class="btn btn-sm btn-default" title="Check out our Mov
 
 function nominateMovie(name, list) {
 	if (name === '') {
-		leng = $(list + ' li[style="display: block;"]').length;
+		leng = moviearray.length;
 		num = Math.round(Math.random() * leng);
-		titofit = $(list + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)');
-		name = titofit.text().split('✇ ')[1];
+		name = moviearray[num][0];
 		if ($('#mlistquery').val()) {
 			mtxt = 'Random movie matching "' + $("#mlistquery").val().trim() + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim() + '" - "' + name + '" was nominated';
 		} else {
@@ -3041,12 +3040,19 @@ function filterMovies(mstr, ystr, gstr, info) {
 		moviearray = [];
 		for (var na = 0; na < Movie_Array.length; na++) {
 			if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
-				moviearray.push(Movie_Array[na]);
+				if (Movie_Array[na][3] !== undefined && Movie_Array[na][3] === 'Recently Added') {
+					moviearray.unshift(Movie_Array[na]);
+				} else {
+					moviearray.push(Movie_Array[na]);
+				}
 			}
 		}
 	}
 	indexone = 0;
-	indextwo = 20;
+	indextwo = moviearray.length;
+	if (indextwo > 20) {
+		indextwo = 20;
+	}
 	listMovies(moviearray, indexone, indextwo);
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
@@ -3093,8 +3099,8 @@ function appendMovieList() {
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});*/
-	//body.append('<ul class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul>');
-	body.append('<div id="listmovies" />').append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
+	body.append('<center><ul class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li class="disabled"><a href="javascript:void(0)">…</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	indexone = 0;
 	indextwo = 20;
 	listMovies(Movie_Array, indexone, indextwo);
@@ -4812,13 +4818,13 @@ function getYouTube(element, term, position, text, random, nextpage) {
 		} else {
 			$('.trailertext').text('Loading...');
 			if (element === '.serieslist') {
-				leng = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').length;
+				leng = moviearray.length;
 				num = Math.round(Math.random() * leng);
-				ranpick = $(element + '[style="display: block; list-style: none; padding-left: 0px;"] li').eq(num - 1).children('span:nth-child(1)').text().split('✇ ')[1];
+				ranpick = moviearray[num][0];
 			} else if (element === '#movielist') {
 				leng = $(element + ' li[style="display: block;"]').length;
 				num = Math.round(Math.random() * leng);
-				ranpick = $(element + ' li[style="display: block;"]').eq(num - 1).children('span:nth-child(1)').text().split('✇ ')[1];
+				ranpick = moviearray[num][0];
 			}
 			rantitle = ranpick.split(/(\([0-9][0-9][0-9][0-9])/)[0];
 			ranyear = ranpick.match(/\(([0-9][0-9][0-9][0-9])/)[1];
