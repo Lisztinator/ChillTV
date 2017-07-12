@@ -3107,7 +3107,7 @@ function appendMovieList() {
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
 	});*/
-	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li>';<li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a href="javascript:void(0)">1</a></li><li><a href="javascript:void(0)">2</a></li><li><a href="javascript:void(0)">3</a></li><li><a href="javascript:void(0)">4</a></li><li><a href="javascript:void(0)">5</a></li><li><a href="javascript:void(0)">6</a></li><li><a href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	filterMovies('', '', '', $("#mlinfo"));
 	$('#moviepage > li > a').on('click.page', function() {
