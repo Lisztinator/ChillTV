@@ -3042,6 +3042,8 @@ function filterMovies(mstr, ystr, gstr, info) {
 	if (indextwo > 20) {
 		indextwo = 20;
 	}
+	$("#moviepage > li:first").addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
+	$("#moviepage > li:first").next().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
 	/*pagelength = Math.ceil(moviearray.length / 20);
 	if (pagelength > 7) {
 		buttonlength = 7;
