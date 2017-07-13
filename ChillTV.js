@@ -2915,7 +2915,7 @@ function changeCend(dis) {
 		$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
 		if ($("#sortalpha").prop('checked') === false && $("#sortyear").prop('checked') === false) {
 			RESET = false;
-			$("#moviereset").attr('disabled', false);
+			$("#moviereset").attr('disabled', true);
 		}
 	}
 	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
@@ -3222,7 +3222,7 @@ function appendMovieList() {
 	$("#moviereset").click(function() {
 		if (RESET) {
 			RESET = false;
-			$("#moviereset").attr('disabled', false);
+			$("#moviereset").attr('disabled', true);
 			DESC = true;
 			$("#asc, #desc").off('click.cend')
 			$("#asc").on('click.cend', function() {
