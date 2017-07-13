@@ -2595,6 +2595,7 @@ Movie_Array = [
 ['Superman/Doomsday (2007)', 'Animation, Action, Adventure', '0B9hOhGLF4ciPR0NlVlVXa2Fndnc', '0B9hOhGLF4ciPVVFMNEJhUEwybmM'],
 ['Superman/Shazam!: The Return of Black Adam (2010)', 'Animation, Short, Action', '0B9hOhGLF4ciPR1NHRG5pUlhEd2s'],
 ['Superstar (1999)', 'Comedy, Romance', '0B_F_V9jIQXymR0tUV3BVeG5zekk'],
+['Surrogates (2009)', 'Action, Sci-Fi, Thriller', '0B7HYQ4BEaS41SEpkSHNnbnE5OVk', 'Recently Added'],
 ['Suspiria (1977)', 'Horror, Mystery', '0B4ImsDopq4_FMVd0bDVMQW5URjg'],
 ['Sweeney Todd: The Demon Barber of Fleet Street (2007)', 'Drama, Horror, Musical', '0Bwjx3gpy0_MwSjFvZmNobFYxcHM'],
 ['Swimming with Sharks (1994)', 'Comedy, Crime', '0Bwjx3gpy0_MweTRLcF91SkM0ZVU'],
