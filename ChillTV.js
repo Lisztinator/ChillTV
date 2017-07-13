@@ -4913,11 +4913,11 @@ function getYouTube(element, term, position, text, random, nextpage) {
 		} else {
 			$('.trailertext').text('Loading...');
 			if (element === '.serieslist') {
-				leng = moviearray.length;
-				num = Math.round(Math.random() * leng);
-				ranpick = moviearray[num][0];
-			} else if (element === '#movielist') {
 				leng = $(element + ' li[style="display: block;"]').length;
+				num = Math.round(Math.random() * leng);
+				ranpick = TV_Array[num][0];
+			} else if (element === '#movielist') {
+				leng = moviearray.length;
 				num = Math.round(Math.random() * leng);
 				ranpick = moviearray[num][0];
 			}
