@@ -3020,10 +3020,12 @@ function listMovies(moviearray, indexone, indextwo) {
 
 function filterMovies(mstr, ystr, gstr, info) {
 	moviearray = [];
+	rafound = 0;
 	for (var na = 0; na < Movie_Array.length; na++) {
 		if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
 			if (Movie_Array[na][3] !== undefined && Movie_Array[na][3] === 'Recently Added') {
-				moviearray.unshift(Movie_Array[na]);
+				moviearray.splice(rafound, 0, Movie_Array[na]);
+				rafound += 1;
 			} else {
 				moviearray.push(Movie_Array[na]);
 			}
@@ -3096,15 +3098,15 @@ function appendMovieList() {
 		changeSort($(this).attr('id'));
 	});
 	//<li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li>
-	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination" style="width:100%"><li class="disabled"><a href="javascript:void(0)" style="width:25%">First</a></li><li class="disabled"><a href="javascript:void(0)" style="width:25%">«</a></li><li><a href="javascript:void(0)" style="width:25%">»</a></li><li><a href="javascript:void(0)" style="width:25%">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	filterMovies('', '', '', $("#mlinfo"));
 	$('#moviepage > li > a').on('click.page', function() {
-		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'pointer-events:auto');;
+		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'width:25%;pointer-events:auto');;
 		buttontype = $(this).text();
 		if (buttontype === 'First') {
-			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			$(this).parent().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
+			$(this).parent().next().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
 			//$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			//buttonindex = 2;
 			/*nbtn = 1;
@@ -3129,8 +3131,8 @@ function appendMovieList() {
 			indexone -= 20;
 			indextwo -= 20;
 			if (indexone === 0) {
-				$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-				$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+				$(this).parent().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
+				$(this).parent().prev().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
 			}
 			listMovies(moviearray, indexone, indextwo);
 			
@@ -3170,14 +3172,14 @@ function appendMovieList() {
 			indextwo += 20;
 			if (indextwo >= moviearray.length) {
 				indextwo = moviearray.length
-				$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-				$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+				$(this).parent().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
+				$(this).parent().next().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
 			}
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === 'Last') {
-			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			$(this).parent().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
+			$(this).parent().prev().addClass('disabled').children('a').attr('style', 'width:25%;pointer-events:none');
 			//$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			//buttonindex = 8;
 			/*nbtn = pagelength - buttonlength;
