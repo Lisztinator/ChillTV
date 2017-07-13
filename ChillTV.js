@@ -3059,7 +3059,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 	moviepagetext += '<li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li>';
 	$("#moviepage").html(moviepagetext);*/
 	listMovies(moviearray, indexone, indextwo);
-	$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+	$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
 
@@ -3105,7 +3105,7 @@ function appendMovieList() {
 		changeSort($(this).attr('id'));
 	});
 	//<li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li>
-	body.append('<center><ul id="moviepage" class="pagination" style="width:100%"><li class="disabled"><a href="javascript:void(0)" style="width:15%">First</a></li><li class="disabled"><a href="javascript:void(0)" style="width:15%">«</a></li><li class="disabled"><span id="showing" class="text-info" style="width:40%">Showing 1-20 of 2761</span></li><li><a href="javascript:void(0)" style="width:15%">»</a></li><li><a href="javascript:void(0)" style="width:15%">Last</a></li></ul></center>');
+	body.append('<center><ul id="moviepage" class="pagination" style="width:100%"><li class="disabled"><a href="javascript:void(0)" style="width:15%">First</a></li><li class="disabled"><a href="javascript:void(0)" style="width:15%">«</a></li><li class="disabled"><span id="showing" class="text-info" style="width:40%;cursor:auto;color:#93c !important" disabled>Showing 1-20 of 2761</span></li><li><a href="javascript:void(0)" style="width:15%">»</a></li><li><a href="javascript:void(0)" style="width:15%">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	filterMovies('', '', '', $("#mlinfo"));
 	$('#moviepage > li > a').on('click.page', function() {
@@ -3122,7 +3122,7 @@ function appendMovieList() {
 			});*/
 			indexone = 0;
 			indextwo = 20;
-			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === '«') {
@@ -3142,7 +3142,7 @@ function appendMovieList() {
 				$(this).parent().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 				$(this).parent().prev().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 			}
-			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
 			listMovies(moviearray, indexone, indextwo);
 			
 		}
@@ -3184,7 +3184,7 @@ function appendMovieList() {
 				$(this).parent().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 				$(this).parent().next().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 			}
-			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === 'Last') {
@@ -3203,7 +3203,7 @@ function appendMovieList() {
 			if (indexone === indextwo) {
 				indexone -= 20;
 			}
-			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
 			listMovies(moviearray, indexone, indextwo);
 		}
 	});
