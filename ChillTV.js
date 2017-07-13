@@ -3059,7 +3059,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 	moviepagetext += '<li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li>';
 	$("#moviepage").html(moviepagetext);*/
 	listMovies(moviearray, indexone, indextwo);
-	$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+	$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length).parent().attr('disabled', true);
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
 
@@ -3122,7 +3122,7 @@ function appendMovieList() {
 			});*/
 			indexone = 0;
 			indextwo = 20;
-			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length).parent().attr('disabled', true);
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === '«') {
@@ -3142,7 +3142,7 @@ function appendMovieList() {
 				$(this).parent().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 				$(this).parent().prev().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 			}
-			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length).parent().attr('disabled', true);
 			listMovies(moviearray, indexone, indextwo);
 			
 		}
@@ -3184,7 +3184,7 @@ function appendMovieList() {
 				$(this).parent().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 				$(this).parent().next().addClass('disabled').children('a').attr('style', 'width:15%;pointer-events:none');
 			}
-			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length).parent().attr('disabled', true);
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === 'Last') {
@@ -3203,7 +3203,7 @@ function appendMovieList() {
 			if (indexone === indextwo) {
 				indexone -= 20;
 			}
-			$("#showing").attr('disabled', true).text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length);
+			$("#showing").text('Showing ' + (indexone + 1) + '-' + indextwo + ' of ' + moviearray.length).parent().attr('disabled', true);
 			listMovies(moviearray, indexone, indextwo);
 		}
 	});
