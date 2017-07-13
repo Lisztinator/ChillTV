@@ -2898,7 +2898,7 @@ function nominateTV(name, list) {
 }
 
 function changeCend(dis) {
-	$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
+	$("#mlinfo").text('Sorting. Please wait...');
 	dis.off('click.cend');
 	if (DESC) {
 		DESC = false;
@@ -2919,9 +2919,8 @@ function changeCend(dis) {
 	}
 	setTimeout(function() {
 		dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-		$('#movielist').append($('#movielist').children('li').get().reverse());
-		num = $("#movielist li:visible").length;
-		$("#mlinfo").text(num + ' movies');
+		moviearray.reverse();
+		listMovies(moviearray, indexone, indextwo);
 	}, 10);
 }
 
@@ -2942,7 +2941,7 @@ function changeSort(dis) {
 	if (sortid.attr('id') === dis) {
 		return;
 	}
-	$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
+	$("#mlinfo").text('Sorting. Please wait...');
 	setTimeout(function() {
 		RESET = true;
 		sortid = $("#"+dis);
@@ -2977,38 +2976,30 @@ function changeSort(dis) {
 			});
 			//$('#movielist').children('li').remove();
 			//$('#movielist').append(clonedmovie);*/
-			yearlist = $('#movielist').children('li').get();
-			yearlist.sort(function(a, b) {
-				return $(a).text().split('ⓘ ✛ ✇ ')[1].localeCompare($(b).text().split('ⓘ ✛ ✇ ')[1]);
+			moviearray.sort(function(a, b) {
+				return a[0].localeCompare(b[0]);
 			});
 			if (!DESC) {
-				yearlist.reverse();
+				moviearray.reverse();
 			}
-			$.each(yearlist, function(idx, itm) {
-				$('#movielist').append(itm);
-			});
+			listMovies(moviearray, indexone, indextwo);
 		}
 		if (dis === "sortyear") {
-			yearlist = $('#movielist').children('li').get();
-			yearlist.sort(function(a, b) {
-				parsea = parseInt($(a).text().match(/\((\d{4})\)/)[1]);
-				parseb = parseInt($(b).text().match(/\((\d{4})\)/)[1]);
-				if (parsea < parseb || (parsea === parseb && $(a).index() > $(b).index())) {
+			moviearray.sort(function(a, b) {
+				parsea = parseInt(a[0].match(/\((\d{4})\)/)[1]));
+				parseb = parseInt(b[0].match(/\((\d{4})\)/)[1]));
+				if (parsea < parseb || (parsea === parseb && a[0].localeCompare(b[0]) === -1)) {
 					return 1;
 				}
-				if (parsea > parseb || (parsea === parseb && $(a).index() < $(b).index())) {
+				if (parsea > parseb || (parsea === parseb && a[0].localeCompare(b[0]) === 1)) {
 					return -1;
 				}
 			});
 			if (!DESC) {
-				yearlist.reverse();
+				moviearray.reverse();
 			}
-			$.each(yearlist, function(idx, itm) {
-				$('#movielist').append(itm);
-			});
+			listMovies(moviearray, indexone, indextwo);
 		}
-		num = $("#movielist li:visible").length;
-		$("#mlinfo").text(num + ' movies');
 	}, 10);
 }
 
@@ -3044,14 +3035,15 @@ function filterMovies(mstr, ystr, gstr, info) {
 			}
 		}
 	}
-	buttonindex = 2;
+	//buttonindex = 2;
+	//nbtn = 1;
 	indexone = 0;
 	indextwo = moviearray.length;
 	if (indextwo > 20) {
 		indextwo = 20;
 	}
-	buttonlength = Math.ceil(moviearray.length / 20);
-	if (buttonlength > 7) {
+	/*pagelength = Math.ceil(moviearray.length / 20);
+	if (pagelength > 7) {
 		buttonlength = 7;
 	}
 	moviepagetext = '<li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li>';
@@ -3063,7 +3055,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 		}
 	}
 	moviepagetext += '<li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li>';
-	$("#moviepage").html(moviepagetext);
+	$("#moviepage").html(moviepagetext);*/
 	listMovies(moviearray, indexone, indextwo);
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
@@ -3100,7 +3092,7 @@ function appendMovieList() {
 	if (CLIENT.name === 'ChillTVBot') {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
-	/*DESC = true;
+	DESC = true;
 	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
 	RESET = false;
 	$("#asc").on('click.cend', function() {
@@ -3109,11 +3101,11 @@ function appendMovieList() {
 	sortid = $("#sortby");
 	$('.sortchecks').click(function() {
 		changeSort($(this).attr('id'));
-	});*/
-	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
+	});
+	//<li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li>
+	body.append('<center><ul id="moviepage" class="pagination"><li class="disabled"><a href="javascript:void(0)">First</a></li><li class="disabled"><a href="javascript:void(0)">«</a></li><li><a href="javascript:void(0)">»</a></li><li><a href="javascript:void(0)">Last</a></li></ul></center>');
 	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
 	filterMovies('', '', '', $("#mlinfo"));
-	nbtn = 1;
 	$('#moviepage > li > a').on('click.page', function() {
 		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'pointer-events:auto');;
 		buttontype = $(this).text();
@@ -3121,24 +3113,26 @@ function appendMovieList() {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			buttonindex = 2;
-			nbtn = 1;
+			//buttonindex = 2;
+			/*nbtn = 1;
 			$('.numberbtn').each(function(ind) {
 				$(this).text(nbtn + ind);
-			});
+			});*/
 			indexone = 0;
 			indextwo = 20;
 			listMovies(moviearray, indexone, indextwo);
 		}
 		if (buttontype === '«') {
-			if (buttonindex > 2) {
-				buttonindex -= 1;
+			/*if (nbtn > 1) {
+				//buttonindex -= 1;
 				nbtn -= 1;
 				$('.numberbtn').each(function(ind) {
 					$(this).text(nbtn + ind);
 				});
 			}
-			$('#moviepage > li').eq(buttonindex).addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			if (nbtn <= 4) {
+				$('#moviepage > li').eq(nbtn + 1).addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			}*/
 			indexone -= 20;
 			indextwo -= 20;
 			if (indexone === 0) {
@@ -3148,9 +3142,9 @@ function appendMovieList() {
 			listMovies(moviearray, indexone, indextwo);
 			
 		}
-		if (buttontype.match(/\d+/)) {
+		/*if (buttontype.match(/\d+/)) {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			buttonindex = $(this).parent().index();
+			//buttonindex = $(this).parent().index();
 			nbtn += parseInt(buttontype) - nbtn;
 			$('.numberbtn').each(function(ind) {
 				$(this).text(nbtn + ind);
@@ -3167,16 +3161,18 @@ function appendMovieList() {
 				$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			}
 			listMovies(moviearray, indexone, indextwo);
-		}
+		}*/
 		if (buttontype === '»') {
-			if (buttonindex < 8) {
-				buttonindex += 1;
+			/*if (nbtn <= (pagelength - buttonlength)) {
+				//buttonindex += 1;
 				nbtn += 1;
 				$('.numberbtn').each(function(ind) {
 					$(this).text(nbtn + ind);
 				});
 			}
-			$('#moviepage > li').eq(buttonindex).addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			if (nbtn  <= (pagelength - buttonlength)) {
+				$('#moviepage > li').eq((nbtn - pagelength) + 14).addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			}*/
 			indexone += 20;
 			indextwo += 20;
 			if (indextwo >= moviearray.length) {
@@ -3190,13 +3186,13 @@ function appendMovieList() {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			buttonindex = 8;
-			nbtn = Math.ceil(moviearray.length / 20) - buttonlength;
+			//buttonindex = 8;
+			/*nbtn = pagelength - buttonlength;
 			if (nbtn > 0) {
 				$('.numberbtn').each(function(ind) {
 					$(this).text(nbtn + 1 + ind);
 				});
-			}
+			}*/
 			indexone = moviearray.length - (moviearray.length % 20);
 			indextwo = moviearray.length;
 			if (indexone === indextwo) {
