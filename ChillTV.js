@@ -2986,8 +2986,8 @@ function changeSort(dis) {
 		}
 		if (dis === "sortyear") {
 			moviearray.sort(function(a, b) {
-				parsea = parseInt(a[0].match(/\((\d{4})\)/)[1]));
-				parseb = parseInt(b[0].match(/\((\d{4})\)/)[1]));
+				parsea = parseInt(a[0].match(/\((\d{4})\)/)[1]);
+				parseb = parseInt(b[0].match(/\((\d{4})\)/)[1]);
 				if (parsea < parseb || (parsea === parseb && a[0].localeCompare(b[0]) === -1)) {
 					return 1;
 				}
