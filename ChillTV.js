@@ -2906,6 +2906,7 @@ function changeCend(dis) {
 		});
 		$("#desc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
 		RESET = true;
+		$("#moviereset").removeAttr('disabled');
 	} else {
 		DESC = true;
 		$("#asc").on('click.cend', function() {
@@ -2914,6 +2915,7 @@ function changeCend(dis) {
 		$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
 		if ($("#sortalpha").prop('checked') === false && $("#sortyear").prop('checked') === false) {
 			RESET = false;
+			$("#moviereset").attr('disabled', false);
 		}
 	}
 	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
@@ -2939,6 +2941,7 @@ function changeSort(dis) {
 		return;
 	}
 	RESET = true;
+	$("#moviereset").removeAttr('disabled');
 	sortid = $("#"+dis);
 	$('.sortchecks').prop('checked', false).prop('disabled', false);
 	sortid.prop('checked', true).prop('disabled', true);
@@ -3004,10 +3007,10 @@ $("#movielist > li > span:first-child").filter(function(index) {
 	return $(this).text().match(RegExp(mstr, 'i')) && $(this).text().match(RegExp(ystr)) && $(this).next().text().match(RegExp(gstr, 'i'));
 }).parent().show();*/
 
-function listMovies(moviearray, indexone, indextwo) {
+function listMovies(moviearray, index1, index2) {
 	recentlyadded = '';
 	text = '';
-	for (var pi = indexone; pi < indextwo; pi++) {
+	for (var pi = index1; pi < index2; pi++) {
 		str = moviearray[pi][0].replace(/'/g, "\\'");
 		if (moviearray[pi][3] !== undefined && moviearray[pi][3] === 'Recently Added') {
 			recentlyadded += '<li><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + moviearray[pi][1] + '</span></li>';
@@ -3016,6 +3019,7 @@ function listMovies(moviearray, indexone, indextwo) {
 		}
 	}
 	$("#movielist").html(recentlyadded + text);
+	indextwo = indexone + 20;
 }
 
 function filterMovies(mstr, ystr, gstr, info) {
@@ -3088,7 +3092,7 @@ function appendMovieList() {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
 	DESC = true;
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%">Reset</button></div></div></center>');
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%" disabled>Reset</button></div></div></center>');
 	RESET = false;
 	$("#asc").on('click.cend', function() {
 		changeCend($(this));
@@ -3218,6 +3222,7 @@ function appendMovieList() {
 	$("#moviereset").click(function() {
 		if (RESET) {
 			RESET = false;
+			$("#moviereset").attr('disabled', false);
 			DESC = true;
 			$("#asc, #desc").off('click.cend')
 			$("#asc").on('click.cend', function() {
