@@ -2898,7 +2898,6 @@ function nominateTV(name, list) {
 }
 
 function changeCend(dis) {
-	$("#mlinfo").text('Sorting. Please wait...');
 	dis.off('click.cend');
 	if (DESC) {
 		DESC = false;
@@ -2917,11 +2916,9 @@ function changeCend(dis) {
 			RESET = false;
 		}
 	}
-	setTimeout(function() {
-		dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-		moviearray.reverse();
-		listMovies(moviearray, indexone, indextwo);
-	}, 10);
+	dis.attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
+	moviearray.reverse();
+	listMovies(moviearray, indexone, indextwo);
 }
 
 /*
@@ -2941,66 +2938,63 @@ function changeSort(dis) {
 	if (sortid.attr('id') === dis) {
 		return;
 	}
-	$("#mlinfo").text('Sorting. Please wait...');
-	setTimeout(function() {
-		RESET = true;
-		sortid = $("#"+dis);
-		$('.sortchecks').prop('checked', false).prop('disabled', false);
-		sortid.prop('checked', true).prop('disabled', true);
-		if (dis === "sortalpha") {/*
-			recentlyadded = '<div style="margin:5px 0px 5px 0px">';
-			movietext = '';
-			var mt;
-			if (!DESC) {
-				//$('#movielist').append($('#movielist').children('li').get().reverse());
-				for (mt = Movie_Array.length - 1; mt > -1; mt--) {
-					sortAlpha(mt);
-				}
-			} else {
-				for (mt = 0; mt < Movie_Array.length; mt++) {
-					sortAlpha(mt);
-				}
+	RESET = true;
+	sortid = $("#"+dis);
+	$('.sortchecks').prop('checked', false).prop('disabled', false);
+	sortid.prop('checked', true).prop('disabled', true);
+	if (dis === "sortalpha") {/*
+		recentlyadded = '<div style="margin:5px 0px 5px 0px">';
+		movietext = '';
+		var mt;
+		if (!DESC) {
+			//$('#movielist').append($('#movielist').children('li').get().reverse());
+			for (mt = Movie_Array.length - 1; mt > -1; mt--) {
+				sortAlpha(mt);
 			}
-			//str = Movie_Array[mt][0].replace(/'/g, "\\'");
-			recentlyadded += '</div>';
-			$('#movielist').children().remove();
-			$('#movielist').append(recentlyadded + movietext);
-			$('.gmfl').click(function() {
-				getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
-			});
-			$('.gyt').click(function() {
-				getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
-			});
-			$('.nmm').click(function() {
-				nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '#movielist');
-			});
-			//$('#movielist').children('li').remove();
-			//$('#movielist').append(clonedmovie);*/
-			moviearray.sort(function(a, b) {
-				return a[0].localeCompare(b[0]);
-			});
-			if (!DESC) {
-				moviearray.reverse();
+		} else {
+			for (mt = 0; mt < Movie_Array.length; mt++) {
+				sortAlpha(mt);
 			}
-			listMovies(moviearray, indexone, indextwo);
 		}
-		if (dis === "sortyear") {
-			moviearray.sort(function(a, b) {
-				parsea = parseInt(a[0].match(/\((\d{4})\)/)[1]);
-				parseb = parseInt(b[0].match(/\((\d{4})\)/)[1]);
-				if (parsea < parseb || (parsea === parseb && a[0].localeCompare(b[0]) === -1)) {
-					return 1;
-				}
-				if (parsea > parseb || (parsea === parseb && a[0].localeCompare(b[0]) === 1)) {
-					return -1;
-				}
-			});
-			if (!DESC) {
-				moviearray.reverse();
-			}
-			listMovies(moviearray, indexone, indextwo);
+		//str = Movie_Array[mt][0].replace(/'/g, "\\'");
+		recentlyadded += '</div>';
+		$('#movielist').children().remove();
+		$('#movielist').append(recentlyadded + movietext);
+		$('.gmfl').click(function() {
+			getMovieFromList($(this).parent().text().split('ⓘ ✛ ✇ ')[1]);
+		});
+		$('.gyt').click(function() {
+			getYouTube('', $(this).parent().text().split('ⓘ ✛ ✇ ')[1] + ' trailer', 'end');
+		});
+		$('.nmm').click(function() {
+			nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '#movielist');
+		});
+		//$('#movielist').children('li').remove();
+		//$('#movielist').append(clonedmovie);*/
+		moviearray.sort(function(a, b) {
+			return a[0].localeCompare(b[0]);
+		});
+		if (!DESC) {
+			moviearray.reverse();
 		}
-	}, 10);
+		listMovies(moviearray, indexone, indextwo);
+	}
+	if (dis === "sortyear") {
+		moviearray.sort(function(a, b) {
+			parsea = parseInt(a[0].match(/\((\d{4})\)/)[1]);
+			parseb = parseInt(b[0].match(/\((\d{4})\)/)[1]);
+			if (parsea < parseb || (parsea === parseb && a[0].localeCompare(b[0]) === 1)) {
+				return 1;
+			}
+			if (parsea > parseb || (parsea === parseb && a[0].localeCompare(b[0]) === -1)) {
+				return -1;
+			}
+		});
+		if (!DESC) {
+			moviearray.reverse();
+		}
+		listMovies(moviearray, indexone, indextwo);
+	}
 }
 
 /*$("#movielist > li > span:first-child").filter(function(index) {
@@ -3060,7 +3054,6 @@ function filterMovies(mstr, ystr, gstr, info) {
 	info.text('Found ' + moviearray.length + ' movies matching "' + $("#mlistquery").val().trim()  + '" | "' + $("#ylistquery").val().trim() + '" | "' + $("#glistquery").val().trim()  + '"');
 }
 
-KEYWAIT = setTimeout(function(){},1);
 function appendMovieList() {
 	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'#movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
@@ -3112,7 +3105,7 @@ function appendMovieList() {
 		if (buttontype === 'First') {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			//$(this).parent().next().next().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			//buttonindex = 2;
 			/*nbtn = 1;
 			$('.numberbtn').each(function(ind) {
@@ -3185,7 +3178,7 @@ function appendMovieList() {
 		if (buttontype === 'Last') {
 			$(this).parent().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			$(this).parent().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
-			$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
+			//$(this).parent().prev().prev().addClass('disabled').children('a').attr('style', 'pointer-events:none');
 			//buttonindex = 8;
 			/*nbtn = pagelength - buttonlength;
 			if (nbtn > 0) {
@@ -3220,89 +3213,80 @@ function appendMovieList() {
 		nominateMovie($(this).parent().text().split('ⓘ ✛ ✇ ')[1], '#movielist');
 	});*/
 	//clonedmovie = $('#movielist').children().clone();
-	/*$("#moviereset").click(function() {
+	$("#moviereset").click(function() {
 		if (RESET) {
 			RESET = false;
-			$("#mlinfo").text('Sorting. Your page may briefly freeze. Please wait...');
-			setTimeout(function() {
-				$('#movielist').children().remove();
-				$('#movielist').append(clonedmovie);
-				DESC = true;
-				$("#asc, #desc").off('click.cend')
-				$("#asc").on('click.cend', function() {
-					changeCend($(this));
-				});
-				$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
-				$("#desc").attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
-				sortid = $("#sortby");
-				$('.sortchecks').prop('checked', false).prop('disabled', false);
-				$("#mlistquery, #ylistquery, #glistquery").val('');
-				num = $("#movielist li[style='display: block;']").length;
-				$("#mlinfo").text(num + ' movies');
-			}, 10);
+			DESC = true;
+			$("#asc, #desc").off('click.cend')
+			$("#asc").on('click.cend', function() {
+				changeCend($(this));
+			});
+			$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
+			$("#desc").attr('style', 'cursor:auto;font-weight:900;text-decoration:underline');
+			sortid = $("#sortby");
+			$('.sortchecks').prop('checked', false).prop('disabled', false);
+			$("#mlistquery, #ylistquery, #glistquery").val('');
+			filterMovies('', '', '', $("#mlinfo"));
 		}
-	});*/
+	});
 	//num = $("#movielist li[style='display: block;']").length;
 	//$("#mlinfo").text(num + ' movies');
 	$("#mlistquery, #ylistquery, #glistquery").keyup(function() {
-		clearTimeout(KEYWAIT);
-		$("#mlinfo").text('Searching. Your page may briefly freeze. Please wait...');
-		KEYWAIT = setTimeout(function() {
-			if ($("#mlistquery").val().trim() !== '') {
-				mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-				mvalsplit = mval.split(' ');
-				mlistquery = '';
-				for (var mv = 0; mv < mvalsplit.length; mv++) {
-					mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\).*|.*\\(\\d{4}\\).*' + mvalsplit[mv] + '.*)';
-				}
-				mlistquery += '.*';
-			} else {
-				mlistquery = '';
+		$("#mlinfo").text('Searching. Please wait...');
+		if ($("#mlistquery").val().trim() !== '') {
+			mval = $("#mlistquery").val().trim().replace(/\s+/, ' ').replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+			mvalsplit = mval.split(' ');
+			mlistquery = '';
+			for (var mv = 0; mv < mvalsplit.length; mv++) {
+				mlistquery += '(?=.*' + mvalsplit[mv] + '.*\\(\\d{4}\\).*|.*\\(\\d{4}\\).*' + mvalsplit[mv] + '.*)';
 			}
-			yval = $("#ylistquery").val().trim()
-			if (yval !== '') {
-				if (yval.match(/\d{4}(-|–)\d{0,4}/)) {
-					firstyear = parseInt(yval.match(/(\d{4})(-|–)/)[1]);
-					if (firstyear < 1900) {
-						firstyear = 1900;
-					}
-					secondyear = yval.match(/(-|–)(\d{0,4})/)[2];
-					if (secondyear === '' || parseInt(secondyear) > (new Date).getFullYear()) {
-						secondyear = (new Date).getFullYear();
-					} else {
-						secondyear = parseInt(secondyear);
-					}
-					if (firstyear <= secondyear) {
-						yearrange = [];
-						for (var yr = firstyear; yr <= secondyear; yr++) {
-							if (yr <= secondyear) {
-								yearrange.push(yr);
-							}
-						}
-					} else {
-						yearrange = [firstyear];
-					}
-					ylistquery = '\\((' + yearrange.toString().replace(/,/g, '|') + ')\\)';
+			mlistquery += '.*';
+		} else {
+			mlistquery = '';
+		}
+		yval = $("#ylistquery").val().trim()
+		if (yval !== '') {
+			if (yval.match(/\d{4}(-|–)\d{0,4}/)) {
+				firstyear = parseInt(yval.match(/(\d{4})(-|–)/)[1]);
+				if (firstyear < 1900) {
+					firstyear = 1900;
+				}
+				secondyear = yval.match(/(-|–)(\d{0,4})/)[2];
+				if (secondyear === '' || parseInt(secondyear) > (new Date).getFullYear()) {
+					secondyear = (new Date).getFullYear();
 				} else {
-					ylistquery = '\\(\\d*' + yval.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
+					secondyear = parseInt(secondyear);
 				}
-			} else {
-				ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
-			}
-			if ($("#glistquery").val().trim() !== '') {
-				gval = $("#glistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
-				gvalsplit = gval.split(/, | /);
-				glistquery = '';
-				for (var gv = 0; gv < gvalsplit.length; gv++) {
-					glistquery += '(?=.*' + gvalsplit[gv] + ')'
+				if (firstyear <= secondyear) {
+					yearrange = [];
+					for (var yr = firstyear; yr <= secondyear; yr++) {
+						if (yr <= secondyear) {
+							yearrange.push(yr);
+						}
+					}
+				} else {
+					yearrange = [firstyear];
 				}
-				glistquery += '.*';
+				ylistquery = '\\((' + yearrange.toString().replace(/,/g, '|') + ')\\)';
 			} else {
-				glistquery = '';
+				ylistquery = '\\(\\d*' + yval.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&') + '\\d*\\)';
 			}
-			//searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
-			filterMovies(mlistquery, ylistquery, glistquery, $("#mlinfo"));
-		}, 500);
+		} else {
+			ylistquery = '';//(?=.*\bunrated\b)(?=.*\bstory\b)
+		}
+		if ($("#glistquery").val().trim() !== '') {
+			gval = $("#glistquery").val().trim().split(/,$/)[0].replace(/\s+/, ' ').replace(/[-[\]{}()*+?.\\^$|#]/g, '\\$&');
+			gvalsplit = gval.split(/, | /);
+			glistquery = '';
+			for (var gv = 0; gv < gvalsplit.length; gv++) {
+				glistquery += '(?=.*' + gvalsplit[gv] + ')'
+			}
+			glistquery += '.*';
+		} else {
+			glistquery = '';
+		}
+		//searchStringInArray(mlistquery, ylistquery, glistquery, $("#mlinfo"));
+		filterMovies(mlistquery, ylistquery, glistquery, $("#mlinfo"));
 	});
 }
 
