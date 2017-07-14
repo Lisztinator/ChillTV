@@ -3013,9 +3013,9 @@ function listMovies(moviearray, index1, index2) {
 	for (var pi = index1; pi < index2; pi++) {
 		str = moviearray[pi][0].replace(/'/g, "\\'");
 		if (moviearray[pi][3] !== undefined && moviearray[pi][3] === 'Recently Added') {
-			recentlyadded += '<li><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></span><span class="pull-right">' + moviearray[pi][1] + '</span></li>';
+			recentlyadded += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></td><td class="pull-right">' + moviearray[pi][1] + '</td></tr>';
 		} else {
-			text += '<li><span><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</span><span class="pull-right">' + moviearray[pi][1] + '</span></li>';
+			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td class="pull-right">' + moviearray[pi][1] + '</td></tr>';
 		}
 	}
 	$("#movielist").html(recentlyadded + text);
@@ -3106,7 +3106,7 @@ function appendMovieList() {
 	});
 	//<li class="disabled"><a class="numberbtn" href="javascript:void(0)">1</a></li><li><a class="numberbtn" href="javascript:void(0)">2</a></li><li><a class="numberbtn" href="javascript:void(0)">3</a></li><li><a class="numberbtn" href="javascript:void(0)">4</a></li><li><a class="numberbtn" href="javascript:void(0)">5</a></li><li><a class="numberbtn" href="javascript:void(0)">6</a></li><li><a class="numberbtn" href="javascript:void(0)">7</a></li>
 	body.append('<center><ul id="moviepage" class="pagination" style="width:100%"><li class="disabled"><a href="javascript:void(0)" style="width:15%">First</a></li><li class="disabled"><a href="javascript:void(0)" style="width:15%">«</a></li><li class="disabled"><span id="showing" class="text-info" style="width:40%;cursor:auto;color:#93c !important" disabled>Showing 1-20 of 2761</span></li><li><a href="javascript:void(0)" style="width:15%">»</a></li><li><a href="javascript:void(0)" style="width:15%">Last</a></li></ul></center>');
-	body.append('<ul id="movielist" style="list-style:none;padding-left:0" ></ul>');
+	body.append('<table id="movielist" style="list-style:none;padding-left:0" ></table>');
 	filterMovies('', '', '', $("#mlinfo"));
 	$('#moviepage > li > a').on('click.page', function() {
 		$('#moviepage > li').removeClass('disabled').children('a').attr('style', 'width:15%;pointer-events:auto');;
