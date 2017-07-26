@@ -5298,7 +5298,7 @@ $("#fullscreenbtn").click(function() {
     t && t.call(e)
 });
 */
-$('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maintenance">?</button>').click(function() {
+$('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maintenance">?</button>').appendTo("#playercontrols").click(function() {
     var e = document.querySelector("#main")
       , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
     t && t.call(e)
