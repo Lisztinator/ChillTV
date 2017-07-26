@@ -5296,11 +5296,11 @@ CyTube.ui.changeVideoWidth = function(e) {
     if (/hd/.test(document.body.className))
         throw new Error("ui::changeVideoWidth does not work with the 'hd' layout");
     var t = document.getElementById("videowrap")
-      , a = document.getElementById("leftcontrols")
-      , n = document.getElementById("leftpane")
+      //, a = document.getElementById("leftcontrols")
+      //, n = document.getElementById("leftpane")
       , s = document.getElementById("chatwrap")
-      , o = document.getElementById("rightcontrols")
-      , i = document.getElementById("rightpane")
+      //, o = document.getElementById("rightcontrols")
+      //, i = document.getElementById("rightpane")
       , r = t.className.match(/col-md-(\d+)/);
     if (!r)
         throw new Error("ui::changeVideoWidth: videowrap is missing bootstrap class!");
@@ -5308,11 +5308,11 @@ CyTube.ui.changeVideoWidth = function(e) {
     if (!(l < 1 || l > 11)) {
         var d = 12 - l;
         t.className = "col-md-" + l + " col-lg-" + l,
-        o.className = "col-md-" + l + " col-lg-" + l,
-        i.className = "col-md-" + l + " col-lg-" + l,
+        //o.className = "col-md-" + l + " col-lg-" + l,
+        //i.className = "col-md-" + l + " col-lg-" + l,
         s.className = "col-md-" + d + " col-lg-" + d,
-        a.className = "col-md-" + d + " col-lg-" + d,
-        n.className = "col-md-" + d + " col-lg-" + d,
+        //a.className = "col-md-" + d + " col-lg-" + d,
+        //n.className = "col-md-" + d + " col-lg-" + d,
         handleVideoResize()
     }
 }
