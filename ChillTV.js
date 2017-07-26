@@ -5291,9 +5291,15 @@ function unfullscreenMode() {
 	SOUNDSPANEL ? setPanelProperties($("#sounds-dropdown")) : '';
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
-
+/*
 $("#fullscreenbtn").click(function() {
-    var e = document.querySelector("#videowrap .embed-responsive, #chatwrap")
+    var e = document.querySelector("#videowrap .embed-responsive")
+      , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
+    t && t.call(e)
+});
+*/
+$('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maintenance">?</button>').click(function() {
+    var e = document.querySelector("#main")
       , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
     t && t.call(e)
 });
