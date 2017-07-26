@@ -5302,18 +5302,25 @@ $('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maint
     var e = document.querySelector("#main")
       , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
     t && t.call(e)
+	$("#main").css({"width":"100%"});
+	/*
+	$("#chatwrap").removeClass().addClass('col-lg-1 col-md-1);
+	$("#videowrap").removeClass().addClass('col-lg-11 col-md-11);
+	$("#chatcontrols").hide()
+	$("#messagebuffer").outerHeight($("#videowrap").outerHeight() - $("#chatline").outerHeight())
+	*/
 });
 
-/*
+
 CyTube.ui.changeVideoWidth = function(e) {
     if (/hd/.test(document.body.className))
         throw new Error("ui::changeVideoWidth does not work with the 'hd' layout");
     var t = document.getElementById("videowrap")
-      //, a = document.getElementById("leftcontrols")
-      //, n = document.getElementById("leftpane")
+      , a = document.getElementById("leftcontrols")
+      , n = document.getElementById("leftpane")
       , s = document.getElementById("chatwrap")
-      //, o = document.getElementById("rightcontrols")
-      //, i = document.getElementById("rightpane")
+      , o = document.getElementById("rightcontrols")
+      , i = document.getElementById("rightpane")
       , r = t.className.match(/col-md-(\d+)/);
     if (!r)
         throw new Error("ui::changeVideoWidth: videowrap is missing bootstrap class!");
@@ -5321,14 +5328,14 @@ CyTube.ui.changeVideoWidth = function(e) {
     if (!(l < 1 || l > 11)) {
         var d = 12 - l;
         t.className = "col-md-" + l + " col-lg-" + l,
-        //o.className = "col-md-" + l + " col-lg-" + l,
-        //i.className = "col-md-" + l + " col-lg-" + l,
+        o.className = "col-md-" + l + " col-lg-" + l,
+        i.className = "col-md-" + l + " col-lg-" + l,
         s.className = "col-md-" + d + " col-lg-" + d,
-        //a.className = "col-md-" + d + " col-lg-" + d,
-        //n.className = "col-md-" + d + " col-lg-" + d,
+        a.className = "col-md-" + d + " col-lg-" + d,
+        n.className = "col-md-" + d + " col-lg-" + d,
         handleVideoResize()
     }
-}*/
+}
 
 socket.on("closePoll", function() {
 	$("#closepolls").remove();
