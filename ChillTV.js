@@ -5292,6 +5292,13 @@ function unfullscreenMode() {
 	FONTPANEL ? setPanelProperties($("#fontspanel")) : '';
 }
 
+$("#fullscreenbtn").click(function() {
+    var e = document.querySelector("#videowrap .embed-responsive, #chatwrap")
+      , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
+    t && t.call(e)
+});
+
+/*
 CyTube.ui.changeVideoWidth = function(e) {
     if (/hd/.test(document.body.className))
         throw new Error("ui::changeVideoWidth does not work with the 'hd' layout");
@@ -5315,7 +5322,7 @@ CyTube.ui.changeVideoWidth = function(e) {
         //n.className = "col-md-" + d + " col-lg-" + d,
         handleVideoResize()
     }
-}
+}*/
 
 socket.on("closePoll", function() {
 	$("#closepolls").remove();
