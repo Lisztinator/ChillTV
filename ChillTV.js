@@ -5298,19 +5298,19 @@ $("#fullscreenbtn").click(function() {
     t && t.call(e)
 });
 */
+/*
 $('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maintenance">?</button>').appendTo("#playercontrols").click(function() {
     var e = document.querySelector("#main")
       , t = e.requestFullscreen || e.mozRequestFullScreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
     t && t.call(e)
 	$("#main").css({"width":"100%"});
-	/*
+
 	$("#chatwrap").removeClass().addClass('col-lg-1 col-md-1);
 	$("#videowrap").removeClass().addClass('col-lg-11 col-md-11);
 	$("#chatcontrols").hide()
 	$("#messagebuffer").outerHeight($("#videowrap").outerHeight() - $("#chatline").outerHeight())
-	*/
 });
-
+*/
 
 CyTube.ui.changeVideoWidth = function(e) {
     if (/hd/.test(document.body.className))
