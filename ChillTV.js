@@ -2748,7 +2748,7 @@ function getPlaylistURLs() {
 	$('<h6>Up Next: </h6><a id="link2" href="' + item2 + '" target="_blank">' + title2 + '</a><br /><br />').appendTo(body);
 }
 
-pinupbtn = $('<button id="pinup-btn" class="btn btn-sm btn-default" title="Pin playlist to player" />')
+/*pinupbtn = $('<button id="pinup-btn" class="btn btn-sm btn-default" title="Pin playlist to player" />')
 	.append('<span class="glyphicon glyphicon-pushpin" />')
 	.prependTo("#videocontrols")
 	.on("click", function() {
@@ -2758,10 +2758,10 @@ pinupbtn = $('<button id="pinup-btn" class="btn btn-sm btn-default" title="Pin p
 		scrollQueue();
 		scrollChat();
 	});
-
+*/
 advplaylist = $('<button id="advplaylist" class="btn btn-sm btn-default" title="Advanced options" />')
 	.append('<span class="glyphicon glyphicon-wrench" />')
-	.insertAfter("#pinup-btn")
+	.insertBefore("#getem")
 	.on("click", function() {
 		toggleDiv(advplcontrols);
 		if ($(this).hasClass('btn-default')) {
