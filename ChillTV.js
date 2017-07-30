@@ -5327,6 +5327,11 @@ CyTube.ui.changeVideoWidth = function(e) {
     var l = parseInt(r[1], 10) + e;
     if (!(l < 1 || l > 11)) {
         var d = 12 - l;
+	if (l === 11) {
+		$('#db-btn, #modflair').hide();
+	} else {
+		$('#db-btn, #modflair').show();
+	}
         t.className = "col-md-" + l + " col-lg-" + l,
         //o.className = "col-md-" + l + " col-lg-" + l,
         //i.className = "col-md-" + l + " col-lg-" + l,
