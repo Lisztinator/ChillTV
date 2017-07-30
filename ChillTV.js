@@ -5340,6 +5340,7 @@ CyTube.ui.changeVideoWidth = function(e) {
         //i.className = "col-md-" + l + " col-lg-" + l,
         s.className = "col-md-" + d + " col-lg-" + d,
 	$('#chatwrap').height($('#videowrap').height()),
+	scrollChat(),
         //a.className = "col-md-" + d + " col-lg-" + d,
         //n.className = "col-md-" + d + " col-lg-" + d,
         handleVideoResize()
