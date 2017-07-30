@@ -5313,6 +5313,7 @@ $('<button id="fulldisplaybtn" class="btn btn-sm btn-default" title="Under Maint
 */
 
 CyTube.ui.changeVideoWidth = function(e) {
+	clearInterval(FIXHEIGHT);
     if (/hd/.test(document.body.className))
         throw new Error("ui::changeVideoWidth does not work with the 'hd' layout");
     var t = document.getElementById("videowrap")
@@ -5328,19 +5329,28 @@ CyTube.ui.changeVideoWidth = function(e) {
     if (!(l < 1 || l > 11)) {
         var d = 12 - l;
 	if (l === 11) {
+		$('#usercount').attr('display', 'display:block');
 		$('#db-btn, #modflair').hide();
 	} else {
+		$('#usercount').attr('display', 'display:initial');
 		$('#db-btn, #modflair').show();
 	}
         t.className = "col-md-" + l + " col-lg-" + l,
         //o.className = "col-md-" + l + " col-lg-" + l,
         //i.className = "col-md-" + l + " col-lg-" + l,
         s.className = "col-md-" + d + " col-lg-" + d,
+	$('#chatwrap').height($('#videowrap').height()),
         //a.className = "col-md-" + d + " col-lg-" + d,
         //n.className = "col-md-" + d + " col-lg-" + d,
         handleVideoResize()
     }
 }
+
+$('#chatheader').children().each(function() {
+	$(this).click(function() {
+		clearInterval(FIXHEIGHT);
+	});
+});
 
 socket.on("closePoll", function() {
 	$("#closepolls").remove();
