@@ -5329,10 +5329,10 @@ CyTube.ui.changeVideoWidth = function(e) {
     if (!(l < 1 || l > 11)) {
         var d = 12 - l;
 	if (l === 11) {
-		$('#usercount').attr('display', 'display:block');
+		$('#usercount').attr('style', 'display:block');
 		$('#db-btn, #modflair').hide();
 	} else {
-		$('#usercount').attr('display', 'display:initial');
+		$('#usercount').attr('style', 'display:initial');
 		$('#db-btn, #modflair').show();
 	}
         t.className = "col-md-" + l + " col-lg-" + l,
