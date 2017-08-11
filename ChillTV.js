@@ -2834,12 +2834,12 @@ if (CLIENT.rank > 1) {
 		});
 }
 
-scrollbtn = $('<button id="scroll-btn" class="btn btn-sm btn-default" title="Scroll playlist to current item" />')
+/*scrollbtn = $('<button id="scroll-btn" class="btn btn-sm btn-default" title="Scroll playlist to current item" />')
 	.append('<span class="glyphicon glyphicon-hand-right" />')
 	.insertBefore("#voteskip")
 	.on("click", function() {
 		scrollQueue();
-	});
+	});*/
 
 unshared = 0;
 untouched = 0;
