@@ -2618,6 +2618,7 @@ TV_Array = [
 ['S07E02 - Stormborn', '', '0B-AOAVCN8L-EVVRuV3AxMDNxbkE'],
 ['S07E03 - The Queen\'s Justice', '', '0B-AOAVCN8L-EWkUzaUd2LWZBblE'],
 ['S07E04 - The Spoils of War', '', '0B-AOAVCN8L-ENWVLM29wUDQtRzA'],
+['S07E05 - Eastwatch', '', '0B17cV_iu9um-ZHlfOVphZ2MzTFk'],
 ['Sex and Nudity: The Complete Collection', '', '0B9hOhGLF4ciPOE1TejdYeVdjUWc'],
 ['Garfield and Friends (1988–1995)', 'Animation, Comedy'],
 ['S01E01', '', '0B3mPgOxNdTUyRG9LcDVtRHJhVDA'],
