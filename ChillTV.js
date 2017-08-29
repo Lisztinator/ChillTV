@@ -1180,6 +1180,8 @@ function setUserCSS() {
 	+ '\n .dist {background-color:gold; color:red; font-size:12pt; font-family:times new roman; padding:3px}'
 	+ '\n '
 	+ '\n table td {max-width:none; color:#c8c8c8}';
+	+ '\n '
+	+ '\n table th {color:#c8c8c8}';
 
 	$("head").append('<style id="chanexternalcss-fix" type="text/css">' + cssfix + '</style>');
 	$("#usertheme").attr('href', '/css/themes/cyborg.css');
@@ -3308,7 +3310,7 @@ function appendMovieList() {
 function createMovieList() {
 	createTemp('Nominate a Movie from This List');
 	$("body").css('overflow', 'hidden');
-	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 900px !important');
+	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 1000px !important');
 	$("#mlistmodal").on("hidden.bs.modal", function() {
 		MOVLIST = false;
 		$("#mlistmodal").remove();
