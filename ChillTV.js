@@ -1178,7 +1178,8 @@ function setUserCSS() {
 	+ '\n .covered {visibility:hidden}'
 	+ '\n '
 	+ '\n .dist {background-color:gold; color:red; font-size:12pt; font-family:times new roman; padding:3px}'
-	+ '\n ';
+	+ '\n '
+	+ '\n table td {max-width:none; color:#c8c8c8}';
 
 	$("head").append('<style id="chanexternalcss-fix" type="text/css">' + cssfix + '</style>');
 	$("#usertheme").attr('href', '/css/themes/cyborg.css');
@@ -3013,9 +3014,9 @@ function listMovies(moviearray, index1, index2) {
 	for (var pi = index1; pi < index2; pi++) {
 		str = moviearray[pi][0].replace(/'/g, "\\'");
 		if (moviearray[pi][3] !== undefined && moviearray[pi][3] === 'Recently Added') {
-			recentlyadded += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></td><td class="pull-right">' + moviearray[pi][1] + '</td></tr>';
+			recentlyadded += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></td><td class="pull-right">' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td><td>' + moviearray[pi][moviearray[pi].length - 1] + '</td></tr>';
 		} else {
-			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td class="pull-right">' + moviearray[pi][1] + '</td></tr>';
+			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td class="pull-right">' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td><td>' + moviearray[pi][moviearray[pi].length - 1] + '</td></tr>';
 		}
 	}
 	$("#movielist").html(recentlyadded + text);
