@@ -3019,7 +3019,7 @@ function listMovies(moviearray, index1, index2) {
 			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td>' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td><td>' + moviearray[pi][moviearray[pi].length - 1] + '</td></tr>';
 		}
 	}
-	$("#movielist").html(recentlyadded + text);
+	$("#movielist").html('<tr><th>Title</th><th>Genre</th><th>MPAA</th><th>IMDb</th><th>RT</th><th>Meta</th></tr>' + recentlyadded + text);
 	indextwo = indexone + 20;
 }
 
@@ -3308,7 +3308,7 @@ function appendMovieList() {
 function createMovieList() {
 	createTemp('Nominate a Movie from This List');
 	$("body").css('overflow', 'hidden');
-	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 800px !important');
+	outer.attr('id', 'mlistmodal').children('.modal-dialog.modal-dialog-nonfluid').attr('style', 'max-width: 900px !important');
 	$("#mlistmodal").on("hidden.bs.modal", function() {
 		MOVLIST = false;
 		$("#mlistmodal").remove();
