@@ -5219,7 +5219,7 @@ function addShare(part1, part2, part3, part4, part5, element, name) {
 	if (!CAREFUL) {
 		$('.trailertext').text('You\'re adding too fast.');
 	}
-	if (part1 !== 'undefined' && part1 !== '' && part1 !== undefined && part1 !== 'Recently Added' && CAREFUL && hasPermission("playlistadd")) {
+	if (part1 !== 'undefined' && part1 !== '' && part1 !== undefined && part1 !== 'Recently Added' && part1.length > 20 && CAREFUL && hasPermission("playlistadd")) {
 		$('.trailertext').text('Loading...');
 		CAREFUL = false;
 		$.ajax({
