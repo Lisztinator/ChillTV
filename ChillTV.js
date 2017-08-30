@@ -3030,7 +3030,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 	rafound = 0;
 	for (var na = 0; na < Movie_Array.length; na++) {
 		if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
-			if (Movie_Array[na][3] !== undefined && Movie_Array[na][3] === 'Recently Added') {
+			if (Movie_Array[na][7] !== undefined && Movie_Array[na][7] === 'Recently Added') {
 				moviearray.splice(rafound, 0, Movie_Array[na]);
 				rafound += 1;
 			} else {
@@ -3467,7 +3467,12 @@ function getMovies(sMovie, pagenum) {
 						'href': url,
 						'target': '_blank'
 					}).text(url);
-					MContainer.find('.rtinfo').text('Tomato Meter: ' + oData.Ratings[1] + '% ' + oData.tomatoImage + ' | Average Rating: ' + oData.tomatoRating + ' | Reviews Counted: ' + oData.tomatoReviews + ', Fresh: ' + oData.tomatoFresh + ', Rotten: ' + oData.tomatoRotten);
+					if (oData.Ratings[1] !== undefined && oData.Ratings[1].Source === 'Rotten Tomatoes') {
+						tomatorating = oData.Ratings[1].Value;
+					} else {
+						tomatorating = 'N/A';
+					}
+					MContainer.find('.rtinfo').text('Tomato Meter: ' + tomatorating + ' ' + oData.tomatoImage + ' | Average Rating: ' + oData.tomatoRating + ' | Reviews Counted: ' + oData.tomatoReviews + ', Fresh: ' + oData.tomatoFresh + ', Rotten: ' + oData.tomatoRotten);
 					MContainer.find('.rtplot').text('Critics Consensus: ' + oData.tomatoConsensus);
 					MContainer.find('.rtcast').text('Users: ' + oData.tomatoUserMeter + '% liked it, ' + oData.tomatoUserRating + '/5 average rating, ' + oData.tomatoUserReviews + ' reviews');
 					MContainer.find('.prtlink').text('More Info: ');
