@@ -64,7 +64,7 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>7/8/17</b><li>Multiple improvements on search functionality in the movie and tv lists.</li></ul>'],
+	['Updates', '<ul><b>8/29/17</b><li>MPAA, IMDb, RT, and Meta ratings have been added to the movie list. These are sortable too.</li><li>Tomatometer score and/or URL has been added back to Movie/TV Info and the \'!movie\' command. Other RT info is no longer supported by OMDb API.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Google-Drive-Userscript-Installation-Guide">Google Drive Userscript Installation Guide and Troubleshooting</a></li></ul>'],
@@ -5020,8 +5020,13 @@ function omdbAjax() {
 		complete: function(data) {
 			oData = $.parseJSON(data.responseText);
 			if (oData.Title !== undefined) {
+				if (oData.Ratings[1] !== undefined && oData.Ratings[1].Source === 'Rotten Tomatoes') {
+					tomatoscore = oData.Ratings[1].Value;
+				} else {
+					tomatoscore = 'N/A';
+				}
 				socket.emit("chatMsg", {
-					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + oData.Title + ' (' + oData.Year + ') | ' + oData.Rated + ' | ' + oData.Runtime + ' | ' + oData.Genre + ' | IMDb: ' + oData.imdbRating + ' | RT: ' + oData.tomatoMeter + ' | Dir: ' + oData.Director + ' | Act: ' + oData.Actors + ' | ' + oData.Awards + ' | ' + oData.Language + ' | ' + oData.Country
+					msg: CHAVATAR + 'p~i~c' + TYPEFONT + TYPEITALIC + TYPEBOLD + TYPEUNDER + TYPEFAMILY + '➥ ' + oData.Title + ' (' + oData.Year + ') | ' + oData.Rated + ' | ' + oData.Runtime + ' | ' + oData.Genre + ' | IMDb: ' + oData.imdbRating + ' | RT: ' + tomatoscore + ' | Dir: ' + oData.Director + ' | Act: ' + oData.Actors + ' | ' + oData.Awards + ' | ' + oData.Language + ' | ' + oData.Country
 				});
 			} else {
 				socket.emit("chatMsg", {
