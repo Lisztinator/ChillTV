@@ -2916,7 +2916,13 @@ function changeCend(dis) {
 			changeCend($(this));
 		});
 		$("#asc").attr('style', 'cursor:pointer;font-weight:normal;text-decoration:none');
-		if ($("#sortalpha").prop('checked') === false && $("#sortyear").prop('checked') === false) {
+		PROPCHECKED = false;
+		$('.sortchecks').each(function() {
+			if ($(this).prop('checked')) {
+				PROPCHECKED = true;
+			}
+		});
+		if (!PROPCHECKED) {
 			RESET = false;
 			$("#moviereset").attr('disabled', true);
 		}
