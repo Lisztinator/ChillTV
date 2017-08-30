@@ -1181,7 +1181,7 @@ function setUserCSS() {
 	+ '\n '
 	+ '\n table td {max-width:none; color:#c8c8c8}';
 	+ '\n '
-	+ '\n table th {color:#c8c8c8}';
+	+ '\n th {color:#c8c8c8}';
 
 	$("head").append('<style id="chanexternalcss-fix" type="text/css">' + cssfix + '</style>');
 	$("#usertheme").attr('href', '/css/themes/cyborg.css');
@@ -3001,6 +3001,32 @@ function changeSort(dis) {
 		}
 		listMovies(moviearray, indexone, indextwo);
 	}
+	if (dis === "sortimdb") {
+		moviearray.sort(function(a, b) {
+			if (a[a.length - 1] === 'Recently Added') {
+				aindex = a.length - 4;
+			} else {
+				aindex = a.length - 3;
+			}
+			if (b[b.length - 1] === 'Recently Added') {
+				bindex = b.length - 4;
+			} else {
+				bindex = b.length - 3;
+			}
+			parsea = parseFloat(a[aindex]);
+			parseb = parseFloat(b[bindex]);
+			if (parsea < parseb || (parsea === parseb && a[0].localeCompare(b[0]) === 1)) {
+				return 1;
+			}
+			if (parsea > parseb || (parsea === parseb && a[0].localeCompare(b[0]) === -1)) {
+				return -1;
+			}
+		});
+		if (!DESC) {
+			moviearray.reverse();
+		}
+		listMovies(moviearray, indexone, indextwo);
+	}
 }
 
 /*$("#movielist > li > span:first-child").filter(function(index) {
@@ -3098,7 +3124,7 @@ function appendMovieList() {
 		body.append('<span id="numofuns" class="text-info">Items Unshared: <span class="unshared">'+unshared+'</span> | Items Untouched: <span class="untouched">'+untouched+'</span> | Files Skipped: <span class="skipped">'+skipped+'</span> | Files Iterated: <span class="numfiles">'+numfiles+'</span></span>');
 	}
 	DESC = true;
-	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby" style="width: 20%"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%" disabled>Reset</button></div></div></center>');
+	body.append('<center><div id="sortby" style="margin: 5px 0 5px 0"><div style="width: 15%;display: inline-block;font-weight: 900">Sort: </div><div style="width: 15%;display: inline-block"><a id="desc" style="font-weight:900;text-decoration:underline">Desc⮟</a> <a id="asc" style="cursor:pointer">Asc⮝</a></div><div id="sortboxes" style="width:70%;display:inline-block"><label class="checkbox-inline sortby"><input type="checkbox" id="sortalpha" class="sortchecks" value="no"> Alphabetical</label><label class="checkbox-inline sortby"><input type="checkbox" class="sortchecks" id="sortyear" value="no"> Year</label><label class="checkbox-inline sortby"><input type="checkbox" id="sortmpaa" class="sortchecks" value="no"> MPAA</label><label class="checkbox-inline sortby"><input type="checkbox" id="sortimdb" class="sortchecks" value="no"> IMDb</label><label class="checkbox-inline sortby"><input type="checkbox" id="sortrt" class="sortchecks" value="no"> RT</label><label class="checkbox-inline sortby"><input type="checkbox" id="sortmeta" class="sortchecks" value="no"> Meta</label><button id="moviereset" class="btn btn-xs btn-default" style="width:20%" disabled>Reset</button></div></div></center>');
 	RESET = false;
 	$("#asc").on('click.cend', function() {
 		changeCend($(this));
