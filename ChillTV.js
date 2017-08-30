@@ -3001,6 +3001,40 @@ function changeSort(dis) {
 		}
 		listMovies(moviearray, indexone, indextwo);
 	}
+	if (dis === "sortmpaa") {
+		mpaaarray = ["N/A", "NOT RATED", "UNRATED", "TV-Y", "TV-Y7", "TV-G", "G", "PASSED", "APPROVED", "GP", "M/PG", "M", "TV-PG", "PG", "PG-13", "TV-14", "TV-MA", "R", "X", "NC-17"];
+		moviearray.sort(function(a, b) {
+			if (a[a.length - 1] === 'Recently Added') {
+				aindex = a.length - 5;
+			} else {
+				aindex = a.length - 4;
+			}
+			if (b[b.length - 1] === 'Recently Added') {
+				bindex = b.length - 5;
+			} else {
+				bindex = b.length - 4;
+			}
+			for (var mp = 0; mp < mpaaarray.length; mp++) {
+				if (a[aindex] === mpaaarray[mp]) {
+					ampaaindex = mp;
+				}
+				if (b[bindex] === mpaaarray[mp]) {
+					bmpaaindex = mp;
+				}
+			}
+			if (ampaaindex < bmpaaindex || (ampaaindex === bmpaaindex && a[0].localeCompare(b[0]) === 1)) {
+				return 1;
+			}
+			if (ampaaindex > bmpaaindex || (ampaaindex === bmpaaindex && a[0].localeCompare(b[0]) === -1)) {
+				return -1;
+			}
+			
+		});
+		if (!DESC) {
+			moviearray.reverse();
+		}
+		listMovies(moviearray, indexone, indextwo);
+	}
 	if (dis === "sortimdb") {
 		moviearray.sort(function(a, b) {
 			if (a[a.length - 1] === 'Recently Added') {
