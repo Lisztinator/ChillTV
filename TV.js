@@ -2620,6 +2620,7 @@ TV_Array = [
 ['S07E04 - The Spoils of War', '', '0B-AOAVCN8L-ENWVLM29wUDQtRzA'],
 ['S07E05 - Eastwatch', '', '0B17cV_iu9um-ZHlfOVphZ2MzTFk'],
 ['S07E06 - Beyond the Wall', '', '0B17cV_iu9um-d2h5VERGcXkwNlU'],
+['S07E07 - The Dragon and the Wolf', '', '0B1LIHkX0y-lnNEZTd095cmhrREk'],
 ['Sex and Nudity: The Complete Collection', '', '0B9hOhGLF4ciPOE1TejdYeVdjUWc'],
 ['Garfield and Friends (1988–1995)', 'Animation, Comedy'],
 ['S01E01', '', '0B3mPgOxNdTUyRG9LcDVtRHJhVDA'],
