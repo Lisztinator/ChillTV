@@ -728,7 +728,7 @@ Movie_Array = [
 ["Desperado (1995)","Action, Crime, Thriller","0B1TePj5vJj7mUGZNdGstTzc1NkU","R","7.2","62","55"],
 ["Despicable Me (2010)","Animation, Adventure, Comedy","0B5xN5zD6a03OQlB1cjZMTm9MUVk","PG","7.7","81","72"],
 ["Despicable Me 2 (2013)","Animation, Comedy, Family","0B9hOhGLF4ciPbHNqVlJRWEhCVG8","0B9hOhGLF4ciPMktlY09PYkswRVE","PG","7.4","73","62"],
-["Despicable Me 3 (2017)","Animation, Action, Adventure","0B1LIHkX0y-lnYUpkTEdWNnhlZjA","","","","","Recently Added"],
+["Despicable Me 3 (2017)","Animation, Action, Adventure","0B1LIHkX0y-lnYUpkTEdWNnhlZjA","PG","6.4","61","49","Recently Added"],
 ["Detachment (2011)","Drama","0Bwjx3gpy0_MwZy1xQ1BWRDg4X0U","NOT RATED","7.7","57","52"],
 ["Detention (2003)","Action, Drama, Thriller","0B4ImsDopq4_FakdXVjNNNF9rQ2M","R","4.3","N/A","N/A"],
 ["Detention (2011)","Comedy, Horror, Sci-Fi","0B_F_V9jIQXymV0x2UjVyelU2czA","R","5.8","38","45"],
