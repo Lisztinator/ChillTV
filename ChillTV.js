@@ -79,7 +79,7 @@ AskAnswers_Array = [
 	'Forget about it.',
 ];
 
-SoundFilters_Array = {
+/*SoundFilters_Array = {
 	':laugh:': 'https://dl.dropboxusercontent.com/s/9aqa1buu3phvpss/laugh.ogg',
 	':assandtitties:': 'https://dl.dropboxusercontent.com/s/7l35syfayj0nz0w/Three_6_Mafia_-_Ass_Titties%20%281%29.wav?dl=0',
 	':calmdown:': 'https://dl.dropboxusercontent.com/s/v27nekjo0fdxoxe/What_Really_Happened_To_Abe_Lincoln_uncensored_.wav?dl=0',
@@ -89,7 +89,7 @@ SoundFilters_Array = {
 	':burp:': 'https://www.freesound.org/data/previews/101/101182_1163762-lq.mp3',
 	':mow:': 'https://www.freesound.org/data/previews/60/60960_718003-lq.mp3',
 	':moo:': 'https://www.freesound.org/data/previews/243/243343_2073169-lq.mp3',
-};
+};*/
 
 ModPanel_Array = [
 	['', '<span>COMMANDS:</span><br /><br /><ul><li><code>/m</code> - add rank color to your username</li><li><code>/clear</code> - clear chat for everyone</li><li><code>/d</code> - take a drink (people with leader can use this too, add a positive or negative number to add/subtract total drinks, e.g. <i>/d, /d4, /d-7</i>)</li><li><code>!next</code> - force skip to next video</li><li><code>!bump</code> - bump last item on playlist to next</li><li><code>!delete</code> - delete last item on playslist</li><li><code>!ytnext</code> - add the first result youtube video from your search term next on the playlist (e.g. <i>!ytnext fail compilation</i>)</li><li><code>!award</code> - award someone cash in case the bot didn\'t pick up on a misspelled or incomplete answer. DO NOT award cash for any other reason. DO NOT subtract cash for any reason but to fix a mistake you made when awarding it in the first place. (e.g. <i>!award 400 to ChillTVBot</i>)</li><li><code>!resettrivia</code> - If trivia stopped working, use this command to reset it. DO NOT use this to cheat and sift through questions you are able to win</li><li><code>!resetvideoadder</code> - the bot checks the playlist every 30 seconds and will add up to 3 videos if polling is off. If this seems broken, use this command to reset it</li><li><code>!refresh</code> - refresh the bot entirely</li><li><code>!title</code> - This changes the title that shows on the CyTube homepage as well as the tab of the channel. An argument of \'0\' erases the title. (e.g. <i>!title Marvel Marathon!</i> OR <i>!title 0</i>)</li><li><code>!poll</code> - turn polling on or off.</li></ul>'],
@@ -225,13 +225,13 @@ function storeOpts() {
 var SAVETEXTARRAY = [];
 var AVATARARRAY = [];
 var POINTSARRAY = [['Benny91', 0]];
-var SAVEVOLUME = getOrDefault(CHANNEL.name + "_savevolume", 100);
+//var SAVEVOLUME = getOrDefault(CHANNEL.name + "_savevolume", 100);
 var POINTSARRAY = getOrDefault(CHANNEL.name + "_pointsarray", POINTSARRAY);
 var AVATARARRAY = getOrDefault(CHANNEL.name + "_avatararray", AVATARARRAY);
 var USERTHEME = getOrDefault(CHANNEL.name + "_theme", DEFTHEME);
 var FLUID = getOrDefault(CHANNEL.name + "_fluid", true);
 var LAYOUTBOX = getOrDefault(CHANNEL.name + "_layoutbox", false);
-var SOUNDSLVL = getOrDefault(CHANNEL.name + "_soundslvl", 2);
+//var SOUNDSLVL = getOrDefault(CHANNEL.name + "_soundslvl", 2);
 var TYPEFONT = getOrDefault(CHANNEL.name + "_typefont", '');
 var HIGHFONT = getOrDefault(CHANNEL.name + "_highfont", '');
 var TYPEFAMILY = getOrDefault(CHANNEL.name + "_typefamily", '');
@@ -250,8 +250,8 @@ var POLLAREA = getOrDefault(CHANNEL.name + "_pollarea", true);
 var PLAYLIST = getOrDefault(CHANNEL.name + "_playlist", true);
 var SEARCHBUTTONS = getOrDefault(CHANNEL.name + "_searchbuttons", true);
 var LISTBUTTONS = getOrDefault(CHANNEL.name + "_listbuttons", true);
-var MUTESOUND = getOrDefault(CHANNEL.name + "_mutesound", true);
-var USERSOUND = getOrDefault(CHANNEL.name + "_usersound", true);
+//var MUTESOUND = getOrDefault(CHANNEL.name + "_mutesound", true);
+//var USERSOUND = getOrDefault(CHANNEL.name + "_usersound", true);
 var FULLSCREEN = getOrDefault(CHANNEL.name + "_fullscreen", true);
 var DEFDESCR = getOrDefault(CHANNEL.name + "_defdescr", true);
 var HIDEPLAYER = getOrDefault(CHANNEL.name + "_hideplayer", true);
@@ -265,9 +265,9 @@ var MOTDYES = getOrDefault(CHANNEL.name + "_motdyes", true);
 var REMOVEVID = false;
 var NOPLAYER = false;
 var COMMAND = false;
-var VOICES = true;
+//var VOICES = true;
 var NEWS = false;
-var SOUNDSPANEL = false;
+//var SOUNDSPANEL = false;
 var FONTPANEL = false;
 var CHAVE = false;
 var CHATAVE = false;
@@ -276,12 +276,12 @@ var FULLPL = false;
 var LAYOUT = false;
 
 var BGCHANGE = 0;
-var MUTEDVOICES = new Array([]);
+//var MUTEDVOICES = new Array([]);
 var HASH = '';
 var UPHASH = '';
 
 WEBKIT = "webkitRequestAnimationFrame" in window;
-SOUNDSVALUES = new Array(0, 0.2, 0.4, 0.6, 0.8, 1);
+//SOUNDSVALUES = new Array(0, 0.2, 0.4, 0.6, 0.8, 1);
 IMBA = new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg");
 
 function toggleDiv(div) {
@@ -1223,8 +1223,8 @@ function showChatHelp() {
 		'skip': 'voteskip current item (e.g. <i>!skip</i>)',
 		'add': 'adding a link to the end of playlist (e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
 		'party': 'take off your pants and dance (seizure warning, e.g. <i>!party</i>)',
-		'say': 'text-to-speech robot voice in english (e.g. <i>!say Hello World!</i>)',
-		'spn': 'text-to-speech robot voice with spanish accent (e.g. <i>!spn \'Ello papi</i>)',
+		//'say': 'text-to-speech robot voice in english (e.g. <i>!say Hello World!</i>)',
+		//'spn': 'text-to-speech robot voice with spanish accent (e.g. <i>!spn \'Ello papi</i>)',
 		'boop': 'make a boop sound to get people\'s attention (e.g. <i>!boop</i>)',
 	}
 	body.append('<strong>Script Commands</strong><br /><br />');
@@ -1252,13 +1252,13 @@ function showChatHelp() {
 	body.append('<br /><strong>ChillTVBot Commands<br /><br />');
 	html1 = '<li><code>!a</code> - answer a trivia question asked by the bot (e.g. <i>!a george washington</i>)</li><li><code>!bot</code> - say something to the bot and get a reply (e.g. <i>!bot hi, how are you</i>)</li><li><code>!poker</code> - start a round of Texas Hold\'em <u><a href="https://www.youtube.com/watch?v=cnm_V7A-G6c" target="_blank">Learn Texas Hold\'em in Less Than 4 Minutes!</a></u> (Some rules differ: High cards are shared, no sidepots, max bet/raise is the lowest balance, lowest balance bets first, blind is always $100, free $1000 buy-in for balances of $0) (e.g. <i>!poker</i>)</li><li><code>!total</code> - check the amount of cash you have or check how much someone else has (e.g. <i>!total</i> OR <i>!total ChillTVBot</i>)</li><li><code>!give</code> - give someone (currently online) any amount of your cash, optionally with a reason. (e.g. <i>!give 500 to ChillTVBot</i> OR <i>!give 500 to ChillTVBot for being my friend</i>)</li><li><code>!makeitrain</code> - give 0.5% of your cash divided evenly to all currently online active trivia players with a make-it-rain gif from giphy (e.g. <i>!makeitrain</i>)</li><li><code>!leaderboard</code> - View the trivia leaderboard (e.g. <i>!leaderboard</i>)</li><li><code>!nominatemovie</code> - Nominate a movie or movie marathon. Use the format "title (year)" or "title Marathon". (e.g. <i>!nominatemovie Batman (1989)</i> OR <i>!nominatemovie Alien Marathon</i>)</li><li><code>!nominatetv</code> - Nominate a tv episode or marathon. User the format "Title (Year(-)(Year)) S00E00(E00)(a/b/c)" (e.g. <i>!nominatetv 2 Stupid Dogs (1993–1995) S01E02a</i> OR <i>!nominatetv Game of Thrones (2011–) Marathon</i>)</li><li><code>!createemote</code> - create an emote with a name between two colons and an image url (e.g. <i>!createemote :cool: https://url.gif</i>)</li>';
 	$('<ul />').html(html1).appendTo(body);
-	body.append('<br /><strong>Sound Commands</strong><br /><br />');
+	/*body.append('<br /><strong>Sound Commands</strong><br /><br />');
 	html2 = '<li><code>:laugh:</code> | <code>:assandtitties:</code> | <code>:calmdown:</code> | <code>:gawddangitbobbeh:</code> | <code>:imoldgregg:</code> | <code>:poop:</code> | <code>:burp:</code> | <code>:mow:</code> | <code>:moo:</code></li>';
-	$('<ul />').html(html2).appendTo(body);
+	$('<ul />').html(html2).appendTo(body);*/
 }
 
-voicesbtn = $('<span id="db-btn" class="label label-default pull-right pointer" title="Chat Volume">Volume</span>');
-
+//voicesbtn = $('<span id="db-btn" class="label label-default pull-right pointer" title="Chat Volume">Volume</span>');
+/*
 function showSoundsPanel() {
 	$("#userlist").append('<div id="sounds-dropdown" />');
 	setPanelProperties("#sounds-dropdown");
@@ -1323,7 +1323,7 @@ function showSoundsPanel() {
 	});
 }
 !MUTESOUND ? VOICES = false && $("#muteall-btn").text('Unmute All').addClass('btn-danger') : '';
-
+*/
 function showModPanel() {
 	createTemp("Moderator Panel");
 	$("body").css('overflow', 'hidden');
@@ -2058,7 +2058,7 @@ chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" title=
 		showChatHelp();
 	});
 
-voicesbtn.insertBefore("#modflair")
+/*icesbtn.insertBefore("#modflair")
 	.on("click", function() {
 		if (voicesbtn.hasClass('label-success') && !FULLSCREEN) {
 			$("#userlist").hide();
@@ -2082,6 +2082,8 @@ voicesbtn.insertBefore("#modflair")
 		scrollChat();
 	});
 !VOICES ? $("#db-btn").attr('title', 'Unmute chat voices').removeClass('label-default').addClass('btn-danger') : '';
+*/
+$("#modflair").remove();
 
 modbtn = $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show Moderators Panel" />')
 	.html('<i class="glyphicon glyphicon-tasks"></i>')
@@ -4650,10 +4652,10 @@ $('#messagebuffer > div > span > strong.username').each(function() {
 $('.avatarnothing').prev().remove();
 $('.avatarnothing').parent().text().trim();
 
-_chatBuffer = addChatMessage;
+//_chatBuffer = addChatMessage;
 
-SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
-
+//SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
+/*
 addChatMessage = function(data) {
 	if (VOICES && (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == "0")) {
 		for (var i in SoundFilters_Array) {
@@ -4679,7 +4681,7 @@ addChatMessage = function(data) {
 		}
 	}
 	_chatBuffer(data);
-}
+}*/
 
 $(document).on("keydown", function(ev) {
 	if (ev.keyCode == 13 && !$("input").is(":focus")) {
