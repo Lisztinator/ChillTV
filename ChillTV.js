@@ -64,7 +64,7 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>8/29/17</b><li>MPAA, IMDb, RT, and Meta ratings have been added to the movie list. These are sortable too.</li><li>Tomatometer score and/or URL has been added back to Movie/TV Info and the \'!movie\' command. Other RT info is no longer supported by OMDb API.</li></ul>'],
+	['Updates', '<ul><b>8/29/17</b><li>MPAA, IMDb, RT, and Meta ratings have been added to the movie list. These are sortable too.</li><li>Tomatometer score and/or URL has been added back to Movie/TV Info and the \'!movie\' command. Other RT info is no longer supported by OMDb API.</li></ul><ul><b>9/2/17</b><li>The info (i) button under the player now lists info on the current movie.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Google-Drive-Userscript-Installation-Guide">Google Drive Userscript Installation Guide and Troubleshooting</a></li></ul>'],
@@ -225,7 +225,7 @@ function storeOpts() {
 var SAVETEXTARRAY = [];
 var AVATARARRAY = [];
 var POINTSARRAY = [['Benny91', 0]];
-//var SAVEVOLUME = getOrDefault(CHANNEL.name + "_savevolume", 100);
+var SAVEVOLUME = getOrDefault(CHANNEL.name + "_savevolume", 100);
 var POINTSARRAY = getOrDefault(CHANNEL.name + "_pointsarray", POINTSARRAY);
 var AVATARARRAY = getOrDefault(CHANNEL.name + "_avatararray", AVATARARRAY);
 var USERTHEME = getOrDefault(CHANNEL.name + "_theme", DEFTHEME);
@@ -2271,8 +2271,8 @@ function videoInfo(type, id, title) {
 				$("#gdplot").text(data.Plot);
 				$("#gdcast").text('Directors: ' + data.Director + ' | Writers: ' + data.Writer + ' | Actors: ' + data.Actors);
 				$("#gdother").text(data.Language + ' | ' + data.Country + ' | ' + data.Awards);
-				$("#gdimdb").attr('href', 'http://www.imdb.com/title/' + data.imdbID);
-				$("#gdrt").attr('href', data.tomatoURL);
+				$("#gdimdb").attr('href', 'http://www.imdb.com/title/' + data.imdbID).text('http://www.imdb.com/title/' + data.imdbID);
+				$("#gdrt").attr('href', data.tomatoURL).text(data.tomatoURL);
 			},
 			error: function(data) {
 				console.log(data);
@@ -2282,7 +2282,7 @@ function videoInfo(type, id, title) {
 }
 
 $('<div id="infowrap" style="display:none;" class="col-lg-12 col-md-12"><div id="infowell" class="well form-horizontal"><div id="ytinfo"><b id="channeltitle"></b><br /><b id="publishedat"></b><br /><span id="description"></span><br /><p id="relatedtext" style="text-align:center;font-size:16px;font-weight:bold;text-decoration:underline;"></p><table id="related" style="width:100%"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr></tbody></table></div></div></div>').prependTo("#rightpane");
-$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><br><span id="gdplot"></span><br><span id="gdcast"></span><br><span id="gdother"></span><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div>');
+$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><br><span id="gdplot"></span><br><br><span id="gdcast"></span><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div>');
 
 pactive = '';
 
