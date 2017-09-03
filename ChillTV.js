@@ -2129,7 +2129,7 @@ omdbkey = '383a5b5a';
 
 function videoInfo(type, id, title) {
 	if (type === 'yt') {
-		$("#posterimage").hide().attr('src', '').off("click");
+		$("#posterimage").hide().attr('src', '').off("click.poster");
 		$("#movietitle").hide().text('');
 		$("#gdratings").hide().text('');
 		$("#gdbottom").hide().find('*').text('');
@@ -2266,7 +2266,7 @@ function videoInfo(type, id, title) {
 		gdyear = title.match(/ \((\d{4})\)/)[1];
 		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
-				$("#posterimage").attr('src', data.Poster).on("click", function() {
+				$("#posterimage").off("click.poster").attr('src', data.Poster).on("click.poster", function() {
 					window.open(data.Poster, '_blank');
 				});
 				$("#movietitle").text(data.Title + ' (' + data.Year + ')');
