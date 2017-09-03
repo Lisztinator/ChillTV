@@ -2291,7 +2291,7 @@ function postInfo() {
 	$("#infowrap").show();
 	if (pactive !== PLAYER.mediaId) {
 		pactive = PLAYER.mediaId;
-		videoInfo(PLAYER.mediaType, PLAYER.mediaId);
+		videoInfo(PLAYER.mediaType, PLAYER.mediaId, $("#currenttitle").text().split('Currently Playing: ')[1]);
 	}
 }
 
