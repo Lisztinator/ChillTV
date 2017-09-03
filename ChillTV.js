@@ -5548,8 +5548,8 @@ $("#resize-video-smaller").hover(function() {
 
 $('<span id="ratio" style="float:right;font-weight:900;padding-right:20px;"></span>').insertBefore($("#currenttitle"));
 function changeRatio() {
-	chatpart = $("#chatwrap").attr('class').split('col-md-')[1];
-	vidpart = $("#videowrap").attr('class').split('col-md-')[1];
+	chatpart = parseInt($("#chatwrap").attr('class').split('col-md-')[1]);
+	vidpart = parseInt($("#videowrap").attr('class').split('col-md-')[1]);
 	$("#ratio").text(chatpart + ':' + vidpart);
 }
 $("#resize-video-larger, #resize-video-smaller").click(function() {
