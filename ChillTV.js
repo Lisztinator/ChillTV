@@ -2260,8 +2260,10 @@ function videoInfo(type, id, title) {
 		gdyear = title.match(/ \((\d{4})\)/)[1];
 		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
-				$("#posterimage").attr('src', data.Poster);
-				$("#movietitle").text(data.Title);
+				$("#posterimage").attr('src', data.Poster).click(function() {
+					window.open(data.Poster, '_blank');
+				};
+				$("#movietitle").text(data.Title + ' (' + data.Year + ')');
 				if (data.Ratings[1] !== undefined && data.Ratings[1].Source === 'Rotten Tomatoes') {
 					gdrt = data.Ratings[1].Value;
 				} else {
