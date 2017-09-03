@@ -2129,7 +2129,10 @@ omdbkey = '383a5b5a';
 
 function videoInfo(type, id, title) {
 	if (type === 'yt') {
-		$("#gdinfo").hide().find('*').text('');
+		$("#posterimage").hide().attr('src', '').off("click");
+		$("#movietitle").hide().text('');
+		$("#gdratings").hide().text('');
+		$("#gdbottom").hide().find('*').text('');
 		$("#ytinfo").show();
 		$.ajax({
 			url: 'https://www.googleapis.com/youtube/v3/videos?part=recordingDetails%2Csnippet%2Cstatistics&id=' + id + '&fields=etag%2CeventId%2Citems%2Ckind%2CpageInfo%2CvisitorId&key=AIzaSyBdq_JqnXoUno61qBDALehbcCCsoud1s4w',
@@ -2263,7 +2266,7 @@ function videoInfo(type, id, title) {
 		gdyear = title.match(/ \((\d{4})\)/)[1];
 		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
-				$("#posterimage").attr('src', data.Poster).click(function() {
+				$("#posterimage").attr('src', data.Poster).on("click", function() {
 					window.open(data.Poster, '_blank');
 				});
 				$("#movietitle").text(data.Title + ' (' + data.Year + ')');
@@ -2287,7 +2290,7 @@ function videoInfo(type, id, title) {
 }
 
 $('<div id="infowrap" style="display:none;" class="col-lg-12 col-md-12"><div id="infowell" class="well form-horizontal"><div id="ytinfo"><b id="channeltitle"></b><br /><b id="publishedat"></b><br /><span id="description"></span><br /><p id="relatedtext" style="text-align:center;font-size:16px;font-weight:bold;text-decoration:underline;"></p><table id="related" style="width:100%"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr></tbody></table></div></div></div>').prependTo("#rightpane");
-$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><br><span id="gdplot"></span><br><br><span id="gdcast"></span><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div>');
+$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><div id="gdbottom"><br><span id="gdplot"></span><br><br><span id="gdcast"></span><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div></div>');
 
 pactive = '';
 
@@ -5435,6 +5438,7 @@ function fullscreenMode() {
 	});
 	$("#chatwrap, #chatavewrap").removeClass().addClass('col-lg-3 col-md-3');
 	$("#videowrap").removeClass().addClass("col-lg-9 col-md-9");
+	changeRatio();
 	fitPlayer();
 	fitChat("normal");
 	$('#userlist').hide();
@@ -5462,6 +5466,7 @@ function unfullscreenMode() {
 	});
 	$("#chatwrap, #chatavewrap").removeClass().addClass('col-lg-5 col-md-5');
 	$("#videowrap").removeClass().addClass("col-lg-7 col-md-7");
+	changeRatio();
 	fitPlayer();
 	fitChat("normal");
 	$('#userlist').show();
@@ -5529,6 +5534,27 @@ CyTube.ui.changeVideoWidth = function(e) {
         handleVideoResize()
     }
 }
+
+$("#resize-video-larger").hover(function() {
+	$(this).attr('style', 'color:white;background-color;black');
+}, function() {
+	$(this).attr('style', 'color:green;background-color;black');
+});
+$("#resize-video-smaller").hover(function() {
+	$(this).attr('style', 'color:white;background-color;black');
+}, function() {
+	$(this).attr('style', 'color:red;background-color;black');
+});
+
+$('<span id="ratio" style="float:right;font-weight:900;padding-right:20px;"></span>').insertBefore($("#currenttitle"));
+function changeRatio() {
+	chatpart = $("#chatwrap").attr('class').split('col-lg-')[1];
+	vidpart = $("#videowrap").attr('class').split('col-lg-')[1];
+	$("#ratio").text(chatpart + ':' + vidpart);
+}
+$("#resize-video-larger, #resize-video-smaller").click(function() {
+	changeRatio();
+});
 
 $('#chatheader').children().each(function() {
 	$(this).click(function() {
@@ -5650,7 +5676,7 @@ function patchGenres(i) {
 	title = encodeURIComponent(Movie_Array[i][0].split(/ \(\d{4}\)/)[0]);
 	if (Movie_Array[i][0].match(/\(\d{4}\)/)) {
 		year = encodeURIComponent(Movie_Array[i][0].match(/\((\d{4})\)/)[1]);
-	} else {
+	/*} else {
 		year = '';
 	}
 	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&apikey=' + omdbkey, {
@@ -5685,6 +5711,7 @@ FIXHEIGHT = setInterval(function() {
 		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
 		scrollChat();
 	} else {
+		changeRatio();
 		$("#chatwrap").height($("#videowrap").height());
 		$("#messagebuffer, #userlist").height($("#videowrap").height() - 92);
 		scrollChat();
