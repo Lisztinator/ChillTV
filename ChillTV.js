@@ -2262,7 +2262,7 @@ function videoInfo(type, id, title) {
 			success: function(data) {
 				$("#posterimage").attr('src', data.Poster).click(function() {
 					window.open(data.Poster, '_blank');
-				};
+				});
 				$("#movietitle").text(data.Title + ' (' + data.Year + ')');
 				if (data.Ratings[1] !== undefined && data.Ratings[1].Source === 'Rotten Tomatoes') {
 					gdrt = data.Ratings[1].Value;
