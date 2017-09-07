@@ -2129,7 +2129,7 @@ omdbkey = '383a5b5a';
 
 function videoInfo(type, id, title) {
 	if (type === 'yt') {
-		ytid = PLAYER.mediaId;
+		ytid = $('.queue_active > .qe_title').attr('href').split('https://youtube.com/watch?v=')[1];
 		$("#posterimage").hide().attr('src', '').off("click.poster");
 		$("#gddir, #gdwri, #gdact").html('');
 		$("#movietitle, #gdratings").hide().text('');
@@ -2150,7 +2150,7 @@ function videoInfo(type, id, title) {
 				$("#vidsearching").text('Error: ' + data.statusText);
 			},
 			complete: function(data) {
-				if (ytid = PLAYER.mediaId) {
+				if (ytid === PLAYER.mediaId) {
 					pubdate = snippet.publishedAt.split('-');
 					snipchanid = snippet.channelId;
 					$("#channeltitle").html('<a href="https://www.youtube.com/channel/' + snipchanid + '" target="_blank">' + snippet.channelTitle + '</a>');
@@ -2208,7 +2208,7 @@ function videoInfo(type, id, title) {
 				console.log(data);
 			},
 			complete: function(data) {
-				if (ytid = PLAYER.mediaId) {
+				if (ytid === PLAYER.mediaId) {
 					$("#relatedtext").text('Related Videos');
 					$("#related").find('th').css('text-align', 'center');
 					firstvid = relarray[0];
@@ -2261,7 +2261,7 @@ function videoInfo(type, id, title) {
 			}
 		});
 	} else if (type === 'gd') {
-		gdid = PLAYER.mediaId;
+		gdid = $('.queue_active > .qe_title').attr('href').split('https://docs.google.com/file/d/')[1];
 		$("#channeltitle, #description").html('');
 		$("#publishedat, #relatedtext").text('');
 		relatedchil = $("#related").children().eq(0).children();
@@ -2323,7 +2323,14 @@ function postInfo() {
 		pactive = PLAYER.mediaId;
 		incretime = 3000;
 		$("#vidsearching").text('Searching. Please wait...').show();
-		videoInfo(PLAYER.mediaType, PLAYER.mediaId, $(".queue_active > .qe_title").text());
+		if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
+			playermediatype = 'gd';
+			playermediaid = $('.queue_active > .qe_title').attr('href').split('https://docs.google.com/file/d/')[1];
+		} else if ($('.queue_active > .qe_title').attr('href').indexOf('https://youtube.com/watch?v=') === 0) {
+			playermediatype = 'yt';
+			playermediaid = $('.queue_active > .qe_title').attr('href').split('https://youtube.com/watch?v=')[1];
+		}
+		videoInfo(playermediatype, playermediaid, $(".queue_active > .qe_title").text());
 	}
 }
 
