@@ -2129,6 +2129,7 @@ omdbkey = '383a5b5a';
 
 function videoInfo(type, id, title) {
 	if (type === 'yt') {
+		ytid = PLAYER.mediaId;
 		$("#posterimage").hide().attr('src', '').off("click.poster");
 		$("#gddir, #gdwri, #gdact").html('');
 		$("#movietitle, #gdratings").hide().text('');
@@ -2142,52 +2143,56 @@ function videoInfo(type, id, title) {
 			success: function(data) {
 				console.log(data);
 				snippet = data.items[0].snippet;
+				$("#vidsearching").text('').hide();
 			},
 			error: function(data) {
 				console.log(data);
+				$("#vidsearching").text('Error: ' + data.statusText);
 			},
 			complete: function(data) {
-				pubdate = snippet.publishedAt.split('-');
-				snipchanid = snippet.channelId;
-				$("#channeltitle").html('<a href="https://www.youtube.com/channel/' + snipchanid + '" target="_blank">' + snippet.channelTitle + '</a>');
-				$("#publishedat").text('Published on ' + months[parseInt(pubdate[1]) - 1] + ' ' + pubdate[2].split('T')[0] + ', ' + pubdate[0]);
-				snipdescript = snippet.description;
-				snipdescriptlen = snipdescript.length;
-				if (snipdescriptlen > 200) {
-					DSHOW = false;
-					$("#description").html('<span>' + snipdescript.substring(0,200) + '</span><span id="ellipshow">...</span><span id="secondspan" style="display:none;">' + snipdescript.substring(200,snipdescriptlen) + '</span><p id="showmore" style="text-align:center;"><a style="cursor:pointer;">Show More</a></p>');
-					$("#showmore > a").click(function() {
-						if (!DSHOW) {
-							DSHOW = true;
-							$("#ellipshow").hide();
-							$("#secondspan").show();
-							$("#showmore > a").text('Show Less');
-						} else {
-							DSHOW = false;
-							$("#ellipshow").show();
-							$("#secondspan").hide();
-							$("#showmore > a").text('Show More');
+				if (ytid = PLAYER.mediaId) {
+					pubdate = snippet.publishedAt.split('-');
+					snipchanid = snippet.channelId;
+					$("#channeltitle").html('<a href="https://www.youtube.com/channel/' + snipchanid + '" target="_blank">' + snippet.channelTitle + '</a>');
+					$("#publishedat").text('Published on ' + months[parseInt(pubdate[1]) - 1] + ' ' + pubdate[2].split('T')[0] + ', ' + pubdate[0]);
+					snipdescript = snippet.description;
+					snipdescriptlen = snipdescript.length;
+					if (snipdescriptlen > 200) {
+						DSHOW = false;
+						$("#description").html('<span>' + snipdescript.substring(0,200) + '</span><span id="ellipshow">...</span><span id="secondspan" style="display:none;">' + snipdescript.substring(200,snipdescriptlen) + '</span><p id="showmore" style="text-align:center;"><a style="cursor:pointer;">Show More</a></p>');
+						$("#showmore > a").click(function() {
+							if (!DSHOW) {
+								DSHOW = true;
+								$("#ellipshow").hide();
+								$("#secondspan").show();
+								$("#showmore > a").text('Show Less');
+							} else {
+								DSHOW = false;
+								$("#ellipshow").show();
+								$("#secondspan").hide();
+								$("#showmore > a").text('Show More');
+							}
+						});
+					} else {
+						$("#description").html('<p>' + snipdescript + '</p>');
+					}
+					$.ajax({
+						url: 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id=' + snipchanid + '&fields=items%2Fsnippet%2Fthumbnails&key=AIzaSyBdq_JqnXoUno61qBDALehbcCCsoud1s4w',
+						type: 'GET',
+						data: {},
+						dataType: 'json',
+						success: function(data) {
+							console.log(data);
+							chanthumbnail = data.items[0].snippet.thumbnails.default.url;
+						},
+						error: function(data) {
+							console.log(data);
+						},
+						complete: function(data) {
+							$("#channeltitle").html('<a href="https://www.youtube.com/channel/' + snipchanid + '" target="_blank"><img style="max-height:50px;max-width:50px;" src="' + chanthumbnail + '"></img></a> ' + $("#channeltitle").html());
 						}
 					});
-				} else {
-					$("#description").html('<p>' + snipdescript + '</p>');
 				}
-				$.ajax({
-					url: 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id=' + snipchanid + '&fields=items%2Fsnippet%2Fthumbnails&key=AIzaSyBdq_JqnXoUno61qBDALehbcCCsoud1s4w',
-					type: 'GET',
-					data: {},
-					dataType: 'json',
-					success: function(data) {
-						console.log(data);
-						chanthumbnail = data.items[0].snippet.thumbnails.default.url;
-					},
-					error: function(data) {
-						console.log(data);
-					},
-					complete: function(data) {
-						$("#channeltitle").html('<a href="https://www.youtube.com/channel/' + snipchanid + '" target="_blank"><img style="max-height:50px;max-width:50px;" src="' + chanthumbnail + '"></img></a> ' + $("#channeltitle").html());
-					}
-				});
 			}
 		});
 		$.ajax({
@@ -2203,57 +2208,60 @@ function videoInfo(type, id, title) {
 				console.log(data);
 			},
 			complete: function(data) {
-				$("#relatedtext").text('Related Videos');
-				$("#related").find('th').css('text-align', 'center');
-				firstvid = relarray[0];
-				firstvidsnip = firstvid.snippet;
-				secondvid = relarray[1];
-				secondvidsnip = secondvid.snippet;
-				thirdvid = relarray[2];
-				thirdvidsnip = thirdvid.snippet;
-				fourthvid = relarray[3];
-				fourthvidsnip = fourthvid.snippet;
-				fifthvid = relarray[4];
-				fifthvidsnip = fifthvid.snippet;
-				relatedchil = $("#related").children().eq(0).children();
-				titlerowchil = relatedchil.eq(0).children();
-				titlerowchil.eq(0).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + firstvidsnip.title + '</p>');
-				titlerowchil.eq(1).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + secondvidsnip.title + '</p>');
-				titlerowchil.eq(2).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + thirdvidsnip.title + '</p>');
-				titlerowchil.eq(3).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + fourthvidsnip.title + '</p>');
-				titlerowchil.eq(4).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + fifthvidsnip.title + '</p>');
-				firstviddesc = firstvidsnip.description;
-				secondviddesc = secondvidsnip.description;
-				thirdviddesc = thirdvidsnip.description;
-				fourthviddesc = fourthvidsnip.description;
-				fifthviddesc = fifthvidsnip.description;
-				firstviddesc.length > 75 ? firstvidtitle = firstviddesc.substring(0,72) + '...' : firstvidtitle = firstviddesc;
-				secondviddesc.length > 75 ? secondvidtitle = secondviddesc.substring(0,72) + '...' : secondvidtitle = secondviddesc;
-				thirdviddesc.length > 75 ? thirdvidtitle = thirdviddesc.substring(0,72) + '...' : thirdvidtitle = thirdviddesc;
-				fourthviddesc.length > 75 ? fourthvidtitle = fourthviddesc.substring(0,72) + '...' : fourthvidtitle = fourthviddesc;
-				fifthviddesc.length > 75 ? fifthvidtitle = fifthviddesc.substring(0,72) + '...' : fifthvidtitle = fifthviddesc;
-				imagerowchil = relatedchil.eq(1).children();
-				imagerowchil.eq(0).html('<a href="https://youtu.be/' + firstvid.id.videoId + '" target="_blank"><img src="' + firstvidsnip.thumbnails.default.url + '" title="' + firstvidtitle + '"></img></a>');
-				imagerowchil.eq(1).html('<a href="https://youtu.be/' + secondvid.id.videoId + '" target="_blank"><img src="' + secondvidsnip.thumbnails.default.url + '" title="' + secondvidtitle + '"></img></a>');
-				imagerowchil.eq(2).html('<a href="https://youtu.be/' + thirdvid.id.videoId + '" target="_blank"><img src="' + thirdvidsnip.thumbnails.default.url + '" title="' + thirdvidtitle + '"></img></a>');
-				imagerowchil.eq(3).html('<a href="https://youtu.be/' + fourthvid.id.videoId + '" target="_blank"><img src="' + fourthvidsnip.thumbnails.default.url + '" title="' + fourthvidtitle + '"></img></a>');
-				imagerowchil.eq(4).html('<a href="https://youtu.be/' + fifthvid.id.videoId + '" target="_blank"><img src="' + fifthvidsnip.thumbnails.default.url + '" title="' + fifthvidtitle + '"></img></a>');
-				buttonrowchil = relatedchil.eq(2).children();
-				buttonrowchil.html('');
-				for (var rel = 0; rel < 5; rel++) {
-					$('<button numb="' + rel + '" class="btn btn-xs btn-default">Add</button>').appendTo(buttonrowchil.eq(rel)).click(function() {
-						addid = $(this).parent().parent().prev().children().eq(parseInt($(this).attr('numb'))).find('a').attr('href').split('https://youtu.be/')[1];
-						socket.emit("queue", {
-							id: addid,
-							pos: 'end',
-							type: 'yt',
-							temp: $(".add-temp").prop("checked")
+				if (ytid = PLAYER.mediaId) {
+					$("#relatedtext").text('Related Videos');
+					$("#related").find('th').css('text-align', 'center');
+					firstvid = relarray[0];
+					firstvidsnip = firstvid.snippet;
+					secondvid = relarray[1];
+					secondvidsnip = secondvid.snippet;
+					thirdvid = relarray[2];
+					thirdvidsnip = thirdvid.snippet;
+					fourthvid = relarray[3];
+					fourthvidsnip = fourthvid.snippet;
+					fifthvid = relarray[4];
+					fifthvidsnip = fifthvid.snippet;
+					relatedchil = $("#related").children().eq(0).children();
+					titlerowchil = relatedchil.eq(0).children();
+					titlerowchil.eq(0).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + firstvidsnip.title + '</p>');
+					titlerowchil.eq(1).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + secondvidsnip.title + '</p>');
+					titlerowchil.eq(2).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + thirdvidsnip.title + '</p>');
+					titlerowchil.eq(3).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + fourthvidsnip.title + '</p>');
+					titlerowchil.eq(4).html('<p style="font-size:13px;color:#c8c8c8;font-weight:normal;">' + fifthvidsnip.title + '</p>');
+					firstviddesc = firstvidsnip.description;
+					secondviddesc = secondvidsnip.description;
+					thirdviddesc = thirdvidsnip.description;
+					fourthviddesc = fourthvidsnip.description;
+					fifthviddesc = fifthvidsnip.description;
+					firstviddesc.length > 75 ? firstvidtitle = firstviddesc.substring(0,72) + '...' : firstvidtitle = firstviddesc;
+					secondviddesc.length > 75 ? secondvidtitle = secondviddesc.substring(0,72) + '...' : secondvidtitle = secondviddesc;
+					thirdviddesc.length > 75 ? thirdvidtitle = thirdviddesc.substring(0,72) + '...' : thirdvidtitle = thirdviddesc;
+					fourthviddesc.length > 75 ? fourthvidtitle = fourthviddesc.substring(0,72) + '...' : fourthvidtitle = fourthviddesc;
+					fifthviddesc.length > 75 ? fifthvidtitle = fifthviddesc.substring(0,72) + '...' : fifthvidtitle = fifthviddesc;
+					imagerowchil = relatedchil.eq(1).children();
+					imagerowchil.eq(0).html('<a href="https://youtu.be/' + firstvid.id.videoId + '" target="_blank"><img src="' + firstvidsnip.thumbnails.default.url + '" title="' + firstvidtitle + '"></img></a>');
+					imagerowchil.eq(1).html('<a href="https://youtu.be/' + secondvid.id.videoId + '" target="_blank"><img src="' + secondvidsnip.thumbnails.default.url + '" title="' + secondvidtitle + '"></img></a>');
+					imagerowchil.eq(2).html('<a href="https://youtu.be/' + thirdvid.id.videoId + '" target="_blank"><img src="' + thirdvidsnip.thumbnails.default.url + '" title="' + thirdvidtitle + '"></img></a>');
+					imagerowchil.eq(3).html('<a href="https://youtu.be/' + fourthvid.id.videoId + '" target="_blank"><img src="' + fourthvidsnip.thumbnails.default.url + '" title="' + fourthvidtitle + '"></img></a>');
+					imagerowchil.eq(4).html('<a href="https://youtu.be/' + fifthvid.id.videoId + '" target="_blank"><img src="' + fifthvidsnip.thumbnails.default.url + '" title="' + fifthvidtitle + '"></img></a>');
+					buttonrowchil = relatedchil.eq(2).children();
+					buttonrowchil.html('');
+					for (var rel = 0; rel < 5; rel++) {
+						$('<button numb="' + rel + '" class="btn btn-xs btn-default">Add</button>').appendTo(buttonrowchil.eq(rel)).click(function() {
+							addid = $(this).parent().parent().prev().children().eq(parseInt($(this).attr('numb'))).find('a').attr('href').split('https://youtu.be/')[1];
+							socket.emit("queue", {
+								id: addid,
+								pos: 'end',
+								type: 'yt',
+								temp: $(".add-temp").prop("checked")
+							});
 						});
-					});
+					}
 				}
 			}
 		});
 	} else if (type === 'gd') {
+		gdid = PLAYER.mediaId;
 		$("#channeltitle, #description").html('');
 		$("#publishedat, #relatedtext").text('');
 		relatedchil = $("#related").children().eq(0).children();
@@ -2266,34 +2274,45 @@ function videoInfo(type, id, title) {
 		gdyear = title.match(/ \((\d{4})\)/)[1];
 		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
-				$("#posterimage").off("click.poster").attr('src', data.Poster).on("click.poster", function() {
-					window.open(data.Poster, '_blank');
-				});
-				$("#movietitle").text(data.Title + ' (' + data.Year + ')');
-				if (data.Ratings[1] !== undefined && data.Ratings[1].Source === 'Rotten Tomatoes') {
-					gdrt = data.Ratings[1].Value;
-				} else {
-					gdrt = 'N/A';
+				if (gdid === PLAYER.mediaId) {
+					$("#vidsearching").text('').hide();
+					$("#posterimage").off("click.poster").attr('src', data.Poster).on("click.poster", function() {
+						window.open(data.Poster, '_blank');
+					});
+					$("#movietitle").text(data.Title + ' (' + data.Year + ')');
+					if (data.Ratings[1] !== undefined && data.Ratings[1].Source === 'Rotten Tomatoes') {
+						gdrt = data.Ratings[1].Value;
+					} else {
+						gdrt = 'N/A';
+					}
+					$("#gdratings").text(data.Rated + ' | ' + data.Runtime + ' | ' + data.Genre + ' | ' + data.Released + ' | IMDb Rating: ' + data.imdbRating + ' from ' + data.imdbVotes + ' users | Tomatometer: ' + gdrt + ' | Metascore: ' + data.Metascore);
+					$("#gdplot").text(data.Plot);
+					$("#gddir").html('<b>Directors:</b> ' + data.Director + ' | ');
+					$("#gdwri").html('<b>Writers:</b> ' + data.Writer + ' | ');
+					$("#gdact").html('<b>Actors:</b> ' + data.Actors);
+					$("#fullcast").attr('href', 'http://www.imdb.com/title/' + data.imdbID + '/fullcredits?ref_=tt_cl_sm#cast').text('See full cast »');
+					$("#gdother").text(data.Language + ' | ' + data.Country + ' | ' + data.Awards);
+					$("#gdimdb").attr('href', 'http://www.imdb.com/title/' + data.imdbID).text('http://www.imdb.com/title/' + data.imdbID);
+					$("#gdrt").attr('href', data.tomatoURL).text(data.tomatoURL);
 				}
-				$("#gdratings").text(data.Rated + ' | ' + data.Runtime + ' | ' + data.Genre + ' | ' + data.Released + ' | IMDb Rating: ' + data.imdbRating + ' from ' + data.imdbVotes + ' users | Tomatometer: ' + gdrt + ' | Metascore: ' + data.Metascore);
-				$("#gdplot").text(data.Plot);
-				$("#gddir").html('<b>Directors:</b> ' + data.Director + ' | ');
-				$("#gdwri").html('<b>Writers:</b> ' + data.Writer + ' | ');
-				$("#gdact").html('<b>Actors:</b> ' + data.Actors);
-				$("#fullcast").attr('href', 'http://www.imdb.com/title/' + data.imdbID + '/fullcredits?ref_=tt_cl_sm#cast');
-				$("#gdother").text(data.Language + ' | ' + data.Country + ' | ' + data.Awards);
-				$("#gdimdb").attr('href', 'http://www.imdb.com/title/' + data.imdbID).text('http://www.imdb.com/title/' + data.imdbID);
-				$("#gdrt").attr('href', data.tomatoURL).text(data.tomatoURL);
 			},
 			error: function(data) {
 				console.log(data);
+				if (data.statusText === "timeout" && gdid === PLAYER.mediaId && incretime < 10000) {
+					incretime += 1000;
+					$("#vidsearching").text($("#vidsearching").text() + ' Request hanging. Trying again...');
+					videoInfo(type, id, title);
+				} else if (gdid === PLAYER.mediaId) {
+					$("#vidsearching").text('Error: ' + data.statusText);
+				}
 			},
+			timeout: incretime
 		});
 	}
 }
 
-$('<div id="infowrap" style="display:none;" class="col-lg-12 col-md-12"><div id="infowell" class="well form-horizontal"><div id="ytinfo"><b id="channeltitle"></b><br /><b id="publishedat"></b><br /><span id="description"></span><br /><p id="relatedtext" style="text-align:center;font-size:16px;font-weight:bold;text-decoration:underline;"></p><table id="related" style="width:100%"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr></tbody></table></div></div></div>').prependTo("#rightpane");
-$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><div id="gdbottom"><br><span id="gdplot"></span><br><br><span id="gddir"></span><span id="gdwri"></span><span id="gdact"></span><br><a id="fullcast" href="" target="_blank">See full cast »</a><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div></div>');
+$('<div id="infowrap" style="display:none;" class="col-lg-12 col-md-12"><div id="infowell" class="well form-horizontal"><center id="vidsearching" class="text-info"></center><div id="ytinfo"><b id="channeltitle"></b><br /><b id="publishedat"></b><br /><span id="description"></span><br /><p id="relatedtext" style="text-align:center;font-size:16px;font-weight:bold;text-decoration:underline;"></p><table id="related" style="width:100%"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr></tbody></table></div></div></div>').prependTo("#rightpane");
+$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><div id="gdbottom"><br><span id="gdplot"></span><br><br><span id="gddir"></span><span id="gdwri"></span><span id="gdact"></span><br><a id="fullcast" href="" target="_blank"></a><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div></div>');
 
 pactive = '';
 
@@ -2302,6 +2321,8 @@ function postInfo() {
 	$("#infowrap").show();
 	if (pactive !== PLAYER.mediaId) {
 		pactive = PLAYER.mediaId;
+		incretime = 3000;
+		$("#vidsearching").text('Searching. Please wait...').show();
 		videoInfo(PLAYER.mediaType, PLAYER.mediaId, $(".queue_active > .qe_title").text());
 	}
 }
@@ -2309,6 +2330,8 @@ function postInfo() {
 socket.on("changeMedia", function(data) {
 	if (!DEFDESCR) {
 		pactive = PLAYER.mediaId;
+		incretime = 3000;
+		$("#vidsearching").text('Searching. Please wait...').show();
 		videoInfo(data.type, data.id, data.title);
 	}
 });
