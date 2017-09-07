@@ -2004,7 +2004,7 @@ Movie_Array = [
 ["Perfect Blue (1997)","Animation, Horror, Music","0B4ImsDopq4_FbF9GVkVTT1U2djA","R","7.9","68","N/A"],
 ["Perfume: The Story Of A Murderer (2006)","Crime, Drama, Fantasy","0Bwjx3gpy0_MwMzczVU5kaHhicnc","R","7.5","58","56"],
 ["The Perks of Being a Wallflower (2012)","Drama, Romance","0B3RJnC_uzvLBQ21GSHBWSlR1ZkE","PG-13","8.0","86","67"],
-["Personal Shopper (2016)","Drama, Mystery, Thriller","0B1LIHkX0y-lnLXB4RTkyb29wQms","R","6.2","80","77","Recently Added"],
+["Personal Shopper (2016)","Drama, Horror, Mystery","0B1LIHkX0y-lnLXB4RTkyb29wQms","R","6.2","80","77","Recently Added"],
 ["Pet Sematary (1989)","Fantasy, Horror","0B4ImsDopq4_FU3hDUzhMcThhMTA","R","6.6","46","38"],
 ["Pete's Dragon (2016)","Adventure, Family, Fantasy","0B_F_V9jIQXymM2lsYlZBZ0VBTFE","PG","6.8","87","71"],
 ["Peter Pan (1953)","Animation, Adventure, Family","0B9hOhGLF4ciPWEJTbmpkeVNMT1k","0B9hOhGLF4ciPc3BQMVBCUDZITzg","APPROVED","7.3","76","N/A"],
