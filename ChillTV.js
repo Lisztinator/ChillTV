@@ -2130,8 +2130,8 @@ omdbkey = '383a5b5a';
 function videoInfo(type, id, title) {
 	if (type === 'yt') {
 		$("#posterimage").hide().attr('src', '').off("click.poster");
-		$("#movietitle").hide().text('');
-		$("#gdratings").hide().text('');
+		$("#gddir, #gdwri, #gdact").html('');
+		$("#movietitle, #gdratings").hide().text('');
 		$("#gdbottom").hide().find('*').text('');
 		$("#ytinfo").show();
 		$.ajax({
@@ -2277,7 +2277,10 @@ function videoInfo(type, id, title) {
 				}
 				$("#gdratings").text(data.Rated + ' | ' + data.Runtime + ' | ' + data.Genre + ' | ' + data.Released + ' | IMDb Rating: ' + data.imdbRating + ' from ' + data.imdbVotes + ' users | Tomatometer: ' + gdrt + ' | Metascore: ' + data.Metascore);
 				$("#gdplot").text(data.Plot);
-				$("#gdcast").text('Directors: ' + data.Director + ' | Writers: ' + data.Writer + ' | Actors: ' + data.Actors);
+				$("#gddir").html('<b>Directors:</b> ' + data.Director + ' | ');
+				$("#gdwri").html('<b>Writers:</b> ' + data.Writer + ' | ');
+				$("#gdact").html('<b>Actors:</b> ' + data.Actors);
+				$("#fullcast").attr('href', 'http://www.imdb.com/title/' + data.imdbID + '/fullcredits?ref_=tt_cl_sm#cast');
 				$("#gdother").text(data.Language + ' | ' + data.Country + ' | ' + data.Awards);
 				$("#gdimdb").attr('href', 'http://www.imdb.com/title/' + data.imdbID).text('http://www.imdb.com/title/' + data.imdbID);
 				$("#gdrt").attr('href', data.tomatoURL).text(data.tomatoURL);
@@ -2290,7 +2293,7 @@ function videoInfo(type, id, title) {
 }
 
 $('<div id="infowrap" style="display:none;" class="col-lg-12 col-md-12"><div id="infowell" class="well form-horizontal"><div id="ytinfo"><b id="channeltitle"></b><br /><b id="publishedat"></b><br /><span id="description"></span><br /><p id="relatedtext" style="text-align:center;font-size:16px;font-weight:bold;text-decoration:underline;"></p><table id="related" style="width:100%"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr></tbody></table></div></div></div>').prependTo("#rightpane");
-$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><div id="gdbottom"><br><span id="gdplot"></span><br><br><span id="gdcast"></span><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div></div>');
+$("#infowell").append('<div id="gdinfo"><table style="width: 100%; display: table;" id="movieposter"><tbody><tr><th style="width:101px;"><img id="posterimage" style="cursor:pointer;" height="150" src=""></th><th><table style="width:100%;"><tbody><tr><th style="float:left;margin-left:10px;"><h3 id="movietitle"></h3></th></tr><tr><th style="float:left;margin-left:10px;"><h6 id="gdratings"></h6></th></tr></tbody></table></th></tr></tbody></table><div id="gdbottom"><br><span id="gdplot"></span><br><br><span id="gddir"></span><span id="gdwri"></span><span id="gdact"></span><br><a id="fullcast" href="" target="_blank">See full cast »</a><br><br><span id="gdother"></span><br><br><a id="gdimdb" href="" target="_blank"></a><br><a id="gdrt" href="" target="_blank"></a></div></div>');
 
 pactive = '';
 
@@ -2299,7 +2302,7 @@ function postInfo() {
 	$("#infowrap").show();
 	if (pactive !== PLAYER.mediaId) {
 		pactive = PLAYER.mediaId;
-		videoInfo(PLAYER.mediaType, PLAYER.mediaId, $("#currenttitle").text().split('Currently Playing: ')[1]);
+		videoInfo(PLAYER.mediaType, PLAYER.mediaId, $(".queue_active > .qe_title").text());
 	}
 }
 
