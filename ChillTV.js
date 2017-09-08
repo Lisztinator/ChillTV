@@ -2319,13 +2319,9 @@ pactive = '';
 function postInfo() {
 	$("#switchdescr-btn").removeClass('btn-default').addClass('btn-success');
 	$("#infowrap").show();
-	console.log('post');
-	console.log(PLAYER);
 	if (pactive !== PLAYER.mediaId) {
-		pactive = PLAYER.mediaId;
 		incretime = 3000;
 		$("#vidsearching").text('Searching. Please wait...').show();
-		console.log($('.queue_active > .qe_title').attr('href'));
 		if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
 			playermediatype = 'gd';
 			playermediaid = $('.queue_active > .qe_title').attr('href').split('https://docs.google.com/file/d/')[1];
@@ -2333,17 +2329,21 @@ function postInfo() {
 			playermediatype = 'yt';
 			playermediaid = $('.queue_active > .qe_title').attr('href').split('https://youtube.com/watch?v=')[1];
 		}
-		videoInfo(playermediatype, playermediaid, $(".queue_active > .qe_title").text());
+		pactive = playermediaid;
+		setTimeout(function() {
+			videoInfo(playermediatype, playermediaid, $(".queue_active > .qe_title").text());
+		}, 1000);
 	}
 }
 
 socket.on("changeMedia", function(data) {
-		console.log('change');
 	if (!DEFDESCR) {
 		pactive = PLAYER.mediaId;
 		incretime = 3000;
 		$("#vidsearching").text('Searching. Please wait...').show();
-		videoInfo(data.type, data.id, data.title);
+		setTimeout(function() {
+			videoInfo(data.type, data.id, data.title);
+		}, 1000);
 	}
 });
 
