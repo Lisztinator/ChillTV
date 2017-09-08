@@ -2270,8 +2270,8 @@ function videoInfo(type, id, title) {
 		relatedchil.eq(2).children().html(''); //buttonrowchil
 		$("#ytinfo").hide();
 		$("#gdinfo").show();
-		gdtitle = title.split(/ \(\d{4}\)/)[0];
-		gdyear = title.match(/ \((\d{4})\)/)[1];
+		gdtitle = title.split(/ \(\d{4}/)[0];
+		gdyear = title.match(/ \((\d{4})/)[1];
 		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
 				if (gdid === PLAYER.mediaId) {
