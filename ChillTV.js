@@ -2319,10 +2319,13 @@ pactive = '';
 function postInfo() {
 	$("#switchdescr-btn").removeClass('btn-default').addClass('btn-success');
 	$("#infowrap").show();
+	console.log('post');
+	console.log(PLAYER);
 	if (pactive !== PLAYER.mediaId) {
 		pactive = PLAYER.mediaId;
 		incretime = 3000;
 		$("#vidsearching").text('Searching. Please wait...').show();
+		console.log($('.queue_active > .qe_title').attr('href'));
 		if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
 			playermediatype = 'gd';
 			playermediaid = $('.queue_active > .qe_title').attr('href').split('https://docs.google.com/file/d/')[1];
@@ -2335,6 +2338,7 @@ function postInfo() {
 }
 
 socket.on("changeMedia", function(data) {
+		console.log('change');
 	if (!DEFDESCR) {
 		pactive = PLAYER.mediaId;
 		incretime = 3000;
