@@ -196,7 +196,7 @@ var USEROPTS = {
 	"default_quality": getOrDefault("default_quality", "auto"),
 	"boop": getOrDefault(CHANNEL.name + "boop", "onlyping"),
 	"secure_connection": getOrDefault(CHANNEL.name + "secure_connection", !1),
-	"show_shadowchat": getOrDefault(CHANNEL.name + "show_shadowchat", !0),
+	"show_shadowchat": getOrDefault(CHANNEL.name + "show_shadowchat", !1),
 	"emotelist_sort": getOrDefault(CHANNEL.name + "emotelist_sort", !0),
 	"no_emotes": getOrDefault(CHANNEL.name + "no_emotes", !1),
 	"strip_image": getOrDefault(CHANNEL.name + "strip_image", !1),
