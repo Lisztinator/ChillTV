@@ -4231,7 +4231,7 @@ function deleteDatShit(typelistarray, tla, tlb) {
 				numfiles += 1;
 				$('.numfiles').text(numfiles);
 				lasttla = tla;
-				if (typelistarray[tla][tlb + 1] !== undefined) {
+				if (typelistarray[tla][tlb + 1] !== undefined && typelistarray[tla][tlb + 1].length > 20) {
 					tlb += 1;
 					deleteDatShit(typelistarray, tla, tlb)
 				} else if (tla + 1 < typelistarray.length) {
