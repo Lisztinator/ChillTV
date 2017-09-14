@@ -2300,7 +2300,7 @@ function videoInfo(type, id, title) {
 				console.log(data);
 				if (data.statusText === "timeout" && gdid === PLAYER.mediaId && incretime < 10000) {
 					incretime += 1000;
-					$("#vidsearching").text($("#vidsearching").text() + ' Request hanging. Trying again...');
+					$("#vidsearching").text($("#vidsearching").text() + ' Trying again...');
 					videoInfo(type, id, title);
 				} else if (gdid === PLAYER.mediaId) {
 					$("#vidsearching").text('Error: ' + data.statusText);
@@ -2343,7 +2343,7 @@ socket.on("changeMedia", function(data) {
 		$("#vidsearching").text('Searching. Please wait...').show();
 		setTimeout(function() {
 			videoInfo(data.type, data.id, data.title);
-		}, 1000);
+		}, 2000);
 	}
 });
 
@@ -3227,9 +3227,9 @@ function listMovies(moviearray, index1, index2) {
 	for (var pi = index1; pi < index2; pi++) {
 		str = moviearray[pi][0].replace(/'/g, "\\'");
 		if (moviearray[pi][7] !== undefined && moviearray[pi][7] === 'Recently Added') {
-			recentlyadded += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></td><td>' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 5] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td></tr>';
+			recentlyadded += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + ' - <b><i>Recently Added</i></b></td><td>' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 5] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td></tr>';
 		} else {
-			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + '\' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td>' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td><td>' + moviearray[pi][moviearray[pi].length - 1] + '</td></tr>';
+			text += '<tr><td><a style="cursor:pointer" class="gmfl" onclick="getMovieFromList(\'' + str + '\')">ⓘ</a> <a style="cursor:pointer" class="gyt" onclick="getYouTube(\'\', \'' + str + ' trailer\', \'end\')">✛</a> <a style="cursor:pointer" class="nmm" onclick="nominateMovie(\'' + str + '\', \'#movielist\')">✇</a> ' + moviearray[pi][0] + '</td><td>' + moviearray[pi][1] + '</td><td>' + moviearray[pi][moviearray[pi].length - 4] + '</td><td>' + moviearray[pi][moviearray[pi].length - 3] + '</td><td>' + moviearray[pi][moviearray[pi].length - 2] + '</td><td>' + moviearray[pi][moviearray[pi].length - 1] + '</td></tr>';
 		}
 	}
 	$("#movielist").html('<tr><th>Title</th><th>Genre</th><th>MPAA</th><th>IMDb</th><th>RT</th><th>Meta</th></tr>' + recentlyadded + text);
