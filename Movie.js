@@ -766,7 +766,7 @@ Movie_Array = [
 ["Doctor Strange (2016)","Action, Adventure, Fantasy","0B5xN5zD6a03OMWNtTWZ0QmQ2TzQ","PG-13","7.6","90","72"],
 ["Doctor Zhivago (1965)","Drama, Romance, War","0B4ImsDopq4_FRk9yckpmT1ZHd3M","APPROVED","8.0","82","N/A"],
 ["Dodgeball: A True Underdog Story (2004)","Comedy, Sport","0B_F_V9jIQXymR3JYbzRzbmZYMkE","PG-13","6.7","70","55"],
-["Dog Day Afternoon (1975)","Biography, Crime, Drama","0B1LIHkX0y-lnQlk2Sm5hc3JJbnM","R","8.0","95","N/A"],
+["Dog Day Afternoon (1975)","Biography, Crime, Drama","0B1LIHkX0y-lnZm15N2JkZjRxc2c","R","8.0","95","N/A"],
 ["Dog Soldiers (2002)","Action, Fantasy, Horror","0B4ImsDopq4_Fd3hVWXBzN2ttRGM","R","6.8","79","N/A"],
 ["Dogma (1999)","Adventure, Comedy, Drama","0B7--Jg-uaCu2YVB3Tk1ReXhCYkE","R","7.4","67","62"],
 ["Dolphin Tale (2011)","Drama, Family","0Bwjx3gpy0_MwWmJUUEVVamdaRms","PG","6.9","81","64"],
