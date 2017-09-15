@@ -2339,11 +2339,13 @@ function postInfo() {
 socket.on("changeMedia", function(data) {
 	if (!DEFDESCR) {
 		pactive = PLAYER.mediaId;
-		incretime = 3000;
-		$("#vidsearching").text('Searching. Please wait...').show();
-		setTimeout(function() {
-			videoInfo(data.type, data.id, data.title);
-		}, 2000);
+		if ($('.queue_active .qe_title').text().match(/ Part [2-9]\./) === null) {
+			incretime = 3000;
+			$("#vidsearching").text('Searching. Please wait...').show();
+			setTimeout(function() {
+				videoInfo(data.type, data.id, data.title);
+			}, 2000);
+		}
 	}
 });
 
