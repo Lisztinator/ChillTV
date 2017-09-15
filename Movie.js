@@ -2035,7 +2035,7 @@ Movie_Array = [
 ["The Pirate Fairy (2014)","Animation, Adventure, Family","0Bwjx3gpy0_Mwd0pDSkNfQVZRYlE","G","6.6","80","51"],
 ["Pirate Radio (2009)","Comedy, Drama, Music","0Bwjx3gpy0_Mwc2JXb3h3dzAtR1U","R","7.4","61","58"],
 ["Pirates of the Caribbean: At World's End (2007)","Action, Adventure, Fantasy","0Bx8atqt6nHkjb0JQbUd6aVhzcjg","PG-13","7.1","45","50"],
-["Pirates of the Caribbean: Dead Man's Chest (2006)","Action, Adventure, Fantasy","0Bx8atqt6nHkjSE9Xa0E1TzdaczQ","PG-13","7.3","54","53"],
+["Pirates of the Caribbean: Dead Man's Chest (2006)","Action, Adventure, Fantasy","0Bx8atqt6nHkjNFo0Ui1JRl9ONUE","PG-13","7.3","54","53"],
 ["Pirates of the Caribbean: Dead Men Tell No Tales (2017)","Action, Adventure, Fantasy","0B1LIHkX0y-lnV19SSnhwSXZPSEE","PG-13","7.0","29","39"],
 ["Pirates of the Caribbean: On Stranger Tides (2011)","Action, Adventure, Fantasy","0Bx8atqt6nHkjZzNSRWZTU09fNzg","PG-13","6.6","32","45"],
 ["Pirates of the Caribbean: The Curse of the Black Pearl (2003)","Action, Adventure, Fantasy","0Bx8atqt6nHkjNWhuS0VOeGZocDg","PG-13","8.0","79","63"],
