@@ -254,7 +254,6 @@ var LISTBUTTONS = getOrDefault(CHANNEL.name + "_listbuttons", true);
 //var USERSOUND = getOrDefault(CHANNEL.name + "_usersound", true);
 var FULLSCREEN = getOrDefault(CHANNEL.name + "_fullscreen", true);
 var DEFDESCR = getOrDefault(CHANNEL.name + "_defdescr", true);
-var HIDEPLAYER = getOrDefault(CHANNEL.name + "_hideplayer", true);
 //var YUP = getOrDefault(CHANNEL.name + "_yup", true);
 var MUTED = getOrDefault(CHANNEL.name + "_muted", false);
 var RANDOMNESS = getOrDefault(CHANNEL.name + "_randomness", true);
@@ -2272,7 +2271,7 @@ function videoInfo(type, id, title) {
 		$("#gdinfo").show();
 		gdtitle = title.split(/ \(\d{4}/)[0];
 		gdyear = title.match(/ \((\d{4})/)[1];
-		$.ajax('https://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
+		$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 			success: function(data) {
 				if (gdid === PLAYER.mediaId) {
 					$("#vidsearching").text('').hide();
@@ -2368,12 +2367,12 @@ if (!DEFDESCR) {
 
 // showInfo();
 
+HIDEPLAYER = true;
 hideplayerbtn = $('<button id="hideplayer-btn" class="btn btn-sm btn-default" title="Hide player" />')
 	.html('<span class="glyphicon glyphicon-ban-circle"></span>')
 	.appendTo("#playercontrols")
 	.on("click", function() {
 		HIDEPLAYER = !HIDEPLAYER;
-		setOpt(CHANNEL.name + "_hideplayer", HIDEPLAYER);
 		$(this).hasClass('btn-danger') ? showPlayer() : coverPlayer();
 	});
 
@@ -3599,7 +3598,7 @@ function getMovies(sMovie, pagenum) {
 		matches1 = '';
 	}
 	if (matches1.length > 0) {
-		sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey;
+		sUrl = 'https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey;
 		$.ajax(sUrl, {
 			error: function(data) {
 				MContainer.find('.text-info').text('Connection Error: Try again later.');
@@ -3704,7 +3703,7 @@ function getMovies(sMovie, pagenum) {
 
 function totalSeasons(stitle, syear) {
 	MContainer.find('.text-info').show().text('Searching. Please wait...');
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
 		error: function(data) {
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
@@ -3744,7 +3743,7 @@ function viewSeasons(stitle, syear, sposter, tseasons) {
 
 function callEps(stitle, syear, season) {
 	$("#beforeall").nextAll().remove();
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&Season=' + season + '&y=' + syear + '&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + stitle + '&Season=' + season + '&y=' + syear + '&apikey=' + omdbkey, {
 		error: function(data) {
 			console.log(data);
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3766,7 +3765,7 @@ function callCheck(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sp
 	SAMESEASON = false;
 	$("#beforeall").nextAll().remove();
 	LEZAGO = false;
-	$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
 		error: function(data) {
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
@@ -3787,7 +3786,7 @@ function callCheck(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sp
 function callEp(deps, ep, stitle, syear, sseason, li, eparray, sspl, ssfo, sposter) {
 	EPSUCCESS = false;
 	if (eparray.indexOf(ep) > -1 && SAMESEASON) {
-		$.ajax('https://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
+		$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + stitle + '&y=' + syear + '&Season=' + sseason + '&Episode=' + ep + '&apikey=' + omdbkey, {
 			error: function(data) {
 				console.log(data);
 				MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
@@ -3919,7 +3918,7 @@ function theList(som, pagenum, goback) {
 	MContainer.find('.text-info').show().text('Searching. Please wait...');
 	$("#listthem").children().remove();
 	$("#listep").children().remove();
-	$.ajax('https://www.omdbapi.com/?s=' + som + '&y=&page=' + pagenum + '&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=' + som + '&y=&page=' + pagenum + '&apikey=' + omdbkey, {
 		error: function(data) {
 			MContainer.find('.text-info').text('Connection Error: Please refresh or try again later.');
 			MContainer.show();
@@ -5004,19 +5003,19 @@ $("#chatline").on("keydown", function(ev, e) {
 			}
 			if (msg.match(/!movie/)) {
 				omdbVar('movie');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true&apikey=' + omdbkey;
+				sUrl = 'https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=movie&plot=short&tomatoes=true&apikey=' + omdbkey;
 				console.log(sUrl);
 				omdbAjax();
 			}
 			if (msg.match(/!tv/)) {
 				omdbVar('tv');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true&apikey=' + omdbkey;
+				sUrl = 'https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&type=series&plot=short&tomatoes=true&apikey=' + omdbkey;
 				console.log(sUrl);
 				omdbAjax();
 			}
 			if (msg.match(/!plot/)) {
 				omdbVar('plot');
-				sUrl = 'https://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short&apikey=' + omdbkey;
+				sUrl = 'https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + som + '&y=' + matches1 + '&plot=short&apikey=' + omdbkey;
 				console.log(sUrl);
 				$.ajax(sUrl, {
 					error: function(data) {
@@ -5659,7 +5658,7 @@ function patchEpisodeNames(i) {
 			return patchEpisodeNames(i + 1);
 		}
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode + '&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + title + '&y=' + year + '&Season=' + season + '&Episode=' + episode + '&apikey=' + omdbkey, {
 		success: function(data) {
 			if (TV_Array[i][0].match(/ - Christmas$/)) {
 				holiday = ' - Christmas';
@@ -5718,7 +5717,7 @@ function patchGenres(i) {
 	/*} else {
 		year = '';
 	}
-	$.ajax('https://www.omdbapi.com/?t=' + title + '&y=' + year + '&apikey=' + omdbkey, {
+	$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + title + '&y=' + year + '&apikey=' + omdbkey, {
 		success: function(data) {
 			console.log(i);
 			newGenre = data.Genre;
@@ -5851,7 +5850,7 @@ if (CLIENT.name === 'Clint') {
 if (CLIENT.name === ',....') {
 	setTimeout(function() {
 	function findRatings(i) {
-		$.ajax('https://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1] + '&apikey=' + omdbkey, {
+		$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + Movie_Array[i][0].split(/\(\d{4}\)/)[0].trim() + '&y=' + Movie_Array[0][0].match(/\((\d{4})\)/)[1] + '&apikey=' + omdbkey, {
 			error: function(data) {
 				console.log('error on ' + i);
 			},
