@@ -448,10 +448,7 @@ cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</bu
 		$("#chatwrap").removeClass('col-lg-12 col-md-12').addClass(chatclass);
 		$("#main").append(vidwrap);
 		fitChat("normal");
-		if (FULLSCREEN) {
-			$("#pinup-btn, #config-btn, #mode-sel").prop('disabled', false);
-		}
-		$("#fluid-layout").prop('disabled', false);
+		$("#pinup-btn, #config-btn, #mode-sel, #fluid-layout").prop('disabled', false);
 		$(this).removeClass('btn-success').addClass('btn-default').text('Remove Video');
 	} else {
 		clearInterval(FIXHEIGHT);
@@ -1422,9 +1419,6 @@ function displayConfigPanel() {
 		$("#layoutmodal").modal();
 	}
 	if (USEROPTS.hidevid) {
-		$("#config-btn, #mode-sel").prop('disabled', true);
-	}
-	if ($("#videowrap").hasClass('col-lg-9 col-md-9') || $("#chatave-btn").hasClass('btn-success')) {
 		$("#config-btn, #mode-sel").prop('disabled', true);
 	}
 	setOpt(CHANNEL.name + "_layoutbox", LAYOUTBOX);
