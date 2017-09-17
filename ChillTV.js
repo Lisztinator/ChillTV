@@ -959,7 +959,7 @@ socket.on("pm", function(data) {
 		}).click(function() {
 		});
 	}
-}
+});
 
 function insertText(str) {
 	$("#chatline").val($("#chatline").val() + str).focus();
