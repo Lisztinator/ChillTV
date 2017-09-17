@@ -947,12 +947,12 @@ socket.on("chatMsg", function(data) {/*
 		}
 	}
 });
-function makeCards() {
+function makeCards(to, username, msg) {
 	// if CARD PLAY IS ON
-	if (data.to === "ChillTVBot" && data.msg.indexOf('[play]') === 0) {
+	if (to === "ChillTVBot" && msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
-	if (data.username === "ChillTVBot" && data.msg.indexOf('[card]') === 0) {
+	if (username === "ChillTVBot" && msg.indexOf('[card]') === 0) {
 		$("#pm-ChillTVBot").width(window.innerWidth - 20);
 		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
 		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
@@ -982,7 +982,7 @@ function makeCards() {
 	}
 }
 socket.on("pm", function(data) {
-	makeCards();
+	makeCards(data.to, data.username, data.msg);
 });
 
 function insertText(str) {
