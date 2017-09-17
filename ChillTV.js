@@ -64,7 +64,7 @@ for (m = 0; m < 5; m++) {
 }
 
 MOTDTabs_Array = [
-	['Updates', '<ul><b>9/2/17</b><li>The info (i) button under the player now lists info on the current movie.</li></ul><ul><b>9/8/17</b><li>The bot now changes the voteskip ratio to 100% when there are only 2 people in the room. Sorry about the trolls.</li></ul>'],
+	['Updates', '<ul><b>9/17/17</b><li>The "Remove Video" button in Layout now allows you to reattach the video without refreshing.</li></ul>'],
 	['Rules', '<ul><li>No discriminatory language or comments.</li><li>No pictures/vids of pornography or gore.</li><li>No spamming of the chat or playlist.</li><li>"/sp" must be used for spoilers.</li><li>Voteskip is at a 50% ratio. If you\'re afk, you aren\'t counted in voteskips. Use "/afk" to toggle afk.</li></ul>'],
 	['Permissions', '<b>Rank Order: </b><span style="color:#f90;font-weight:700">Admin</span><b>-></b><span style="color:#0a0;font-weight:700">Moderator</span><b>-></b><span style="color:#FFD700;font-weight:700">Leader</span><b>-></b><span style="color:#604DBF;font-weight:700">Registered</span><b>-></b><span style="color:gray;font-weight:700">Guest</span><b>-></b><span style="color:white;font-weight:700">Anonymous</span><br /><br /><b style="color:#f90">Admin - </b>'+modpermtext0.slice(0, -2)+'<br /><br /><b style="color:#0a0">Moderator or higher - </b>'+modpermtext1.slice(0, -2)+'<br /><br /><b style="color:#FFD700">Leader or higher - </b>'+modpermtext2.slice(0, -2)+'<br /><br /><b style="color:gray">Guest or higher - </b>'+modpermtext3.slice(0, -2)+'<br /><br /><b style="color:white">Anonymous or higher - </b>'+modpermtext4.slice(0, -2)],	
 	['Links', '<ul><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ">Cytube FAQ</a></li><li><a target="_blank" href="https://webchat.6irc.net/?channels=chat,cytube">Cytube Support</a></li><li><a target="_blank" href="https://github.com/calzoneman/sync/wiki/Google-Drive-Userscript-Installation-Guide">Google Drive Userscript Installation Guide and Troubleshooting</a></li></ul>'],
@@ -316,11 +316,9 @@ configbtn = $('<button id="config-btn" class="btn btn-default">Click to configur
 configbtnwrap.append('<br />');
 
 fluidlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
-cbox = $('<input type="checkbox" id="fluid-layout" value="yes" />')
-	.appendTo(fluidlayout)
-	.on("click", function() {
-		toggleFluidLayout();
-	});
+cbox = $('<input type="checkbox" id="fluid-layout" value="yes" />').appendTo(fluidlayout).on("click", function() {
+	toggleFluidLayout();
+});
 cbox.after(' Fluid');
 
 modeform = $('<div id="modeform" class="form-group" />').appendTo(configwell);
@@ -452,7 +450,10 @@ cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</bu
 		$("#chatwrap").removeClass('col-lg-12 col-md-12').addClass(chatclass);
 		$("#main").append(vidwrap);
 		fitChat("normal");
-		$("#pinup-btn, #config-btn, #mode-sel, #fluid-layout").prop('disabled', false);
+		if (FULLSCREEN) {
+			$("#pinup-btn, #config-btn, #mode-sel").prop('disabled', false);
+		}
+		$("#fluid-layout").prop('disabled', false);
 		$(this).removeClass('btn-success').addClass('btn-default').text('Remove Video');
 	} else {
 		clearInterval(FIXHEIGHT);
@@ -1677,7 +1678,7 @@ function toggleFluidLayout() {
 		$(".container").removeClass('container').addClass('container-fluid');
 		$("footer .container-fluid").removeClass('container-fluid').addClass('container');
 	}
-	setMode(modesel.val())
+	//setMode(modesel.val())
 	FLUID = !FLUID;
 	setOpt(CHANNEL.name + "_fluid", FLUID);
 	scrollChat();
