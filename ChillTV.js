@@ -947,7 +947,7 @@ socket.on("chatMsg", function(data) {/*
 		}
 	}
 });
-socket.on("pm", function(data) {
+function makeCards() {
 	// if CARD PLAY IS ON
 	if (data.to === "ChillTVBot" && data.msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
@@ -955,6 +955,7 @@ socket.on("pm", function(data) {
 	if (data.username === "ChillTVBot" && data.msg.indexOf('[card]') === 0) {
 		$("#pm-ChillTVBot").width(window.innerWidth - 20);
 		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
+		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
 		if ($("#pm-ChillTVBot > div.panel-body > div > div:last").index() === 0) {
 			$("#pm-ChillTVBot > div.panel-heading").text('Your Hand');
 			$("#pm-ChillTVBot > div.panel-heading > button").remove();
@@ -966,7 +967,6 @@ socket.on("pm", function(data) {
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(1) > span:nth-child(3)").append(newcard);
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(" + lastcahindex + ")").remove();
 		}
-		lastcahmsg.html($("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last').text().replace(/\[card\]/g, '</span><span class="cahcard">'));
 		$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;').off("hover").off("click").hover(function() {
 			$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 			$(this).attr('style', 'display: inline-flex;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
@@ -980,6 +980,9 @@ socket.on("pm", function(data) {
 			$(this).remove();
 		});
 	}
+}
+socket.on("pm", function(data) {
+	makeCards();
 });
 
 function insertText(str) {
