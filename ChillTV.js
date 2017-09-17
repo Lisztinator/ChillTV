@@ -936,17 +936,30 @@ function partyTime() {
 }
 
 BOOPER = new Audio("/boop.wav");
-socket.on("chatMsg", function(data) {
+socket.on("chatMsg", function(data) {/*
 	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
 	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
 		partyTime();
-	}
+	}*/
 	if (data.msg.match(/!boop/)) {
 		if (USEROPTS.boop === 'always' || USEROPTS.boop === 'onlyping') {
 			BOOPER.play();
 		}
 	}
 });
+socket.on("pm", function(data) {
+	if (data.username === "ChillTVBot" && data.msg.indexOf('[card]') === 0) {
+		$("#pm-ChillTVBot").width(window.innerWidth - 20);
+		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
+		lastcahmsg.attr('style', 'display:block');
+		lastcahmsg.html($("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last').text().replace(/\[card\]/g, '</span><span class="cahcard">'));
+		$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;').hover(function() {
+			$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
+			$(this).attr('style', 'display: inline-flex;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 20px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
+		}).click(function() {
+		});
+	}
+}
 
 function insertText(str) {
 	$("#chatline").val($("#chatline").val() + str).focus();
