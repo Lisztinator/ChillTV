@@ -953,7 +953,6 @@ function makeCards(to, username, msg) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
 	if (username === "ChillTVBot" && msg.indexOf('[card]') === 0) {
-		#pm-Benny91 > div.panel-body > div > div:nth-child(21) > span:nth-child(3)
 		$("#pm-ChillTVBot").width(window.innerWidth - 20);
 		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
 		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
