@@ -953,6 +953,7 @@ function makeCards(to, username, msg) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
 	if (username === "ChillTVBot" && msg.indexOf('[card]') === 0) {
+		#pm-Benny91 > div.panel-body > div > div:nth-child(21) > span:nth-child(3)
 		$("#pm-ChillTVBot").width(window.innerWidth - 20);
 		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
 		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
@@ -963,7 +964,7 @@ function makeCards(to, username, msg) {
 			lastcahmsg.attr('style', 'display:block');
 		} else {
 			lastcahindex = $("#pm-ChillTVBot > div.panel-body > div > div:last").index() + 1;
-			newcard = $("#pm-ChillTVBot > div.panel-body > div > div:nth-child(" + lastcahindex + ") > span:nth-child(" + lastcahindex + ") > span").detach();
+			newcard = $("#pm-ChillTVBot > div.panel-body > div > div:nth-child(" + lastcahindex + ") > span:last > span").detach();
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(1) > span:nth-child(3)").append(newcard);
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(" + lastcahindex + ")").remove();
 		}
@@ -973,11 +974,11 @@ function makeCards(to, username, msg) {
 		}).click(function() {
 			//TURN OFF CARD SELECT UNTIL NEXT PLAY
 			cardmsg = '[play]' + $(this).text();
+			$(this).remove();
 			socket.emit("pm", {
 				to: 'ChillTVBot',
 				msg: cardmsg
 			});
-			$(this).remove();
 		});
 	}
 }
