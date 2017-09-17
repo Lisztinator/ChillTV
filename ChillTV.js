@@ -307,11 +307,9 @@ configform = $('<div id="configform" class="form-group" />').appendTo(configwell
 $('<div class="col-lg-5 col-md-5">Global layout</div>').appendTo(configform);
 configbtnwrap = $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />').appendTo(configform);
 
-configbtn = $('<button id="config-btn" class="btn btn-default">Click to configure</button>')
-	.appendTo(configbtnwrap)
-	.on("click", function() {
-		showConfig();
-	});
+configbtn = $('<button id="config-btn" class="btn btn-default">Click to configure</button>').appendTo(configbtnwrap).on("click", function() {
+	showConfig();
+});
 
 configbtnwrap.append('<br />');
 
@@ -702,10 +700,10 @@ function setMode(a) {
 
 	if (a == "syMode") {
 
-		$("#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane").show();
+		$("#videowrap, #chatwrap, #rightpane").show();
 		$("#pinup-btn, #fullscreen-btn, #config-btn").prop('disabled', false);
-		$(".vjs-loading-spinner, .vjs-big-play-button, .vjs-remaining-time, .vjs-live-controls, .vjs-error-display").css('display', 'none');
-		$(".vjs-control-content").css('visibility', 'hidden');
+		//$(".vjs-loading-spinner, .vjs-big-play-button, .vjs-remaining-time, .vjs-live-controls, .vjs-error-display").hide();
+		//$(".vjs-control-content").css('visibility', 'hidden');
 		$("#chatave-btn").prop('disabled', false);
 
 		normalPlayer();
@@ -735,7 +733,7 @@ function setMode(a) {
 		if (WEBKIT) {
 			$("#videowrap").hide();
 		} else {
-			$("#videowrap div, #videowrap p").hide();
+			$("#videowrap").hide();
 			$("#ytapiplayer").width(1).height(1);
 		}
 
@@ -747,7 +745,7 @@ function setMode(a) {
 			$("#main").hide();
 		} else {
 			PINNED ? $("#rightpane").hide() : $("#chatwrap").hide();
-			$("#videowrap div, #videowrap p").hide();
+			$("#videowrap").hide();
 			$("#ytapiplayer").width(1).height(1);
 		}
 
@@ -1581,6 +1579,10 @@ function showConfig() {
 					scrollChat();
 				}, 100);
 			}
+			FULLSCREEN = true;
+			setOpt(CHANNEL.name + "_fullscreen", FULLSCREEN);
+			$("#fullscreen-btn").removeClass('btn-success').addClass('btn-default');
+			changeRatio();
 		});
 
 		reset.on("click", function() {
@@ -1620,6 +1622,10 @@ function showConfig() {
 					scrollChat();
 				}, 100);
 			}
+			FULLSCREEN = true;
+			setOpt(CHANNEL.name + "_fullscreen", FULLSCREEN);
+			$("#fullscreen-btn").removeClass('btn-success').addClass('btn-default');
+			changeRatio();
 		});
 
 		column.on("click", function() {
@@ -1652,6 +1658,10 @@ function showConfig() {
 					scrollChat();
 				}, 100);
 			}
+			FULLSCREEN = true;
+			setOpt(CHANNEL.name + "_fullscreen", FULLSCREEN);
+			$("#fullscreen-btn").removeClass('btn-success').addClass('btn-default');
+			changeRatio();
 		});
 	} else {
 		$("#config").show();
@@ -5488,7 +5498,7 @@ function fullscreenMode() {
 	fitChat("normal");
 	$('#userlist').hide();
 	$("#userlisttoggle").removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
-	$('#pinup-btn, #config-btn, #mode-sel').prop('disabled', true);
+	//$('#pinup-btn, #config-btn, #mode-sel').prop('disabled', true);
 	$('#embedform').removeClass().addClass('col-lg-3 col-md-3');
 	SOUNDSPANEL = false;
 	$("#sounds-dropdown").remove();
