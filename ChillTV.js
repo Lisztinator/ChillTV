@@ -447,17 +447,23 @@ $('<div class="col-lg-5 col-md-5 conf-cap"></div>').appendTo(removeform);
 removewrap = $('<div id="removewrap" class="col-lg-7 col-md-7" />').appendTo(removeform);
 
 thevideo = $('<label class="checkbox-inline" />').appendTo(removeform);
-cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</button>')
-	.appendTo(thevideo)
-	.on("click", function() {
+cbox = $('<button class="btn btn-default btn-sm" id="removevid">Remove Video</button>').appendTo(thevideo).on("click", function() {
+	if ($("#chatwrap").hasClass('col-lg-12 col-md-12')) {
+		$("#chatwrap").removeClass('col-lg-12 col-md-12').addClass(chatclass);
+		$("#main").append(vidwrap);
+		fitChat("normal");
+		$("#pinup-btn, #config-btn, #mode-sel, #fluid-layout").prop('disabled', false);
+		$(this).removeClass('btn-success').addClass('btn-default').text('Remove Video');
+	} else {
 		clearInterval(FIXHEIGHT);
-		$("#videowrap").remove();
-		$("#chatwrap").removeClass($("#chatwrap").attr('class')).addClass('col-lg-12 col-md-12');
-		fitChat(600);
-		makeAlert('Refresh Page to Reinsert Video or to Change to Other Layouts').appendTo("#announcements");
+		vidwrap = $("#videowrap").detach();
+		chatclass = $("#chatwrap").attr('class');
+		$("#chatwrap").removeClass(chatclass).addClass('col-lg-12 col-md-12');
+		fitChat(window.innerHeight - 100);
 		$("#pinup-btn, #config-btn, #mode-sel, #fluid-layout").prop('disabled', true);
-		$(this).removeClass('btn-default').addClass('btn-danger');
-	});
+		$(this).removeClass('btn-default').addClass('btn-success').text('Add Video');
+	}
+});
 
 function createModal(title) {
 	outer = $('<div id="modalfade" class="modal fade" />').appendTo($("body"));
@@ -1764,7 +1770,7 @@ $("#us-layout").hide();
 $("#us-layout").parent().append('<p class="text-danger">' + text2 + '</p>');
 
 $("#useroptions .modal-footer button:nth-child(1)").on("click", function() {
-	USEROPTS.hidevid ? location.reload() : ''
+	//USEROPTS.hidevid ? location.reload() : ''
 	html = 'You may need to REFRESH the page for some settings to take place.';
 	makeAlert("You have changed global User Preferences", html, "alert-info").appendTo("#announcements");
 	setUserCSS();
@@ -2889,7 +2895,7 @@ deletelastbtn = $('<button id="deletelast-btn" class="btn btn-default">Delete la
 
 toggleAdvancedPl();
 
-if (USEROPTS.hidevid) {
+/*if (USEROPTS.hidevid) {
 	$("#chatwrap, #chatline, #chatavewrap").removeClass('col-lg-12 col-md-12').addClass('col-lg-5 col-md-5');
 	videowrap = $('<div id="videowrap" class="col-lg-7 col-md-7" />').insertBefore("#chatwrap");
 	currenttitle = $('<p id="currenttitle" />').html('Currently Playing: ' + $(".queue_active a").html()).appendTo(videowrap);
@@ -2906,7 +2912,7 @@ if (USEROPTS.hidevid) {
 		$("#config-btn, #mode-sel, #pinup-btn").prop('disabled', true);
 		fitChat(600);
 	});
-}
+}*/
 
 if (CLIENT.rank > 1) {
 	$('<button id="getem" class="btn btn-sm btn-default" title="Get Current Links"><span class="glyphicon glyphicon-link"></span></button>').insertAfter("#advplaylist")
