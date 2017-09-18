@@ -936,6 +936,8 @@ function partyTime() {
 }
 
 BOOPER = new Audio("/boop.wav");
+PLAYCARDS = false;
+CZAR = false;
 socket.on("chatMsg", function(data) {/*
 	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
 	if (data.username === 'ChillTVBot' && data.msg.match(wonmsg)) {
@@ -946,13 +948,22 @@ socket.on("chatMsg", function(data) {/*
 			BOOPER.play();
 		}
 	}
+	if (data.username === "ChillTVBot" && data.msg.match(RegExp(CLIENT.name + '<span style="font-weight:normal;text-transform:initial"> is the card czar\\.'))) {
+		CZAR = true;
+	}
+	if (data.msg.match(/<span class="blackcard"/) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot" && !CZAR) {
+		PLAYCARDS = true;
+		pickcount = parseInt(data.msg.split(/ \| Pick: /)[1]);
+		setTimeout(function() {
+			PLAYCARDS = false;
+		}, 30000);
+	}
 });
 function makeCards(to, username, msg) {
-	// if CARD PLAY IS ON
 	if (to === "ChillTVBot" && msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
-	if (username === "ChillTVBot" && msg.indexOf('[card]') === 0) {
+	if (username === "ChillTVBot" && msg.indexOf('[w]') === 0) {
 		$("#pm-ChillTVBot").width(window.innerWidth - 20);
 		lastcahmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last');
 		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
@@ -972,13 +983,18 @@ function makeCards(to, username, msg) {
 			$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 12px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 			$(this).attr('style', 'display: inline-flex;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
 		}).click(function() {
-			//TURN OFF CARD SELECT UNTIL NEXT PLAY
-			cardmsg = '[play]' + $(this).text();
-			$(this).remove();
-			socket.emit("pm", {
-				to: 'ChillTVBot',
-				msg: cardmsg
-			});
+			if (PLAYCARDS) {
+				pickcount -= 1;
+				if (pickcount === 0) {
+					PLAYCARDS = false;
+				}
+				cardmsg = '[play]' + $(this).text();
+				$(this).remove();
+				socket.emit("pm", {
+					to: 'ChillTVBot',
+					msg: cardmsg
+				});
+			}
 		});
 	}
 }
@@ -2317,7 +2333,7 @@ function videoInfo(type, id, title) {
 		relatedchil.eq(1).children().html(''); //imagerowchil
 		relatedchil.eq(2).children().html(''); //buttonrowchil
 		$("#ytinfo").hide();
-		$("#gdinfo").show();
+		$("#gdinfo, #posterimage, #movietitle, #gdratings, #gdbottom").show();
 		gdtitle = title.split(/ \(\d{4}/)[0];
 		gdyear = title.match(/ \((\d{4})/)[1];
 		$.ajax('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=' + gdtitle + '&y=' + gdyear + '&plot=full&tomatoes=true&totalSeasons=true&apikey=' + omdbkey, {
