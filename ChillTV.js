@@ -958,7 +958,7 @@ function makeCards(to, username, msg) {
 		lastcahmsg.html(lastcahmsg.text().replace(/\[card\]/g, '</span><span class="cahcard">'));
 		if ($("#pm-ChillTVBot > div.panel-body > div > div:last").index() === 0) {
 			$("#pm-ChillTVBot > div.panel-heading").text('Your Hand');
-			$("#pm-ChillTVBot > div.panel-heading").append($('<span class="pull-right text-info">- Click to Minimize</span>');
+			$("#pm-ChillTVBot > div.panel-heading").append($('<span class="text-info"> - Click to Minimize</span>'));
 			$("#pm-ChillTVBot > div.panel-heading > button").remove();
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(1) > span:nth-child(2) > strong").text('Your Hand: ');
 			lastcahmsg.attr('style', 'display:block');
