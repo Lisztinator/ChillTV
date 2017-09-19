@@ -950,7 +950,7 @@ socket.on("chatMsg", function(data) {/*
 			BOOPER.play();
 		}
 	}
-	if (data.username === "ChillTVBot" && data.msg.match(/<code class="gameover" style="background-color:#CCCCFF;color:black;">CAH:<\/code>/)) {
+	if (data.username === "ChillTVBot" && data.msg.match(/class="gameover"/)) {
 		PLAYCARDS = false;
 		CZAR = false;
 		WAITFORP = false;
