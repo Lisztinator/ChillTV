@@ -950,6 +950,12 @@ socket.on("chatMsg", function(data) {/*
 			BOOPER.play();
 		}
 	}
+	if (data.username === "ChillTVBot" && data.msg.match(/<code class="gameover" style="background-color:#CCCCFF;color:black;">CAH:<\/code>/)) {
+		PLAYCARDS = false;
+		CZAR = false;
+		WAITFORP = false;
+		$("#pm-ChillTVBot").remove();
+	}
 	if (data.username === "ChillTVBot" && data.msg.match(RegExp(CLIENT.name + '<span style="font-weight:normal;text-transform:initial"> is the card czar\\.'))) {
 		CZAR = true;
 	}
