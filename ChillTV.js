@@ -1024,6 +1024,7 @@ function makeCards(to, username, msg) {
 		lastcahmsg.html(lastcahmsg.text().replace(/\[w\]/g, '</span><span class="cahcard">'));
 		if ($("#pm-ChillTVBot > div.panel-body > div > div:last").index() === 0) {
 			$("#pm-ChillTVBot > div.panel-heading").text('Your Hand');
+			$("#pm-ChillTVBot > div.panel-body > input").remove();
 			$("#pm-ChillTVBot > div.panel-heading").append($('<span id="card-info" class="text-info"></span>'));
 			$("#pm-ChillTVBot > div.panel-heading > button").remove();
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(1) > span:nth-child(2) > strong").text('Your Hand: ');
@@ -1034,7 +1035,7 @@ function makeCards(to, username, msg) {
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(1) > span:nth-child(3)").append(newcard);
 			$("#pm-ChillTVBot > div.panel-body > div > div:nth-child(" + lastcahindex + ")").remove();
 		}
-		youplayed = 'You Played: ';
+		youplayed = ' - You Played: ';
 		$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 12px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;').off("hover").off("click").hover(function() {
 			$('.cahcard').attr('style', 'display: inline-flex;background-color: white;color: black;font-weight: 900;font-size: 12px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 			$(this).attr('style', 'display: inline-flex;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;margin: 5px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
