@@ -971,6 +971,9 @@ function makeCards(to, username, msg) {
 	if (to === "ChillTVBot" && msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
+	if (to === "ChillTVBot" && msg.indexOf('[w]') === 0) {
+		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
+	}
 	if (CZAR && username === "ChillTVBot" && msg.indexOf('[bt]') === 0) {
 		if (!WAITFORP) {
 			WAITFORP = true;
