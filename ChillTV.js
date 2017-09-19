@@ -975,7 +975,7 @@ function makeCards(to, username, msg) {
 		if (msg.match(/\[\/p\]/)) {
 			WAITFORP = false;
 		}
-		if ($("#pm-ChillTVBot > div.panel-body > div").children('div').children('span').children('strong:last').text() === "ChillTVBot: ") {
+		if ($("#pm-ChillTVBot > div.panel-body > div").children('div').children('span').children('strong:last').text() === "Your Hand: ") {
 			lastblackmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last').text();
 			$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 			fullblackmsg += lastblackmsg;
