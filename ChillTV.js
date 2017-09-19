@@ -990,7 +990,7 @@ function makeCards(to, username, msg) {
 			fullblackmsg += lastblackmsg;
 		}
 		if (!WAITFORP) {
-			createTemp(fullblackmsg.split('[p]')[0]);
+			createTemp(fullblackmsg.split('[bt]')[1].split('[p]')[0]);
 			setTimeout(function() {
 				$('body > div.modal.fade.in > div.modal-dialog.modal-dialog-nonfluid > div > div.modal-header > button').remove();
 				$('body > div.modal.fade.in > div.modal-backdrop.fade.in').off('click');
