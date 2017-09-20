@@ -939,6 +939,7 @@ BOOPER = new Audio("/boop.wav");
 PLAYCARDS = false;
 CZAR = false;
 WAITFORP = false;
+CARDPLAY = setTimeout(function(){},1);
 // account for disconnects?
 socket.on("chatMsg", function(data) {/*
 	wonmsg = RegExp(CLIENT.name + ' won the Message of the Day Award');
@@ -960,9 +961,10 @@ socket.on("chatMsg", function(data) {/*
 		CZAR = true;
 	}
 	if (data.msg.match(/<span class="blackcard"/) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot" && !CZAR) {
+		clearTimeout(CARDPLAY);
 		PLAYCARDS = true;
 		pickcount = parseInt(data.msg.split(/ \| Pick: /)[1]);
-		setTimeout(function() {
+		CARDPLAY = setTimeout(function() {
 			PLAYCARDS = false;
 		}, 30000);
 	}
