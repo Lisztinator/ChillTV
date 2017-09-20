@@ -1005,13 +1005,13 @@ function makeCards(to, username, msg) {
 					$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 					$(this).children().attr('style', 'display: inline-flex;margin: 5px;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
 				}).click(function() {
+					CZAR = false;
 					winnertosend = $(this).text();
 					outer.modal('hide');
 					socket.emit("pm", {
 						to: 'ChillTVBot',
 						msg: '[w]' + winnertosend
 					});
-					CZAR = false;
 				});
 				$("body").css('overflow', 'hidden');
 				outer.on("hidden.bs.modal", function() {
