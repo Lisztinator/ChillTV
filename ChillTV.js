@@ -963,7 +963,7 @@ socket.on("chatMsg", function(data) {/*
 	if (data.msg.match(/<span class="blackcard"/) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot" && !CZAR) {
 		clearTimeout(CARDPLAY);
 		PLAYCARDS = true;
-		pickcount = parseInt(data.msg.split(/ \| Pick: /)[1]);
+		pickcount = parseInt(data.msg.split(/Pick: /)[1]);
 		CARDPLAY = setTimeout(function() {
 			PLAYCARDS = false;
 		}, 60000);
