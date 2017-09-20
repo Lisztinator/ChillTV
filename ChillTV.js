@@ -966,7 +966,7 @@ socket.on("chatMsg", function(data) {/*
 		pickcount = parseInt(data.msg.split(/ \| Pick: /)[1]);
 		CARDPLAY = setTimeout(function() {
 			PLAYCARDS = false;
-		}, 30000);
+		}, 60000);
 	}
 });
 function makeCards(to, username, msg) {
