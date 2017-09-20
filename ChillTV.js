@@ -996,7 +996,9 @@ function makeCards(to, username, msg) {
 				$('body > div.modal.fade.in > div.modal-backdrop.fade.in').off('click');
 				fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
 				body.append(fullblackhtml);
-				$('.plcard').html($('.plcard').text().replace(/\[c\]/g, '</span><span class="whcard">'));
+				$('.plcard').each(function() {
+					$(this).html($(this).text().replace(/\[c\]/g, '</span><span class="whcard">'));
+				});
 				$('.plcard').attr('style', 'display: inline-block;border: solid 2px black; margin:10px;');
 				$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 				$('.plcard').off("hover").off("click").hover(function() {
