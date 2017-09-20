@@ -2472,8 +2472,16 @@ socket.on("changeMedia", function(data) {
 		if ($('.queue_active .qe_title').text().match(/ Part [2-9]\./) === null) {
 			incretime = 3000;
 			$("#vidsearching").text('Searching. Please wait...').show();
+			if ($('.queue_active > .qe_title').attr('href').indexOf('https://docs.google.com/file/d/') === 0) {
+				playermediatype = 'gd';
+				playermediaid = $('.queue_active > .qe_title').attr('href').split('https://docs.google.com/file/d/')[1];
+			} else if ($('.queue_active > .qe_title').attr('href').indexOf('https://youtube.com/watch?v=') === 0) {
+				playermediatype = 'yt';
+				playermediaid = $('.queue_active > .qe_title').attr('href').split('https://youtube.com/watch?v=')[1];
+			}
+			pactive = playermediaid;
 			setTimeout(function() {
-				videoInfo(data.type, data.id, data.title);
+				videoInfo(playermediatype, playermediaid, $(".queue_active > .qe_title").text());
 			}, 2000);
 		}
 	}
