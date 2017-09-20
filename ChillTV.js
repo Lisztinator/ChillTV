@@ -969,6 +969,7 @@ socket.on("chatMsg", function(data) {/*
 		}, 60000);
 	}
 });
+CZARPICKTIME = setTimeout(function(){},1);
 function makeCards(to, username, msg) {
 	if (to === "ChillTVBot" && msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
@@ -985,6 +986,10 @@ function makeCards(to, username, msg) {
 	if (WAITFORP) {
 		if (msg.match(/\[\/p\]/)) {
 			WAITFORP = false;
+			CZARPICKTIME = setTimeout(function() {
+				outer.modal('hide');
+				CZAR = false;
+			}, 60000);
 		}
 		if ($("#pm-ChillTVBot > div.panel-body > div").children('div').children('span').children('strong:last').text() === "Your Hand: ") {
 			lastblackmsg = $("#pm-ChillTVBot > div.panel-body > div").children('div').children('span:last').text();
@@ -1007,6 +1012,7 @@ function makeCards(to, username, msg) {
 					$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 					$(this).children().attr('style', 'display: inline-flex;margin: 5px;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
 				}).click(function() {
+					clearTimeout(CZARPICKTIME);
 					CZAR = false;
 					winnertosend = $(this).text();
 					outer.modal('hide');
