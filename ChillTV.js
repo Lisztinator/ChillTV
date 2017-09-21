@@ -3426,7 +3426,8 @@ function filterMovies(mstr, ystr, gstr, info) {
 }
 
 function appendMovieList() {
-	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList()">ⓘ</a> Get Info</span></br >');
+	Movie_Array[Math.floor(Math.random() & Movie_Array.length)][0];
+	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList(\'random\')">ⓘ</a> Get Info</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'#movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
 	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'#movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
 	if (CLIENT.name === 'ChillTVBot') {
@@ -3722,7 +3723,12 @@ function getMovieFromList(str) {
 		$("#movie_input").focus();
 	}, 250);
 	if (str !== undefined) {
-		getMovies(str)
+		if (str === 'random') {
+			stri = Movie_Array[Math.floor(Math.random() * Movie_Array.length)][0];
+		} else {
+			stri = str;
+		}
+		getMovies(stri)
 	}
 }
 
