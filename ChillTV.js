@@ -3385,6 +3385,7 @@ function listMovies(moviearray, index1, index2) {
 }
 
 function filterMovies(mstr, ystr, gstr, info) {
+	moviearray = [];
 	rafound = 0;
 	for (var na = 0; na < Movie_Array.length; na++) {
 		if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
