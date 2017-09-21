@@ -976,7 +976,7 @@ Movie_Array = [
 ["Four Weddings and a Funeral (1994)","Comedy, Drama, Romance","0Bwjx3gpy0_MwNDRfWlN1S0dUOHM","R","7.1","95","81"],
 ["The Fox and the Hound (1981)","Animation, Adventure, Drama","0B9hOhGLF4ciPQnpCd3BKN0hnUzA","0B9hOhGLF4ciPSThXY21yUWZVbVk","G","7.3","69","N/A"],
 ["Foxcatcher (2014)","Biography, Drama, Sport","0B9hOhGLF4ciPQzQzLUt4Q1hKUFU","0B9hOhGLF4ciPZGpOTF9JV1lUOUE","0B9hOhGLF4ciPTjZRd2FYdVFrTjQ","R","7.0","88","81"],
-["Fracture (2007)","Crime, Drama, Mystery","0Bx8atqt6nHkjVHh3eTVnNmNFb2s","R","7.2","71","68","Recently Added"],
+["Fracture (2007)","Crime, Drama, Mystery","0Bx8atqt6nHkjbFVHVGRBbFRRUDA","R","7.2","71","68","Recently Added"],
 ["Frailty (2001)","Crime, Drama, Thriller","0B5xN5zD6a03OMGduY09NbG9ackE","R","7.3","73","64"],
 ["Frankenstein (1931)","Drama, Horror, Sci-Fi","0B4ImsDopq4_FdFFBRmJlZTFYQXM","NOT RATED","7.9","100","N/A"],
 ["Frankenweenie (2012)","Halloween, Animation, Comedy, Family","0B4ImsDopq4_Fd3hLVEI5aVA4WHM","PG","7.0","87","74"],
