@@ -3385,7 +3385,6 @@ function listMovies(moviearray, index1, index2) {
 }
 
 function filterMovies(mstr, ystr, gstr, info) {
-	moviearray = [];
 	rafound = 0;
 	for (var na = 0; na < Movie_Array.length; na++) {
 		if (Movie_Array[na][0].match(RegExp(mstr, 'i')) && Movie_Array[na][0].match(RegExp(ystr)) && Movie_Array[na][1].match(RegExp(gstr, 'i'))) {
@@ -3426,8 +3425,7 @@ function filterMovies(mstr, ystr, gstr, info) {
 }
 
 function appendMovieList() {
-	Movie_Array[Math.floor(Math.random() & Movie_Array.length)][0];
-	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList(\'random\')">ⓘ</a> Get Info</span></br >');
+	body.append('<span><a style="cursor:pointer" onclick="getMovieFromList(\'random\')">ⓘ</a> Get Random Info (matching search)</span></br >');
 	body.append('<span><a style="cursor:pointer" onclick="getYouTube(\'#movielist\')">✛</a> Add Random Trailer (matching search)</span><br />');
 	body.append('<span><a style="cursor:pointer" onclick="nominateMovie(\'\', \'#movielist\')">✇</a> Nominate Random Movie (matching search)</span><br />');
 	if (CLIENT.name === 'ChillTVBot') {
@@ -3724,7 +3722,7 @@ function getMovieFromList(str) {
 	}, 250);
 	if (str !== undefined) {
 		if (str === 'random') {
-			stri = Movie_Array[Math.floor(Math.random() * Movie_Array.length)][0];
+			stri = moviearray[Math.floor(Math.random() * moviearray.length)][0];
 		} else {
 			stri = str;
 		}
