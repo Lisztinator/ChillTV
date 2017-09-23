@@ -26,6 +26,8 @@ $.ajax({
     }
 });
 
+$.getScript('https://use.fontawesome.com/5ef7d1048d.js');
+
 var modpermtext0 = '', modpermtext1 = '', modpermtext2 = '', modpermtext3 = '', modpermtext4 = '', oplaylistperm = '';
 for (m = 0; m < 5; m++) {
 	if (m === 0) {
