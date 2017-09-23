@@ -5912,7 +5912,7 @@ FIXHEIGHT = setInterval(function() {
 
 setTimeout(function() {
 	clearInterval(FIXHEIGHT);
-}, 30000);
+}, 10000);
 
 if (!HIDEPLAYER) {
 	setTimeout(function() {
