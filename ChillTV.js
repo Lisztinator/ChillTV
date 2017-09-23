@@ -962,6 +962,12 @@ socket.on("chatMsg", function(data) {/*
 	if (data.username === "ChillTVBot" && data.msg.match(RegExp(CLIENT.name + '<span style="font-weight:normal;text-transform:initial"> is the card czar\\.'))) {
 		CZAR = true;
 	}
+	if (data.msg.match(/ Type "!join" to play Cards Against Humanity! This game requires at least 3 people to play\. /) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot") {
+		PLAYCARDS = false;
+		CZAR = false;
+		WAITFORP = false;
+		$("#pm-ChillTVBot").remove();
+	}
 	if (data.msg.match(/<span class="blackcard"/) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot" && !CZAR) {
 		clearTimeout(CARDPLAY);
 		PLAYCARDS = true;
