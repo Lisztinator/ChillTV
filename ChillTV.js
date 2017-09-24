@@ -1007,7 +1007,7 @@ function makeCards(to, username, msg) {
 		}
 		if (!WAITFORP) {
 			$('<div id="cent" class="modal-content" style="position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
-			$("#cent").attr('style', 'position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;margin: -' + $("#cent").height() + 'px 0 0 -' + $("#cent").width() + 'px');
+			$("#cent").attr('style', 'position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;margin: -' + ($("#cent").height() / 2) + 'px 0 0 -' + ($("#cent").width() / 2) + 'px');
 			fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
 			$("#cardbody").append(fullblackhtml);
 			$('.plcard').each(function() {
