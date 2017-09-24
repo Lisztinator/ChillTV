@@ -1006,8 +1006,7 @@ function makeCards(to, username, msg) {
 			fullblackmsg += lastblackmsg;
 		}
 		if (!WAITFORP) {
-			$('<div id="cent" class="modal-content" style="position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
-			$("#cent").attr('style', 'position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;margin: -' + ($("#cent").height() / 2) + 'px 0 0 -' + ($("#cent").width() / 2) + 'px');
+			$('<div id="cent" class="modal-content"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
 			fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
 			$("#cardbody").append(fullblackhtml);
 			$('.plcard').each(function() {
@@ -1015,6 +1014,9 @@ function makeCards(to, username, msg) {
 			});
 			$('.plcard').attr('style', 'display: inline-block;border: solid 2px black; margin:10px;');
 			$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
+			$("#cent").attr('style', 'position: absolute;width: auto;height: auto;z-index: 15;top: 30%;left: 50%;');
+			$("#cent").attr('style', 'position: absolute;width: auto;height: auto;z-index: 15;top: 30%;left: 50%;margin: -' + ($("#cent").height() / 2) + 'px 0 0 -' + ($("#cent").width() / 2) + 'px');
+			$("#cent").attr('style', 'position: absolute;width: auto;height: auto;z-index: 15;top: 30%;left: 50%;margin: -' + ($("#cent").height() / 2) + 'px 0 0 -' + ($("#cent").width() / 2) + 'px');
 			$('.plcard').off("hover").off("click").hover(function() {
 				$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
 				$(this).children().attr('style', 'display: inline-flex;margin: 5px;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
