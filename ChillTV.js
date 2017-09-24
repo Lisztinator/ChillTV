@@ -983,7 +983,7 @@ function makeCards(to, username, msg) {
 	if (to === "ChillTVBot" && msg.indexOf('[play]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
-	if (to === "ChillTVBot" && msg.indexOf('[w]') === 0) {
+	if (to === "ChillTVBot" && msg.indexOf('[wi]') === 0) {
 		$("#pm-ChillTVBot > div.panel-body > div > div:last").remove();
 	}
 	if (CZAR && username === "ChillTVBot" && msg.indexOf('[bt]') === 0) {
@@ -1006,7 +1006,8 @@ function makeCards(to, username, msg) {
 			fullblackmsg += lastblackmsg;
 		}
 		if (!WAITFORP) {
-			$('<div id="cent" class="modal-content" style="position:absolute;top:50%;left:50%;margin-top:-50px;margin-left:-100px;"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
+			$('<div id="cent" class="modal-content" style="position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
+			$("#cent").attr('style', 'position: absolute;width: 50%;height: 50%;z-index: 15;top: 40%;left: 50%;margin: -' + $("#cent").height() + 'px 0 0 -' + $("#cent").width() + 'px');
 			fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
 			$("#cardbody").append(fullblackhtml);
 			$('.plcard').each(function() {
