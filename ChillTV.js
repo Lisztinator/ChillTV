@@ -967,6 +967,7 @@ socket.on("chatMsg", function(data) {/*
 		CZAR = false;
 		WAITFORP = false;
 		$("#pm-ChillTVBot").remove();
+		$("#cent").remove();
 	}
 	if (data.msg.match(/<span class="blackcard"/) && data.username === "ChillTVBot" && CLIENT.name !== "ChillTVBot" && !CZAR) {
 		clearTimeout(CARDPLAY);
