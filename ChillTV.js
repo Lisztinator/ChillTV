@@ -995,7 +995,7 @@ function makeCards(to, username, msg) {
 		if (msg.match(/\[\/p\]/)) {
 			WAITFORP = false;
 			CZARPICKTIME = setTimeout(function() {
-				outer.modal('hide');
+				$("#cent").remove();
 				CZAR = false;
 			}, 60000);
 		}
@@ -1005,37 +1005,27 @@ function makeCards(to, username, msg) {
 			fullblackmsg += lastblackmsg;
 		}
 		if (!WAITFORP) {
-			createTemp(fullblackmsg.split('[bt]')[1].split('[p]')[0]);
-			setTimeout(function() {
-				$('body > div.modal.fade.in > div.modal-dialog.modal-dialog-nonfluid > div > div.modal-header > button').remove();
-				$('body > div.modal.fade.in > div.modal-backdrop.fade.in').off('click');
-				fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
-				body.append(fullblackhtml);
-				$('.plcard').each(function() {
-					$(this).html($(this).text().replace(/\[c\]/g, '</span><span class="whcard">'));
-				});
-				$('.plcard').attr('style', 'display: inline-block;border: solid 2px black; margin:10px;');
+			$('<div id="cent" class="modal-content" style="position:absolute;top:50%;left:50%;margin-top:-50px;margin-left:-100px;"><div class="modal-header"><h5>' + fullblackmsg.split('[bt]')[1].split('[p]')[0] + '</h5></div><div id="cardbody" class="modal-body"></div></div>').appendTo('body');
+			fullblackhtml = $('<div id="pickgroup">' + fullblackmsg.split(/ \| Pick: \d/)[1].split('[/p]')[0].replace(/\[p\]/g, '</span><span class="plcard">') + '</div>');
+			$("#cardbody").append(fullblackhtml);
+			$('.plcard').each(function() {
+				$(this).html($(this).text().replace(/\[c\]/g, '</span><span class="whcard">'));
+			});
+			$('.plcard').attr('style', 'display: inline-block;border: solid 2px black; margin:10px;');
+			$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
+			$('.plcard').off("hover").off("click").hover(function() {
 				$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
-				$('.plcard').off("hover").off("click").hover(function() {
-					$('.whcard').attr('style', 'display: inline-flex;margin: 5px;background-color: white;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: auto;');
-					$(this).children().attr('style', 'display: inline-flex;margin: 5px;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
-				}).click(function() {
-					clearTimeout(CZARPICKTIME);
-					CZAR = false;
-					winnertosend = $(this).text();
-					outer.modal('hide');
-					socket.emit("pm", {
-						to: 'ChillTVBot',
-						msg: '[w]' + winnertosend
-					});
+				$(this).children().attr('style', 'display: inline-flex;margin: 5px;background-color: #C8C8C8;color: black;font-weight: 900;font-size: 12px;padding: 5px;border-radius: 5px;width: 100px;height: 150px;cursor: pointer;');
+			}).click(function() {
+				clearTimeout(CZARPICKTIME);
+				CZAR = false;
+				winnertosend = $(this).text();
+				$("#cent").remove();
+				socket.emit("pm", {
+					to: 'ChillTVBot',
+					msg: '[wi]' + winnertosend
 				});
-				$("body").css('overflow', 'hidden');
-				outer.on("hidden.bs.modal", function() {
-					outer.remove();
-					$("body").css('overflow', 'auto');
-					scrollChat();
-				});
-			}, 250);
+			});
 			
 		}
 	}
