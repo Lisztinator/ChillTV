@@ -1177,7 +1177,7 @@ Movie_Array = [
 ["Hard Eight (1996)","Crime, Drama","0B-2NF_QuwswCYmZqZlJYR2FHa0E","R","7.3","83","78"],
 ["Hard to Be a God (2013)","Drama, Sci-Fi","0B_F_V9jIQXymbGgxbXdXdDRLTlE","NOT RATED","6.7","94","90"],
 ["The Hard Way (1991)","Action, Comedy, Crime","0B4ImsDopq4_FaUNXN0JkYnZTbEE","R","6.3","74","N/A"],
-["Hardball (2001)","Drama, Sport","0B17cV_iu9um-SDBCRnlrM3R0NDQ","PG-13","6.4","39","48""Recently Added"],
+["Hardball (2001)","Drama, Sport","0B17cV_iu9um-SDBCRnlrM3R0NDQ","PG-13","6.4","39","48","Recently Added"],
 ["Hardcore Henry (2015)","Action, Adventure, Sci-Fi","0B-2NF_QuwswCbHB3amdXQXYxUTQ","R","6.7","49","51"],
 ["The Harder They Come (1972)","Crime, Drama, Music","0B4ImsDopq4_FWno4UTU3cV9LUGM","R","7.0","89","N/A"],
 ["Harold & Kumar Escape from Guantanamo Bay (2008) Unrated","Adventure, Comedy","0B-2NF_QuwswCdmEtcXprR191d0E","R","6.6","53","57"],
