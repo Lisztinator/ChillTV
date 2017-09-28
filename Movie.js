@@ -8,7 +8,7 @@ Marathon_List = [
 ['Blade Marathon', 'Blade (1998)', 'Blade II (2002)', 'Blade: Trinity (2004)'],
 ['Bourne Marathon', 'The Bourne Identity (2002)', 'The Bourne Supremacy (2004)', 'The Bourne Ultimatum (2007)', 'The Bourne Legacy (2012)', 'Jason Bourne (2016)'],
 ['Captain America Marathon', 'Captain America: The First Avenger (2011)', 'Captain America: The Winter Soldier (2014)', 'Captain America: Civil War (2016)'],
-['Child\'s Play Marathon', 'Child\'s Play (1988)', 'Child\'s Play 2 (1990)', 'Child\'s Play 3 (1991)', 'Bride of Chucky (1998)', 'Seed of Chucky (2004)', 'Curse of Chucky (2013)'],
+['Child\'s Play Marathon', 'Child\'s Play (1988)', 'Child\'s Play 2 (1990)', 'Child\'s Play 3 (1991)', 'Bride of Chucky (1998)', 'Seed of Chucky (2004)', 'Curse of Chucky (2013)', 'Cult of Chucky (2017)'],
 ['Cube Marathon', 'Cube (1997)', 'Cube²: Hypercube (2002)', 'Cube Zero (2004)'],
 ['The Dark Knight Marathon', 'Batman Begins (2005)', 'The Dark Knight (2008)', 'The Dark Knight Rises (2012)'],
 ['DC Extended Universe Marathon', 'Man of Steel (2013)', 'Batman v Superman: Dawn of Justice (2016) Ultimate Cut', 'Suicide Squad (2016) Extended', 'Wonder Woman (2017)'],
